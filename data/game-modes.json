@@ -1,0 +1,454 @@
+{
+ "version": "2026-08-20",
+ "source": "basketball_trivia_database (1).xlsx",
+ "modes": [
+  {
+   "key": "champions",
+   "name": "Championships",
+   "blurb": "Every finals winner since 2012",
+   "chip": "#16130E",
+   "title": "CHAMPIONSHIPS",
+   "prompt": "Who won the {year} NBA Finals?",
+   "input": "list",
+   "seconds": 180,
+   "rounds": [
+    {
+     "year": 2026,
+     "answer": "New York Knicks"
+    },
+    {
+     "year": 2025,
+     "answer": "Oklahoma City Thunder"
+    },
+    {
+     "year": 2024,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 2023,
+     "answer": "Denver Nuggets"
+    },
+    {
+     "year": 2022,
+     "answer": "Golden State Warriors"
+    },
+    {
+     "year": 2021,
+     "answer": "Milwaukee Bucks"
+    },
+    {
+     "year": 2020,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 2019,
+     "answer": "Toronto Raptors"
+    },
+    {
+     "year": 2018,
+     "answer": "Golden State Warriors"
+    },
+    {
+     "year": 2017,
+     "answer": "Golden State Warriors"
+    },
+    {
+     "year": 2016,
+     "answer": "Cleveland Cavaliers"
+    },
+    {
+     "year": 2015,
+     "answer": "Golden State Warriors"
+    },
+    {
+     "year": 2014,
+     "answer": "San Antonio Spurs"
+    },
+    {
+     "year": 2013,
+     "answer": "Miami Heat"
+    },
+    {
+     "year": 2012,
+     "answer": "Miami Heat"
+    }
+   ],
+   "options": [
+    "Boston Celtics",
+    "Cleveland Cavaliers",
+    "Dallas Mavericks",
+    "Denver Nuggets",
+    "Golden State Warriors",
+    "Indiana Pacers",
+    "Los Angeles Lakers",
+    "Miami Heat",
+    "Milwaukee Bucks",
+    "New York Knicks",
+    "Oklahoma City Thunder",
+    "Phoenix Suns",
+    "San Antonio Spurs",
+    "Toronto Raptors"
+   ]
+  },
+  {
+   "key": "mvps",
+   "name": "MVPs",
+   "blurb": "Same clock, harder names",
+   "chip": "#D9480F",
+   "title": "MVPS",
+   "prompt": "Who was MVP in {year}?",
+   "input": "type",
+   "seconds": 180,
+   "rounds": [
+    {
+     "year": 2026,
+     "answer": "Shai Gilgeous-Alexander"
+    },
+    {
+     "year": 2025,
+     "answer": "Shai Gilgeous-Alexander"
+    },
+    {
+     "year": 2024,
+     "answer": "Nikola Jokić"
+    },
+    {
+     "year": 2023,
+     "answer": "Joel Embiid"
+    },
+    {
+     "year": 2022,
+     "answer": "Nikola Jokić"
+    },
+    {
+     "year": 2021,
+     "answer": "Nikola Jokić"
+    },
+    {
+     "year": 2020,
+     "answer": "Giannis Antetokounmpo"
+    },
+    {
+     "year": 2019,
+     "answer": "Giannis Antetokounmpo"
+    },
+    {
+     "year": 2018,
+     "answer": "James Harden"
+    },
+    {
+     "year": 2017,
+     "answer": "Russell Westbrook"
+    },
+    {
+     "year": 2016,
+     "answer": "Stephen Curry"
+    },
+    {
+     "year": 2015,
+     "answer": "Stephen Curry"
+    },
+    {
+     "year": 2014,
+     "answer": "Kevin Durant"
+    },
+    {
+     "year": 2013,
+     "answer": "LeBron James"
+    },
+    {
+     "year": 2012,
+     "answer": "LeBron James"
+    }
+   ]
+  },
+  {
+   "key": "dpoy",
+   "name": "Defensive Players of the Year",
+   "blurb": "Fifteen years of stoppers",
+   "chip": "#16130E",
+   "title": "DEFENSIVE PLAYERS",
+   "prompt": "Who was Defensive Player of the Year in {year}?",
+   "input": "type",
+   "seconds": 180,
+   "rounds": [
+    {
+     "year": 2026,
+     "answer": "Victor Wembanyama"
+    },
+    {
+     "year": 2025,
+     "answer": "Evan Mobley"
+    },
+    {
+     "year": 2024,
+     "answer": "Rudy Gobert"
+    },
+    {
+     "year": 2023,
+     "answer": "Jaren Jackson Jr."
+    },
+    {
+     "year": 2022,
+     "answer": "Marcus Smart"
+    },
+    {
+     "year": 2021,
+     "answer": "Rudy Gobert"
+    },
+    {
+     "year": 2020,
+     "answer": "Giannis Antetokounmpo"
+    },
+    {
+     "year": 2019,
+     "answer": "Rudy Gobert"
+    },
+    {
+     "year": 2018,
+     "answer": "Rudy Gobert"
+    },
+    {
+     "year": 2017,
+     "answer": "Draymond Green"
+    },
+    {
+     "year": 2016,
+     "answer": "Kawhi Leonard"
+    },
+    {
+     "year": 2015,
+     "answer": "Kawhi Leonard"
+    },
+    {
+     "year": 2014,
+     "answer": "Joakim Noah"
+    },
+    {
+     "year": 2013,
+     "answer": "Marc Gasol"
+    },
+    {
+     "year": 2012,
+     "answer": "Tyson Chandler"
+    }
+   ]
+  },
+  {
+   "key": "roy",
+   "name": "Rookies of the Year",
+   "blurb": "First-year winners, back to 2012",
+   "chip": "#D9480F",
+   "title": "ROOKIES",
+   "prompt": "Who was Rookie of the Year in {year}?",
+   "input": "type",
+   "seconds": 180,
+   "rounds": [
+    {
+     "year": 2026,
+     "answer": "Cooper Flagg"
+    },
+    {
+     "year": 2025,
+     "answer": "Stephon Castle"
+    },
+    {
+     "year": 2024,
+     "answer": "Victor Wembanyama"
+    },
+    {
+     "year": 2023,
+     "answer": "Paolo Banchero"
+    },
+    {
+     "year": 2022,
+     "answer": "Scottie Barnes"
+    },
+    {
+     "year": 2021,
+     "answer": "LaMelo Ball"
+    },
+    {
+     "year": 2020,
+     "answer": "Ja Morant"
+    },
+    {
+     "year": 2019,
+     "answer": "Luka Dončić"
+    },
+    {
+     "year": 2018,
+     "answer": "Ben Simmons"
+    },
+    {
+     "year": 2017,
+     "answer": "Malcolm Brogdon"
+    },
+    {
+     "year": 2016,
+     "answer": "Karl-Anthony Towns"
+    },
+    {
+     "year": 2015,
+     "answer": "Andrew Wiggins"
+    },
+    {
+     "year": 2014,
+     "answer": "Michael Carter-Williams"
+    },
+    {
+     "year": 2013,
+     "answer": "Damian Lillard"
+    },
+    {
+     "year": 2012,
+     "answer": "Kyrie Irving"
+    }
+   ]
+  },
+  {
+   "key": "sixth",
+   "name": "Six Men of the Year",
+   "blurb": "The best off the bench",
+   "chip": "#16130E",
+   "title": "SIX MEN",
+   "prompt": "Who was Sixth Man of the Year in {year}?",
+   "input": "type",
+   "seconds": 180,
+   "rounds": [
+    {
+     "year": 2026,
+     "answer": "Keldon Johnson"
+    },
+    {
+     "year": 2025,
+     "answer": "Payton Pritchard"
+    },
+    {
+     "year": 2024,
+     "answer": "Naz Reid"
+    },
+    {
+     "year": 2023,
+     "answer": "Malcolm Brogdon"
+    },
+    {
+     "year": 2022,
+     "answer": "Tyler Herro"
+    },
+    {
+     "year": 2021,
+     "answer": "Jordan Clarkson"
+    },
+    {
+     "year": 2020,
+     "answer": "Montrezl Harrell"
+    },
+    {
+     "year": 2019,
+     "answer": "Lou Williams"
+    },
+    {
+     "year": 2018,
+     "answer": "Lou Williams"
+    },
+    {
+     "year": 2017,
+     "answer": "Eric Gordon"
+    },
+    {
+     "year": 2016,
+     "answer": "Jamal Crawford"
+    },
+    {
+     "year": 2015,
+     "answer": "Lou Williams"
+    },
+    {
+     "year": 2014,
+     "answer": "Jamal Crawford"
+    },
+    {
+     "year": 2013,
+     "answer": "J.R. Smith"
+    },
+    {
+     "year": 2012,
+     "answer": "James Harden"
+    }
+   ]
+  },
+  {
+   "key": "firstpick",
+   "name": "First Overall Draft Pick",
+   "blurb": "Every number one in the draft",
+   "chip": "#D9480F",
+   "title": "FIRST PICKS",
+   "prompt": "Who was drafted first overall in {year}?",
+   "input": "type",
+   "seconds": 180,
+   "rounds": [
+    {
+     "year": 2026,
+     "answer": "AJ Dybantsa"
+    },
+    {
+     "year": 2025,
+     "answer": "Cooper Flagg"
+    },
+    {
+     "year": 2024,
+     "answer": "Zaccharie Risacher"
+    },
+    {
+     "year": 2023,
+     "answer": "Victor Wembanyama"
+    },
+    {
+     "year": 2022,
+     "answer": "Paolo Banchero"
+    },
+    {
+     "year": 2021,
+     "answer": "Cade Cunningham"
+    },
+    {
+     "year": 2020,
+     "answer": "Anthony Edwards"
+    },
+    {
+     "year": 2019,
+     "answer": "Zion Williamson"
+    },
+    {
+     "year": 2018,
+     "answer": "Deandre Ayton"
+    },
+    {
+     "year": 2017,
+     "answer": "Markelle Fultz"
+    },
+    {
+     "year": 2016,
+     "answer": "Ben Simmons"
+    },
+    {
+     "year": 2015,
+     "answer": "Karl-Anthony Towns"
+    },
+    {
+     "year": 2014,
+     "answer": "Andrew Wiggins"
+    },
+    {
+     "year": 2013,
+     "answer": "Anthony Bennett"
+    },
+    {
+     "year": 2012,
+     "answer": "Anthony Davis"
+    }
+   ]
+  }
+ ]
+}

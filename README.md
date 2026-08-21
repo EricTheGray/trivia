@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hot Hand
 
-## Getting Started
-
-First, run the development server:
+Basketball trivia, two ways to play. The **feed** is an endless vertical swipe of
+one question per screen — swipe up to reveal the answer, swipe up again for the
+next. The **game modes** are six three-minute rounds: fifteen years each, fill in
+as many as you can. No score, no streak, no fail state in the feed; no penalty
+for a wrong answer in a round. Built from the design handoff in
+`design_handoff_hot_hand/`.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Screens
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Feed** (`app/components/trivia-feed.tsx`) — the pager, the difficulty ramp,
+  mode promo cards every tenth question, sharing, and card trimming.
+- **Timed round** (`app/components/timed-list.tsx`) — clock, progress, answer
+  sheet, grading, summary. One component serves all six modes.
+- **Shell** (`app/components/hot-hand.tsx`) — tab bar, modes list, settings.
+- **Shared question** (`app/q/[id]`) — what a shared link opens. Question only,
+  never the answer.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Answering a round
 
-## Learn More
+Championships picks from a list of teams. The five player modes are typed, with
+autocomplete over the full NBA roster — suggestions appear at **three
+characters**, ranked surname matches first, then other word matches, then
+anything containing the query, most recently active players first.
 
-To learn more about Next.js, take a look at the following resources:
+Grading is forgiving, in this order (`lib/players/matching.ts`):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Normalised** — accents, punctuation and case are ignored, so `Jokić`,
+   `Jokic` and `jokic` all land together, as do `Jaren Jackson Jr` and
+   `jaren jackson jr.`.
+2. **Nicknames** — `giannis`, `sga`, `wemby`, `the beard`, `jjj` and the rest of
+   the table, which also surface as suggestions.
+3. **Exact name**, then a **bare surname** when only one player answers to it
+   (`embiid`, `gobert`). When several share it, the round's own answers break
+   the tie.
+4. **A query narrowed to one player** commits that player on return.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Anything else commits exactly what was typed and is marked wrong — a wrong guess
+should be a wrong guess, not a dead end.
 
-## Deploy on Vercel
+The match pool is the whole roster plus the round's own answers, so the
+suggestions never narrow down to the answer key.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Data
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Three datasets, all generated from source files and committed under `data/`:
+
+| File | From | Contents |
+|---|---|---|
+| `feed-questions.json` | workbook, **Feed** sheet | 700 approved questions, difficulty 1–4, category, topic tag, pair id |
+| `game-modes.json` | workbook, **Year by Year** sheet | the six modes, fifteen most recent seasons each |
+| `players.json` | `FinishedNBAPlayers.csv` | 5,367 players, ranked for autocomplete |
+
+Re-import after each refresh (the workbook asks for one every February):
+
+```bash
+npm run import:questions ~/Downloads/basketball_trivia_database.xlsx
+```
+
+```bash
+npm run import:modes ~/Downloads/basketball_trivia_database.xlsx
+```
+
+```bash
+npm run import:players ~/Downloads/FinishedNBAPlayers.csv
+```
+
+The scripts are standard-library Python — no openpyxl, no pandas. Because the
+modes always take the fifteen most recent completed seasons, their blurbs are
+written from the data ("Every finals winner since 2012") rather than hardcoded,
+so they stay true after a refresh.
+
+### Moving a dataset to a remote repository
+
+Nothing reads the JSON files directly. Each goes through `createDataset`
+(`lib/dataset.ts`), and moving one to a remote repository is a single
+environment variable:
+
+```bash
+QUESTIONS_API_URL=https://example.com/questions   # optional: QUESTIONS_API_TOKEN
+MODES_API_URL=https://example.com/modes           # optional: MODES_API_TOKEN
+PLAYERS_API_URL=https://example.com/players       # optional: PLAYERS_API_TOKEN
+```
+
+- Unset → the committed copy under `data/`.
+- Set → that endpoint, cached for an hour, falling back to the committed copy if
+  it is unreachable, so a round or a feed never comes up empty.
+
+Each endpoint returns the same shape as its file, and every response is
+validated before it reaches the UI. The matching routes — `/api/questions`,
+`/api/modes`, `/api/players` — serve the data to clients and report which source
+answered in an `x-<dataset>-source` header. `/api/players?q=` runs the same
+ranked search server-side for callers that would rather not hold the roster.

@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "import:questions": "python3 scripts/import-feed-questions.py",
+    "import:modes": "python3 scripts/import-game-modes.py",
+    "import:players": "python3 scripts/import-players.py"
   },
   "dependencies": {
     "next": "16.2.9",

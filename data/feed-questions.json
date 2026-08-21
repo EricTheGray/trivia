@@ -1,0 +1,5736 @@
+{
+ "version": "2026-08-20",
+ "source": "basketball_trivia_database (1).xlsx",
+ "questions": [
+  {
+   "id": "1",
+   "q": "What is the violation called when a player moves their pivot foot illegally or takes too many steps?",
+   "a": "Traveling",
+   "d": 1,
+   "category": "Rules",
+   "topic": "rule-traveling"
+  },
+  {
+   "id": "2",
+   "q": "Who is credited with inventing the game of basketball in 1891?",
+   "a": "James Naismith",
+   "d": 1,
+   "category": "History",
+   "topic": "naismith-inventor"
+  },
+  {
+   "id": "3",
+   "q": "In what U.S. city was basketball invented?",
+   "a": "Springfield, Massachusetts",
+   "d": 1,
+   "category": "History",
+   "topic": "naismith-springfield"
+  },
+  {
+   "id": "4",
+   "q": "Which NBA superstar is known as \"King James\"?",
+   "a": "LeBron James",
+   "d": 1,
+   "category": "Players",
+   "topic": "nick-king-james"
+  },
+  {
+   "id": "5",
+   "q": "What is it called when a player records double-digit totals in three statistical categories in one game?",
+   "a": "A triple-double",
+   "d": 1,
+   "category": "Rules",
+   "topic": "rule-triple-double"
+  },
+  {
+   "id": "6",
+   "q": "How many personal fouls disqualify a player from an NBA game?",
+   "a": "Six",
+   "d": 1,
+   "category": "Rules",
+   "topic": "rule-six-fouls"
+  },
+  {
+   "id": "7",
+   "q": "What is it called when a defender illegally blocks a shot on its way down toward the basket?",
+   "a": "Goaltending",
+   "d": 1,
+   "category": "Rules",
+   "topic": "rule-goaltending"
+  },
+  {
+   "id": "8",
+   "q": "The Los Angeles Lakers were originally based in which state, giving them their \"Lakers\" name?",
+   "a": "Minnesota (Minneapolis Lakers)",
+   "d": 1,
+   "category": "History",
+   "topic": "lakers-minneapolis-origin"
+  },
+  {
+   "id": "9",
+   "q": "What is the name of the NBA's annual mid-season exhibition game featuring the league's top players?",
+   "a": "The NBA All-Star Game",
+   "d": 1,
+   "category": "History",
+   "topic": "allstar-game-name"
+  },
+  {
+   "id": "10",
+   "q": "Which team drafted LeBron James first overall in 2003?",
+   "a": "Cleveland Cavaliers",
+   "d": 1,
+   "category": "Players",
+   "topic": "lebron-draft-2003"
+  },
+  {
+   "id": "11",
+   "q": "What is the name of the trophy awarded to the NBA champion each year?",
+   "a": "The Larry O'Brien Championship Trophy",
+   "d": 1,
+   "category": "History",
+   "topic": "trophy-obrien-name",
+   "pairId": "P01"
+  },
+  {
+   "id": "12",
+   "q": "Which NBA franchise has won the most championships in league history (18)?",
+   "a": "Boston Celtics",
+   "d": 1,
+   "category": "Teams",
+   "topic": "celtics-most-titles"
+  },
+  {
+   "id": "13",
+   "q": "Who holds the NBA record for most career regular-season points scored?",
+   "a": "LeBron James",
+   "d": 2,
+   "category": "Players",
+   "topic": "lebron-scoring-record"
+  },
+  {
+   "id": "14",
+   "q": "Which player scored 100 points in a single NBA game in 1962?",
+   "a": "Wilt Chamberlain",
+   "d": 2,
+   "category": "Players",
+   "topic": "wilt-100-point-game",
+   "pairId": "P26"
+  },
+  {
+   "id": "15",
+   "q": "Wilt Chamberlain's 100-point game was scored against which team?",
+   "a": "The New York Knicks",
+   "d": 2,
+   "category": "Players",
+   "topic": "wilt-100-opponent"
+  },
+  {
+   "id": "16",
+   "q": "In what NBA season was the three-point line first introduced?",
+   "a": "1979-80",
+   "d": 2,
+   "category": "History",
+   "topic": "three-point-line-intro"
+  },
+  {
+   "id": "17",
+   "q": "How many seconds does a team have to attempt a shot before the shot clock expires?",
+   "a": "24 seconds",
+   "d": 2,
+   "category": "Rules",
+   "topic": "rule-shot-clock-24"
+  },
+  {
+   "id": "18",
+   "q": "Which coach won the most NBA championships as a head coach (11)?",
+   "a": "Phil Jackson",
+   "d": 2,
+   "category": "Players",
+   "topic": "phil-jackson-11-titles"
+  },
+  {
+   "id": "19",
+   "q": "How many NBA championships did Michael Jordan win with the Chicago Bulls?",
+   "a": "Six",
+   "d": 2,
+   "category": "Players",
+   "topic": "jordan-six-titles"
+  },
+  {
+   "id": "20",
+   "q": "Magic Johnson and which rival Boston Celtics star defined the NBA's biggest 1980s rivalry?",
+   "a": "Larry Bird",
+   "d": 2,
+   "category": "Players",
+   "topic": "bird-magic-rivalry"
+  },
+  {
+   "id": "21",
+   "q": "What is the nickname of the 1992 U.S. Olympic men's basketball team, stacked with NBA superstars?",
+   "a": "The Dream Team",
+   "d": 2,
+   "category": "History",
+   "topic": "dream-team-1992"
+  },
+  {
+   "id": "22",
+   "q": "Which dominant center was nicknamed \"The Big Aristotle\"?",
+   "a": "Shaquille O'Neal",
+   "d": 2,
+   "category": "Players",
+   "topic": "nick-big-aristotle"
+  },
+  {
+   "id": "23",
+   "q": "Which Hall of Fame center's signature shot was the nearly unblockable \"skyhook\"?",
+   "a": "Kareem Abdul-Jabbar",
+   "d": 2,
+   "category": "Players",
+   "topic": "move-skyhook"
+  },
+  {
+   "id": "24",
+   "q": "Which team originally drafted Kobe Bryant in 1996 before trading him to the Lakers?",
+   "a": "Charlotte Hornets",
+   "d": 2,
+   "category": "Players",
+   "topic": "kobe-draft-hornets"
+  },
+  {
+   "id": "25",
+   "q": "The NBA Finals is a best-of-how-many series?",
+   "a": "Best-of-seven",
+   "d": 2,
+   "category": "Rules",
+   "topic": "rule-best-of-seven"
+  },
+  {
+   "id": "26",
+   "q": "What is the distance from the free-throw line to the backboard?",
+   "a": "15 feet",
+   "d": 2,
+   "category": "Equipment",
+   "topic": "court-free-throw-distance"
+  },
+  {
+   "id": "27",
+   "q": "Which Dallas Mavericks legend led the team to its only NBA championship, in 2011?",
+   "a": "Dirk Nowitzki",
+   "d": 2,
+   "category": "Players",
+   "topic": "dirk-2011-title"
+  },
+  {
+   "id": "28",
+   "q": "Which San Antonio Spurs big man spent his entire 19-year career with one team and won 5 titles?",
+   "a": "Tim Duncan",
+   "d": 2,
+   "category": "Players",
+   "topic": "duncan-one-team"
+  },
+  {
+   "id": "29",
+   "q": "Which team set the NBA record for most regular-season wins (73) in 2015-16?",
+   "a": "Golden State Warriors",
+   "d": 2,
+   "category": "Teams",
+   "topic": "warriors-73-wins"
+  },
+  {
+   "id": "30",
+   "q": "Which team held the NBA's previous single-season wins record (72), set in 1995-96, before Golden State broke it?",
+   "a": "Chicago Bulls",
+   "d": 2,
+   "category": "Teams",
+   "topic": "bulls-72-wins"
+  },
+  {
+   "id": "31",
+   "q": "Kobe Bryant scored how many points in a 2006 game against the Toronto Raptors, the third-most in NBA history?",
+   "a": "81 points",
+   "d": 2,
+   "category": "Players",
+   "topic": "kobe-81-points"
+  },
+  {
+   "id": "32",
+   "q": "Who is the NBA's all-time leader in career assists?",
+   "a": "John Stockton",
+   "d": 2,
+   "category": "Players",
+   "topic": "assists-leader-stockton"
+  },
+  {
+   "id": "33",
+   "q": "Who is the NBA's all-time leader in career rebounds?",
+   "a": "Wilt Chamberlain",
+   "d": 2,
+   "category": "Players",
+   "topic": "rebounds-leader-wilt"
+  },
+  {
+   "id": "34",
+   "q": "In what year was the WNBA founded?",
+   "a": "1996 (first season played in 1997)",
+   "d": 2,
+   "category": "History",
+   "topic": "wnba-founded"
+  },
+  {
+   "id": "35",
+   "q": "After his final championship with the Bulls, Michael Jordan finished his playing career with which team?",
+   "a": "Washington Wizards",
+   "d": 2,
+   "category": "Players",
+   "topic": "jordan-wizards-finish"
+  },
+  {
+   "id": "36",
+   "q": "Which team did the Denver Nuggets defeat to win their first-ever NBA championship, in 2023?",
+   "a": "Miami Heat",
+   "d": 2,
+   "category": "Teams",
+   "topic": "nuggets-2023-title"
+  },
+  {
+   "id": "37",
+   "q": "Who won the first-ever NBA Slam Dunk Contest in 1984?",
+   "a": "Larry Nance",
+   "d": 3,
+   "category": "Players",
+   "topic": "dunk-contest-first-winner"
+  },
+  {
+   "id": "38",
+   "q": "In which two years did Michael Jordan win the NBA Slam Dunk Contest?",
+   "a": "1987 and 1988",
+   "d": 3,
+   "category": "Players",
+   "topic": "jordan-dunk-contest-years"
+  },
+  {
+   "id": "39",
+   "q": "Which team did Shaquille O'Neal win his first NBA championship with?",
+   "a": "Los Angeles Lakers",
+   "d": 3,
+   "category": "Players",
+   "topic": "shaq-first-title-lakers"
+  },
+  {
+   "id": "40",
+   "q": "Who was the first African American player to appear in an NBA game, on October 31, 1950?",
+   "a": "Earl Lloyd",
+   "d": 3,
+   "category": "History",
+   "topic": "first-black-player-lloyd"
+  },
+  {
+   "id": "41",
+   "q": "Michael Jordan was picked third overall in the 1984 NBA Draft. Which two players were picked ahead of him?",
+   "a": "Hakeem Olajuwon (1st) and Sam Bowie (2nd)",
+   "d": 3,
+   "category": "Players",
+   "topic": "jordan-1984-draft-order"
+  },
+  {
+   "id": "42",
+   "q": "Which Boston Celtics center won a record 11 NBA championships as a player?",
+   "a": "Bill Russell",
+   "d": 3,
+   "category": "Players",
+   "topic": "russell-11-titles"
+  },
+  {
+   "id": "43",
+   "q": "In what year did the Seattle SuperSonics relocate to become the Oklahoma City Thunder?",
+   "a": "2008",
+   "d": 3,
+   "category": "Teams",
+   "topic": "sonics-relocation-2008"
+  },
+  {
+   "id": "44",
+   "q": "The Thunder's 2025 NBA championship was their first since relocating to OKC, and their first overall since which year as the Seattle SuperSonics?",
+   "a": "1979",
+   "d": 3,
+   "category": "Teams",
+   "topic": "thunder-2025-title-drought"
+  },
+  {
+   "id": "45",
+   "q": "Who was named Finals MVP when the Oklahoma City Thunder won the 2025 NBA championship?",
+   "a": "Shai Gilgeous-Alexander",
+   "d": 3,
+   "category": "Players",
+   "topic": "sga-2025-finals-mvp"
+  },
+  {
+   "id": "46",
+   "q": "Which team did the Thunder defeat in a seven-game series to win the 2025 NBA Finals?",
+   "a": "Indiana Pacers",
+   "d": 3,
+   "category": "Teams",
+   "topic": "thunder-2025-opponent"
+  },
+  {
+   "id": "47",
+   "q": "Who holds the single-season record for most three-pointers made (402), set in 2015-16?",
+   "a": "Stephen Curry",
+   "d": 3,
+   "category": "Players",
+   "topic": "curry-402-threes"
+  },
+  {
+   "id": "48",
+   "q": "Wilt Chamberlain's famous 100-point game was played in which Pennsylvania city, not his team's home arena?",
+   "a": "Hershey, Pennsylvania",
+   "d": 3,
+   "category": "Players",
+   "topic": "wilt-100-hershey",
+   "pairId": "P26"
+  },
+  {
+   "id": "49",
+   "q": "Which team won the very first league championship in 1947, when the league was still called the BAA?",
+   "a": "Philadelphia Warriors",
+   "d": 3,
+   "category": "History",
+   "topic": "baa-1947-champion"
+  },
+  {
+   "id": "50",
+   "q": "What was the direct predecessor league to the NBA, which merged with the National Basketball League in 1949?",
+   "a": "The Basketball Association of America (BAA)",
+   "d": 3,
+   "category": "History",
+   "topic": "baa-predecessor-league"
+  },
+  {
+   "id": "51",
+   "q": "Which legendary Houston Rockets center was nicknamed \"The Dream\"?",
+   "a": "Hakeem Olajuwon",
+   "d": 3,
+   "category": "Players",
+   "topic": "nick-the-dream"
+  },
+  {
+   "id": "52",
+   "q": "Which Utah Jazz power forward was nicknamed \"The Mailman\" for his scoring reliability?",
+   "a": "Karl Malone",
+   "d": 3,
+   "category": "Players",
+   "topic": "nick-the-mailman"
+  },
+  {
+   "id": "53",
+   "q": "Which team won two separate three-peats (three straight championships, twice) in the 1990s under coach Phil Jackson?",
+   "a": "Chicago Bulls",
+   "d": 3,
+   "category": "Teams",
+   "topic": "bulls-two-threepeats"
+  },
+  {
+   "id": "54",
+   "q": "Besides the Bulls, which team did Phil Jackson coach to five championships in the 2000s?",
+   "a": "Los Angeles Lakers",
+   "d": 3,
+   "category": "Players",
+   "topic": "phil-jackson-lakers"
+  },
+  {
+   "id": "55",
+   "q": "In what year did the NBA merge with the rival ABA, absorbing four of its teams?",
+   "a": "1976",
+   "d": 3,
+   "category": "History",
+   "topic": "aba-merger-year"
+  },
+  {
+   "id": "56",
+   "q": "Name one of the four former ABA teams that joined the NBA in the 1976 merger.",
+   "a": "Indiana Pacers, San Antonio Spurs, Denver Nuggets, or New York/Brooklyn Nets",
+   "d": 3,
+   "category": "History",
+   "topic": "aba-merger-teams"
+  },
+  {
+   "id": "57",
+   "q": "Which player is the only one to average a triple-double for multiple full NBA seasons?",
+   "a": "Russell Westbrook",
+   "d": 3,
+   "category": "Players",
+   "topic": "westbrook-triple-double-seasons"
+  },
+  {
+   "id": "58",
+   "q": "Which center holds the NBA record for most career blocked shots?",
+   "a": "Hakeem Olajuwon",
+   "d": 3,
+   "category": "Players",
+   "topic": "blocks-leader-olajuwon"
+  },
+  {
+   "id": "59",
+   "q": "Dirk Nowitzki became the first European player to win NBA MVP. In which season?",
+   "a": "2006-07",
+   "d": 3,
+   "category": "Players",
+   "topic": "dirk-first-european-mvp"
+  },
+  {
+   "id": "60",
+   "q": "Who won the NBA's first-ever Most Valuable Player award, in the 1955-56 season?",
+   "a": "Bob Pettit",
+   "d": 4,
+   "category": "History",
+   "topic": "first-mvp-pettit"
+  },
+  {
+   "id": "61",
+   "q": "Which player holds the all-time NBA record for career triple-doubles?",
+   "a": "Russell Westbrook",
+   "d": 4,
+   "category": "Players",
+   "topic": "westbrook-triple-double-record"
+  },
+  {
+   "id": "62",
+   "q": "Whose long-standing career triple-double record did Russell Westbrook eventually break?",
+   "a": "Oscar Robertson",
+   "d": 4,
+   "category": "Players",
+   "topic": "robertson-triple-double-record"
+  },
+  {
+   "id": "63",
+   "q": "In which season did Oscar Robertson average a triple-double for the entire year, a feat unmatched for over 50 years?",
+   "a": "1961-62",
+   "d": 4,
+   "category": "Players",
+   "topic": "robertson-1961-62-season"
+  },
+  {
+   "id": "64",
+   "q": "What arena has been home to the Boston Celtics since 1995?",
+   "a": "TD Garden",
+   "d": 4,
+   "category": "Teams",
+   "topic": "arena-td-garden"
+  },
+  {
+   "id": "65",
+   "q": "Which player famously won NBA Finals MVP in 1969 despite his team losing the series?",
+   "a": "Jerry West",
+   "d": 4,
+   "category": "Players",
+   "topic": "west-1969-finals-mvp",
+   "pairId": "P03"
+  },
+  {
+   "id": "66",
+   "q": "The NBA's silhouette logo is widely believed to be modeled after which Hall of Famer, nicknamed \"The Logo\"?",
+   "a": "Jerry West",
+   "d": 4,
+   "category": "History",
+   "topic": "nick-the-logo"
+  },
+  {
+   "id": "67",
+   "q": "Who is the NBA's all-time leader in career regular-season coaching wins?",
+   "a": "Gregg Popovich",
+   "d": 4,
+   "category": "Players",
+   "topic": "popovich-coaching-wins"
+  },
+  {
+   "id": "68",
+   "q": "Three-time NBA MVP (2021, 2022, 2024) Nikola Jokić hails from which country?",
+   "a": "Serbia",
+   "d": 4,
+   "category": "Players",
+   "topic": "jokic-serbia"
+  },
+  {
+   "id": "69",
+   "q": "Which Denver Nuggets center won three MVP awards in a four-year span in the early 2020s?",
+   "a": "Nikola Jokić",
+   "d": 4,
+   "category": "Players",
+   "topic": "jokic-three-mvps"
+  },
+  {
+   "id": "70",
+   "q": "Which player was the only one in NBA history voted MVP unanimously (every first-place vote), in 2015-16?",
+   "a": "Stephen Curry",
+   "d": 4,
+   "category": "Players",
+   "topic": "curry-unanimous-mvp"
+  },
+  {
+   "id": "71",
+   "q": "Which NBA team plays its home games at Madison Square Garden?",
+   "a": "New York Knicks",
+   "d": 4,
+   "category": "Teams",
+   "topic": "arena-msg-knicks"
+  },
+  {
+   "id": "72",
+   "q": "Which Philadelphia 76ers center won NBA MVP in the 2022-23 season?",
+   "a": "Joel Embiid",
+   "d": 4,
+   "category": "Players",
+   "topic": "embiid-2023-mvp"
+  },
+  {
+   "id": "73",
+   "q": "Whose #23 jersey is retired by the Chicago Bulls?",
+   "a": "Michael Jordan's",
+   "d": 4,
+   "category": "Players",
+   "topic": "jordan-23-retired"
+  },
+  {
+   "id": "74",
+   "q": "Which Lakers legend has two different jersey numbers, 8 and 24, both retired by the team?",
+   "a": "Kobe Bryant",
+   "d": 4,
+   "category": "Players",
+   "topic": "kobe-8-24-retired"
+  },
+  {
+   "id": "75",
+   "q": "What arena have the Golden State Warriors called home since 2019?",
+   "a": "Chase Center",
+   "d": 4,
+   "category": "Teams",
+   "topic": "arena-chase-center"
+  },
+  {
+   "id": "76",
+   "q": "Which Oakland arena did the Warriors play in before moving to Chase Center?",
+   "a": "Oracle Arena",
+   "d": 4,
+   "category": "Teams",
+   "topic": "arena-oracle"
+  },
+  {
+   "id": "77",
+   "q": "Which two-time MVP led the Milwaukee Bucks to the 2021 NBA championship, their first in 50 years?",
+   "a": "Giannis Antetokounmpo",
+   "d": 4,
+   "category": "Players",
+   "topic": "giannis-2021-title"
+  },
+  {
+   "id": "78",
+   "q": "What country is Giannis Antetokounmpo from?",
+   "a": "Greece",
+   "d": 4,
+   "category": "Players",
+   "topic": "giannis-greece"
+  },
+  {
+   "id": "79",
+   "q": "In 2024, the Boston Celtics won a record 18th championship, breaking a tie with which team, which had also held 17?",
+   "a": "Los Angeles Lakers",
+   "d": 4,
+   "category": "Teams",
+   "topic": "celtics-18th-title"
+  },
+  {
+   "id": "80",
+   "q": "What year did the WNBA play its first-ever season?",
+   "a": "1997",
+   "d": 4,
+   "category": "History",
+   "topic": "wnba-first-season"
+  },
+  {
+   "id": "81",
+   "q": "Which Hall of Fame forward, famous for his afro and finger roll, was known as \"Dr. J\"?",
+   "a": "Julius Erving",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-dr-j"
+  },
+  {
+   "id": "82",
+   "q": "Which Philadelphia 76ers guard was nicknamed \"The Answer\"?",
+   "a": "Allen Iverson",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-the-answer"
+  },
+  {
+   "id": "83",
+   "q": "Which Lakers point guard was known as \"Magic\"?",
+   "a": "Earvin Johnson",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-magic"
+  },
+  {
+   "id": "84",
+   "q": "Which Naval Academy graduate and Spurs center was nicknamed \"The Admiral\"?",
+   "a": "David Robinson",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-the-admiral"
+  },
+  {
+   "id": "85",
+   "q": "Which Milwaukee Bucks forward is known as \"The Greek Freak\"?",
+   "a": "Giannis Antetokounmpo",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-greek-freak"
+  },
+  {
+   "id": "86",
+   "q": "Which Miami Heat guard was nicknamed \"Flash\"?",
+   "a": "Dwyane Wade",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-flash"
+  },
+  {
+   "id": "87",
+   "q": "What is the popular nickname for the NCAA men's basketball tournament?",
+   "a": "March Madness",
+   "d": 1,
+   "category": "History",
+   "topic": "march-madness-term"
+  },
+  {
+   "id": "88",
+   "q": "Michael Jordan hit the game-winning shot in the 1982 national championship against which team?",
+   "a": "Georgetown",
+   "d": 1,
+   "category": "College",
+   "topic": "jordan-1982-title-shot"
+  },
+  {
+   "id": "89",
+   "q": "Which college did coach John Wooden lead to a record 10 NCAA championships in 12 years?",
+   "a": "UCLA",
+   "d": 1,
+   "category": "College",
+   "topic": "wooden-ten-titles"
+  },
+  {
+   "id": "90",
+   "q": "Which NBA team was nicknamed the \"Bad Boys\" for its physical, defensive style in the late 1980s?",
+   "a": "Detroit Pistons",
+   "d": 1,
+   "category": "Teams",
+   "topic": "pistons-bad-boys"
+  },
+  {
+   "id": "91",
+   "q": "The Toronto Raptors are based in which country?",
+   "a": "Canada",
+   "d": 1,
+   "category": "Teams",
+   "topic": "raptors-canada"
+  },
+  {
+   "id": "92",
+   "q": "What does the acronym \"NCAA\" stand for?",
+   "a": "National Collegiate Athletic Association",
+   "d": 1,
+   "category": "History",
+   "topic": "ncaa-acronym"
+  },
+  {
+   "id": "93",
+   "q": "Which Golden State Warriors backcourt duo was known as \"The Splash Brothers\"?",
+   "a": "Stephen Curry and Klay Thompson",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-splash-brothers"
+  },
+  {
+   "id": "94",
+   "q": "Stephen Curry starred at which small college before becoming an NBA superstar?",
+   "a": "Davidson College",
+   "d": 1,
+   "category": "College",
+   "topic": "curry-davidson"
+  },
+  {
+   "id": "95",
+   "q": "Which Lakers legend was known as the \"Black Mamba\"?",
+   "a": "Kobe Bryant",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-black-mamba"
+  },
+  {
+   "id": "96",
+   "q": "Which Hall of Fame forward was nicknamed \"The Round Mound of Rebound\"?",
+   "a": "Charles Barkley",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-round-mound"
+  },
+  {
+   "id": "97",
+   "q": "Which university has won the most NCAA men's basketball championships of all time?",
+   "a": "UCLA",
+   "d": 1,
+   "category": "College",
+   "topic": "ucla-most-titles"
+  },
+  {
+   "id": "98",
+   "q": "Which explosive dunker was nicknamed \"The Human Highlight Film\"?",
+   "a": "Dominique Wilkins",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-human-highlight-film"
+  },
+  {
+   "id": "99",
+   "q": "Which lockdown defensive guard was nicknamed \"The Glove\"?",
+   "a": "Gary Payton",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-glove"
+  },
+  {
+   "id": "100",
+   "q": "Which high-scoring Spurs guard/forward was nicknamed \"The Iceman\" for his cool demeanor?",
+   "a": "George Gervin",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-iceman"
+  },
+  {
+   "id": "101",
+   "q": "Which Boston Celtics forward was known as \"The Truth\"?",
+   "a": "Paul Pierce",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-truth"
+  },
+  {
+   "id": "102",
+   "q": "Which point guard is known as \"The Point God\"?",
+   "a": "Chris Paul",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-point-god"
+  },
+  {
+   "id": "103",
+   "q": "What 1954 rule change, introduced by Danny Biasone, sped up the pace of the game?",
+   "a": "The 24-second shot clock",
+   "d": 2,
+   "category": "History",
+   "topic": "biasone-shot-clock"
+  },
+  {
+   "id": "104",
+   "q": "Which dominant Minneapolis Lakers center, the NBA's first true superstar, led the team to five championships in six years (1949-1954)?",
+   "a": "George Mikan",
+   "d": 2,
+   "category": "History",
+   "topic": "mikan-minneapolis-dynasty"
+  },
+  {
+   "id": "105",
+   "q": "Which 1979 NCAA championship game is still the most-watched college basketball game in history?",
+   "a": "Michigan State (Magic Johnson) vs. Indiana State (Larry Bird)",
+   "d": 2,
+   "category": "College",
+   "topic": "1979-title-game-magic-bird"
+  },
+  {
+   "id": "106",
+   "q": "Which Duke player hit a famous buzzer-beating turnaround shot to beat Kentucky in the 1992 NCAA tournament?",
+   "a": "Christian Laettner",
+   "d": 2,
+   "category": "College",
+   "topic": "laettner-1992-shot"
+  },
+  {
+   "id": "107",
+   "q": "Which team pulled off a massive underdog upset over heavily favored Georgetown to win the 1985 NCAA title?",
+   "a": "Villanova Wildcats",
+   "d": 2,
+   "category": "College",
+   "topic": "villanova-1985-upset"
+  },
+  {
+   "id": "108",
+   "q": "What was the final score of the very first basketball game ever played, organized by James Naismith in 1891?",
+   "a": "1-0",
+   "d": 2,
+   "category": "History",
+   "topic": "first-game-score"
+  },
+  {
+   "id": "109",
+   "q": "Which flashy guard was known for his showman style and nicknamed \"White Chocolate\"?",
+   "a": "Jason Williams",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-white-chocolate"
+  },
+  {
+   "id": "110",
+   "q": "Which forward, famous for shattering backboards with powerful dunks, was nicknamed \"Chocolate Thunder\"?",
+   "a": "Darryl Dawkins",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-chocolate-thunder"
+  },
+  {
+   "id": "111",
+   "q": "The Philadelphia 76ers franchise was originally based in which city, playing as the Nationals?",
+   "a": "Syracuse (Syracuse Nationals)",
+   "d": 2,
+   "category": "Teams",
+   "topic": "sixers-syracuse-origin"
+  },
+  {
+   "id": "112",
+   "q": "Which flashy guard, who wore uniform number 0, was nicknamed \"Agent Zero\"?",
+   "a": "Gilbert Arenas",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-agent-zero"
+  },
+  {
+   "id": "113",
+   "q": "The NCAA banned dunking in men's college basketball from 1967 to 1976, a rule nicknamed after which dominant UCLA big man?",
+   "a": "The \"Alcindor Rule\" (Lew Alcindor, later Kareem Abdul-Jabbar)",
+   "d": 2,
+   "category": "History",
+   "topic": "alcindor-dunk-ban"
+  },
+  {
+   "id": "114",
+   "q": "Which forward legally changed his name from Ron Artest to reflect a personal cause?",
+   "a": "Metta World Peace",
+   "d": 2,
+   "category": "Players",
+   "topic": "metta-world-peace-name"
+  },
+  {
+   "id": "115",
+   "q": "Which coach built a women's college basketball dynasty at UConn, winning 11 national championships?",
+   "a": "Geno Auriemma",
+   "d": 2,
+   "category": "College",
+   "topic": "auriemma-uconn-titles"
+  },
+  {
+   "id": "116",
+   "q": "Who holds the NBA record for most points scored in a single quarter (37)?",
+   "a": "Klay Thompson",
+   "d": 2,
+   "category": "Players",
+   "topic": "klay-37-point-quarter"
+  },
+  {
+   "id": "117",
+   "q": "What is the term for a defensive violation where a player camps in the lane for more than three seconds without actively guarding anyone?",
+   "a": "Defensive three-second violation",
+   "d": 2,
+   "category": "Rules",
+   "topic": "defensive-three-seconds"
+  },
+  {
+   "id": "118",
+   "q": "Which flashy, high-scoring LSU and NBA guard was known as \"Pistol Pete\"?",
+   "a": "Pete Maravich",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-pistol-pete"
+  },
+  {
+   "id": "119",
+   "q": "Which player became the NBA's first African American head coach in 1966 while still active as a player?",
+   "a": "Bill Russell (Boston Celtics)",
+   "d": 3,
+   "category": "History",
+   "topic": "russell-first-black-coach"
+  },
+  {
+   "id": "120",
+   "q": "Which university's \"Fab Five\" freshman class famously reached back-to-back NCAA championship games in 1992 and 1993?",
+   "a": "University of Michigan",
+   "d": 3,
+   "category": "College",
+   "topic": "michigan-fab-five"
+  },
+  {
+   "id": "121",
+   "q": "Which Duke freshman phenom's shoe famously blew out seconds into a nationally televised 2019 game against North Carolina?",
+   "a": "Zion Williamson",
+   "d": 3,
+   "category": "College",
+   "topic": "zion-shoe-blowout"
+  },
+  {
+   "id": "122",
+   "q": "Which Iowa Hawkeyes star broke the all-time NCAA Division I scoring record in 2024?",
+   "a": "Caitlin Clark",
+   "d": 3,
+   "category": "Players",
+   "topic": "clark-ncaa-scoring"
+  },
+  {
+   "id": "123",
+   "q": "UConn's women's basketball program once won an NCAA-record how many consecutive games?",
+   "a": "111",
+   "d": 3,
+   "category": "College",
+   "topic": "uconn-111-streak"
+  },
+  {
+   "id": "124",
+   "q": "How many teams did the league have when it was founded in 1946 as the BAA?",
+   "a": "11",
+   "d": 3,
+   "category": "History",
+   "topic": "baa-eleven-teams"
+  },
+  {
+   "id": "125",
+   "q": "In which two years did Dominique Wilkins win the NBA Slam Dunk Contest?",
+   "a": "1985 and 1990",
+   "d": 3,
+   "category": "Players",
+   "topic": "wilkins-dunk-contest-years"
+  },
+  {
+   "id": "126",
+   "q": "Which team drafted Kareem Abdul-Jabbar (then Lew Alcindor) first overall in 1969?",
+   "a": "Milwaukee Bucks",
+   "d": 3,
+   "category": "Teams",
+   "topic": "bucks-draft-alcindor"
+  },
+  {
+   "id": "127",
+   "q": "Which coach holds the record for most all-time wins in NCAA Division I men's basketball history?",
+   "a": "Mike Krzyzewski",
+   "d": 3,
+   "category": "College",
+   "topic": "krzyzewski-most-wins"
+  },
+  {
+   "id": "128",
+   "q": "What was the nickname of the dunk-happy University of Houston teams of the early 1980s, featuring Hakeem Olajuwon and Clyde Drexler?",
+   "a": "\"Phi Slama Jama\"",
+   "d": 3,
+   "category": "College",
+   "topic": "phi-slama-jama-name"
+  },
+  {
+   "id": "129",
+   "q": "Which team drafted Magic Johnson first overall in 1979?",
+   "a": "Los Angeles Lakers",
+   "d": 3,
+   "category": "Teams",
+   "topic": "lakers-draft-magic"
+  },
+  {
+   "id": "130",
+   "q": "Which Georgetown center anchored the Hoyas to the 1984 national championship?",
+   "a": "Patrick Ewing",
+   "d": 3,
+   "category": "College",
+   "topic": "ewing-georgetown-1984"
+  },
+  {
+   "id": "131",
+   "q": "Which team selected Patrick Ewing first overall in the famous, controversial 1985 NBA Draft Lottery?",
+   "a": "New York Knicks",
+   "d": 3,
+   "category": "Teams",
+   "topic": "knicks-1985-lottery"
+  },
+  {
+   "id": "132",
+   "q": "Which player set the NCAA Division I record for most points in a single game (100), a mark still unbroken since 1954?",
+   "a": "Frank Selvy",
+   "d": 3,
+   "category": "Players",
+   "topic": "selvy-100-points"
+  },
+  {
+   "id": "133",
+   "q": "What was the title of James Naismith's original 1891 rulebook, which listed just 13 basic rules?",
+   "a": "\"The 13 Rules of Basket Ball\"",
+   "d": 3,
+   "category": "History",
+   "topic": "naismith-13-rules"
+  },
+  {
+   "id": "134",
+   "q": "Which forward, famous for delivering clutch shots on championship teams, was nicknamed \"Big Shot Bob\"?",
+   "a": "Robert Horry",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-big-shot-bob",
+   "pairId": "P29"
+  },
+  {
+   "id": "135",
+   "q": "Robert Horry won a record seven championships (the most by any non-Celtic player) with which three different franchises, despite never making an All-Star team?",
+   "a": "Houston Rockets, Los Angeles Lakers, and San Antonio Spurs",
+   "d": 4,
+   "category": "Players",
+   "topic": "horry-seven-rings",
+   "pairId": "P29"
+  },
+  {
+   "id": "136",
+   "q": "In the 1976 ABA-NBA merger, which two ABA franchises folded and were paid off rather than absorbed into the NBA?",
+   "a": "Kentucky Colonels and Spirits of St. Louis",
+   "d": 4,
+   "category": "History",
+   "topic": "aba-folded-franchises"
+  },
+  {
+   "id": "137",
+   "q": "Whose famous 1997 crossover dribble on Michael Jordan became one of the most replayed clips in NBA history?",
+   "a": "Allen Iverson",
+   "d": 4,
+   "category": "Players",
+   "topic": "iverson-crossover"
+  },
+  {
+   "id": "138",
+   "q": "Which legendary coach was known as \"The Wizard of Westwood\"?",
+   "a": "John Wooden",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-wizard-of-westwood"
+  },
+  {
+   "id": "139",
+   "q": "Which high-flying Toronto Raptors forward's dunks earned the nickname \"Vinsanity\"?",
+   "a": "Vince Carter",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-vinsanity",
+   "pairId": "P30"
+  },
+  {
+   "id": "140",
+   "q": "Who is the only player to appear in parts of four different decades?",
+   "a": "Vince Carter",
+   "d": 4,
+   "category": "Players",
+   "topic": "carter-four-decades",
+   "pairId": "P30"
+  },
+  {
+   "id": "141",
+   "q": "Which NBA franchise has relocated cities the most times?",
+   "a": "LA Clippers",
+   "d": 4,
+   "category": "Teams",
+   "topic": "clippers-relocations"
+  },
+  {
+   "id": "142",
+   "q": "Who was the first player in the modern era to jump directly from high school to the NBA, drafted in 1995?",
+   "a": "Kevin Garnett",
+   "d": 4,
+   "category": "Players",
+   "topic": "garnett-prep-to-pro"
+  },
+  {
+   "id": "143",
+   "q": "Which dominant 1960s-70s forward and center was nicknamed \"The Big E\"?",
+   "a": "Elvin Hayes",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-the-big-e"
+  },
+  {
+   "id": "144",
+   "q": "Which forward won a record seven consecutive NBA rebounding titles (1992-1998) across three different franchises (Pistons, Spurs, and Bulls)?",
+   "a": "Dennis Rodman",
+   "d": 4,
+   "category": "Players",
+   "topic": "rodman-rebounding-titles",
+   "pairId": "P32"
+  },
+  {
+   "id": "145",
+   "q": "Which fiery, famously hot-tempered coach won three national championships at Indiana University?",
+   "a": "Bob Knight",
+   "d": 4,
+   "category": "College",
+   "topic": "knight-indiana-titles"
+  },
+  {
+   "id": "146",
+   "q": "Which San Antonio Spurs big man was nicknamed \"The Big Fundamental\"?",
+   "a": "Tim Duncan",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-big-fundamental"
+  },
+  {
+   "id": "147",
+   "q": "Which original 1946 charter franchise, still playing under the same name, has never relocated or changed cities?",
+   "a": "Boston Celtics",
+   "d": 4,
+   "category": "Teams",
+   "topic": "celtics-never-relocated"
+  },
+  {
+   "id": "148",
+   "q": "Which relentless, unpredictable rebounder and defender was nicknamed \"The Worm\"?",
+   "a": "Dennis Rodman",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-the-worm",
+   "pairId": "P32"
+  },
+  {
+   "id": "149",
+   "q": "Which do-it-all forward, known for ferocious dunking and rebounding, was nicknamed \"The Manimal\"?",
+   "a": "Kenneth Faried",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-the-manimal"
+  },
+  {
+   "id": "150",
+   "q": "Which team did the Detroit \"Bad Boys\" Pistons defeat to win their first championship, in 1989?",
+   "a": "Los Angeles Lakers",
+   "d": 4,
+   "category": "Teams",
+   "topic": "pistons-1989-first-title"
+  },
+  {
+   "id": "151",
+   "q": "Which 2018 16-seed became the first ever to beat a 1-seed in NCAA tournament history, upsetting Virginia?",
+   "a": "UMBC (University of Maryland, Baltimore County)",
+   "d": 4,
+   "category": "History",
+   "topic": "umbc-2018-upset"
+  },
+  {
+   "id": "152",
+   "q": "The NBA's three-point line sits 23 feet 9 inches from the basket at the top of the arc — how far is it in the corners?",
+   "a": "22 feet",
+   "d": 4,
+   "category": "Rules",
+   "topic": "corner-three-distance"
+  },
+  {
+   "id": "153",
+   "q": "Which Boston Celtics legend, part of eight championship teams in the 1960s-70s, was nicknamed \"Hondo\"?",
+   "a": "John Havlicek",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-hondo"
+  },
+  {
+   "id": "154",
+   "q": "Along with the Celtics, which other original 1946 charter franchise, has also never relocated?",
+   "a": "New York Knicks",
+   "d": 4,
+   "category": "Teams",
+   "topic": "knicks-never-relocated"
+  },
+  {
+   "id": "155",
+   "q": "Which country's national team handed the U.S. men's basketball team a shocking loss in group play at the 2004 Athens Olympics?",
+   "a": "Puerto Rico",
+   "d": 4,
+   "category": "History",
+   "topic": "usa-2004-puerto-rico"
+  },
+  {
+   "id": "156",
+   "q": "The NBA championship trophy is named after Larry O'Brien. What position did he hold?",
+   "a": "NBA Commissioner (1975-1984); earlier U.S. Postmaster General",
+   "d": 2,
+   "category": "History",
+   "topic": "trophy-obrien-person",
+   "pairId": "P01"
+  },
+  {
+   "id": "157",
+   "q": "Which NBA regular-season award is presented with the Michael Jordan Trophy?",
+   "a": "Most Valuable Player (MVP)",
+   "d": 2,
+   "category": "History",
+   "topic": "trophy-mvp-jordan",
+   "pairId": "P02"
+  },
+  {
+   "id": "158",
+   "q": "How many regular-season MVP awards did Michael Jordan win?",
+   "a": "Five",
+   "d": 2,
+   "category": "Players",
+   "topic": "jordan-mvp-count",
+   "pairId": "P02"
+  },
+  {
+   "id": "159",
+   "q": "The NBA Finals MVP award trophy is named after who?",
+   "a": "Bill Russell",
+   "d": 3,
+   "category": "History",
+   "topic": "trophy-finals-mvp-russell",
+   "pairId": "P03"
+  },
+  {
+   "id": "160",
+   "q": "Which NBA award is presented with the Hakeem Olajuwon Trophy?",
+   "a": "Defensive Player of the Year",
+   "d": 3,
+   "category": "History",
+   "topic": "trophy-dpoy-olajuwon",
+   "pairId": "P04"
+  },
+  {
+   "id": "161",
+   "q": "How many times did Hakeem Olajuwon win Defensive Player of the Year?",
+   "a": "Twice (1993 and 1994)",
+   "d": 3,
+   "category": "Players",
+   "topic": "olajuwon-dpoy-count",
+   "pairId": "P04"
+  },
+  {
+   "id": "162",
+   "q": "The NBA Rookie of the Year trophy is named after which player?",
+   "a": "Wilt Chamberlain",
+   "d": 3,
+   "category": "History",
+   "topic": "trophy-roy-wilt",
+   "pairId": "P05"
+  },
+  {
+   "id": "163",
+   "q": "Wilt Chamberlain won Rookie of the Year and MVP in the same season. Which season was it?",
+   "a": "1959-60",
+   "d": 3,
+   "category": "Players",
+   "topic": "wilt-roy-mvp-same-year",
+   "pairId": "P05"
+  },
+  {
+   "id": "164",
+   "q": "The NBA Sixth Man of the Year trophy is named after which player?",
+   "a": "John Havlicek",
+   "d": 3,
+   "category": "History",
+   "topic": "trophy-sixth-man-havlicek"
+  },
+  {
+   "id": "165",
+   "q": "The NBA Most Improved Player trophy is named after which pioneering big man?",
+   "a": "George Mikan",
+   "d": 4,
+   "category": "History",
+   "topic": "trophy-mip-mikan"
+  },
+  {
+   "id": "166",
+   "q": "The NBA Coach of the Year trophy is named after which legendary Celtics coach?",
+   "a": "Red Auerbach",
+   "d": 2,
+   "category": "History",
+   "topic": "trophy-coy-auerbach"
+  },
+  {
+   "id": "167",
+   "q": "The NBA Clutch Player of the Year award, introduced in 2023, is presented with a trophy named after which player?",
+   "a": "Jerry West",
+   "d": 4,
+   "category": "History",
+   "topic": "trophy-clutch-west"
+  },
+  {
+   "id": "168",
+   "q": "The NBA All-Star Game MVP award is named after which player?",
+   "a": "Kobe Bryant",
+   "d": 2,
+   "category": "History",
+   "topic": "trophy-allstar-mvp-kobe",
+   "pairId": "P08"
+  },
+  {
+   "id": "169",
+   "q": "Kobe Bryant won All-Star Game MVP a record-tying how many times?",
+   "a": "Four",
+   "d": 3,
+   "category": "Players",
+   "topic": "kobe-allstar-mvp-count",
+   "pairId": "P08"
+  },
+  {
+   "id": "170",
+   "q": "The NBA's Eastern Conference championship trophy is named after who?",
+   "a": "Bob Cousy",
+   "d": 4,
+   "category": "History",
+   "topic": "trophy-conference-east-cousy"
+  },
+  {
+   "id": "171",
+   "q": "The NBA's Western Conference championship trophy is named after who?",
+   "a": "Oscar Robertson",
+   "d": 4,
+   "category": "History",
+   "topic": "trophy-conference-west-robertson"
+  },
+  {
+   "id": "172",
+   "q": "The Naismith Memorial Basketball Hall of Fame is located in which city?",
+   "a": "Springfield, Massachusetts",
+   "d": 4,
+   "category": "History",
+   "topic": "trophy-hof-naismith"
+  },
+  {
+   "id": "173",
+   "q": "Which Hall of Fame forward was nicknamed \"The Big Ticket\"?",
+   "a": "Kevin Garnett",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-big-ticket"
+  },
+  {
+   "id": "174",
+   "q": "Which prolific scoring guard is known as \"The Beard\"?",
+   "a": "James Harden",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-beard"
+  },
+  {
+   "id": "175",
+   "q": "Which sharpshooting guard is nicknamed \"The Chef\"?",
+   "a": "Stephen Curry",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-chef"
+  },
+  {
+   "id": "176",
+   "q": "Which big man is nicknamed \"The Brow\"?",
+   "a": "Anthony Davis",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-brow"
+  },
+  {
+   "id": "177",
+   "q": "Which Serbian center is nicknamed \"The Joker\"?",
+   "a": "Nikola Jokić",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-joker"
+  },
+  {
+   "id": "178",
+   "q": "Which lanky scoring forward is nicknamed \"The Slim Reaper\"?",
+   "a": "Kevin Durant",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-slim-reaper"
+  },
+  {
+   "id": "179",
+   "q": "Which player was known as \"His Airness\"?",
+   "a": "Michael Jordan",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-his-airness"
+  },
+  {
+   "id": "180",
+   "q": "Which dominant center was nicknamed \"The Big Dipper\"?",
+   "a": "Wilt Chamberlain",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-wilt-the-stilt"
+  },
+  {
+   "id": "181",
+   "q": "Which high-flying forward was nicknamed \"The Reign Man\"?",
+   "a": "Shawn Kemp",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-reign-man"
+  },
+  {
+   "id": "182",
+   "q": "Which point guard was nicknamed \"Zeke\"?",
+   "a": "Isiah Thomas",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-zeke"
+  },
+  {
+   "id": "183",
+   "q": "Which Pistons sixth man was nicknamed \"The Microwave\" for heating up fast off the bench?",
+   "a": "Vinnie Johnson",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-the-microwave"
+  },
+  {
+   "id": "184",
+   "q": "Which 5-foot-3 point guard, the shortest player in NBA history, went by \"Muggsy\"?",
+   "a": "Tyrone Bogues",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-muggsy"
+  },
+  {
+   "id": "185",
+   "q": "Which 5-foot-7 guard, known as \"Spud,\" won the 1986 Slam Dunk Contest?",
+   "a": "Anthony Webb",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-spud"
+  },
+  {
+   "id": "186",
+   "q": "Which Charlotte Hornets forward was nicknamed \"Grandmama\" in a famous shoe ad campaign?",
+   "a": "Larry Johnson",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-grandmama"
+  },
+  {
+   "id": "187",
+   "q": "Which Orlando Magic guard went by the nickname \"Penny\"?",
+   "a": "Anfernee Hardaway",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-penny"
+  },
+  {
+   "id": "188",
+   "q": "Which versatile Phoenix Suns forward was nicknamed \"The Matrix\"?",
+   "a": "Shawn Marion",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-the-matrix"
+  },
+  {
+   "id": "189",
+   "q": "Which high-scoring center goes by the nickname \"Boogie\"?",
+   "a": "DeMarcus Cousins",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-boogie"
+  },
+  {
+   "id": "190",
+   "q": "Which French rim-protecting center is nicknamed \"The Stifle Tower\"?",
+   "a": "Rudy Gobert",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-stifle-tower"
+  },
+  {
+   "id": "191",
+   "q": "Which guard was known as \"Mr. Clutch\"?",
+   "a": "Jerry West",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-mr-clutch"
+  },
+  {
+   "id": "192",
+   "q": "Which player was called \"The Hick from French Lick\"?",
+   "a": "Larry Bird",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-hick-french-lick"
+  },
+  {
+   "id": "193",
+   "q": "Which long-serving Celtics center was nicknamed \"The Chief\"?",
+   "a": "Robert Parish",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-the-chief"
+  },
+  {
+   "id": "194",
+   "q": "Which fierce Miami Heat center went by the nickname \"Zo\"?",
+   "a": "Alonzo Mourning",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-zo"
+  },
+  {
+   "id": "195",
+   "q": "Which Utah Jazz guard was nicknamed \"Dr. Dunkenstein\"?",
+   "a": "Darrell Griffith",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-dr-dunkenstein"
+  },
+  {
+   "id": "196",
+   "q": "Which high-scoring swingman was known as \"T-Mac\"?",
+   "a": "Tracy McGrady",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-t-mac"
+  },
+  {
+   "id": "197",
+   "q": "Which undrafted Pistons center was nicknamed \"Big Ben\"?",
+   "a": "Ben Wallace",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-big-ben"
+  },
+  {
+   "id": "198",
+   "q": "Which Pistons point guard earned the nickname \"Mr. Big Shot\"?",
+   "a": "Chauncey Billups",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-mr-big-shot"
+  },
+  {
+   "id": "199",
+   "q": "Which Rockets guard turned broadcaster is nicknamed \"The Jet\"?",
+   "a": "Kenny Smith",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-the-jet"
+  },
+  {
+   "id": "200",
+   "q": "Which relentless rebounder was called \"The Chairman of the Boards\"?",
+   "a": "Moses Malone",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-chairman-boards"
+  },
+  {
+   "id": "201",
+   "q": "Which Vancouver Grizzlies center was nicknamed \"Big Country\"?",
+   "a": "Bryant Reeves",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-big-country"
+  },
+  {
+   "id": "202",
+   "q": "Which two-time Finals MVP is nicknamed \"The Klaw\" for his enormous hands?",
+   "a": "Kawhi Leonard",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-klaw"
+  },
+  {
+   "id": "203",
+   "q": "Which Utah and Cleveland guard goes by \"Spida\"?",
+   "a": "Donovan Mitchell",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-spida"
+  },
+  {
+   "id": "204",
+   "q": "Which skilled 7-foot-3 Latvian big man was dubbed \"The Unicorn\"?",
+   "a": "Kristaps Porziņģis",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-the-unicorn"
+  },
+  {
+   "id": "205",
+   "q": "Which sharpshooting Phoenix Suns guard was nicknamed \"Thunder Dan\"?",
+   "a": "Dan Majerle",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-thunder-dan"
+  },
+  {
+   "id": "206",
+   "q": "Which Indiana Pacers sharpshooter was nicknamed \"The Rifleman\"?",
+   "a": "Chuck Person",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-the-rifleman"
+  },
+  {
+   "id": "207",
+   "q": "Which technical-foul-prone Pistons big man went by \"Sheed\"?",
+   "a": "Rasheed Wallace",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-sheed"
+  },
+  {
+   "id": "208",
+   "q": "Which flashy Knicks and Bullets guard was nicknamed \"The Pearl\"?",
+   "a": "Earl Monroe",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-the-pearl"
+  },
+  {
+   "id": "209",
+   "q": "Which Knicks point guard, famous for his flamboyant suits, is nicknamed \"Clyde\"?",
+   "a": "Walt Frazier",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-clyde-frazier"
+  },
+  {
+   "id": "210",
+   "q": "Which Hall of Fame point guard was nicknamed \"Tiny\"?",
+   "a": "Nate Archibald",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-tiny"
+  },
+  {
+   "id": "211",
+   "q": "Which fan-favorite Celtics benchwarmer was affectionately dubbed \"The White Mamba\"?",
+   "a": "Brian Scalabrine",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-white-mamba"
+  },
+  {
+   "id": "212",
+   "q": "Which Celtics big man was nicknamed \"Big Baby\"?",
+   "a": "Glen Davis",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-big-baby"
+  },
+  {
+   "id": "213",
+   "q": "Which player's signature post move was known as \"The Dream Shake\"?",
+   "a": "Hakeem Olajuwon",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "move-dream-shake"
+  },
+  {
+   "id": "214",
+   "q": "Which arena, famous for its worn parquet floor, was the Celtics' home before TD Garden?",
+   "a": "Boston Garden",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-boston-garden"
+  },
+  {
+   "id": "215",
+   "q": "The Lakers played home games at The Forum from 1967 until which year?",
+   "a": "1999",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-forum-lakers-years"
+  },
+  {
+   "id": "216",
+   "q": "The downtown Los Angeles arena that opened in 1999 as Staples Center is now called what?",
+   "a": "Crypto.com Arena",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-crypto-staples",
+   "pairId": "P11"
+  },
+  {
+   "id": "217",
+   "q": "Which two NBA teams share the arena formerly known as Staples Center?",
+   "a": "The Lakers and the Clippers",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-crypto-two-teams",
+   "pairId": "P11"
+  },
+  {
+   "id": "218",
+   "q": "What nickname was given to Chicago Stadium, the Bulls' home during their first three championships?",
+   "a": "The Madhouse on Madison",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-chicago-stadium"
+  },
+  {
+   "id": "219",
+   "q": "Which suburban Michigan arena served as the Detroit Pistons' home for 29 years?",
+   "a": "The Palace of Auburn Hills",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-palace-auburn-hills"
+  },
+  {
+   "id": "220",
+   "q": "Which Seattle arena was home to the SuperSonics before the franchise relocated?",
+   "a": "KeyArena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-keyarena-sonics"
+  },
+  {
+   "id": "221",
+   "q": "Which Toronto arena, originally called Air Canada Centre, is home to the Raptors?",
+   "a": "Scotiabank Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-scotiabank-raptors"
+  },
+  {
+   "id": "222",
+   "q": "Which Philadelphia arena was home to the 76ers from 1967 to 1996?",
+   "a": "The Spectrum",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-the-spectrum"
+  },
+  {
+   "id": "223",
+   "q": "Which legendary outdoor Harlem court is the most famous venue in streetball history?",
+   "a": "Rucker Park",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "court-rucker-park"
+  },
+  {
+   "id": "224",
+   "q": "The 1968 \"Game of the Century\" between Houston and UCLA was played in which massive venue?",
+   "a": "The Astrodome",
+   "d": 4,
+   "category": "Arenas",
+   "topic": "arena-astrodome-game-century"
+  },
+  {
+   "id": "225",
+   "q": "Which Atlanta arena, demolished in 1997, was home to the Hawks for two decades?",
+   "a": "The Omni",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-omni-hawks"
+  },
+  {
+   "id": "226",
+   "q": "Which Indianapolis arena was home to the Pacers before Conseco/Gainbridge Fieldhouse?",
+   "a": "Market Square Arena",
+   "d": 4,
+   "category": "Arenas",
+   "topic": "arena-market-square-pacers"
+  },
+  {
+   "id": "227",
+   "q": "Which Dallas arena was home to the Mavericks from their 1980 founding until 2001?",
+   "a": "Reunion Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-reunion-mavericks"
+  },
+  {
+   "id": "228",
+   "q": "Which Houston arena hosted the Rockets during their back-to-back championships in 1994 and 1995?",
+   "a": "The Summit",
+   "d": 4,
+   "category": "Arenas",
+   "topic": "arena-the-summit-rockets"
+  },
+  {
+   "id": "229",
+   "q": "Cameron Indoor Stadium is the home court of which university?",
+   "a": "Duke",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-cameron-indoor",
+   "pairId": "P13"
+  },
+  {
+   "id": "230",
+   "q": "Duke's famously rowdy student section is known by what name?",
+   "a": "The Cameron Crazies",
+   "d": 2,
+   "category": "College",
+   "topic": "duke-cameron-crazies",
+   "pairId": "P13"
+  },
+  {
+   "id": "231",
+   "q": "Allen Fieldhouse is the home court of which university?",
+   "a": "Kansas",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-allen-fieldhouse",
+   "pairId": "P14"
+  },
+  {
+   "id": "232",
+   "q": "Allen Fieldhouse honors Phog Allen, who played and coached under which famous figure at Kansas?",
+   "a": "James Naismith",
+   "d": 4,
+   "category": "College",
+   "topic": "phog-allen-naismith",
+   "pairId": "P14"
+  },
+  {
+   "id": "233",
+   "q": "Rupp Arena is the home court of which college basketball program?",
+   "a": "Kentucky",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-rupp",
+   "pairId": "P15"
+  },
+  {
+   "id": "234",
+   "q": "Rupp Arena is named for Adolph Rupp. What was his role at Kentucky?",
+   "a": "Longtime head basketball coach",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "adolph-rupp-role",
+   "pairId": "P15"
+  },
+  {
+   "id": "235",
+   "q": "Pauley Pavilion is the home court of which university?",
+   "a": "UCLA",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-pauley-pavilion"
+  },
+  {
+   "id": "236",
+   "q": "Which Philadelphia arena is nicknamed \"The Cathedral of College Basketball\"?",
+   "a": "The Palestra",
+   "d": 4,
+   "category": "Arenas",
+   "topic": "arena-palestra"
+  },
+  {
+   "id": "237",
+   "q": "Butler's Hinkle Fieldhouse served as the climactic setting for which 1986 basketball film?",
+   "a": "Hoosiers",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-hinkle-hoosiers"
+  },
+  {
+   "id": "238",
+   "q": "Assembly Hall is the longtime home court of which Big Ten basketball program?",
+   "a": "Indiana",
+   "d": 4,
+   "category": "Arenas",
+   "topic": "arena-assembly-hall-indiana"
+  },
+  {
+   "id": "239",
+   "q": "Which coach led the Celtics to nine NBA championships, including eight consecutively?",
+   "a": "Red Auerbach",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-auerbach-titles"
+  },
+  {
+   "id": "240",
+   "q": "Which coach led the \"Showtime\" Lakers to four championships in the 1980s?",
+   "a": "Pat Riley",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-riley-showtime",
+   "pairId": "P16"
+  },
+  {
+   "id": "241",
+   "q": "Pat Riley later won a title as head coach of which franchise, in 2006?",
+   "a": "Miami Heat",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-riley-heat",
+   "pairId": "P16"
+  },
+  {
+   "id": "242",
+   "q": "Which coach has led the Miami Heat since 2008, winning championships in 2012 and 2013?",
+   "a": "Erik Spoelstra",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-spoelstra-heat"
+  },
+  {
+   "id": "243",
+   "q": "Which former Bulls sharpshooter coached Golden State to four championships?",
+   "a": "Steve Kerr",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-kerr-warriors"
+  },
+  {
+   "id": "244",
+   "q": "Which coach guided the Boston Celtics to the 2008 NBA championship?",
+   "a": "Doc Rivers",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-doc-rivers-2008"
+  },
+  {
+   "id": "245",
+   "q": "Which coach led the Detroit \"Bad Boys\" Pistons to back-to-back championships?",
+   "a": "Chuck Daly",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-chuck-daly",
+   "pairId": "P17"
+  },
+  {
+   "id": "246",
+   "q": "Chuck Daly also served as head coach of which famous 1992 Olympic team?",
+   "a": "The Dream Team",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-daly-dream-team",
+   "pairId": "P17"
+  },
+  {
+   "id": "247",
+   "q": "Which coach is the only person to win both an NCAA championship and an NBA championship as a head coach?",
+   "a": "Larry Brown",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-larry-brown-both"
+  },
+  {
+   "id": "248",
+   "q": "Which coach spent 23 seasons leading the Utah Jazz?",
+   "a": "Jerry Sloan",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-jerry-sloan-jazz"
+  },
+  {
+   "id": "249",
+   "q": "Which coach was the first to reach 1,000 career NBA wins?",
+   "a": "Lenny Wilkens",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-lenny-wilkens-1000"
+  },
+  {
+   "id": "250",
+   "q": "Which coach popularized the \"Seven Seconds or Less\" offense with the Phoenix Suns?",
+   "a": "Mike D'Antoni",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-dantoni-seven-seconds"
+  },
+  {
+   "id": "251",
+   "q": "Which coach led the New York Knicks to their 1970 and 1973 championships?",
+   "a": "Red Holzman",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-red-holzman-knicks"
+  },
+  {
+   "id": "252",
+   "q": "Which North Carolina coach mentored Michael Jordan in college?",
+   "a": "Dean Smith",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-dean-smith-unc"
+  },
+  {
+   "id": "253",
+   "q": "Which Georgetown coach became the first Black head coach to win an NCAA championship?",
+   "a": "John Thompson",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-john-thompson-1984"
+  },
+  {
+   "id": "254",
+   "q": "Which NC State coach famously ran across the court looking for someone to hug after the 1983 title?",
+   "a": "Jim Valvano",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-valvano-1983"
+  },
+  {
+   "id": "255",
+   "q": "Which Arkansas coach's relentless full-court pressing style was called \"40 Minutes of Hell\"?",
+   "a": "Nolan Richardson",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-nolan-richardson"
+  },
+  {
+   "id": "256",
+   "q": "Which Syracuse coach was famous for running a 2-3 zone defense for decades?",
+   "a": "Jim Boeheim",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-boeheim-zone"
+  },
+  {
+   "id": "257",
+   "q": "Which coach won three NCAA championships at North Carolina?",
+   "a": "Roy Williams",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-roy-williams-unc"
+  },
+  {
+   "id": "258",
+   "q": "Which Tennessee coach won eight NCAA women's basketball championships?",
+   "a": "Pat Summitt",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-pat-summitt"
+  },
+  {
+   "id": "259",
+   "q": "Which coach holds the record for most career wins in NCAA Division I basketball history?",
+   "a": "Tara VanDerveer",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-vanderveer-wins"
+  },
+  {
+   "id": "260",
+   "q": "Which South Carolina coach won Olympic gold as both a player and a head coach?",
+   "a": "Dawn Staley",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-dawn-staley"
+  },
+  {
+   "id": "261",
+   "q": "Which coach led Villanova to NCAA championships in 2016 and 2018?",
+   "a": "Jay Wright",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-jay-wright-villanova"
+  },
+  {
+   "id": "262",
+   "q": "Which coach led UConn to back-to-back NCAA titles in 2023 and 2024?",
+   "a": "Dan Hurley",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-dan-hurley-uconn"
+  },
+  {
+   "id": "263",
+   "q": "Which coach won the 2012 NCAA title at Kentucky and became known for recruiting one-and-done stars?",
+   "a": "John Calipari",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-calipari-kentucky"
+  },
+  {
+   "id": "264",
+   "q": "Which coach guided the Toronto Raptors to their 2019 championship?",
+   "a": "Nick Nurse",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-nick-nurse-raptors"
+  },
+  {
+   "id": "265",
+   "q": "Which coach led the Dallas Mavericks to the 2011 NBA championship?",
+   "a": "Rick Carlisle",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-carlisle-2011"
+  },
+  {
+   "id": "266",
+   "q": "Which coach led the Cleveland Cavaliers to the 2016 NBA championship?",
+   "a": "Tyronn Lue",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-lue-2016"
+  },
+  {
+   "id": "267",
+   "q": "Which coach led the Denver Nuggets to the 2023 NBA championship?",
+   "a": "Michael Malone",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-malone-2023"
+  },
+  {
+   "id": "268",
+   "q": "Which coach led the Milwaukee Bucks to the 2021 NBA championship?",
+   "a": "Mike Budenholzer",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-budenholzer-2021"
+  },
+  {
+   "id": "269",
+   "q": "Which fiery college coach was nicknamed \"The General\"?",
+   "a": "Bob Knight",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-knight-the-general"
+  },
+  {
+   "id": "270",
+   "q": "Which team won the first NCAA men's basketball tournament, in 1939?",
+   "a": "Oregon",
+   "d": 3,
+   "category": "College",
+   "topic": "ncaa-first-champion-1939"
+  },
+  {
+   "id": "271",
+   "q": "How many teams make up the current NCAA men's basketball tournament field?",
+   "a": "68",
+   "d": 2,
+   "category": "College",
+   "topic": "ncaa-field-size"
+  },
+  {
+   "id": "272",
+   "q": "What is the name for the final round of four teams remaining in the NCAA tournament?",
+   "a": "The Final Four",
+   "d": 2,
+   "category": "College",
+   "topic": "ncaa-final-four-term"
+  },
+  {
+   "id": "273",
+   "q": "Which team completed an undefeated season to win the 1976 NCAA title, the last men's team to go unbeaten?",
+   "a": "Indiana",
+   "d": 3,
+   "category": "College",
+   "topic": "ncaa-indiana-undefeated-1976"
+  },
+  {
+   "id": "274",
+   "q": "Which UCLA center led the Bruins to three consecutive NCAA championships from 1967 to 1969?",
+   "a": "Lew Alcindor (later Kareem Abdul-Jabbar)",
+   "d": 3,
+   "category": "College",
+   "topic": "ucla-alcindor-three-titles"
+  },
+  {
+   "id": "275",
+   "q": "Which UCLA center led the Bruins to NCAA titles in 1972 and 1973?",
+   "a": "Bill Walton",
+   "d": 3,
+   "category": "College",
+   "topic": "ucla-walton-titles"
+  },
+  {
+   "id": "276",
+   "q": "Which team won the 1966 NCAA title starting five Black players against an all-white Kentucky squad?",
+   "a": "Texas Western (now UTEP)",
+   "d": 3,
+   "category": "College",
+   "topic": "texas-western-1966",
+   "pairId": "P18"
+  },
+  {
+   "id": "277",
+   "q": "The 1966 Texas Western championship team is the subject of which 2006 film?",
+   "a": "Glory Road",
+   "d": 3,
+   "category": "College",
+   "topic": "glory-road-film",
+   "pairId": "P18"
+  },
+  {
+   "id": "278",
+   "q": "Which team upset Houston's \"Phi Slama Jama\" to win the 1983 NCAA championship?",
+   "a": "NC State",
+   "d": 3,
+   "category": "College",
+   "topic": "nc-state-1983-upset",
+   "pairId": "P19"
+  },
+  {
+   "id": "279",
+   "q": "Who caught an airball and dunked the buzzer-beating game-winner in the 1983 NCAA title game?",
+   "a": "Lorenzo Charles",
+   "d": 4,
+   "category": "College",
+   "topic": "lorenzo-charles-dunk",
+   "pairId": "P19"
+  },
+  {
+   "id": "280",
+   "q": "Which Duke star is the all-time leading scorer in NCAA men's tournament history?",
+   "a": "Christian Laettner",
+   "d": 3,
+   "category": "College",
+   "topic": "laettner-tourney-scoring"
+  },
+  {
+   "id": "281",
+   "q": "Which team won back-to-back NCAA championships in 1991 and 1992 under Mike Krzyzewski?",
+   "a": "Duke",
+   "d": 2,
+   "category": "College",
+   "topic": "duke-back-to-back-91-92"
+  },
+  {
+   "id": "282",
+   "q": "Duke and North Carolina, located minutes apart, compete in which conference?",
+   "a": "The ACC (Atlantic Coast Conference)",
+   "d": 2,
+   "category": "College",
+   "topic": "acc-tobacco-road"
+  },
+  {
+   "id": "283",
+   "q": "How many seconds are on the shot clock in NCAA men's basketball?",
+   "a": "30 seconds",
+   "d": 2,
+   "category": "College",
+   "topic": "ncaa-shot-clock-30"
+  },
+  {
+   "id": "284",
+   "q": "Which annual award for the top college basketball player is named after a legendary UCLA coach?",
+   "a": "The John R. Wooden Award",
+   "d": 3,
+   "category": "College",
+   "topic": "wooden-award"
+  },
+  {
+   "id": "285",
+   "q": "Which top college player of the year award is named after the inventor of basketball?",
+   "a": "The Naismith Trophy",
+   "d": 3,
+   "category": "College",
+   "topic": "naismith-trophy-college"
+  },
+  {
+   "id": "286",
+   "q": "Which team won the 2024 NCAA men's basketball championship?",
+   "a": "UConn",
+   "d": 2,
+   "category": "College",
+   "topic": "uconn-2024-title"
+  },
+  {
+   "id": "287",
+   "q": "Which 98-year-old team chaplain became a national celebrity during the 2018 NCAA tournament?",
+   "a": "Sister Jean",
+   "d": 2,
+   "category": "College",
+   "topic": "sister-jean-loyola",
+   "pairId": "P20"
+  },
+  {
+   "id": "288",
+   "q": "Sister Jean's beloved 11-seed reached the 2018 Final Four. Which school was it?",
+   "a": "Loyola Chicago",
+   "d": 2,
+   "category": "College",
+   "topic": "loyola-chicago-2018",
+   "pairId": "P20"
+  },
+  {
+   "id": "289",
+   "q": "Which university's basketball team is nicknamed the Tar Heels?",
+   "a": "North Carolina",
+   "d": 1,
+   "category": "College",
+   "topic": "unc-tar-heels"
+  },
+  {
+   "id": "290",
+   "q": "Which university's basketball team is nicknamed the Blue Devils?",
+   "a": "Duke",
+   "d": 1,
+   "category": "College",
+   "topic": "duke-blue-devils"
+  },
+  {
+   "id": "291",
+   "q": "Which university's basketball team is nicknamed the Jayhawks?",
+   "a": "Kansas",
+   "d": 2,
+   "category": "College",
+   "topic": "kansas-jayhawks"
+  },
+  {
+   "id": "292",
+   "q": "In what year did the NCAA men's tournament expand to a 64-team field?",
+   "a": "1985",
+   "d": 3,
+   "category": "College",
+   "topic": "ncaa-expanded-64-1985"
+  },
+  {
+   "id": "293",
+   "q": "What is the term for the tournament spot a team earns by winning its conference tournament?",
+   "a": "An automatic bid",
+   "d": 2,
+   "category": "College",
+   "topic": "ncaa-automatic-bid"
+  },
+  {
+   "id": "294",
+   "q": "What is the name of the day the NCAA tournament bracket is revealed?",
+   "a": "Selection Sunday",
+   "d": 3,
+   "category": "College",
+   "topic": "ncaa-selection-sunday"
+  },
+  {
+   "id": "295",
+   "q": "What is the round of eight remaining teams in the NCAA tournament called?",
+   "a": "The Elite Eight",
+   "d": 3,
+   "category": "College",
+   "topic": "ncaa-elite-eight"
+  },
+  {
+   "id": "296",
+   "q": "What is the round of 16 remaining teams in the NCAA tournament called?",
+   "a": "The Sweet Sixteen",
+   "d": 3,
+   "category": "College",
+   "topic": "ncaa-sweet-sixteen"
+  },
+  {
+   "id": "297",
+   "q": "Which 16-seed became the second ever to beat a 1-seed, upsetting Purdue in 2023?",
+   "a": "Fairleigh Dickinson",
+   "d": 4,
+   "category": "College",
+   "topic": "fairleigh-dickinson-2023"
+  },
+  {
+   "id": "298",
+   "q": "Which women's 16-seed upset top-seeded Stanford in 1998, the first 16-over-1 in NCAA tournament history?",
+   "a": "Harvard",
+   "d": 4,
+   "category": "College",
+   "topic": "harvard-women-1998"
+  },
+  {
+   "id": "299",
+   "q": "Which team became the first franchise based outside the United States to win an NBA championship?",
+   "a": "Toronto Raptors",
+   "d": 2,
+   "category": "History",
+   "topic": "raptors-2019-first-non-us",
+   "pairId": "P21"
+  },
+  {
+   "id": "300",
+   "q": "In what year did the Toronto Raptors win their first NBA championship?",
+   "a": "2019",
+   "d": 2,
+   "category": "History",
+   "topic": "raptors-2019-year",
+   "pairId": "P21"
+  },
+  {
+   "id": "301",
+   "q": "Which NBA franchise relocated from Vancouver to Memphis in 2001?",
+   "a": "The Grizzlies",
+   "d": 3,
+   "category": "Teams",
+   "topic": "grizzlies-vancouver-move"
+  },
+  {
+   "id": "302",
+   "q": "Which Chicago Bulls guard was named NBA Rookie of the Year in 1985?",
+   "a": "Michael Jordan",
+   "d": 3,
+   "category": "Players",
+   "topic": "jordan-roy-1985"
+  },
+  {
+   "id": "303",
+   "q": "Who is the NBA's all-time leader in career steals?",
+   "a": "John Stockton",
+   "d": 2,
+   "category": "Players",
+   "topic": "steals-leader-stockton"
+  },
+  {
+   "id": "304",
+   "q": "Who holds the NBA record for most career three-pointers made?",
+   "a": "Stephen Curry",
+   "d": 2,
+   "category": "Players",
+   "topic": "threes-leader-curry"
+  },
+  {
+   "id": "305",
+   "q": "Which player has won the most NBA MVP awards, with six?",
+   "a": "Kareem Abdul-Jabbar",
+   "d": 3,
+   "category": "Players",
+   "topic": "most-mvps-kareem"
+  },
+  {
+   "id": "306",
+   "q": "Which player has won the most NBA scoring titles, with 10?",
+   "a": "Michael Jordan",
+   "d": 3,
+   "category": "Players",
+   "topic": "most-scoring-titles-jordan"
+  },
+  {
+   "id": "307",
+   "q": "The NBA adopted the three-point line from which rival league?",
+   "a": "The ABA (American Basketball Association)",
+   "d": 3,
+   "category": "History",
+   "topic": "aba-three-point-origin",
+   "pairId": "P22"
+  },
+  {
+   "id": "308",
+   "q": "What three colors was the ABA's distinctive basketball?",
+   "a": "Red, white, and blue",
+   "d": 2,
+   "category": "History",
+   "topic": "aba-ball-colors",
+   "pairId": "P22"
+  },
+  {
+   "id": "309",
+   "q": "Which popular All-Star Weekend event did the ABA invent before the NBA adopted it?",
+   "a": "The Slam Dunk Contest",
+   "d": 3,
+   "category": "History",
+   "topic": "aba-dunk-contest-origin"
+  },
+  {
+   "id": "310",
+   "q": "Who was named MVP of the first NBA All-Star Game, in 1951?",
+   "a": "Ed Macauley",
+   "d": 4,
+   "category": "History",
+   "topic": "first-allstar-mvp-macauley"
+  },
+  {
+   "id": "311",
+   "q": "Which city hosted the first NBA All-Star Game, in 1951?",
+   "a": "Boston",
+   "d": 3,
+   "category": "History",
+   "topic": "first-allstar-game-boston"
+  },
+  {
+   "id": "312",
+   "q": "In what year did the NBA introduce the Draft Lottery?",
+   "a": "1985",
+   "d": 3,
+   "category": "History",
+   "topic": "draft-lottery-1985"
+  },
+  {
+   "id": "313",
+   "q": "The Harlem Globetrotters were actually founded in which city?",
+   "a": "Chicago",
+   "d": 3,
+   "category": "History",
+   "topic": "globetrotters-founded-chicago",
+   "pairId": "P23"
+  },
+  {
+   "id": "314",
+   "q": "Who founded the Harlem Globetrotters?",
+   "a": "Abe Saperstein",
+   "d": 4,
+   "category": "History",
+   "topic": "globetrotters-saperstein",
+   "pairId": "P23"
+  },
+  {
+   "id": "315",
+   "q": "Which team served for decades as the Harlem Globetrotters' regular opponent?",
+   "a": "The Washington Generals",
+   "d": 2,
+   "category": "History",
+   "topic": "globetrotters-generals"
+  },
+  {
+   "id": "316",
+   "q": "What song is the Harlem Globetrotters' longtime theme?",
+   "a": "\"Sweet Georgia Brown\"",
+   "d": 2,
+   "category": "History",
+   "topic": "globetrotters-theme-song"
+  },
+  {
+   "id": "317",
+   "q": "In what year did basketball debut as an official Olympic medal sport?",
+   "a": "1936",
+   "d": 3,
+   "category": "History",
+   "topic": "olympics-basketball-1936",
+   "pairId": "P24"
+  },
+  {
+   "id": "318",
+   "q": "Who presented the medals at the 1936 Olympic basketball tournament?",
+   "a": "James Naismith",
+   "d": 4,
+   "category": "History",
+   "topic": "naismith-1936-medals",
+   "pairId": "P24"
+  },
+  {
+   "id": "319",
+   "q": "Which country ended the U.S. men's 63-game Olympic winning streak in a disputed 1972 final?",
+   "a": "The Soviet Union",
+   "d": 3,
+   "category": "History",
+   "topic": "olympics-1972-soviet-upset",
+   "pairId": "P25"
+  },
+  {
+   "id": "320",
+   "q": "What did the U.S. men's team famously do after the controversial 1972 Olympic final?",
+   "a": "Refused to accept their silver medals",
+   "d": 4,
+   "category": "History",
+   "topic": "olympics-1972-silver-refusal",
+   "pairId": "P25"
+  },
+  {
+   "id": "321",
+   "q": "What organization governs international basketball competition worldwide?",
+   "a": "FIBA (International Basketball Federation)",
+   "d": 2,
+   "category": "History",
+   "topic": "fiba-meaning"
+  },
+  {
+   "id": "322",
+   "q": "How many personal fouls disqualify a player in FIBA international play?",
+   "a": "Five",
+   "d": 3,
+   "category": "Rules",
+   "topic": "fiba-five-fouls"
+  },
+  {
+   "id": "323",
+   "q": "Which team won the first WNBA championship, in 1997?",
+   "a": "Houston Comets",
+   "d": 3,
+   "category": "History",
+   "topic": "wnba-first-champion"
+  },
+  {
+   "id": "324",
+   "q": "Which player has won the most WNBA championships?",
+   "a": "Sue Bird / Rebekkah Brunson (four each)",
+   "d": 3,
+   "category": "Players",
+   "topic": "wnba-most-titles-player"
+  },
+  {
+   "id": "325",
+   "q": "Who is the WNBA's all-time leading scorer?",
+   "a": "Diana Taurasi",
+   "d": 3,
+   "category": "Players",
+   "topic": "wnba-scoring-leader"
+  },
+  {
+   "id": "326",
+   "q": "What term refers to Michael Jordan's 1989 series-winning buzzer-beater over Craig Ehlo?",
+   "a": "\"The Shot\"",
+   "d": 3,
+   "category": "History",
+   "topic": "moment-the-shot-jordan"
+  },
+  {
+   "id": "327",
+   "q": "\"The Block\" refers to which player's chase-down rejection in Game 7 of the 2016 NBA Finals?",
+   "a": "LeBron James",
+   "d": 3,
+   "category": "History",
+   "topic": "moment-the-block-lebron"
+  },
+  {
+   "id": "328",
+   "q": "Michael Jordan's ill but dominant performance in the 1997 NBA Finals is commonly referred to as what?",
+   "a": "The Flu Game",
+   "d": 3,
+   "category": "History",
+   "topic": "moment-flu-game"
+  },
+  {
+   "id": "329",
+   "q": "Which player hit the famous corner three to save Miami in Game 6 of the 2013 NBA Finals?",
+   "a": "Ray Allen",
+   "d": 3,
+   "category": "History",
+   "topic": "moment-ray-allen-2013"
+  },
+  {
+   "id": "330",
+   "q": "The infamous 2004 brawl between players and fans is known as what?",
+   "a": "The Malice at the Palace",
+   "d": 4,
+   "category": "History",
+   "topic": "moment-malice-palace"
+  },
+  {
+   "id": "331",
+   "q": "Which team became the first to overcome a 3-1 deficit in the NBA Finals, in 2016?",
+   "a": "Cleveland Cavaliers",
+   "d": 3,
+   "category": "Teams",
+   "topic": "cavs-2016-3-1-comeback"
+  },
+  {
+   "id": "332",
+   "q": "The Cavaliers' historic 2016 Finals comeback came against which team?",
+   "a": "Golden State Warriors",
+   "d": 3,
+   "category": "Teams",
+   "topic": "cavs-2016-opponent"
+  },
+  {
+   "id": "333",
+   "q": "LeBron James has won NBA championships with how many different franchises?",
+   "a": "Three (Miami, Cleveland, and the Lakers)",
+   "d": 2,
+   "category": "Players",
+   "topic": "lebron-teams-titles"
+  },
+  {
+   "id": "334",
+   "q": "Whose all-time NBA scoring record did LeBron James break in 2023?",
+   "a": "Kareem Abdul-Jabbar's",
+   "d": 3,
+   "category": "Players",
+   "topic": "kareem-scoring-record-broken"
+  },
+  {
+   "id": "335",
+   "q": "Stephen Curry's unanimous MVP season coincided with his team setting what record?",
+   "a": "The record for most regular-season wins (73)",
+   "d": 3,
+   "category": "Players",
+   "topic": "curry-unanimous-73-win"
+  },
+  {
+   "id": "336",
+   "q": "Which Spurs big man was named NBA Rookie of the Year in 1998?",
+   "a": "Tim Duncan",
+   "d": 3,
+   "category": "Players",
+   "topic": "duncan-rookie-1998"
+  },
+  {
+   "id": "337",
+   "q": "How many NBA championships have the San Antonio Spurs won?",
+   "a": "Five",
+   "d": 3,
+   "category": "Teams",
+   "topic": "spurs-five-titles"
+  },
+  {
+   "id": "338",
+   "q": "Which three stars formed the Miami Heat \"Big Three\" that reached four straight Finals?",
+   "a": "LeBron James, Dwyane Wade, and Chris Bosh",
+   "d": 3,
+   "category": "Teams",
+   "topic": "heat-big-three-era"
+  },
+  {
+   "id": "339",
+   "q": "Which three stars formed the Celtics \"Big Three\" that won the 2008 title?",
+   "a": "Paul Pierce, Kevin Garnett, and Ray Allen",
+   "d": 3,
+   "category": "Teams",
+   "topic": "celtics-big-three-2008"
+  },
+  {
+   "id": "340",
+   "q": "In which two years did the New York Knicks win their first NBA championships?",
+   "a": "1970 and 1973",
+   "d": 4,
+   "category": "Teams",
+   "topic": "knicks-1970-1973-titles"
+  },
+  {
+   "id": "341",
+   "q": "Which injured Knicks captain famously limped onto the court before Game 7 of the 1970 Finals?",
+   "a": "Willis Reed",
+   "d": 3,
+   "category": "Players",
+   "topic": "willis-reed-1970-game7"
+  },
+  {
+   "id": "342",
+   "q": "Which Hall of Fame guard joined Kareem Abdul-Jabbar to win the Bucks' 1971 title?",
+   "a": "Oscar Robertson",
+   "d": 3,
+   "category": "Players",
+   "topic": "robertson-bucks-1971"
+  },
+  {
+   "id": "343",
+   "q": "Which 76ers star predicted a playoff sweep with the famous phrase \"fo', fo', fo'\"?",
+   "a": "Moses Malone",
+   "d": 4,
+   "category": "Teams",
+   "topic": "sixers-1983-fo-fo-fo"
+  },
+  {
+   "id": "344",
+   "q": "Which underdog team upset the star-studded Lakers to win the 2004 NBA championship?",
+   "a": "Detroit Pistons",
+   "d": 3,
+   "category": "Teams",
+   "topic": "pistons-2004-upset"
+  },
+  {
+   "id": "345",
+   "q": "Who was named Finals MVP of the Pistons' 2004 championship run?",
+   "a": "Chauncey Billups",
+   "d": 3,
+   "category": "Players",
+   "topic": "billups-2004-finals-mvp"
+  },
+  {
+   "id": "346",
+   "q": "Which player's signature move was a one-legged fadeaway jumper?",
+   "a": "Dirk Nowitzki",
+   "d": 3,
+   "category": "Players",
+   "topic": "dirk-signature-shot"
+  },
+  {
+   "id": "347",
+   "q": "Which player's four-bounce buzzer-beater eliminated the 76ers in the 2019 playoffs?",
+   "a": "Kawhi Leonard",
+   "d": 3,
+   "category": "Players",
+   "topic": "kawhi-2019-buzzer-beater"
+  },
+  {
+   "id": "348",
+   "q": "Kawhi Leonard won Finals MVP with which two different franchises?",
+   "a": "San Antonio Spurs and Toronto Raptors",
+   "d": 3,
+   "category": "Players",
+   "topic": "kawhi-two-teams-finals-mvp"
+  },
+  {
+   "id": "349",
+   "q": "Which sport did Michael Jordan play professionally during his first retirement from the NBA?",
+   "a": "Baseball",
+   "d": 4,
+   "category": "Players",
+   "topic": "jordan-baseball-retirement"
+  },
+  {
+   "id": "350",
+   "q": "What jersey number did Michael Jordan briefly wear upon returning from his first retirement?",
+   "a": "45",
+   "d": 3,
+   "category": "Players",
+   "topic": "jordan-45-jersey"
+  },
+  {
+   "id": "351",
+   "q": "The Lakers three-peated from 2000 to 2002 behind which two superstars?",
+   "a": "Shaquille O'Neal and Kobe Bryant",
+   "d": 3,
+   "category": "Players",
+   "topic": "shaq-lakers-three-peat"
+  },
+  {
+   "id": "352",
+   "q": "Which all-time great scorer retired with the most career points of any player never to win a title?",
+   "a": "Karl Malone",
+   "d": 3,
+   "category": "Players",
+   "topic": "malone-most-points-no-ring"
+  },
+  {
+   "id": "353",
+   "q": "Which Hall of Fame Knicks center never won an NBA championship?",
+   "a": "Patrick Ewing",
+   "d": 4,
+   "category": "Players",
+   "topic": "ewing-no-ring"
+  },
+  {
+   "id": "354",
+   "q": "Which shot-blocking center was famous for wagging his finger after rejections?",
+   "a": "Dikembe Mutombo",
+   "d": 3,
+   "category": "Players",
+   "topic": "mutombo-finger-wag"
+  },
+  {
+   "id": "355",
+   "q": "Which two players share the record for most Defensive Player of the Year awards, with four?",
+   "a": "Ben Wallace and Dikembe Mutombo",
+   "d": 3,
+   "category": "Players",
+   "topic": "most-dpoy-wallace-mutombo"
+  },
+  {
+   "id": "356",
+   "q": "Which Hall of Fame duo reached two NBA Finals with the Jazz but never won a title?",
+   "a": "John Stockton and Karl Malone",
+   "d": 3,
+   "category": "Players",
+   "topic": "stockton-malone-no-title"
+  },
+  {
+   "id": "357",
+   "q": "The Utah Jazz franchise began in which city, which explains its musical name?",
+   "a": "New Orleans",
+   "d": 3,
+   "category": "Teams",
+   "topic": "jazz-utah-new-orleans-origin"
+  },
+  {
+   "id": "358",
+   "q": "Which franchise has made the most NBA Finals appearances?",
+   "a": "Los Angeles Lakers",
+   "d": 3,
+   "category": "Teams",
+   "topic": "lakers-most-finals-appearances"
+  },
+  {
+   "id": "359",
+   "q": "Which two NBA franchises swapped the \"Hornets\" and \"Pelicans\" names in 2013?",
+   "a": "Charlotte and New Orleans",
+   "d": 3,
+   "category": "Teams",
+   "topic": "hornets-pelicans-name-swap"
+  },
+  {
+   "id": "360",
+   "q": "The Washington Wizards were previously known by what name?",
+   "a": "The Washington Bullets",
+   "d": 3,
+   "category": "Teams",
+   "topic": "wizards-bullets-rename"
+  },
+  {
+   "id": "361",
+   "q": "Which NBA franchise's history the Oklahoma City Thunder inherited when they relocated in 2008?",
+   "a": "The Seattle SuperSonics",
+   "d": 3,
+   "category": "Teams",
+   "topic": "thunder-sonics-colors"
+  },
+  {
+   "id": "362",
+   "q": "Which team selected Victor Wembanyama first overall in the 2023 NBA Draft?",
+   "a": "San Antonio Spurs",
+   "d": 3,
+   "category": "Players",
+   "topic": "wembanyama-draft-2023"
+  },
+  {
+   "id": "363",
+   "q": "Nikola Jokić was famously drafted in which round of the NBA Draft?",
+   "a": "The second round",
+   "d": 3,
+   "category": "Players",
+   "topic": "jokic-second-round-pick"
+  },
+  {
+   "id": "364",
+   "q": "Nikola Jokić's draft selection was broadcast during what, rather than on live TV?",
+   "a": "A Taco Bell commercial",
+   "d": 4,
+   "category": "Players",
+   "topic": "jokic-draft-commercial"
+  },
+  {
+   "id": "365",
+   "q": "Which team drafted Giannis Antetokounmpo in 2013?",
+   "a": "Milwaukee Bucks",
+   "d": 3,
+   "category": "Players",
+   "topic": "giannis-draft-2013"
+  },
+  {
+   "id": "366",
+   "q": "Which team drafted Stephen Curry seventh overall in 2009?",
+   "a": "Golden State Warriors",
+   "d": 3,
+   "category": "Players",
+   "topic": "curry-draft-2009"
+  },
+  {
+   "id": "367",
+   "q": "Which team drafted Kevin Durant second overall in 2007?",
+   "a": "Seattle SuperSonics",
+   "d": 3,
+   "category": "Players",
+   "topic": "durant-draft-2007"
+  },
+  {
+   "id": "368",
+   "q": "Which player was selected ahead of Kevin Durant with the first pick in 2007?",
+   "a": "Greg Oden",
+   "d": 3,
+   "category": "Players",
+   "topic": "oden-durant-2007"
+  },
+  {
+   "id": "369",
+   "q": "Luka Dončić was drafted third overall in 2018 and immediately traded to which team?",
+   "a": "Dallas Mavericks",
+   "d": 3,
+   "category": "Players",
+   "topic": "luka-draft-trade-2018"
+  },
+  {
+   "id": "370",
+   "q": "Which country was 2023 NBA MVP Joel Embiid born in?",
+   "a": "Cameroon",
+   "d": 3,
+   "category": "Players",
+   "topic": "embiid-cameroon"
+  },
+  {
+   "id": "371",
+   "q": "Luka Dončić represents which country internationally?",
+   "a": "Slovenia",
+   "d": 2,
+   "category": "Players",
+   "topic": "doncic-slovenia"
+  },
+  {
+   "id": "372",
+   "q": "Victor Wembanyama hails from which country?",
+   "a": "France",
+   "d": 2,
+   "category": "Players",
+   "topic": "wembanyama-france"
+  },
+  {
+   "id": "373",
+   "q": "Which two-time MVP point guard grew up in Canada?",
+   "a": "Steve Nash",
+   "d": 3,
+   "category": "Players",
+   "topic": "nash-canada-mvps"
+  },
+  {
+   "id": "374",
+   "q": "Steve Nash won back-to-back MVP awards with which team?",
+   "a": "Phoenix Suns",
+   "d": 3,
+   "category": "Players",
+   "topic": "nash-back-to-back-mvp"
+  },
+  {
+   "id": "375",
+   "q": "Which Spurs guard led Argentina to Olympic gold in 2004?",
+   "a": "Manu Ginóbili",
+   "d": 4,
+   "category": "Players",
+   "topic": "ginobili-argentina-2004"
+  },
+  {
+   "id": "376",
+   "q": "Which French point guard won four championships with the San Antonio Spurs?",
+   "a": "Tony Parker",
+   "d": 3,
+   "category": "Players",
+   "topic": "parker-france-spurs"
+  },
+  {
+   "id": "377",
+   "q": "Which 7-foot-6 center was drafted first overall in 2002 out of China?",
+   "a": "Yao Ming",
+   "d": 3,
+   "category": "Players",
+   "topic": "yao-ming-china"
+  },
+  {
+   "id": "378",
+   "q": "Which pair of Spanish brothers faced each other in the NBA Finals?",
+   "a": "Pau and Marc Gasol",
+   "d": 4,
+   "category": "Players",
+   "topic": "gasol-brothers-finals"
+  },
+  {
+   "id": "379",
+   "q": "At 7-foot-7, which two players are the tallest in NBA history?",
+   "a": "Manute Bol and Gheorghe Mureșan",
+   "d": 3,
+   "category": "Players",
+   "topic": "tallest-nba-players"
+  },
+  {
+   "id": "380",
+   "q": "What is the term for a pass caught in midair and dunked or laid in before landing?",
+   "a": "An alley-oop",
+   "d": 3,
+   "category": "Rules",
+   "topic": "term-alley-oop"
+  },
+  {
+   "id": "381",
+   "q": "What is the name of the two-man play where a screener sets a pick then cuts to the basket?",
+   "a": "The pick-and-roll",
+   "d": 3,
+   "category": "Rules",
+   "topic": "term-pick-and-roll"
+  },
+  {
+   "id": "382",
+   "q": "What is the name of the hybrid defense pairing a four-player zone with one man-to-man defender?",
+   "a": "A box-and-one",
+   "d": 3,
+   "category": "Rules",
+   "topic": "term-box-and-one"
+  },
+  {
+   "id": "383",
+   "q": "What is the term for defending the opponent over the entire length of the floor?",
+   "a": "A full-court press",
+   "d": 2,
+   "category": "Rules",
+   "topic": "term-full-court-press"
+  },
+  {
+   "id": "384",
+   "q": "What violation occurs when the offense returns the ball to their own half after crossing midcourt?",
+   "a": "A backcourt violation (over-and-back)",
+   "d": 3,
+   "category": "Rules",
+   "topic": "term-backcourt-violation"
+  },
+  {
+   "id": "385",
+   "q": "What is the term for an excessive or unnecessary contact foul that carries extra penalties?",
+   "a": "A flagrant foul",
+   "d": 2,
+   "category": "Rules",
+   "topic": "term-flagrant-foul"
+  },
+  {
+   "id": "386",
+   "q": "What is the term for a foul assessed for unsportsmanlike conduct rather than contact?",
+   "a": "A technical foul",
+   "d": 2,
+   "category": "Rules",
+   "topic": "term-technical-foul"
+  },
+  {
+   "id": "387",
+   "q": "How many seconds does an NBA team have to advance the ball past midcourt?",
+   "a": "Eight seconds",
+   "d": 3,
+   "category": "Rules",
+   "topic": "eight-second-rule"
+  },
+  {
+   "id": "388",
+   "q": "How many seconds does a player have to inbound the ball?",
+   "a": "Five seconds",
+   "d": 3,
+   "category": "Rules",
+   "topic": "five-second-inbound"
+  },
+  {
+   "id": "389",
+   "q": "What violation occurs when a player dribbles, stops, then begins dribbling again?",
+   "a": "A double dribble",
+   "d": 2,
+   "category": "Rules",
+   "topic": "term-double-dribble"
+  },
+  {
+   "id": "390",
+   "q": "What is the offensive foul called when a ball handler runs into a defender who has established position?",
+   "a": "A charge",
+   "d": 3,
+   "category": "Rules",
+   "topic": "term-charge-vs-block"
+  },
+  {
+   "id": "391",
+   "q": "What is the term for the situation where team fouls earn the opponent automatic free throws?",
+   "a": "The bonus (penalty)",
+   "d": 3,
+   "category": "Rules",
+   "topic": "term-bonus-free-throws"
+  },
+  {
+   "id": "392",
+   "q": "Which guard was named Finals MVP of the Knicks' 2026 championship run?",
+   "a": "Jalen Brunson",
+   "d": 2,
+   "category": "Players",
+   "topic": "brunson-2026-finals-mvp",
+   "pairId": "P34"
+  },
+  {
+   "id": "393",
+   "q": "That same 2026 Finals MVP won a national championship at which university?",
+   "a": "Villanova",
+   "d": 3,
+   "category": "College",
+   "topic": "brunson-villanova-2018",
+   "pairId": "P34"
+  },
+  {
+   "id": "394",
+   "q": "Which team did the Knicks defeat in the 2026 NBA Finals?",
+   "a": "San Antonio Spurs",
+   "d": 2,
+   "category": "Teams",
+   "topic": "knicks-2026-opponent",
+   "pairId": "P35"
+  },
+  {
+   "id": "395",
+   "q": "Which Spurs big man was named Western Conference Finals MVP in 2026?",
+   "a": "Victor Wembanyama",
+   "d": 3,
+   "category": "Players",
+   "topic": "wembanyama-2026-wcf-mvp",
+   "pairId": "P35"
+  },
+  {
+   "id": "396",
+   "q": "Which coach led Michigan to the 2026 NCAA championship?",
+   "a": "Dusty May",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "dusty-may-2026",
+   "pairId": "P36"
+  },
+  {
+   "id": "397",
+   "q": "Michigan's 2026 title was the program's first since which year?",
+   "a": "1989",
+   "d": 3,
+   "category": "College",
+   "topic": "michigan-1989-previous",
+   "pairId": "P36"
+  },
+  {
+   "id": "398",
+   "q": "Which Duke freshman won the 2026 Naismith Trophy?",
+   "a": "Cameron Boozer",
+   "d": 2,
+   "category": "College",
+   "topic": "boozer-2026-naismith",
+   "pairId": "P37"
+  },
+  {
+   "id": "399",
+   "q": "The 2026 Naismith winner is the son of which former NBA All-Star and 2008 Olympic gold medalist?",
+   "a": "Carlos Boozer",
+   "d": 3,
+   "category": "Players",
+   "topic": "carlos-boozer-father",
+   "pairId": "P37"
+  },
+  {
+   "id": "400",
+   "q": "Which Miami Heat big man scored 83 points in a March 2026 game against Washington?",
+   "a": "Bam Adebayo",
+   "d": 3,
+   "category": "Players",
+   "topic": "adebayo-83-points",
+   "pairId": "P38"
+  },
+  {
+   "id": "401",
+   "q": "That 83-point night moved him past whose 81-point game for second-most in NBA history?",
+   "a": "Kobe Bryant",
+   "d": 2,
+   "category": "Players",
+   "topic": "adebayo-passed-kobe",
+   "pairId": "P38"
+  },
+  {
+   "id": "402",
+   "q": "Which Salt Lake City arena, opened in 1991, hosted the Jazz during their 1997 and 1998 Finals runs?",
+   "a": "The Delta Center",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "delta-center-jazz",
+   "pairId": "P39"
+  },
+  {
+   "id": "403",
+   "q": "Which team defeated the Jazz in both the 1997 and 1998 NBA Finals?",
+   "a": "Chicago Bulls",
+   "d": 2,
+   "category": "Teams",
+   "topic": "jazz-finals-opponent",
+   "pairId": "P39"
+  },
+  {
+   "id": "404",
+   "q": "Which distinctively shaped Memphis arena was the Grizzlies' first home in the city?",
+   "a": "The Pyramid",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "the-pyramid-memphis",
+   "pairId": "P40"
+  },
+  {
+   "id": "405",
+   "q": "In what year did the Grizzlies begin play in Memphis?",
+   "a": "2001",
+   "d": 2,
+   "category": "Teams",
+   "topic": "grizzlies-memphis-year",
+   "pairId": "P40"
+  },
+  {
+   "id": "406",
+   "q": "Which coach led the Houston Rockets to back-to-back championships in 1994 and 1995?",
+   "a": "Rudy Tomjanovich",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "tomjanovich-rockets",
+   "pairId": "P41"
+  },
+  {
+   "id": "407",
+   "q": "Which team did the Rockets sweep to win the 1995 NBA Finals?",
+   "a": "Orlando Magic",
+   "d": 3,
+   "category": "Teams",
+   "topic": "rockets-1995-sweep",
+   "pairId": "P41"
+  },
+  {
+   "id": "408",
+   "q": "Which coach guided the Portland Trail Blazers to their only NBA championship, in 1977?",
+   "a": "Jack Ramsay",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "jack-ramsay-blazers",
+   "pairId": "P42"
+  },
+  {
+   "id": "409",
+   "q": "Which Blazers center was named Finals MVP of that 1977 series?",
+   "a": "Bill Walton",
+   "d": 3,
+   "category": "Players",
+   "topic": "walton-1977-finals-mvp",
+   "pairId": "P42"
+  },
+  {
+   "id": "410",
+   "q": "Which coach won NCAA championships at two different schools, Kentucky and Louisville?",
+   "a": "Rick Pitino",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "pitino-two-schools",
+   "pairId": "P43"
+  },
+  {
+   "id": "411",
+   "q": "Which team did Kentucky defeat in the 1996 national championship game?",
+   "a": "Syracuse",
+   "d": 3,
+   "category": "College",
+   "topic": "kentucky-1996-opponent",
+   "pairId": "P43"
+  },
+  {
+   "id": "412",
+   "q": "Which coach led Florida to back-to-back NCAA championships in 2006 and 2007?",
+   "a": "Billy Donovan",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "donovan-florida-titles",
+   "pairId": "P44"
+  },
+  {
+   "id": "413",
+   "q": "Florida won its third national championship in which year?",
+   "a": "2025",
+   "d": 2,
+   "category": "College",
+   "topic": "florida-2025-title",
+   "pairId": "P44"
+  },
+  {
+   "id": "414",
+   "q": "Which Butler coach led the Bulldogs to consecutive NCAA championship games in 2010 and 2011?",
+   "a": "Brad Stevens",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "brad-stevens-butler",
+   "pairId": "P45"
+  },
+  {
+   "id": "415",
+   "q": "Which team beat Butler in the 2010 title game, surviving a last-second half-court miss?",
+   "a": "Duke",
+   "d": 2,
+   "category": "College",
+   "topic": "butler-2010-opponent",
+   "pairId": "P45"
+  },
+  {
+   "id": "416",
+   "q": "Which 11-seed shocked the bracket by reaching the 2006 Final Four?",
+   "a": "George Mason",
+   "d": 3,
+   "category": "College",
+   "topic": "george-mason-2006",
+   "pairId": "P46"
+  },
+  {
+   "id": "417",
+   "q": "Which 11-seed reached the 2011 Final Four after beginning in the First Four play-in round?",
+   "a": "VCU",
+   "d": 3,
+   "category": "College",
+   "topic": "vcu-2011-first-four",
+   "pairId": "P46"
+  },
+  {
+   "id": "418",
+   "q": "Which Villanova player hit the buzzer-beating three that won the 2016 NCAA championship?",
+   "a": "Kris Jenkins",
+   "d": 3,
+   "category": "College",
+   "topic": "kris-jenkins-2016",
+   "pairId": "P47"
+  },
+  {
+   "id": "419",
+   "q": "Which team lost on that 2016 buzzer-beater?",
+   "a": "North Carolina",
+   "d": 2,
+   "category": "College",
+   "topic": "villanova-2016-opponent",
+   "pairId": "P47"
+  },
+  {
+   "id": "420",
+   "q": "Which Kansas guard hit the game-tying three in the final seconds of the 2008 title game?",
+   "a": "Mario Chalmers",
+   "d": 3,
+   "category": "College",
+   "topic": "chalmers-2008-three",
+   "pairId": "P48"
+  },
+  {
+   "id": "421",
+   "q": "Which team did Kansas beat in overtime in that 2008 championship game?",
+   "a": "Memphis",
+   "d": 3,
+   "category": "College",
+   "topic": "kansas-2008-opponent",
+   "pairId": "P48"
+  },
+  {
+   "id": "422",
+   "q": "Which Gonzaga guard hit a running three at the overtime buzzer in the 2021 Final Four?",
+   "a": "Jalen Suggs",
+   "d": 3,
+   "category": "College",
+   "topic": "suggs-2021-buzzer",
+   "pairId": "P49"
+  },
+  {
+   "id": "423",
+   "q": "Which team lost that 2021 overtime semifinal to Gonzaga?",
+   "a": "UCLA",
+   "d": 3,
+   "category": "College",
+   "topic": "gonzaga-2021-semifinal",
+   "pairId": "P49"
+  },
+  {
+   "id": "424",
+   "q": "Which Valparaiso guard hit one of the tournament's most famous buzzer-beaters in 1998?",
+   "a": "Bryce Drew",
+   "d": 4,
+   "category": "College",
+   "topic": "bryce-drew-1998",
+   "pairId": "P50"
+  },
+  {
+   "id": "425",
+   "q": "Which team did Valparaiso eliminate with that shot?",
+   "a": "Ole Miss",
+   "d": 4,
+   "category": "College",
+   "topic": "valparaiso-1998-upset",
+   "pairId": "P50"
+  },
+  {
+   "id": "426",
+   "q": "Which Kansas star was Most Outstanding Player of the 1988 Final Four and the first pick of that year's NBA Draft?",
+   "a": "Danny Manning",
+   "d": 3,
+   "category": "College",
+   "topic": "manning-1988-mop",
+   "pairId": "P51"
+  },
+  {
+   "id": "427",
+   "q": "Which team did Kansas upset in the 1988 championship game?",
+   "a": "Oklahoma",
+   "d": 3,
+   "category": "College",
+   "topic": "kansas-1988-opponent",
+   "pairId": "P51"
+  },
+  {
+   "id": "428",
+   "q": "Which freshman led Syracuse to the 2003 NCAA championship?",
+   "a": "Carmelo Anthony",
+   "d": 2,
+   "category": "College",
+   "topic": "carmelo-2003-syracuse",
+   "pairId": "P52"
+  },
+  {
+   "id": "429",
+   "q": "Which team did Syracuse beat in that 2003 final?",
+   "a": "Kansas",
+   "d": 3,
+   "category": "College",
+   "topic": "syracuse-2003-opponent",
+   "pairId": "P52"
+  },
+  {
+   "id": "430",
+   "q": "Which Virginia center won the Naismith Trophy three years in a row, from 1981 to 1983?",
+   "a": "Ralph Sampson",
+   "d": 3,
+   "category": "College",
+   "topic": "sampson-three-naismiths",
+   "pairId": "P53"
+  },
+  {
+   "id": "431",
+   "q": "Which team selected Ralph Sampson first overall in the 1983 NBA Draft?",
+   "a": "Houston Rockets",
+   "d": 3,
+   "category": "Players",
+   "topic": "sampson-1983-draft",
+   "pairId": "P53"
+  },
+  {
+   "id": "432",
+   "q": "Which song traditionally closes CBS's coverage of the NCAA tournament?",
+   "a": "\"One Shining Moment\"",
+   "d": 2,
+   "category": "College",
+   "topic": "one-shining-moment",
+   "pairId": "P54"
+  },
+  {
+   "id": "433",
+   "q": "Which broadcaster has long anchored CBS's Final Four coverage?",
+   "a": "Jim Nantz",
+   "d": 2,
+   "category": "College",
+   "topic": "jim-nantz-final-four",
+   "pairId": "P54"
+  },
+  {
+   "id": "434",
+   "q": "Which college basketball broadcaster is famous for bellowing \"Awesome, baby!\"?",
+   "a": "Dick Vitale",
+   "d": 2,
+   "category": "College",
+   "topic": "dick-vitale-awesome-baby",
+   "pairId": "P55"
+  },
+  {
+   "id": "435",
+   "q": "Before broadcasting, Dick Vitale briefly served as head coach of which NBA team?",
+   "a": "Detroit Pistons",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "vitale-pistons-coach",
+   "pairId": "P55"
+  },
+  {
+   "id": "436",
+   "q": "Which conference, founded in 1979, quickly became a college basketball power with Georgetown, Syracuse, and Villanova?",
+   "a": "The Big East",
+   "d": 3,
+   "category": "College",
+   "topic": "big-east-founded",
+   "pairId": "P56"
+  },
+  {
+   "id": "437",
+   "q": "Who was the founding commissioner of the Big East?",
+   "a": "Dave Gavitt",
+   "d": 4,
+   "category": "College",
+   "topic": "dave-gavitt-big-east",
+   "pairId": "P56"
+  },
+  {
+   "id": "438",
+   "q": "Which women's coach has won national championships at both Baylor and LSU?",
+   "a": "Kim Mulkey",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "kim-mulkey-two-schools",
+   "pairId": "P57"
+  },
+  {
+   "id": "439",
+   "q": "Kim Mulkey won her first national championship at Baylor in which year?",
+   "a": "2005",
+   "d": 4,
+   "category": "College",
+   "topic": "baylor-2005-title",
+   "pairId": "P57"
+  },
+  {
+   "id": "440",
+   "q": "Which Notre Dame coach led the Irish to national titles in 2001 and 2018?",
+   "a": "Muffet McGraw",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "muffet-mcgraw-notre-dame",
+   "pairId": "P58"
+  },
+  {
+   "id": "441",
+   "q": "Which Notre Dame guard hit the buzzer-beater to win the 2018 championship?",
+   "a": "Arike Ogunbowale",
+   "d": 3,
+   "category": "Players",
+   "topic": "ogunbowale-2018-buzzer",
+   "pairId": "P58"
+  },
+  {
+   "id": "442",
+   "q": "Which stadium hosted the 2026 NCAA men's championship game?",
+   "a": "Lucas Oil Stadium",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "lucas-oil-2026-final",
+   "pairId": "P59"
+  },
+  {
+   "id": "443",
+   "q": "Which team did Michigan defeat there to win the 2026 title?",
+   "a": "UConn",
+   "d": 2,
+   "category": "College",
+   "topic": "michigan-2026-opponent",
+   "pairId": "P59"
+  },
+  {
+   "id": "444",
+   "q": "Which high-leaping 76ers forward, later a championship-winning coach, was nicknamed \"The Kangaroo Kid\"?",
+   "a": "Billy Cunningham",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-kangaroo-kid"
+  },
+  {
+   "id": "445",
+   "q": "Which Croatian shooting guard, a pioneer for European players in the NBA, was nicknamed \"Mozart\"?",
+   "a": "Dražen Petrović",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-mozart"
+  },
+  {
+   "id": "446",
+   "q": "Which soaring NC State and Denver Nuggets star was nicknamed \"Skywalker\"?",
+   "a": "David Thompson",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-skywalker"
+  },
+  {
+   "id": "447",
+   "q": "Which heavily tattooed, mohawked big man went by \"Birdman\"?",
+   "a": "Chris Andersen",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-birdman"
+  },
+  {
+   "id": "448",
+   "q": "Which powerful center wore a cape for his 2008 Slam Dunk Contest win, earning the nickname \"Superman\"?",
+   "a": "Dwight Howard",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-superman-dunk"
+  },
+  {
+   "id": "449",
+   "q": "Which Philadelphia center embraced the nickname \"The Process\"?",
+   "a": "Joel Embiid",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-process"
+  },
+  {
+   "id": "450",
+   "q": "Which smooth-shooting Lakers forward was nicknamed \"Silk\"?",
+   "a": "Jamaal Wilkes",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-silk"
+  },
+  {
+   "id": "451",
+   "q": "Which Celtics forward, the 1981 Finals MVP, went by the nickname \"Cornbread\"?",
+   "a": "Cedric Maxwell",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-cornbread"
+  },
+  {
+   "id": "452",
+   "q": "Which 76ers guard earned the nickname \"The Boston Strangler\" for torching the Celtics in the playoffs?",
+   "a": "Andrew Toney",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-boston-strangler"
+  },
+  {
+   "id": "453",
+   "q": "Which forward gave himself the nickname \"Playoff P\"?",
+   "a": "Paul George",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-playoff-p"
+  },
+  {
+   "id": "454",
+   "q": "Which Hall of Fame scorer, famous for underhand free throws, was nicknamed \"The Blond Bomber\"?",
+   "a": "Rick Barry",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-blond-bomber"
+  },
+  {
+   "id": "455",
+   "q": "Which team's Chris Paul-to-Blake Griffin era was branded \"Lob City\"?",
+   "a": "LA Clippers",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-lob-city"
+  },
+  {
+   "id": "456",
+   "q": "Which franchise's defense-first 2010s identity was known as \"Grit and Grind\"?",
+   "a": "Memphis Grizzlies",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-grit-and-grind"
+  },
+  {
+   "id": "457",
+   "q": "Which team's high-scoring trio of Tim Hardaway, Mitch Richmond, and Chris Mullin was dubbed \"Run TMC\"?",
+   "a": "Golden State Warriors",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-run-tmc"
+  },
+  {
+   "id": "458",
+   "q": "Which team paired Hakeem Olajuwon and Ralph Sampson in a frontcourt known as the \"Twin Towers\"?",
+   "a": "Houston Rockets",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-twin-towers"
+  },
+  {
+   "id": "459",
+   "q": "Which Sacramento arena was famous as one of the loudest buildings in the NBA during the early 2000s?",
+   "a": "Arco Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-arco-kings"
+  },
+  {
+   "id": "460",
+   "q": "Which downtown Phoenix arena opened in 1992 as the Suns' home?",
+   "a": "America West Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-america-west-suns"
+  },
+  {
+   "id": "461",
+   "q": "Which suburban Ohio arena served as the Cavaliers' home from 1974 to 1994?",
+   "a": "Richfield Coliseum",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-richfield-cavs"
+  },
+  {
+   "id": "462",
+   "q": "Which Brooklyn arena has been the Nets' home since 2012?",
+   "a": "Barclays Center",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-barclays-nets"
+  },
+  {
+   "id": "463",
+   "q": "Which Minneapolis arena is home to the Timberwolves?",
+   "a": "Target Center",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-target-center"
+  },
+  {
+   "id": "464",
+   "q": "Which arena, opened in 2018, is home to the Milwaukee Bucks?",
+   "a": "Fiserv Forum",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-fiserv-bucks"
+  },
+  {
+   "id": "465",
+   "q": "The Dean E. Smith Center is the home court of which program?",
+   "a": "North Carolina",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-dean-dome"
+  },
+  {
+   "id": "466",
+   "q": "Which university plays basketball in a domed stadium that has drawn the largest on-campus crowds in the country?",
+   "a": "Syracuse",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-carrier-dome"
+  },
+  {
+   "id": "467",
+   "q": "Which school's sunken home arena is known simply as \"The Pit\"?",
+   "a": "University of New Mexico",
+   "d": 4,
+   "category": "Arenas",
+   "topic": "arena-the-pit-unm"
+  },
+  {
+   "id": "468",
+   "q": "Which coach won the 1977 NCAA championship at Marquette in his final game on the sideline?",
+   "a": "Al McGuire",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-al-mcguire-1977"
+  },
+  {
+   "id": "469",
+   "q": "Which coach won NCAA titles at Louisville in 1980 and 1986?",
+   "a": "Denny Crum",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-denny-crum-louisville"
+  },
+  {
+   "id": "470",
+   "q": "Which coach took over Michigan on the eve of the 1989 tournament and won the national title as an interim?",
+   "a": "Steve Fisher",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-steve-fisher-1989"
+  },
+  {
+   "id": "471",
+   "q": "Which coach led the Celtics to championships in 1984 and 1986?",
+   "a": "K.C. Jones",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-kc-jones-celtics"
+  },
+  {
+   "id": "472",
+   "q": "Which coach led Arizona to the 1997 NCAA championship?",
+   "a": "Lute Olson",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-lute-olson-arizona"
+  },
+  {
+   "id": "473",
+   "q": "Which coach built UConn into a power, winning national titles in 1999, 2004, and 2011?",
+   "a": "Jim Calhoun",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-jim-calhoun-uconn"
+  },
+  {
+   "id": "474",
+   "q": "Which Arizona coach was named 2026 Naismith Men's Coach of the Year?",
+   "a": "Tommy Lloyd",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-tommy-lloyd-2026"
+  },
+  {
+   "id": "475",
+   "q": "Which coach led the New York Knicks to the 2026 NBA championship?",
+   "a": "Mike Brown",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-mike-brown-knicks"
+  },
+  {
+   "id": "476",
+   "q": "UCLA's record men's winning streak under John Wooden reached how many games?",
+   "a": "88",
+   "d": 3,
+   "category": "College",
+   "topic": "ucla-88-game-streak"
+  },
+  {
+   "id": "477",
+   "q": "Who threw the length-of-court pass that set up Christian Laettner's 1992 buzzer-beater?",
+   "a": "Grant Hill",
+   "d": 3,
+   "category": "College",
+   "topic": "laettner-grant-hill-pass"
+  },
+  {
+   "id": "478",
+   "q": "Which UConn guard carried the Huskies through five Big East tournament games and a 2011 national title?",
+   "a": "Kemba Walker",
+   "d": 3,
+   "category": "College",
+   "topic": "kemba-2011-run"
+  },
+  {
+   "id": "479",
+   "q": "Which player became the first unanimous Defensive Player of the Year, in 2026?",
+   "a": "Victor Wembanyama",
+   "d": 3,
+   "category": "Players",
+   "topic": "wembanyama-unanimous-dpoy"
+  },
+  {
+   "id": "480",
+   "q": "Which Thunder guard won back-to-back NBA MVP awards in 2025 and 2026?",
+   "a": "Shai Gilgeous-Alexander",
+   "d": 2,
+   "category": "Players",
+   "topic": "sga-back-to-back-mvp"
+  },
+  {
+   "id": "481",
+   "q": "Brunson, Mikal Bridges, and Josh Hart became the first trio of teammates to win what two things together?",
+   "a": "An NCAA championship and an NBA championship",
+   "d": 4,
+   "category": "Players",
+   "topic": "brunson-bridges-hart-trio"
+  },
+  {
+   "id": "482",
+   "q": "Which forward holds the NBA record for most consecutive games played?",
+   "a": "A.C. Green",
+   "d": 3,
+   "category": "Players",
+   "topic": "ac-green-iron-man"
+  },
+  {
+   "id": "483",
+   "q": "Which two teams combined for 370 points in the highest-scoring game in NBA history, in 1983?",
+   "a": "Detroit Pistons and Denver Nuggets",
+   "d": 4,
+   "category": "Teams",
+   "topic": "highest-scoring-game-1983"
+  },
+  {
+   "id": "484",
+   "q": "Which center played a record 21 NBA seasons, appearing in more games than any player before him?",
+   "a": "Robert Parish",
+   "d": 3,
+   "category": "Players",
+   "topic": "parish-most-games"
+  },
+  {
+   "id": "485",
+   "q": "Who is the youngest player ever named NBA MVP?",
+   "a": "Derrick Rose",
+   "d": 3,
+   "category": "Players",
+   "topic": "rose-youngest-mvp"
+  },
+  {
+   "id": "486",
+   "q": "Which trophy is awarded to the NBA team with the best regular-season record?",
+   "a": "The Maurice Podoloff Trophy",
+   "d": 3,
+   "category": "History",
+   "topic": "podoloff-trophy"
+  },
+  {
+   "id": "487",
+   "q": "What is the name of the in-season tournament the NBA introduced in 2023?",
+   "a": "The NBA Cup",
+   "d": 3,
+   "category": "History",
+   "topic": "nba-cup-name"
+  },
+  {
+   "id": "488",
+   "q": "Which BYU forward was selected first overall in the 2026 NBA Draft?",
+   "a": "AJ Dybantsa",
+   "d": 3,
+   "category": "Players",
+   "topic": "dybantsa-2026-first-pick"
+  },
+  {
+   "id": "489",
+   "q": "Which player retired with the highest career three-point percentage in NBA history?",
+   "a": "Steve Kerr",
+   "d": 4,
+   "category": "Players",
+   "topic": "kerr-three-point-percentage"
+  },
+  {
+   "id": "490",
+   "q": "Which Warriors reserve was a surprise Finals MVP in 2015 after starting the series on the bench?",
+   "a": "Andre Iguodala",
+   "d": 3,
+   "category": "Players",
+   "topic": "iguodala-2015-surprise"
+  },
+  {
+   "id": "491",
+   "q": "The first BAA game, in 1946, was played in which city?",
+   "a": "Toronto",
+   "d": 4,
+   "category": "History",
+   "topic": "first-nba-game-1946"
+  },
+  {
+   "id": "492",
+   "q": "Which team won the 2025 WNBA championship?",
+   "a": "Las Vegas Aces",
+   "d": 2,
+   "category": "WNBA",
+   "topic": "wnba-2025-champion",
+   "pairId": "P60"
+  },
+  {
+   "id": "493",
+   "q": "Who was named MVP of that 2025 WNBA Finals?",
+   "a": "A'ja Wilson",
+   "d": 2,
+   "category": "WNBA",
+   "topic": "wnba-2025-finals-mvp",
+   "pairId": "P60"
+  },
+  {
+   "id": "494",
+   "q": "Which guard was selected first overall in the 2024 WNBA Draft?",
+   "a": "Caitlin Clark",
+   "d": 1,
+   "category": "WNBA",
+   "topic": "clark-first-pick-2024",
+   "pairId": "P61"
+  },
+  {
+   "id": "495",
+   "q": "Which team made that selection?",
+   "a": "Indiana Fever",
+   "d": 1,
+   "category": "WNBA",
+   "topic": "clark-indiana-fever",
+   "pairId": "P61"
+  },
+  {
+   "id": "496",
+   "q": "Who became the first player to dunk in a WNBA game?",
+   "a": "Lisa Leslie",
+   "d": 3,
+   "category": "WNBA",
+   "topic": "leslie-first-dunk"
+  },
+  {
+   "id": "497",
+   "q": "Sue Bird spent her entire 21-season WNBA career with which team?",
+   "a": "Seattle Storm",
+   "d": 1,
+   "category": "WNBA",
+   "topic": "sue-bird-seattle"
+  },
+  {
+   "id": "498",
+   "q": "Which team won its first WNBA championship in 2024?",
+   "a": "New York Liberty",
+   "d": 3,
+   "category": "WNBA",
+   "topic": "liberty-2024-first-title"
+  },
+  {
+   "id": "499",
+   "q": "Which forward won four WNBA titles with the Minnesota Lynx in the 2010s?",
+   "a": "Maya Moore",
+   "d": 3,
+   "category": "WNBA",
+   "topic": "maya-moore-lynx"
+  },
+  {
+   "id": "500",
+   "q": "Which Baylor star became known for dunking with ease in the WNBA?",
+   "a": "Brittney Griner",
+   "d": 3,
+   "category": "WNBA",
+   "topic": "griner-dunks"
+  },
+  {
+   "id": "501",
+   "q": "Which former UConn star won WNBA MVP awards with both Seattle and New York?",
+   "a": "Breanna Stewart",
+   "d": 3,
+   "category": "WNBA",
+   "topic": "stewart-two-team-mvp"
+  },
+  {
+   "id": "502",
+   "q": "Which university has won the most NCAA women's basketball championships?",
+   "a": "UConn",
+   "d": 1,
+   "category": "WNBA",
+   "topic": "uconn-most-womens-titles"
+  },
+  {
+   "id": "503",
+   "q": "Which country won the men's basketball gold medal at the 2024 Paris Olympics?",
+   "a": "The United States",
+   "d": 1,
+   "category": "Olympics",
+   "topic": "usa-2024-mens-gold",
+   "pairId": "P62"
+  },
+  {
+   "id": "504",
+   "q": "Which country did they defeat in that gold medal game?",
+   "a": "France",
+   "d": 1,
+   "category": "Olympics",
+   "topic": "france-2024-final",
+   "pairId": "P62"
+  },
+  {
+   "id": "505",
+   "q": "Through the 2024 Games, how many consecutive Olympic golds had the U.S. women's team won?",
+   "a": "Eight",
+   "d": 3,
+   "category": "Olympics",
+   "topic": "usa-women-eight-golds"
+  },
+  {
+   "id": "506",
+   "q": "Which guard became the first basketball player to win six Olympic gold medals?",
+   "a": "Diana Taurasi",
+   "d": 3,
+   "category": "Olympics",
+   "topic": "taurasi-six-golds"
+  },
+  {
+   "id": "507",
+   "q": "Which country won the 2023 FIBA World Cup?",
+   "a": "Germany",
+   "d": 4,
+   "category": "Olympics",
+   "topic": "germany-2023-world-cup"
+  },
+  {
+   "id": "508",
+   "q": "What nickname was given to the gold-medal-winning 2008 U.S. Olympic men's team?",
+   "a": "The Redeem Team",
+   "d": 3,
+   "category": "Olympics",
+   "topic": "redeem-team-2008",
+   "pairId": "P63"
+  },
+  {
+   "id": "509",
+   "q": "That team was assembled after the U.S. settled for which medal in 2004?",
+   "a": "Bronze",
+   "d": 3,
+   "category": "Olympics",
+   "topic": "usa-2004-bronze",
+   "pairId": "P63"
+  },
+  {
+   "id": "510",
+   "q": "Which shortened, half-court format of the game made its Olympic debut at the Tokyo Games?",
+   "a": "3x3 basketball",
+   "d": 3,
+   "category": "Olympics",
+   "topic": "3x3-olympic-debut"
+  },
+  {
+   "id": "511",
+   "q": "Which city will host the 2028 Summer Olympics?",
+   "a": "Los Angeles",
+   "d": 1,
+   "category": "Olympics",
+   "topic": "la-2028-olympics"
+  },
+  {
+   "id": "512",
+   "q": "Which country has won the most Olympic gold medals in men's basketball?",
+   "a": "The United States",
+   "d": 1,
+   "category": "Olympics",
+   "topic": "usa-most-mens-golds"
+  },
+  {
+   "id": "513",
+   "q": "The Dream Team won gold at the 1992 Olympics held in which country?",
+   "a": "Spain",
+   "d": 1,
+   "category": "Olympics",
+   "topic": "barcelona-1992-host"
+  },
+  {
+   "id": "514",
+   "q": "Which NBA superstar starred alongside the Looney Tunes in the 1996 film \"Space Jam\"?",
+   "a": "Michael Jordan",
+   "d": 1,
+   "category": "Culture",
+   "topic": "space-jam-1996",
+   "pairId": "P64"
+  },
+  {
+   "id": "515",
+   "q": "Which NBA superstar headlined the 2021 sequel, \"Space Jam: A New Legacy\"?",
+   "a": "LeBron James",
+   "d": 1,
+   "category": "Culture",
+   "topic": "space-jam-legacy",
+   "pairId": "P64"
+  },
+  {
+   "id": "516",
+   "q": "Which NBA player starred opposite Denzel Washington in Spike Lee's \"He Got Game\"?",
+   "a": "Ray Allen",
+   "d": 3,
+   "category": "Culture",
+   "topic": "he-got-game-ray-allen"
+  },
+  {
+   "id": "517",
+   "q": "Which center starred in the 1994 college basketball film \"Blue Chips\"?",
+   "a": "Shaquille O'Neal",
+   "d": 3,
+   "category": "Culture",
+   "topic": "blue-chips-shaq"
+  },
+  {
+   "id": "518",
+   "q": "Which 2020 documentary series chronicled Michael Jordan's final season with the Bulls?",
+   "a": "The Last Dance",
+   "d": 1,
+   "category": "Culture",
+   "topic": "last-dance-doc"
+  },
+  {
+   "id": "519",
+   "q": "Which arcade game popularized the shouts \"He's on fire!\" and \"Boomshakalaka\"?",
+   "a": "NBA Jam",
+   "d": 1,
+   "category": "Culture",
+   "topic": "nba-jam-on-fire"
+  },
+  {
+   "id": "520",
+   "q": "Which acclaimed 1994 documentary followed two Chicago teenagers over five years as they pursued careers in the sport?",
+   "a": "Hoop Dreams",
+   "d": 3,
+   "category": "Culture",
+   "topic": "hoop-dreams-1994"
+  },
+  {
+   "id": "521",
+   "q": "Which actor played the title role in the 2005 film \"Coach Carter\"?",
+   "a": "Samuel L. Jackson",
+   "d": 1,
+   "category": "Culture",
+   "topic": "coach-carter-actor"
+  },
+  {
+   "id": "522",
+   "q": "Which annual video game series is the NBA's flagship basketball simulation?",
+   "a": "NBA 2K",
+   "d": 1,
+   "category": "Culture",
+   "topic": "nba-2k-franchise"
+  },
+  {
+   "id": "523",
+   "q": "Which streetball brand produced a hugely popular mixtape tour in the early 2000s?",
+   "a": "AND1",
+   "d": 3,
+   "category": "Culture",
+   "topic": "and1-mixtape-tour"
+  },
+  {
+   "id": "524",
+   "q": "Which HBO series dramatized the rise of the Showtime Lakers?",
+   "a": "Winning Time",
+   "d": 3,
+   "category": "Culture",
+   "topic": "winning-time-hbo"
+  },
+  {
+   "id": "525",
+   "q": "Which 1992 comedy starred Wesley Snipes and Woody Harrelson as basketball hustlers?",
+   "a": "White Men Can't Jump",
+   "d": 1,
+   "category": "Culture",
+   "topic": "white-men-cant-jump"
+  },
+  {
+   "id": "526",
+   "q": "Which streetball legend, famous for outrageous ball-handling, went by \"Hot Sauce\"?",
+   "a": "Philip Champion",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-hot-sauce"
+  },
+  {
+   "id": "527",
+   "q": "Which streetball star known for his unassuming look goes by \"The Professor\"?",
+   "a": "Grayson Boucher",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-the-professor"
+  },
+  {
+   "id": "528",
+   "q": "Which Harlem playground legend of the 1960s was known as \"The Goat\"?",
+   "a": "Earl Manigault",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-earl-the-goat"
+  },
+  {
+   "id": "529",
+   "q": "Which streetball star turned NBA point guard was nicknamed \"Skip to My Lou\"?",
+   "a": "Rafer Alston",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-skip-to-my-lou"
+  },
+  {
+   "id": "530",
+   "q": "Which explosive triple-double machine goes by the nickname \"Brodie\"?",
+   "a": "Russell Westbrook",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-brodie"
+  },
+  {
+   "id": "531",
+   "q": "Which smooth-scoring Bulls forward was called \"The Croatian Sensation\"?",
+   "a": "Toni Kukoč",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-croatian-sensation"
+  },
+  {
+   "id": "532",
+   "q": "Which bruising European center is nicknamed \"The Bosnian Beast\"?",
+   "a": "Jusuf Nurkić",
+   "d": 4,
+   "category": "Nicknames",
+   "topic": "nick-bosnian-beast"
+  },
+  {
+   "id": "533",
+   "q": "Which Indianapolis arena, opened in 1999 as Conseco Fieldhouse, is home to the Pacers?",
+   "a": "Gainbridge Fieldhouse",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-gainbridge-pacers"
+  },
+  {
+   "id": "534",
+   "q": "The Trail Blazers' arena opened in 1995 under what name, before becoming the Moda Center?",
+   "a": "The Rose Garden",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-rose-garden"
+  },
+  {
+   "id": "535",
+   "q": "Which Denver arena, opened in 1999 as the Pepsi Center, hosts the Nuggets?",
+   "a": "Ball Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-ball-denver"
+  },
+  {
+   "id": "536",
+   "q": "Which arena is home to the Atlanta Hawks?",
+   "a": "State Farm Arena",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-state-farm-hawks"
+  },
+  {
+   "id": "537",
+   "q": "Which New Orleans arena is home to the Pelicans?",
+   "a": "Smoothie King Center",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-smoothie-king"
+  },
+  {
+   "id": "538",
+   "q": "Which Tampa arena hosted the 2025 NCAA women's championship game?",
+   "a": "Amalie Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-amalie-2025-womens"
+  },
+  {
+   "id": "539",
+   "q": "Which coach led the Seattle SuperSonics to their only NBA championship, in 1979?",
+   "a": "Lenny Wilkens",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-wilkens-sonics-1979"
+  },
+  {
+   "id": "540",
+   "q": "Which coach guided the Washington Bullets to the 1978 NBA championship?",
+   "a": "Dick Motta",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-motta-bullets-1978"
+  },
+  {
+   "id": "541",
+   "q": "Which coach led Golden State to a stunning sweep for the 1975 NBA championship?",
+   "a": "Al Attles",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-attles-warriors-1975"
+  },
+  {
+   "id": "542",
+   "q": "Which coach led the Boston Celtics to the 2024 NBA championship?",
+   "a": "Joe Mazzulla",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-mazzulla-2024"
+  },
+  {
+   "id": "543",
+   "q": "Which team did UConn defeat to win the 2025 women's national championship?",
+   "a": "South Carolina",
+   "d": 3,
+   "category": "College",
+   "topic": "uconn-2025-womens-opponent"
+  },
+  {
+   "id": "544",
+   "q": "Kevin Durant played his lone college season at which university?",
+   "a": "Texas",
+   "d": 2,
+   "category": "College",
+   "topic": "durant-texas"
+  },
+  {
+   "id": "545",
+   "q": "Stephen Curry's father, Dell, played his college basketball at which school?",
+   "a": "Virginia Tech",
+   "d": 4,
+   "category": "College",
+   "topic": "dell-curry-virginia-tech"
+  },
+  {
+   "id": "546",
+   "q": "Damian Lillard was a small-school standout at which university?",
+   "a": "Weber State",
+   "d": 3,
+   "category": "College",
+   "topic": "lillard-weber-state"
+  },
+  {
+   "id": "547",
+   "q": "Which draft class produced Kobe Bryant, Allen Iverson, Steve Nash, and Ray Allen?",
+   "a": "1996",
+   "d": 3,
+   "category": "Draft",
+   "topic": "draft-class-1996"
+  },
+  {
+   "id": "548",
+   "q": "Which draft class produced LeBron James, Carmelo Anthony, Dwyane Wade, and Chris Bosh?",
+   "a": "2003",
+   "d": 1,
+   "category": "Draft",
+   "topic": "draft-class-2003"
+  },
+  {
+   "id": "549",
+   "q": "Which player was taken second overall in 2003, ahead of Carmelo Anthony and Dwyane Wade?",
+   "a": "Darko Miličić",
+   "d": 4,
+   "category": "Draft",
+   "topic": "darko-second-2003"
+  },
+  {
+   "id": "550",
+   "q": "The NBA draft lottery order is determined by drawing what?",
+   "a": "Ping-pong balls",
+   "d": 2,
+   "category": "Draft",
+   "topic": "lottery-ping-pong"
+  },
+  {
+   "id": "551",
+   "q": "How many rounds does the modern NBA Draft consist of?",
+   "a": "Two",
+   "d": 2,
+   "category": "Draft",
+   "topic": "draft-two-rounds"
+  },
+  {
+   "id": "552",
+   "q": "Which player did the San Antonio Spurs select first overall in 1997?",
+   "a": "Tim Duncan",
+   "d": 1,
+   "category": "Draft",
+   "topic": "duncan-first-pick-1997"
+  },
+  {
+   "id": "553",
+   "q": "Who was the first overall pick of the 2019 NBA Draft?",
+   "a": "Zion Williamson",
+   "d": 1,
+   "category": "Draft",
+   "topic": "zion-first-pick-2019"
+  },
+  {
+   "id": "554",
+   "q": "Which player was chosen first overall in 2018, ahead of Luka Dončić?",
+   "a": "Deandre Ayton",
+   "d": 3,
+   "category": "Draft",
+   "topic": "ayton-over-doncic"
+  },
+  {
+   "id": "555",
+   "q": "Which player holds the NBA record for most three-pointers made in a single game?",
+   "a": "Klay Thompson",
+   "d": 3,
+   "category": "Records",
+   "topic": "most-threes-one-game",
+   "pairId": "P65"
+  },
+  {
+   "id": "556",
+   "q": "How many three-pointers did he make in that record-setting game?",
+   "a": "14",
+   "d": 3,
+   "category": "Records",
+   "topic": "threes-record-number",
+   "pairId": "P65"
+  },
+  {
+   "id": "557",
+   "q": "Which team holds the NBA record for the longest winning streak, at 33 games?",
+   "a": "Los Angeles Lakers",
+   "d": 3,
+   "category": "Records",
+   "topic": "longest-win-streak-33"
+  },
+  {
+   "id": "558",
+   "q": "Which player grabbed a record 55 rebounds in a single NBA game?",
+   "a": "Wilt Chamberlain",
+   "d": 3,
+   "category": "Records",
+   "topic": "most-rebounds-one-game"
+  },
+  {
+   "id": "559",
+   "q": "Which point guard dished out a record 30 assists in a single NBA game?",
+   "a": "Scott Skiles",
+   "d": 4,
+   "category": "Records",
+   "topic": "most-assists-one-game"
+  },
+  {
+   "id": "560",
+   "q": "Which center blocked a record 17 shots in one NBA game?",
+   "a": "Elmore Smith",
+   "d": 4,
+   "category": "Records",
+   "topic": "most-blocks-one-game"
+  },
+  {
+   "id": "561",
+   "q": "What scoring average did Wilt Chamberlain post in 1961-62, still the single-season record?",
+   "a": "50.4 points per game",
+   "d": 4,
+   "category": "Records",
+   "topic": "wilt-50-ppg-season"
+  },
+  {
+   "id": "562",
+   "q": "Which team finished 9-73 in 1972-73, the worst full-season record in NBA history?",
+   "a": "Philadelphia 76ers",
+   "d": 3,
+   "category": "Records",
+   "topic": "worst-record-9-73"
+  },
+  {
+   "id": "563",
+   "q": "Who is the NBA's all-time leader in career playoff points?",
+   "a": "LeBron James",
+   "d": 1,
+   "category": "Records",
+   "topic": "most-playoff-points"
+  },
+  {
+   "id": "564",
+   "q": "Who holds the record for most three-pointers made in a single postseason run?",
+   "a": "Stephen Curry",
+   "d": 3,
+   "category": "Records",
+   "topic": "curry-most-threes-career"
+  },
+  {
+   "id": "565",
+   "q": "Which jersey number did the NBA retire across the entire league in 2022?",
+   "a": "6",
+   "d": 3,
+   "category": "Uniforms",
+   "topic": "number-6-retired-league",
+   "pairId": "P66"
+  },
+  {
+   "id": "566",
+   "q": "That leaguewide honor was made in tribute to which player?",
+   "a": "Bill Russell",
+   "d": 2,
+   "category": "Uniforms",
+   "topic": "number-6-russell-honor",
+   "pairId": "P66"
+  },
+  {
+   "id": "567",
+   "q": "Which jersey number did Wilt Chamberlain wear throughout his NBA career?",
+   "a": "13",
+   "d": 3,
+   "category": "Uniforms",
+   "topic": "wilt-number-13"
+  },
+  {
+   "id": "568",
+   "q": "Which number did Magic Johnson wear with the Lakers?",
+   "a": "32",
+   "d": 1,
+   "category": "Uniforms",
+   "topic": "magic-number-32"
+  },
+  {
+   "id": "569",
+   "q": "Which number did Larry Bird wear for the Celtics?",
+   "a": "33",
+   "d": 1,
+   "category": "Uniforms",
+   "topic": "bird-number-33"
+  },
+  {
+   "id": "570",
+   "q": "Which company has manufactured NBA game uniforms since 2017?",
+   "a": "Nike",
+   "d": 1,
+   "category": "Uniforms",
+   "topic": "nike-nba-jerseys"
+  },
+  {
+   "id": "571",
+   "q": "Which team wore 1980s jerseys featuring a rainbow-colored mountain skyline?",
+   "a": "Denver Nuggets",
+   "d": 3,
+   "category": "Uniforms",
+   "topic": "nuggets-rainbow-skyline"
+  },
+  {
+   "id": "572",
+   "q": "Benny the Bull is the mascot of which NBA team?",
+   "a": "Chicago Bulls",
+   "d": 1,
+   "category": "Mascots",
+   "topic": "mascot-benny-bull"
+  },
+  {
+   "id": "573",
+   "q": "Rocky the Mountain Lion is the mascot of which NBA team?",
+   "a": "Denver Nuggets",
+   "d": 3,
+   "category": "Mascots",
+   "topic": "mascot-rocky-nuggets"
+  },
+  {
+   "id": "574",
+   "q": "Which NBA team's longtime mascot is a gorilla?",
+   "a": "Phoenix Suns",
+   "d": 1,
+   "category": "Mascots",
+   "topic": "mascot-gorilla-suns"
+  },
+  {
+   "id": "575",
+   "q": "Bango, a deer famous for daring ladder dunks, is the mascot of which team?",
+   "a": "Milwaukee Bucks",
+   "d": 3,
+   "category": "Mascots",
+   "topic": "mascot-bango-bucks"
+  },
+  {
+   "id": "576",
+   "q": "Clutch the Bear is the mascot of which NBA team?",
+   "a": "Houston Rockets",
+   "d": 3,
+   "category": "Mascots",
+   "topic": "mascot-clutch-rockets"
+  },
+  {
+   "id": "577",
+   "q": "Hugo is the mascot of which NBA team?",
+   "a": "Charlotte Hornets",
+   "d": 3,
+   "category": "Mascots",
+   "topic": "mascot-hugo-hornets"
+  },
+  {
+   "id": "578",
+   "q": "Who was named MVP of the 2026 NBA All-Star Game?",
+   "a": "Anthony Edwards",
+   "d": 3,
+   "category": "All-Star",
+   "topic": "allstar-2026-mvp"
+  },
+  {
+   "id": "579",
+   "q": "Which player's 2000 Slam Dunk Contest performance is widely called the greatest ever?",
+   "a": "Vince Carter",
+   "d": 1,
+   "category": "All-Star",
+   "topic": "carter-2000-dunk-contest"
+  },
+  {
+   "id": "580",
+   "q": "Which two players staged a legendary Slam Dunk Contest duel in 2016?",
+   "a": "Zach LaVine and Aaron Gordon",
+   "d": 3,
+   "category": "All-Star",
+   "topic": "lavine-gordon-2016"
+  },
+  {
+   "id": "581",
+   "q": "Which player won each of the first three NBA Three-Point Contests?",
+   "a": "Larry Bird",
+   "d": 3,
+   "category": "All-Star",
+   "topic": "bird-first-three-contests"
+  },
+  {
+   "id": "582",
+   "q": "Which sharpshooter won three consecutive Three-Point Contests from 1990 to 1992?",
+   "a": "Craig Hodges",
+   "d": 4,
+   "category": "All-Star",
+   "topic": "hodges-three-straight"
+  },
+  {
+   "id": "583",
+   "q": "Which two shooters faced off in a special three-point duel at 2024 All-Star Weekend?",
+   "a": "Stephen Curry and Sabrina Ionescu",
+   "d": 3,
+   "category": "All-Star",
+   "topic": "curry-ionescu-duel"
+  },
+  {
+   "id": "584",
+   "q": "Which team won the inaugural NBA in-season tournament in 2023?",
+   "a": "Los Angeles Lakers",
+   "d": 3,
+   "category": "Teams",
+   "topic": "nba-cup-first-winner",
+   "pairId": "P67"
+  },
+  {
+   "id": "585",
+   "q": "Who was named MVP of that inaugural tournament?",
+   "a": "LeBron James",
+   "d": 3,
+   "category": "Teams",
+   "topic": "nba-cup-first-mvp",
+   "pairId": "P67"
+  },
+  {
+   "id": "586",
+   "q": "Which team drafted Nikola Jokić in 2014?",
+   "a": "Denver Nuggets",
+   "d": 1,
+   "category": "Teams",
+   "topic": "jokic-drafted-denver"
+  },
+  {
+   "id": "587",
+   "q": "Which Hall of Fame guard, a star for Portland and Houston, was nicknamed \"The Glide\"?",
+   "a": "Clyde Drexler",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-the-glide"
+  },
+  {
+   "id": "588",
+   "q": "Which team won the first four WNBA championships?",
+   "a": "Houston Comets",
+   "d": 1,
+   "category": "WNBA",
+   "topic": "wnba-comets-dynasty"
+  },
+  {
+   "id": "589",
+   "q": "Which Lakers forward was nicknamed \"Big Game James\"?",
+   "a": "James Worthy",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-big-game-james"
+  },
+  {
+   "id": "590",
+   "q": "Which arena is known as \"The Madhouse on Madison\"?",
+   "a": "United Center",
+   "d": 1,
+   "category": "Arenas",
+   "topic": "arena-united-center"
+  },
+  {
+   "id": "591",
+   "q": "Which Utah Jazz forward was nicknamed \"AK-47\"?",
+   "a": "Andrei Kirilenko",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-ak47"
+  },
+  {
+   "id": "592",
+   "q": "In which city did the U.S. men's team win Olympic gold in 2000?",
+   "a": "Sydney",
+   "d": 1,
+   "category": "Olympics",
+   "topic": "olympics-2000-sydney"
+  },
+  {
+   "id": "593",
+   "q": "Which bruising forward, a fixture in Memphis, was nicknamed \"Z-Bo\"?",
+   "a": "Zach Randolph",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-z-bo"
+  },
+  {
+   "id": "594",
+   "q": "Which NBA star played the title role in the 2018 comedy \"Uncle Drew\"?",
+   "a": "Kyrie Irving",
+   "d": 1,
+   "category": "Culture",
+   "topic": "culture-uncle-drew"
+  },
+  {
+   "id": "595",
+   "q": "Which rugged Knicks power forward of the late 1980s was nicknamed \"The Enforcer\"?",
+   "a": "Charles Oakley",
+   "d": 1,
+   "category": "Nicknames",
+   "topic": "nick-the-enforcer"
+  },
+  {
+   "id": "596",
+   "q": "Who was the first player ever signed to a WNBA contract?",
+   "a": "Sheryl Swoopes",
+   "d": 1,
+   "category": "WNBA",
+   "topic": "wnba-swoopes-first-signed"
+  },
+  {
+   "id": "597",
+   "q": "Which 1986 film follows a small-town Indiana high school team's run to the state title?",
+   "a": "Hoosiers",
+   "d": 1,
+   "category": "Culture",
+   "topic": "culture-hoosiers-film"
+  },
+  {
+   "id": "598",
+   "q": "Which 1986 NCAA champion and future NBA Rookie of the Year was nicknamed \"Never Nervous\"?",
+   "a": "Pervis Ellison",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-never-nervous"
+  },
+  {
+   "id": "599",
+   "q": "In which Milwaukee arena, famous for its brightly painted court, did the Bucks play before Bradley Center?",
+   "a": "The MECCA",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-mecca-bucks"
+  },
+  {
+   "id": "600",
+   "q": "Which coach led Michigan State to the 2000 NCAA championship?",
+   "a": "Tom Izzo",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-izzo-2000"
+  },
+  {
+   "id": "601",
+   "q": "Which smooth-shooting big man, a star at North Carolina and later a Laker and Sonic, was nicknamed \"Big Smooth\"?",
+   "a": "Sam Perkins",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-big-smooth"
+  },
+  {
+   "id": "602",
+   "q": "Which school won the 2004 NCAA men's championship behind Emeka Okafor and Ben Gordon?",
+   "a": "UConn",
+   "d": 2,
+   "category": "College",
+   "topic": "college-uconn-2004"
+  },
+  {
+   "id": "603",
+   "q": "What is the greatest number of overtimes ever played in a single NBA game?",
+   "a": "Six",
+   "d": 2,
+   "category": "Records",
+   "topic": "records-longest-game-ot"
+  },
+  {
+   "id": "604",
+   "q": "Which playground legend turned ABA and NBA star was nicknamed \"The Hawk\"?",
+   "a": "Connie Hawkins",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-the-hawk"
+  },
+  {
+   "id": "605",
+   "q": "Which domed stadium, the Pistons' home in the 1980s, once hosted the largest crowd in NBA history?",
+   "a": "Pontiac Silverdome",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-silverdome-crowd"
+  },
+  {
+   "id": "606",
+   "q": "Which coach has led Kansas to NCAA titles in 2008 and 2022?",
+   "a": "Bill Self",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-bill-self-kansas"
+  },
+  {
+   "id": "607",
+   "q": "Which guard won Finals MVP in each of the WNBA's first four championship series?",
+   "a": "Cynthia Cooper",
+   "d": 2,
+   "category": "WNBA",
+   "topic": "wnba-cooper-finals-mvps"
+  },
+  {
+   "id": "608",
+   "q": "Which center, a longtime Wizards starter, was nicknamed \"The Polish Hammer\"?",
+   "a": "Marcin Gortat",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-polish-hammer"
+  },
+  {
+   "id": "609",
+   "q": "Which nation won the men's Olympic basketball gold medal in 1988?",
+   "a": "Soviet Union",
+   "d": 2,
+   "category": "Olympics",
+   "topic": "olympics-1988-soviet-gold"
+  },
+  {
+   "id": "610",
+   "q": "Which school won the 1994 NCAA championship playing a style called \"40 Minutes of Hell\"?",
+   "a": "Arkansas",
+   "d": 2,
+   "category": "College",
+   "topic": "college-arkansas-1994"
+  },
+  {
+   "id": "611",
+   "q": "Which Purdue star and 1994 first overall pick was nicknamed \"Big Dog\"?",
+   "a": "Glenn Robinson",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-big-dog"
+  },
+  {
+   "id": "612",
+   "q": "In which football stadium did the Spurs play their home games through the 1990s?",
+   "a": "Alamodome",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-alamodome-spurs"
+  },
+  {
+   "id": "613",
+   "q": "Which player jumped straight from high school to the ABA in 1974, years before the NBA allowed it?",
+   "a": "Moses Malone",
+   "d": 2,
+   "category": "Draft",
+   "topic": "draft-moses-aba-prep"
+  },
+  {
+   "id": "614",
+   "q": "Which coach has guided Gonzaga to national prominence since taking over in 1999?",
+   "a": "Mark Few",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-mark-few-gonzaga"
+  },
+  {
+   "id": "615",
+   "q": "Which 7-foot-4 Pacers center was nicknamed \"The Dunking Dutchman\"?",
+   "a": "Rik Smits",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-dunkin-dutchman"
+  },
+  {
+   "id": "616",
+   "q": "Which Las Vegas Aces forward has won multiple WNBA MVP awards and a scoring title?",
+   "a": "A'ja Wilson",
+   "d": 2,
+   "category": "WNBA",
+   "topic": "wnba-aja-wilson-mvps"
+  },
+  {
+   "id": "617",
+   "q": "Which Louisville arena hosted more NCAA Final Fours than any other building?",
+   "a": "Freedom Hall",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-freedom-hall"
+  },
+  {
+   "id": "618",
+   "q": "Which school won its first NCAA men's championship in 2002?",
+   "a": "Maryland",
+   "d": 2,
+   "category": "College",
+   "topic": "college-maryland-2002"
+  },
+  {
+   "id": "619",
+   "q": "Which Seattle guard, an early long-range specialist, was nicknamed \"Downtown\"?",
+   "a": "Fred Brown",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-downtown-freddie"
+  },
+  {
+   "id": "620",
+   "q": "Which coach won NBA titles with both the St. Louis Hawks and the Philadelphia 76ers?",
+   "a": "Alex Hannum",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-hannum-two-franchises"
+  },
+  {
+   "id": "621",
+   "q": "Which Lithuanian center led his country to bronze in 1992 after winning gold with the Soviet Union in 1988?",
+   "a": "Arvydas Sabonis",
+   "d": 2,
+   "category": "Olympics",
+   "topic": "olympics-sabonis-lithuania"
+  },
+  {
+   "id": "622",
+   "q": "In which arena did the Utah Jazz play before moving to the Delta Center?",
+   "a": "Salt Palace",
+   "d": 2,
+   "category": "Arenas",
+   "topic": "arena-salt-palace-jazz"
+  },
+  {
+   "id": "623",
+   "q": "Which flamboyant ABA star was nicknamed \"Bad News\"?",
+   "a": "Marvin Barnes",
+   "d": 2,
+   "category": "Nicknames",
+   "topic": "nick-bad-news"
+  },
+  {
+   "id": "624",
+   "q": "Which expansion team began play in the WNBA in 2025?",
+   "a": "Golden State Valkyries",
+   "d": 2,
+   "category": "WNBA",
+   "topic": "wnba-valkyries-2025"
+  },
+  {
+   "id": "625",
+   "q": "Which coach, known for an up-tempo style called \"Nellie Ball\", retired as the NBA's career wins leader?",
+   "a": "Don Nelson",
+   "d": 2,
+   "category": "Coaches",
+   "topic": "coach-don-nelson-wins"
+  },
+  {
+   "id": "626",
+   "q": "In which year did the NBA begin requiring draft prospects to be one year removed from high school?",
+   "a": "2006",
+   "d": 2,
+   "category": "Draft",
+   "topic": "draft-one-and-done-2006"
+  },
+  {
+   "id": "627",
+   "q": "Which shot-blocking center of the 1970s was nicknamed \"The Human Eraser\"?",
+   "a": "Marvin Webster",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-human-eraser"
+  },
+  {
+   "id": "628",
+   "q": "Which Chicago school won the 1963 NCAA men's championship?",
+   "a": "Loyola Chicago",
+   "d": 3,
+   "category": "College",
+   "topic": "college-loyola-1963",
+   "pairId": "P68"
+  },
+  {
+   "id": "629",
+   "q": "Which two-time defending champion did they beat in overtime in that final?",
+   "a": "Cincinnati",
+   "d": 3,
+   "category": "College",
+   "topic": "college-loyola-1963-opponent",
+   "pairId": "P68"
+  },
+  {
+   "id": "630",
+   "q": "In which arena did the Spurs play from their ABA days into the 1990s?",
+   "a": "HemisFair Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-hemisfair-spurs"
+  },
+  {
+   "id": "631",
+   "q": "Which 1970s NBA forward, father of a future scoring champion, was nicknamed \"Jellybean\"?",
+   "a": "Joe Bryant",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-jellybean"
+  },
+  {
+   "id": "632",
+   "q": "Which coach led the eighth-seeded Knicks to the 1999 NBA Finals?",
+   "a": "Jeff Van Gundy",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-van-gundy-1999"
+  },
+  {
+   "id": "633",
+   "q": "Which school won back-to-back NCAA titles in 1961 and 1962?",
+   "a": "Cincinnati",
+   "d": 3,
+   "category": "College",
+   "topic": "college-cincinnati-back-to-back"
+  },
+  {
+   "id": "634",
+   "q": "Which high-scoring guard legally changed his name from Lloyd to a nickname meaning global peace?",
+   "a": "World B. Free",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-world-b-free"
+  },
+  {
+   "id": "635",
+   "q": "In which downtown Detroit arena did the Pistons play before moving to the suburbs?",
+   "a": "Cobo Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-cobo-pistons"
+  },
+  {
+   "id": "636",
+   "q": "Which 1994 basketball film featured Tupac Shakur in a starring role?",
+   "a": "Above the Rim",
+   "d": 3,
+   "category": "Culture",
+   "topic": "culture-above-the-rim"
+  },
+  {
+   "id": "637",
+   "q": "Which center recorded the fastest triple-double in NBA history, in about 14 minutes?",
+   "a": "Nikola Jokić",
+   "d": 3,
+   "category": "Records",
+   "topic": "records-jokic-fastest-triple-double"
+  },
+  {
+   "id": "638",
+   "q": "Which flashy Lakers guard turned broadcaster was nicknamed \"Hot Rod\"?",
+   "a": "Rod Hundley",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-hot-rod"
+  },
+  {
+   "id": "639",
+   "q": "Which school won back-to-back NCAA championships in 1955 and 1956 with Bill Russell?",
+   "a": "San Francisco",
+   "d": 3,
+   "category": "College",
+   "topic": "college-san-francisco-titles"
+  },
+  {
+   "id": "640",
+   "q": "Which coach led Maryland to its 2002 NCAA championship?",
+   "a": "Gary Williams",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-gary-williams-2002"
+  },
+  {
+   "id": "641",
+   "q": "In which arena did the Denver Nuggets play from their ABA years until 1999?",
+   "a": "McNichols Sports Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-mcnichols-nuggets"
+  },
+  {
+   "id": "642",
+   "q": "Which Georgetown guard, famous for a 51-point playoff game, went by \"Sleepy\"?",
+   "a": "Eric Floyd",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-sleepy-floyd"
+  },
+  {
+   "id": "643",
+   "q": "What is the NBA record for points scored by one player in a single half?",
+   "a": "59",
+   "d": 3,
+   "category": "Records",
+   "topic": "records-wilt-59-half"
+  },
+  {
+   "id": "644",
+   "q": "Which 2000 film follows two childhood neighbors pursuing basketball careers and romance?",
+   "a": "Love & Basketball",
+   "d": 3,
+   "category": "Culture",
+   "topic": "culture-love-and-basketball"
+  },
+  {
+   "id": "645",
+   "q": "Which school won both the NIT and the NCAA tournament in the same season, 1950?",
+   "a": "CCNY",
+   "d": 3,
+   "category": "College",
+   "topic": "college-ccny-1950-double"
+  },
+  {
+   "id": "646",
+   "q": "Which shot-blocking Atlanta center went by the nickname \"Tree\"?",
+   "a": "Wayne Rollins",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-tree-rollins"
+  },
+  {
+   "id": "647",
+   "q": "Which coach led Kentucky to the 1998 NCAA championship in his first season there?",
+   "a": "Tubby Smith",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-tubby-smith-1998"
+  },
+  {
+   "id": "648",
+   "q": "In which Long Island arena did the Nets play during their ABA championship years?",
+   "a": "Nassau Coliseum",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-nassau-nets"
+  },
+  {
+   "id": "649",
+   "q": "What was the name of the rule that let teams claim a local college star before the draft began?",
+   "a": "Territorial pick",
+   "d": 3,
+   "category": "Draft",
+   "topic": "draft-territorial-pick"
+  },
+  {
+   "id": "650",
+   "q": "Which Denver guard, one of the best rebounding guards ever, went by the nickname \"Fat\"?",
+   "a": "Lafayette Lever",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-fat-lever"
+  },
+  {
+   "id": "651",
+   "q": "Which school won the 1995 NCAA championship, its first since the Wooden era?",
+   "a": "UCLA",
+   "d": 3,
+   "category": "College",
+   "topic": "college-ucla-1995"
+  },
+  {
+   "id": "652",
+   "q": "Which player won WNBA MVP and Rookie of the Year in the same season?",
+   "a": "Candace Parker",
+   "d": 3,
+   "category": "WNBA",
+   "topic": "wnba-parker-mvp-roy"
+  },
+  {
+   "id": "653",
+   "q": "In which Maryland arena did Texas Western beat Kentucky for the 1966 NCAA title?",
+   "a": "Cole Field House",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-cole-field-house"
+  },
+  {
+   "id": "654",
+   "q": "Which defensive-minded point guard, born Daron, was universally known as \"Mookie\"?",
+   "a": "Mookie Blaylock",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-mookie"
+  },
+  {
+   "id": "655",
+   "q": "Which coach won Coach of the Year in Memphis in 2004, two decades after his previous NBA job?",
+   "a": "Hubie Brown",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-hubie-brown"
+  },
+  {
+   "id": "656",
+   "q": "Which 2008 comedy stars Will Ferrell as the owner-player of a struggling ABA team?",
+   "a": "Semi-Pro",
+   "d": 3,
+   "category": "Culture",
+   "topic": "culture-semi-pro"
+  },
+  {
+   "id": "657",
+   "q": "Which school won the 1997 NCAA championship after beating three number-one seeds?",
+   "a": "Arizona",
+   "d": 3,
+   "category": "College",
+   "topic": "college-arizona-1997"
+  },
+  {
+   "id": "658",
+   "q": "Which forward holds the NBA single-season record for technical fouls?",
+   "a": "Rasheed Wallace",
+   "d": 3,
+   "category": "Records",
+   "topic": "records-rasheed-technicals"
+  },
+  {
+   "id": "659",
+   "q": "Which Pistons guard, known for wearing a protective face mask, went by \"Rip\"?",
+   "a": "Richard Hamilton",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-rip-hamilton"
+  },
+  {
+   "id": "660",
+   "q": "Which Purdue arena is named for the athletic director who built the school's program?",
+   "a": "Mackey Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-mackey-purdue"
+  },
+  {
+   "id": "661",
+   "q": "Which coach led the Lakers to the 2020 NBA championship?",
+   "a": "Frank Vogel",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-frank-vogel-2020"
+  },
+  {
+   "id": "662",
+   "q": "Which Ivy League school upset defending champion UCLA in the 1996 NCAA tournament?",
+   "a": "Princeton",
+   "d": 3,
+   "category": "College",
+   "topic": "college-princeton-1996"
+  },
+  {
+   "id": "663",
+   "q": "Which Brazilian scorer is the leading points scorer in Olympic basketball history?",
+   "a": "Oscar Schmidt",
+   "d": 3,
+   "category": "Olympics",
+   "topic": "olympics-oscar-schmidt"
+  },
+  {
+   "id": "664",
+   "q": "Which coach and longtime broadcaster is known as \"The Czar of the Telestrator\"?",
+   "a": "Mike Fratello",
+   "d": 3,
+   "category": "Nicknames",
+   "topic": "nick-the-czar"
+  },
+  {
+   "id": "665",
+   "q": "Which arena has been Michigan State's home court since 1989?",
+   "a": "Breslin Center",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-breslin-msu"
+  },
+  {
+   "id": "666",
+   "q": "Which 2002 film features an orphan who gains NBA skills from a pair of magical sneakers?",
+   "a": "Like Mike",
+   "d": 3,
+   "category": "Culture",
+   "topic": "culture-like-mike"
+  },
+  {
+   "id": "667",
+   "q": "Which school became the first 15 seed to beat a 2 seed in the NCAA tournament?",
+   "a": "Richmond",
+   "d": 3,
+   "category": "College",
+   "topic": "college-richmond-1991"
+  },
+  {
+   "id": "668",
+   "q": "Which coach led Baylor to the 2021 NCAA championship?",
+   "a": "Scott Drew",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-scott-drew-2021"
+  },
+  {
+   "id": "669",
+   "q": "Which guard holds the NBA record for consecutive free throws made, with 97?",
+   "a": "Micheal Williams",
+   "d": 3,
+   "category": "Records",
+   "topic": "records-micheal-williams-ft"
+  },
+  {
+   "id": "670",
+   "q": "Which on-campus arena shares UConn's home schedule with an off-campus venue in Hartford?",
+   "a": "Gampel Pavilion",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-gampel-uconn"
+  },
+  {
+   "id": "671",
+   "q": "Which 15 seed reached the Elite Eight in 2022?",
+   "a": "Saint Peter's",
+   "d": 3,
+   "category": "College",
+   "topic": "college-saint-peters-2022"
+  },
+  {
+   "id": "672",
+   "q": "Which coach was in charge of the U.S. team during the disputed 1972 Olympic final?",
+   "a": "Hank Iba",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-hank-iba-1972"
+  },
+  {
+   "id": "673",
+   "q": "Which player was the first in WNBA history to shoot 50-40-90 in a season?",
+   "a": "Elena Delle Donne",
+   "d": 3,
+   "category": "WNBA",
+   "topic": "wnba-delle-donne-50-40-90"
+  },
+  {
+   "id": "674",
+   "q": "Which arena, one of the largest on-campus venues in the country, is home to Tennessee?",
+   "a": "Thompson-Boling Arena",
+   "d": 3,
+   "category": "Arenas",
+   "topic": "arena-thompson-boling"
+  },
+  {
+   "id": "675",
+   "q": "Which 2023 film dramatizes Nike's pursuit of a rookie Michael Jordan?",
+   "a": "Air",
+   "d": 3,
+   "category": "Culture",
+   "topic": "culture-air-2023"
+  },
+  {
+   "id": "676",
+   "q": "Before the lottery, how was the first overall pick decided between the worst teams in each conference?",
+   "a": "A coin flip",
+   "d": 3,
+   "category": "Draft",
+   "topic": "draft-coin-flip-era"
+  },
+  {
+   "id": "677",
+   "q": "Which 15 seed stunned second-seeded Missouri in the 2012 NCAA tournament?",
+   "a": "Norfolk State",
+   "d": 3,
+   "category": "College",
+   "topic": "college-norfolk-state-2012"
+  },
+  {
+   "id": "678",
+   "q": "Which coach led the Timberwolves to their only Western Conference Finals appearance, in 2004?",
+   "a": "Flip Saunders",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-flip-saunders"
+  },
+  {
+   "id": "679",
+   "q": "Which center is the youngest player ever to appear in an NBA game?",
+   "a": "Andrew Bynum",
+   "d": 3,
+   "category": "Records",
+   "topic": "records-youngest-player"
+  },
+  {
+   "id": "680",
+   "q": "Which Australian forward won three WNBA MVP awards with Seattle?",
+   "a": "Lauren Jackson",
+   "d": 3,
+   "category": "WNBA",
+   "topic": "wnba-lauren-jackson-mvps"
+  },
+  {
+   "id": "681",
+   "q": "Which school won back-to-back NCAA titles in 1945 and 1946 with Bob Kurland?",
+   "a": "Oklahoma A&M",
+   "d": 3,
+   "category": "College",
+   "topic": "college-oklahoma-aggies"
+  },
+  {
+   "id": "682",
+   "q": "Which video game series brought street-style basketball to consoles beginning in 2001?",
+   "a": "NBA Street",
+   "d": 3,
+   "category": "Culture",
+   "topic": "culture-nba-street"
+  },
+  {
+   "id": "683",
+   "q": "Which coach reached 1,000 career NBA wins while leading Denver?",
+   "a": "George Karl",
+   "d": 3,
+   "category": "Coaches",
+   "topic": "coach-george-karl-1000"
+  },
+  {
+   "id": "684",
+   "q": "Which player holds the record for most career games without ever reaching the playoffs?",
+   "a": "Tom Van Arsdale",
+   "d": 4,
+   "category": "Records",
+   "topic": "records-van-arsdale-no-playoffs",
+   "pairId": "P69"
+  },
+  {
+   "id": "685",
+   "q": "He and his twin brother, both three-time All-Stars, played college ball at which school?",
+   "a": "Indiana",
+   "d": 4,
+   "category": "College",
+   "topic": "records-van-arsdale-college",
+   "pairId": "P69"
+  },
+  {
+   "id": "686",
+   "q": "Which Bulls forward started all six games of the 1998 NBA Finals?",
+   "a": "Toni Kukoč",
+   "d": 4,
+   "category": "History",
+   "topic": "finals-1998-kukoc-started",
+   "pairId": "P70"
+  },
+  {
+   "id": "687",
+   "q": "Which Bulls champion came off the bench in every game of that series?",
+   "a": "Dennis Rodman",
+   "d": 4,
+   "category": "History",
+   "topic": "finals-1998-rodman-bench",
+   "pairId": "P70"
+  },
+  {
+   "id": "688",
+   "q": "Who was the first African-American selected to an NBA All-Star Game?",
+   "a": "Don Barksdale",
+   "d": 4,
+   "category": "All-Star",
+   "topic": "allstar-barksdale-first",
+   "pairId": "P71"
+  },
+  {
+   "id": "689",
+   "q": "Which school did he play for before turning professional?",
+   "a": "UCLA",
+   "d": 4,
+   "category": "College",
+   "topic": "allstar-barksdale-college",
+   "pairId": "P71"
+  },
+  {
+   "id": "690",
+   "q": "Which veteran big man started Game 1 of the 2024 NBA Finals for Boston?",
+   "a": "Al Horford",
+   "d": 4,
+   "category": "History",
+   "topic": "finals-2024-horford-start",
+   "pairId": "P72"
+  },
+  {
+   "id": "691",
+   "q": "Which Celtics starter returned from a long injury absence to come off the bench in that game?",
+   "a": "Kristaps Porziņģis",
+   "d": 4,
+   "category": "History",
+   "topic": "finals-2024-porzingis-bench",
+   "pairId": "P72"
+  },
+  {
+   "id": "692",
+   "q": "Which center started Game 1 of the 2014 NBA Finals for San Antonio?",
+   "a": "Tiago Splitter",
+   "d": 4,
+   "category": "History",
+   "topic": "finals-2014-splitter-start",
+   "pairId": "P73"
+  },
+  {
+   "id": "693",
+   "q": "Which reserve forward moved into the starting lineup later in that series?",
+   "a": "Boris Diaw",
+   "d": 4,
+   "category": "History",
+   "topic": "finals-2014-diaw-start",
+   "pairId": "P73"
+  },
+  {
+   "id": "694",
+   "q": "Which team did the Celtics defeat in the 1976 NBA Finals?",
+   "a": "Phoenix Suns",
+   "d": 4,
+   "category": "History",
+   "topic": "finals-1976-suns-opponent",
+   "pairId": "P74"
+  },
+  {
+   "id": "695",
+   "q": "Which Suns forward hit a buzzer-beater to force a third overtime in Game 5 of that series?",
+   "a": "Garfield Heard",
+   "d": 4,
+   "category": "History",
+   "topic": "finals-1976-heard-shot",
+   "pairId": "P74"
+  },
+  {
+   "id": "696",
+   "q": "In which city's civic center did the Celtics play a handful of home games in the 1970s and 80s?",
+   "a": "Hartford",
+   "d": 4,
+   "category": "Arenas",
+   "topic": "arena-hartford-celtics"
+  },
+  {
+   "id": "697",
+   "q": "Which coach is credited with sparking North Carolina's basketball obsession after arriving at NC State in 1946?",
+   "a": "Everett Case",
+   "d": 4,
+   "category": "Coaches",
+   "topic": "coach-everett-case-ncstate"
+  },
+  {
+   "id": "698",
+   "q": "Which future four-time champion was selected 57th overall in the 1999 draft?",
+   "a": "Manu Ginóbili",
+   "d": 4,
+   "category": "Draft",
+   "topic": "draft-manu-57th"
+  },
+  {
+   "id": "699",
+   "q": "What is the NBA record for steals by one player in a single game?",
+   "a": "11",
+   "d": 4,
+   "category": "Records",
+   "topic": "records-most-steals-game"
+  },
+  {
+   "id": "700",
+   "q": "Which rookie set the WNBA single-season rebounding record in 2024?",
+   "a": "Angel Reese",
+   "d": 4,
+   "category": "WNBA",
+   "topic": "wnba-reese-rebound-record"
+  }
+ ]
+}

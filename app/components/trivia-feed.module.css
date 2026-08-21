@@ -1,0 +1,317 @@
+.feed {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--hh-paper);
+  color: var(--hh-ink);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  will-change: transform;
+}
+
+.advancing {
+  transition: transform 0.46s cubic-bezier(0.22, 0.9, 0.18, 1);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: var(--hh-card-h);
+  box-sizing: border-box;
+  padding: 116px var(--hh-screen-pad) 138px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.question {
+  background: var(--hh-paper);
+  color: var(--hh-ink);
+}
+
+.answer {
+  background: var(--hh-accent);
+  color: var(--hh-cream);
+}
+
+.promo {
+  background: var(--hh-ink);
+  color: var(--hh-paper);
+}
+
+.kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.answerKicker {
+  display: block;
+  margin-bottom: 20px;
+  color: rgba(255, 246, 238, 0.55);
+}
+
+/* Display type. The handoff sets 42px question / 54px answer against a 402px
+   card; the sizes below hold that ratio on narrower phones, and step down for
+   the long questions in the bank (the design's samples were all short). */
+.display {
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: pretty;
+}
+
+.answer .display {
+  font-weight: 700;
+}
+
+.sizeXl {
+  font-size: min(54px, 13.4vw);
+}
+.sizeL {
+  font-size: min(42px, 10.4vw);
+}
+.sizeM {
+  font-size: min(36px, 9vw);
+}
+.sizeS {
+  font-size: min(30px, 7.5vw);
+}
+
+.promoBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.promoKicker {
+  color: var(--hh-accent);
+}
+
+.promoName {
+  font-size: min(40px, 10vw);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: var(--hh-paper);
+  text-wrap: pretty;
+}
+
+.promoBlurb {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(244, 241, 234, 0.55);
+  max-width: 290px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 26px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--hh-accent);
+  color: var(--hh-cream);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.promoPlay {
+  margin-top: 8px;
+}
+
+.pill:hover {
+  transform: scale(1.03);
+}
+.pill:active {
+  transform: scale(0.97);
+}
+
+.hint {
+  position: absolute;
+  right: var(--hh-screen-pad);
+  bottom: calc(58px + var(--hh-bottom-inset));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  animation: hh-nudge 2.6s ease-in-out infinite;
+}
+
+.chrome {
+  position: absolute;
+  top: 60px;
+  left: var(--hh-screen-pad);
+  right: var(--hh-screen-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+  transition: opacity 0.3s ease;
+}
+
+.chromeLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  transition: color 0.3s ease;
+}
+
+.counter {
+  font-variant-numeric: tabular-nums;
+}
+
+.shareDock {
+  position: absolute;
+  left: var(--hh-screen-pad);
+  bottom: calc(44px + var(--hh-bottom-inset));
+  z-index: 6;
+  transition:
+    opacity 0.34s ease,
+    transform 0.34s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+.shareButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 22px 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--hh-cream);
+  color: var(--hh-accent);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(10, 8, 5, 0.22);
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.shareButton:hover {
+  transform: scale(1.03);
+}
+.shareButton:active {
+  transform: scale(0.97);
+}
+
+/* Share fallback sheet — the app's own language, per the handoff note that the
+   prototype's iOS-style sheet is a placeholder. Used when the browser has no
+   Web Share API. */
+.sheetLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 8, 5, 0.44);
+  border: 0;
+  padding: 0;
+  transition: opacity 0.32s ease;
+}
+
+.sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 26px var(--hh-screen-pad) calc(30px + env(safe-area-inset-bottom));
+  background: var(--hh-paper);
+  border-top: 3px solid var(--hh-ink);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -20px 60px rgba(10, 8, 5, 0.3);
+  transition: transform 0.42s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+.sheetKicker {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--hh-accent);
+}
+
+.sheetPrompt {
+  display: block;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+.sheetLink {
+  display: block;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(22, 19, 14, 0.45);
+  word-break: break-all;
+}
+
+.sheetActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.sheetClose {
+  height: 52px;
+  padding: 0 22px;
+  border: 1px solid rgba(22, 19, 14, 0.12);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(22, 19, 14, 0.5);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toast {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 116px;
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--hh-screen-pad);
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+.toastLabel {
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--hh-ink);
+  color: var(--hh-paper);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
