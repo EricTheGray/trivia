@@ -1,5 +1,6 @@
 import { REVALIDATE_SECONDS } from "@/lib/dataset";
-import { createNameIndex, loadRoster, MAX_SUGGESTIONS } from "@/lib/players";
+import { createNameIndex, MAX_SUGGESTIONS } from "@/lib/matching";
+import { loadRoster, PLAYER_ALIASES } from "@/lib/players";
 
 /**
  * The autocomplete roster, as `{ version, source, players }`.
@@ -13,7 +14,14 @@ export async function GET(request: Request) {
   const query = new URL(request.url).searchParams.get("q");
 
   const body = query
-    ? { ...roster, query, players: createNameIndex(roster.players).search(query, MAX_SUGGESTIONS) }
+    ? {
+        ...roster,
+        query,
+        players: createNameIndex(roster.players, { aliases: PLAYER_ALIASES }).search(
+          query,
+          MAX_SUGGESTIONS,
+        ),
+      }
     : roster;
 
   return Response.json(body, {

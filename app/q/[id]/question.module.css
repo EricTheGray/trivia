@@ -33,6 +33,7 @@
   line-height: 1.08;
   letter-spacing: -0.03em;
   text-wrap: pretty;
+  max-width: 20ch;
   margin: 0;
 }
 
@@ -77,4 +78,39 @@
 }
 .pill:active {
   transform: scale(0.97);
+}
+
+@media (min-width: 900px) {
+  .screen {
+    padding: 140px var(--hh-gutter) 160px;
+  }
+
+  .chrome {
+    top: 44px;
+    left: var(--hh-gutter);
+    right: var(--hh-gutter);
+  }
+
+  .kicker {
+    font-size: 12px;
+  }
+
+  .question {
+    font-size: clamp(48px, 5vw, 76px);
+    max-width: 18ch;
+  }
+
+  .long {
+    font-size: clamp(38px, 3.8vw, 58px);
+  }
+
+  .footer {
+    left: var(--hh-gutter);
+    right: var(--hh-gutter);
+    bottom: 64px;
+  }
+
+  .note {
+    font-size: 15px;
+  }
 }

@@ -1,4 +1,4 @@
-import { requireObject } from "@/lib/dataset";
+import { parseNameList } from "@/lib/dataset";
 
 export type Roster = {
   version: string;
@@ -12,18 +12,6 @@ export type Roster = {
 };
 
 export function parseRoster(value: unknown, source: string): Roster {
-  const roster = requireObject(value, source);
-  if (!Array.isArray(roster.players)) {
-    throw new Error(`${source}: missing a "players" array`);
-  }
-  const players = roster.players.filter(
-    (name): name is string => typeof name === "string" && name.length > 0,
-  );
-  if (!players.length) throw new Error(`${source}: roster is empty`);
-
-  return {
-    version: typeof roster.version === "string" ? roster.version : "unknown",
-    source: typeof roster.source === "string" ? roster.source : source,
-    players,
-  };
+  const { names, ...meta } = parseNameList(value, source, "players");
+  return { ...meta, players: names };
 }

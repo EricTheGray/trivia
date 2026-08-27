@@ -1,16 +1,17 @@
 {
- "version": "2026-08-20",
- "source": "basketball_trivia_database (1).xlsx",
+ "version": "2026-08-26",
+ "source": "basketball_trivia_database (11).xlsx",
  "modes": [
   {
    "key": "champions",
+   "kind": "years",
    "name": "Championships",
-   "blurb": "Every finals winner since 2012",
+   "blurb": "Every finals winner since 1947",
    "chip": "#16130E",
    "title": "CHAMPIONSHIPS",
    "prompt": "Who won the {year} NBA Finals?",
-   "input": "list",
-   "seconds": 180,
+   "pool": "teams",
+   "seconds": 300,
    "rounds": [
     {
      "year": 2026,
@@ -71,34 +72,279 @@
     {
      "year": 2012,
      "answer": "Miami Heat"
+    },
+    {
+     "year": 2011,
+     "answer": "Dallas Mavericks"
+    },
+    {
+     "year": 2010,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 2009,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 2008,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 2007,
+     "answer": "San Antonio Spurs"
+    },
+    {
+     "year": 2006,
+     "answer": "Miami Heat"
+    },
+    {
+     "year": 2005,
+     "answer": "San Antonio Spurs"
+    },
+    {
+     "year": 2004,
+     "answer": "Detroit Pistons"
+    },
+    {
+     "year": 2003,
+     "answer": "San Antonio Spurs"
+    },
+    {
+     "year": 2002,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 2001,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 2000,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 1999,
+     "answer": "San Antonio Spurs"
+    },
+    {
+     "year": 1998,
+     "answer": "Chicago Bulls"
+    },
+    {
+     "year": 1997,
+     "answer": "Chicago Bulls"
+    },
+    {
+     "year": 1996,
+     "answer": "Chicago Bulls"
+    },
+    {
+     "year": 1995,
+     "answer": "Houston Rockets"
+    },
+    {
+     "year": 1994,
+     "answer": "Houston Rockets"
+    },
+    {
+     "year": 1993,
+     "answer": "Chicago Bulls"
+    },
+    {
+     "year": 1992,
+     "answer": "Chicago Bulls"
+    },
+    {
+     "year": 1991,
+     "answer": "Chicago Bulls"
+    },
+    {
+     "year": 1990,
+     "answer": "Detroit Pistons"
+    },
+    {
+     "year": 1989,
+     "answer": "Detroit Pistons"
+    },
+    {
+     "year": 1988,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 1987,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 1986,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1985,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 1984,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1983,
+     "answer": "Philadelphia 76ers"
+    },
+    {
+     "year": 1982,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 1981,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1980,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 1979,
+     "answer": "Seattle SuperSonics"
+    },
+    {
+     "year": 1978,
+     "answer": "Washington Bullets"
+    },
+    {
+     "year": 1977,
+     "answer": "Portland Trail Blazers"
+    },
+    {
+     "year": 1976,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1975,
+     "answer": "Golden State Warriors"
+    },
+    {
+     "year": 1974,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1973,
+     "answer": "New York Knicks"
+    },
+    {
+     "year": 1972,
+     "answer": "Los Angeles Lakers"
+    },
+    {
+     "year": 1971,
+     "answer": "Milwaukee Bucks"
+    },
+    {
+     "year": 1970,
+     "answer": "New York Knicks"
+    },
+    {
+     "year": 1969,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1968,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1967,
+     "answer": "Philadelphia 76ers"
+    },
+    {
+     "year": 1966,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1965,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1964,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1963,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1962,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1961,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1960,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1959,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1958,
+     "answer": "St. Louis Hawks"
+    },
+    {
+     "year": 1957,
+     "answer": "Boston Celtics"
+    },
+    {
+     "year": 1956,
+     "answer": "Philadelphia Warriors"
+    },
+    {
+     "year": 1955,
+     "answer": "Syracuse Nationals"
+    },
+    {
+     "year": 1954,
+     "answer": "Minneapolis Lakers"
+    },
+    {
+     "year": 1953,
+     "answer": "Minneapolis Lakers"
+    },
+    {
+     "year": 1952,
+     "answer": "Minneapolis Lakers"
+    },
+    {
+     "year": 1951,
+     "answer": "Rochester Royals"
+    },
+    {
+     "year": 1950,
+     "answer": "Minneapolis Lakers"
+    },
+    {
+     "year": 1949,
+     "answer": "Minneapolis Lakers"
+    },
+    {
+     "year": 1948,
+     "answer": "Baltimore Bullets"
+    },
+    {
+     "year": 1947,
+     "answer": "Philadelphia Warriors"
     }
-   ],
-   "options": [
-    "Boston Celtics",
-    "Cleveland Cavaliers",
-    "Dallas Mavericks",
-    "Denver Nuggets",
-    "Golden State Warriors",
-    "Indiana Pacers",
-    "Los Angeles Lakers",
-    "Miami Heat",
-    "Milwaukee Bucks",
-    "New York Knicks",
-    "Oklahoma City Thunder",
-    "Phoenix Suns",
-    "San Antonio Spurs",
-    "Toronto Raptors"
    ]
   },
   {
    "key": "mvps",
+   "kind": "years",
    "name": "MVPs",
    "blurb": "Same clock, harder names",
    "chip": "#D9480F",
    "title": "MVPS",
    "prompt": "Who was MVP in {year}?",
-   "input": "type",
-   "seconds": 180,
+   "pool": "players",
+   "seconds": 300,
    "rounds": [
     {
      "year": 2026,
@@ -159,18 +405,243 @@
     {
      "year": 2012,
      "answer": "LeBron James"
+    },
+    {
+     "year": 2011,
+     "answer": "Derrick Rose"
+    },
+    {
+     "year": 2010,
+     "answer": "LeBron James"
+    },
+    {
+     "year": 2009,
+     "answer": "LeBron James"
+    },
+    {
+     "year": 2008,
+     "answer": "Kobe Bryant"
+    },
+    {
+     "year": 2007,
+     "answer": "Dirk Nowitzki"
+    },
+    {
+     "year": 2006,
+     "answer": "Steve Nash"
+    },
+    {
+     "year": 2005,
+     "answer": "Steve Nash"
+    },
+    {
+     "year": 2004,
+     "answer": "Kevin Garnett"
+    },
+    {
+     "year": 2003,
+     "answer": "Tim Duncan"
+    },
+    {
+     "year": 2002,
+     "answer": "Tim Duncan"
+    },
+    {
+     "year": 2001,
+     "answer": "Allen Iverson"
+    },
+    {
+     "year": 2000,
+     "answer": "Shaquille O'Neal"
+    },
+    {
+     "year": 1999,
+     "answer": "Karl Malone"
+    },
+    {
+     "year": 1998,
+     "answer": "Michael Jordan"
+    },
+    {
+     "year": 1997,
+     "answer": "Karl Malone"
+    },
+    {
+     "year": 1996,
+     "answer": "Michael Jordan"
+    },
+    {
+     "year": 1995,
+     "answer": "David Robinson"
+    },
+    {
+     "year": 1994,
+     "answer": "Hakeem Olajuwon"
+    },
+    {
+     "year": 1993,
+     "answer": "Charles Barkley"
+    },
+    {
+     "year": 1992,
+     "answer": "Michael Jordan"
+    },
+    {
+     "year": 1991,
+     "answer": "Michael Jordan"
+    },
+    {
+     "year": 1990,
+     "answer": "Magic Johnson"
+    },
+    {
+     "year": 1989,
+     "answer": "Magic Johnson"
+    },
+    {
+     "year": 1988,
+     "answer": "Michael Jordan"
+    },
+    {
+     "year": 1987,
+     "answer": "Magic Johnson"
+    },
+    {
+     "year": 1986,
+     "answer": "Larry Bird"
+    },
+    {
+     "year": 1985,
+     "answer": "Larry Bird"
+    },
+    {
+     "year": 1984,
+     "answer": "Larry Bird"
+    },
+    {
+     "year": 1983,
+     "answer": "Moses Malone"
+    },
+    {
+     "year": 1982,
+     "answer": "Moses Malone"
+    },
+    {
+     "year": 1981,
+     "answer": "Julius Erving"
+    },
+    {
+     "year": 1980,
+     "answer": "Kareem Abdul-Jabbar"
+    },
+    {
+     "year": 1979,
+     "answer": "Moses Malone"
+    },
+    {
+     "year": 1978,
+     "answer": "Bill Walton"
+    },
+    {
+     "year": 1977,
+     "answer": "Kareem Abdul-Jabbar"
+    },
+    {
+     "year": 1976,
+     "answer": "Kareem Abdul-Jabbar"
+    },
+    {
+     "year": 1975,
+     "answer": "Bob McAdoo"
+    },
+    {
+     "year": 1974,
+     "answer": "Kareem Abdul-Jabbar"
+    },
+    {
+     "year": 1973,
+     "answer": "Dave Cowens"
+    },
+    {
+     "year": 1972,
+     "answer": "Kareem Abdul-Jabbar"
+    },
+    {
+     "year": 1971,
+     "answer": "Lew Alcindor (Kareem Abdul-Jabbar)"
+    },
+    {
+     "year": 1970,
+     "answer": "Willis Reed"
+    },
+    {
+     "year": 1969,
+     "answer": "Wes Unseld"
+    },
+    {
+     "year": 1968,
+     "answer": "Wilt Chamberlain"
+    },
+    {
+     "year": 1967,
+     "answer": "Wilt Chamberlain"
+    },
+    {
+     "year": 1966,
+     "answer": "Wilt Chamberlain"
+    },
+    {
+     "year": 1965,
+     "answer": "Bill Russell"
+    },
+    {
+     "year": 1964,
+     "answer": "Oscar Robertson"
+    },
+    {
+     "year": 1963,
+     "answer": "Bill Russell"
+    },
+    {
+     "year": 1962,
+     "answer": "Bill Russell"
+    },
+    {
+     "year": 1961,
+     "answer": "Bill Russell"
+    },
+    {
+     "year": 1960,
+     "answer": "Wilt Chamberlain"
+    },
+    {
+     "year": 1959,
+     "answer": "Bob Pettit"
+    },
+    {
+     "year": 1958,
+     "answer": "Bill Russell"
+    },
+    {
+     "year": 1957,
+     "answer": "Bob Cousy"
+    },
+    {
+     "year": 1956,
+     "answer": "Bob Pettit"
     }
    ]
   },
   {
    "key": "dpoy",
+   "kind": "years",
    "name": "Defensive Players of the Year",
-   "blurb": "Fifteen years of stoppers",
+   "blurb": "Every stopper since 1983",
    "chip": "#16130E",
    "title": "DEFENSIVE PLAYERS",
    "prompt": "Who was Defensive Player of the Year in {year}?",
-   "input": "type",
-   "seconds": 180,
+   "pool": "players",
+   "seconds": 300,
    "rounds": [
     {
      "year": 2026,
@@ -231,18 +702,135 @@
     {
      "year": 2012,
      "answer": "Tyson Chandler"
+    },
+    {
+     "year": 2011,
+     "answer": "Dwight Howard"
+    },
+    {
+     "year": 2010,
+     "answer": "Dwight Howard"
+    },
+    {
+     "year": 2009,
+     "answer": "Dwight Howard"
+    },
+    {
+     "year": 2008,
+     "answer": "Kevin Garnett"
+    },
+    {
+     "year": 2007,
+     "answer": "Marcus Camby"
+    },
+    {
+     "year": 2006,
+     "answer": "Ben Wallace"
+    },
+    {
+     "year": 2005,
+     "answer": "Ben Wallace"
+    },
+    {
+     "year": 2004,
+     "answer": "Ron Artest"
+    },
+    {
+     "year": 2003,
+     "answer": "Ben Wallace"
+    },
+    {
+     "year": 2002,
+     "answer": "Ben Wallace"
+    },
+    {
+     "year": 2001,
+     "answer": "Dikembe Mutombo"
+    },
+    {
+     "year": 2000,
+     "answer": "Alonzo Mourning"
+    },
+    {
+     "year": 1999,
+     "answer": "Alonzo Mourning"
+    },
+    {
+     "year": 1998,
+     "answer": "Dikembe Mutombo"
+    },
+    {
+     "year": 1997,
+     "answer": "Dikembe Mutombo"
+    },
+    {
+     "year": 1996,
+     "answer": "Gary Payton"
+    },
+    {
+     "year": 1995,
+     "answer": "Dikembe Mutombo"
+    },
+    {
+     "year": 1994,
+     "answer": "Hakeem Olajuwon"
+    },
+    {
+     "year": 1993,
+     "answer": "Hakeem Olajuwon"
+    },
+    {
+     "year": 1992,
+     "answer": "David Robinson"
+    },
+    {
+     "year": 1991,
+     "answer": "Dennis Rodman"
+    },
+    {
+     "year": 1990,
+     "answer": "Dennis Rodman"
+    },
+    {
+     "year": 1989,
+     "answer": "Mark Eaton"
+    },
+    {
+     "year": 1988,
+     "answer": "Michael Jordan"
+    },
+    {
+     "year": 1987,
+     "answer": "Michael Cooper"
+    },
+    {
+     "year": 1986,
+     "answer": "Alvin Robertson"
+    },
+    {
+     "year": 1985,
+     "answer": "Mark Eaton"
+    },
+    {
+     "year": 1984,
+     "answer": "Sidney Moncrief"
+    },
+    {
+     "year": 1983,
+     "answer": "Sidney Moncrief"
     }
    ]
   },
   {
    "key": "roy",
+   "kind": "years",
    "name": "Rookies of the Year",
-   "blurb": "First-year winners, back to 2012",
+   "blurb": "First-year winners, back to 1953",
    "chip": "#D9480F",
    "title": "ROOKIES",
    "prompt": "Who was Rookie of the Year in {year}?",
-   "input": "type",
-   "seconds": 180,
+   "pool": "players",
+   "seconds": 300,
    "rounds": [
     {
      "year": 2026,
@@ -303,18 +891,255 @@
     {
      "year": 2012,
      "answer": "Kyrie Irving"
+    },
+    {
+     "year": 2011,
+     "answer": "Blake Griffin"
+    },
+    {
+     "year": 2010,
+     "answer": "Tyreke Evans"
+    },
+    {
+     "year": 2009,
+     "answer": "Derrick Rose"
+    },
+    {
+     "year": 2008,
+     "answer": "Kevin Durant"
+    },
+    {
+     "year": 2007,
+     "answer": "Brandon Roy"
+    },
+    {
+     "year": 2006,
+     "answer": "Chris Paul"
+    },
+    {
+     "year": 2005,
+     "answer": "Emeka Okafor"
+    },
+    {
+     "year": 2004,
+     "answer": "LeBron James"
+    },
+    {
+     "year": 2003,
+     "answer": "Amar'e Stoudemire"
+    },
+    {
+     "year": 2002,
+     "answer": "Pau Gasol"
+    },
+    {
+     "year": 2001,
+     "answer": "Mike Miller"
+    },
+    {
+     "year": 2000,
+     "answer": "Elton Brand & Steve Francis (tie)"
+    },
+    {
+     "year": 1999,
+     "answer": "Vince Carter"
+    },
+    {
+     "year": 1998,
+     "answer": "Tim Duncan"
+    },
+    {
+     "year": 1997,
+     "answer": "Allen Iverson"
+    },
+    {
+     "year": 1996,
+     "answer": "Damon Stoudamire"
+    },
+    {
+     "year": 1995,
+     "answer": "Jason Kidd & Grant Hill (tie)"
+    },
+    {
+     "year": 1994,
+     "answer": "Chris Webber"
+    },
+    {
+     "year": 1993,
+     "answer": "Shaquille O'Neal"
+    },
+    {
+     "year": 1992,
+     "answer": "Larry Johnson"
+    },
+    {
+     "year": 1991,
+     "answer": "Derrick Coleman"
+    },
+    {
+     "year": 1990,
+     "answer": "David Robinson"
+    },
+    {
+     "year": 1989,
+     "answer": "Mitch Richmond"
+    },
+    {
+     "year": 1988,
+     "answer": "Mark Jackson"
+    },
+    {
+     "year": 1987,
+     "answer": "Chuck Person"
+    },
+    {
+     "year": 1986,
+     "answer": "Patrick Ewing"
+    },
+    {
+     "year": 1985,
+     "answer": "Michael Jordan"
+    },
+    {
+     "year": 1984,
+     "answer": "Ralph Sampson"
+    },
+    {
+     "year": 1983,
+     "answer": "Terry Cummings"
+    },
+    {
+     "year": 1982,
+     "answer": "Buck Williams"
+    },
+    {
+     "year": 1981,
+     "answer": "Darrell Griffith"
+    },
+    {
+     "year": 1980,
+     "answer": "Larry Bird"
+    },
+    {
+     "year": 1979,
+     "answer": "Phil Ford"
+    },
+    {
+     "year": 1978,
+     "answer": "Walter Davis"
+    },
+    {
+     "year": 1977,
+     "answer": "Adrian Dantley"
+    },
+    {
+     "year": 1976,
+     "answer": "Alvan Adams"
+    },
+    {
+     "year": 1975,
+     "answer": "Jamaal Wilkes"
+    },
+    {
+     "year": 1974,
+     "answer": "Ernie DiGregorio"
+    },
+    {
+     "year": 1973,
+     "answer": "Bob McAdoo"
+    },
+    {
+     "year": 1972,
+     "answer": "Sidney Wicks"
+    },
+    {
+     "year": 1971,
+     "answer": "Dave Cowens & Geoff Petrie (tie)"
+    },
+    {
+     "year": 1970,
+     "answer": "Lew Alcindor (Kareem Abdul-Jabbar)"
+    },
+    {
+     "year": 1969,
+     "answer": "Wes Unseld"
+    },
+    {
+     "year": 1968,
+     "answer": "Earl Monroe"
+    },
+    {
+     "year": 1967,
+     "answer": "Dave Bing"
+    },
+    {
+     "year": 1966,
+     "answer": "Rick Barry"
+    },
+    {
+     "year": 1965,
+     "answer": "Willis Reed"
+    },
+    {
+     "year": 1964,
+     "answer": "Jerry Lucas"
+    },
+    {
+     "year": 1963,
+     "answer": "Terry Dischinger"
+    },
+    {
+     "year": 1962,
+     "answer": "Walt Bellamy"
+    },
+    {
+     "year": 1961,
+     "answer": "Oscar Robertson"
+    },
+    {
+     "year": 1960,
+     "answer": "Wilt Chamberlain"
+    },
+    {
+     "year": 1959,
+     "answer": "Elgin Baylor"
+    },
+    {
+     "year": 1958,
+     "answer": "Woody Sauldsberry"
+    },
+    {
+     "year": 1957,
+     "answer": "Tom Heinsohn"
+    },
+    {
+     "year": 1956,
+     "answer": "Maurice Stokes"
+    },
+    {
+     "year": 1955,
+     "answer": "Bob Pettit"
+    },
+    {
+     "year": 1954,
+     "answer": "Ray Felix"
+    },
+    {
+     "year": 1953,
+     "answer": "Don Meineke"
     }
    ]
   },
   {
    "key": "sixth",
+   "kind": "years",
    "name": "Six Men of the Year",
-   "blurb": "The best off the bench",
+   "blurb": "The best off the bench since 1983",
    "chip": "#16130E",
    "title": "SIX MEN",
    "prompt": "Who was Sixth Man of the Year in {year}?",
-   "input": "type",
-   "seconds": 180,
+   "pool": "players",
+   "seconds": 300,
    "rounds": [
     {
      "year": 2026,
@@ -375,18 +1200,135 @@
     {
      "year": 2012,
      "answer": "James Harden"
+    },
+    {
+     "year": 2011,
+     "answer": "Lamar Odom"
+    },
+    {
+     "year": 2010,
+     "answer": "Jamal Crawford"
+    },
+    {
+     "year": 2009,
+     "answer": "Jason Terry"
+    },
+    {
+     "year": 2008,
+     "answer": "Manu Ginóbili"
+    },
+    {
+     "year": 2007,
+     "answer": "Leandro Barbosa"
+    },
+    {
+     "year": 2006,
+     "answer": "Mike Miller"
+    },
+    {
+     "year": 2005,
+     "answer": "Ben Gordon"
+    },
+    {
+     "year": 2004,
+     "answer": "Antawn Jamison"
+    },
+    {
+     "year": 2003,
+     "answer": "Bobby Jackson"
+    },
+    {
+     "year": 2002,
+     "answer": "Corliss Williamson"
+    },
+    {
+     "year": 2001,
+     "answer": "Aaron McKie"
+    },
+    {
+     "year": 2000,
+     "answer": "Rodney Rogers"
+    },
+    {
+     "year": 1999,
+     "answer": "Darrell Armstrong"
+    },
+    {
+     "year": 1998,
+     "answer": "Danny Manning"
+    },
+    {
+     "year": 1997,
+     "answer": "John Starks"
+    },
+    {
+     "year": 1996,
+     "answer": "Toni Kukoč"
+    },
+    {
+     "year": 1995,
+     "answer": "Anthony Mason"
+    },
+    {
+     "year": 1994,
+     "answer": "Dell Curry"
+    },
+    {
+     "year": 1993,
+     "answer": "Clifford Robinson"
+    },
+    {
+     "year": 1992,
+     "answer": "Detlef Schrempf"
+    },
+    {
+     "year": 1991,
+     "answer": "Detlef Schrempf"
+    },
+    {
+     "year": 1990,
+     "answer": "Ricky Pierce"
+    },
+    {
+     "year": 1989,
+     "answer": "Eddie Johnson"
+    },
+    {
+     "year": 1988,
+     "answer": "Roy Tarpley"
+    },
+    {
+     "year": 1987,
+     "answer": "Ricky Pierce"
+    },
+    {
+     "year": 1986,
+     "answer": "Bill Walton"
+    },
+    {
+     "year": 1985,
+     "answer": "Kevin McHale"
+    },
+    {
+     "year": 1984,
+     "answer": "Kevin McHale"
+    },
+    {
+     "year": 1983,
+     "answer": "Bobby Jones"
     }
    ]
   },
   {
    "key": "firstpick",
+   "kind": "years",
    "name": "First Overall Draft Pick",
-   "blurb": "Every number one in the draft",
+   "blurb": "Every number one since 1947",
    "chip": "#D9480F",
    "title": "FIRST PICKS",
    "prompt": "Who was drafted first overall in {year}?",
-   "input": "type",
-   "seconds": 180,
+   "pool": "players",
+   "seconds": 300,
    "rounds": [
     {
      "year": 2026,
@@ -447,8 +1389,289 @@
     {
      "year": 2012,
      "answer": "Anthony Davis"
+    },
+    {
+     "year": 2011,
+     "answer": "Kyrie Irving"
+    },
+    {
+     "year": 2010,
+     "answer": "John Wall"
+    },
+    {
+     "year": 2009,
+     "answer": "Blake Griffin"
+    },
+    {
+     "year": 2008,
+     "answer": "Derrick Rose"
+    },
+    {
+     "year": 2007,
+     "answer": "Greg Oden"
+    },
+    {
+     "year": 2006,
+     "answer": "Andrea Bargnani"
+    },
+    {
+     "year": 2005,
+     "answer": "Andrew Bogut"
+    },
+    {
+     "year": 2004,
+     "answer": "Dwight Howard"
+    },
+    {
+     "year": 2003,
+     "answer": "LeBron James"
+    },
+    {
+     "year": 2002,
+     "answer": "Yao Ming"
+    },
+    {
+     "year": 2001,
+     "answer": "Kwame Brown"
+    },
+    {
+     "year": 2000,
+     "answer": "Kenyon Martin"
+    },
+    {
+     "year": 1999,
+     "answer": "Elton Brand"
+    },
+    {
+     "year": 1998,
+     "answer": "Michael Olowokandi"
+    },
+    {
+     "year": 1997,
+     "answer": "Tim Duncan"
+    },
+    {
+     "year": 1996,
+     "answer": "Allen Iverson"
+    },
+    {
+     "year": 1995,
+     "answer": "Joe Smith"
+    },
+    {
+     "year": 1994,
+     "answer": "Glenn Robinson"
+    },
+    {
+     "year": 1993,
+     "answer": "Chris Webber"
+    },
+    {
+     "year": 1992,
+     "answer": "Shaquille O'Neal"
+    },
+    {
+     "year": 1991,
+     "answer": "Larry Johnson"
+    },
+    {
+     "year": 1990,
+     "answer": "Derrick Coleman"
+    },
+    {
+     "year": 1989,
+     "answer": "Pervis Ellison"
+    },
+    {
+     "year": 1988,
+     "answer": "Danny Manning"
+    },
+    {
+     "year": 1987,
+     "answer": "David Robinson"
+    },
+    {
+     "year": 1986,
+     "answer": "Brad Daugherty"
+    },
+    {
+     "year": 1985,
+     "answer": "Patrick Ewing"
+    },
+    {
+     "year": 1984,
+     "answer": "Hakeem Olajuwon"
+    },
+    {
+     "year": 1983,
+     "answer": "Ralph Sampson"
+    },
+    {
+     "year": 1982,
+     "answer": "James Worthy"
+    },
+    {
+     "year": 1981,
+     "answer": "Mark Aguirre"
+    },
+    {
+     "year": 1980,
+     "answer": "Joe Barry Carroll"
+    },
+    {
+     "year": 1979,
+     "answer": "Magic Johnson"
+    },
+    {
+     "year": 1978,
+     "answer": "Mychal Thompson"
+    },
+    {
+     "year": 1977,
+     "answer": "Kent Benson"
+    },
+    {
+     "year": 1976,
+     "answer": "John Lucas"
+    },
+    {
+     "year": 1975,
+     "answer": "David Thompson"
+    },
+    {
+     "year": 1974,
+     "answer": "Bill Walton"
+    },
+    {
+     "year": 1973,
+     "answer": "Doug Collins"
+    },
+    {
+     "year": 1972,
+     "answer": "LaRue Martin"
+    },
+    {
+     "year": 1971,
+     "answer": "Austin Carr"
+    },
+    {
+     "year": 1970,
+     "answer": "Bob Lanier"
+    },
+    {
+     "year": 1969,
+     "answer": "Lew Alcindor (Kareem Abdul-Jabbar)"
+    },
+    {
+     "year": 1968,
+     "answer": "Elvin Hayes"
+    },
+    {
+     "year": 1967,
+     "answer": "Jimmy Walker"
+    },
+    {
+     "year": 1966,
+     "answer": "Cazzie Russell"
+    },
+    {
+     "year": 1965,
+     "answer": "Fred Hetzel"
+    },
+    {
+     "year": 1964,
+     "answer": "Jim Barnes"
+    },
+    {
+     "year": 1963,
+     "answer": "Art Heyman"
+    },
+    {
+     "year": 1962,
+     "answer": "Bill McGill"
+    },
+    {
+     "year": 1961,
+     "answer": "Walt Bellamy"
+    },
+    {
+     "year": 1960,
+     "answer": "Oscar Robertson"
+    },
+    {
+     "year": 1959,
+     "answer": "Bob Boozer"
+    },
+    {
+     "year": 1958,
+     "answer": "Elgin Baylor"
+    },
+    {
+     "year": 1957,
+     "answer": "Rod Hundley"
+    },
+    {
+     "year": 1956,
+     "answer": "Sihugo Green"
+    },
+    {
+     "year": 1955,
+     "answer": "Dick Ricketts"
+    },
+    {
+     "year": 1954,
+     "answer": "Frank Selvy"
+    },
+    {
+     "year": 1953,
+     "answer": "Ray Felix"
+    },
+    {
+     "year": 1952,
+     "answer": "Mark Workman"
+    },
+    {
+     "year": 1951,
+     "answer": "Gene Melchiorre"
+    },
+    {
+     "year": 1950,
+     "answer": "Chuck Share"
+    },
+    {
+     "year": 1949,
+     "answer": "Howie Shannon"
+    },
+    {
+     "year": 1948,
+     "answer": "Andy Tonkovich"
+    },
+    {
+     "year": 1947,
+     "answer": "Clifton McNeely"
     }
    ]
+  },
+  {
+   "key": "starting5",
+   "kind": "lineups",
+   "name": "Starting Fives",
+   "blurb": "Name the champions' game one starters",
+   "chip": "#D9480F",
+   "title": "STARTING 5",
+   "prompt": "{year} {team} — who started at {position}?",
+   "pool": "players",
+   "seconds": 300
+  },
+  {
+   "key": "guess",
+   "kind": "guess",
+   "name": "Guess the Player",
+   "blurb": "Six guesses, one player a day",
+   "chip": "#16130E",
+   "title": "GUESS THE PLAYER",
+   "prompt": "Guess the player",
+   "pool": "players"
   }
  ]
 }

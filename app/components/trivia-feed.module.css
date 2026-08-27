@@ -68,6 +68,9 @@
   line-height: 1.08;
   letter-spacing: -0.03em;
   text-wrap: pretty;
+  /* Caps the measure on tablets and wide phones. Narrower than the card at
+     phone widths, so it changes nothing there. */
+  max-width: 20ch;
 }
 
 .answer .display {
@@ -231,7 +234,12 @@
   background: rgba(10, 8, 5, 0.44);
   border: 0;
   padding: 0;
+  opacity: 1;
   transition: opacity 0.32s ease;
+}
+
+.sheetLayer[data-open="false"] .backdrop {
+  opacity: 0;
 }
 
 .sheet {
@@ -244,7 +252,16 @@
   border-top: 3px solid var(--hh-ink);
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -20px 60px rgba(10, 8, 5, 0.3);
-  transition: transform 0.42s cubic-bezier(0.2, 0.9, 0.2, 1);
+  transform: translateY(0);
+  opacity: 1;
+  transition:
+    transform 0.42s cubic-bezier(0.2, 0.9, 0.2, 1),
+    opacity 0.24s ease;
+}
+
+.sheetLayer[data-open="false"] .sheet {
+  transform: translateY(112%);
+  opacity: 0;
 }
 
 .sheetKicker {
@@ -314,4 +331,86 @@
   font-weight: 600;
   letter-spacing: 0.01em;
   text-align: center;
+}
+
+/* ---------- Desktop ----------
+   The card stays full-bleed — that is the whole idea — but the text settles
+   into a column, the type steps up to match the extra room, and the share
+   sheet becomes a centred dialog instead of a bottom sheet. */
+
+@media (min-width: 900px) {
+  .card {
+    padding: 140px var(--hh-gutter) 160px;
+  }
+
+  .display {
+    max-width: 18ch;
+  }
+
+  .sizeXl {
+    font-size: clamp(60px, 6.4vw, 96px);
+  }
+  .sizeL {
+    font-size: clamp(48px, 5vw, 76px);
+  }
+  .sizeM {
+    font-size: clamp(42px, 4.2vw, 64px);
+  }
+  .sizeS {
+    font-size: clamp(34px, 3.4vw, 52px);
+  }
+
+  .answerKicker,
+  .promoKicker,
+  .chromeLabel {
+    font-size: 12px;
+  }
+
+  .promoName {
+    font-size: clamp(52px, 5.2vw, 78px);
+    max-width: 14ch;
+  }
+
+  .promoBlurb {
+    font-size: 19px;
+    max-width: 42ch;
+  }
+
+  .chrome {
+    top: 44px;
+    left: var(--hh-gutter);
+    right: var(--hh-gutter);
+  }
+
+  .hint {
+    right: var(--hh-gutter);
+    bottom: 64px;
+  }
+
+  .shareDock {
+    left: var(--hh-gutter);
+    bottom: 60px;
+  }
+
+  /* Centred dialog: full-width bottom sheets read as a phone on a desktop. */
+  .sheet {
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    top: 50%;
+    width: min(520px, calc(100vw - 2 * var(--hh-screen-pad)));
+    padding: 32px 34px 34px;
+    border-radius: 22px;
+    border-top-width: 3px;
+    box-shadow: 0 30px 80px rgba(10, 8, 5, 0.34);
+    transform: translate(-50%, -50%);
+  }
+
+  .sheetLayer[data-open="false"] .sheet {
+    transform: translate(-50%, calc(-50% + 18px));
+  }
+
+  .toast {
+    bottom: 64px;
+  }
 }

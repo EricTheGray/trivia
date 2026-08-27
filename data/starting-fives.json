@@ -1,0 +1,1488 @@
+{
+ "version": "2026-08-26",
+ "source": "basketball_trivia_database (11).xlsx",
+ "lineups": [
+  {
+   "year": 2026,
+   "team": "New York Knicks",
+   "starters": [
+    {
+     "name": "Jalen Brunson",
+     "position": "G"
+    },
+    {
+     "name": "Josh Hart",
+     "position": "F-G"
+    },
+    {
+     "name": "Mikal Bridges",
+     "position": "F-G"
+    },
+    {
+     "name": "OG Anunoby",
+     "position": "F"
+    },
+    {
+     "name": "Karl-Anthony Towns",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "team": "Oklahoma City Thunder",
+   "starters": [
+    {
+     "name": "Cason Wallace",
+     "position": "G"
+    },
+    {
+     "name": "Jalen Williams",
+     "position": "G"
+    },
+    {
+     "name": "Luguentz Dort",
+     "position": "G"
+    },
+    {
+     "name": "Shai Gilgeous-Alexander",
+     "position": "G"
+    },
+    {
+     "name": "Chet Holmgren",
+     "position": "F-C"
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "team": "Boston Celtics",
+   "starters": [
+    {
+     "name": "Derrick White",
+     "position": "G"
+    },
+    {
+     "name": "Jrue Holiday",
+     "position": "G"
+    },
+    {
+     "name": "Jaylen Brown",
+     "position": "F-G"
+    },
+    {
+     "name": "Jayson Tatum",
+     "position": "F"
+    },
+    {
+     "name": "Al Horford",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 2023,
+   "team": "Denver Nuggets",
+   "starters": [
+    {
+     "name": "Jamal Murray",
+     "position": "G"
+    },
+    {
+     "name": "Kentavious Caldwell-Pope",
+     "position": "G"
+    },
+    {
+     "name": "Aaron Gordon",
+     "position": "F"
+    },
+    {
+     "name": "Michael Porter Jr.",
+     "position": "F"
+    },
+    {
+     "name": "Nikola Jokić",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "team": "Golden State Warriors",
+   "starters": [
+    {
+     "name": "Stephen Curry",
+     "position": "G"
+    },
+    {
+     "name": "Klay Thompson",
+     "position": "G-F"
+    },
+    {
+     "name": "Andrew Wiggins",
+     "position": "F-G"
+    },
+    {
+     "name": "Draymond Green",
+     "position": "F"
+    },
+    {
+     "name": "Kevon Looney",
+     "position": "F-C"
+    }
+   ]
+  },
+  {
+   "year": 2021,
+   "team": "Milwaukee Bucks",
+   "starters": [
+    {
+     "name": "Jrue Holiday",
+     "position": "G"
+    },
+    {
+     "name": "Giannis Antetokounmpo",
+     "position": "F-G"
+    },
+    {
+     "name": "Khris Middleton",
+     "position": "F-G"
+    },
+    {
+     "name": "P.J. Tucker",
+     "position": "F"
+    },
+    {
+     "name": "Brook Lopez",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2020,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Kentavious Caldwell-Pope",
+     "position": "G"
+    },
+    {
+     "name": "Danny Green",
+     "position": "G-F"
+    },
+    {
+     "name": "LeBron James",
+     "position": "F-G"
+    },
+    {
+     "name": "Anthony Davis",
+     "position": "F-C"
+    },
+    {
+     "name": "Dwight Howard",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "team": "Toronto Raptors",
+   "starters": [
+    {
+     "name": "Kyle Lowry",
+     "position": "G"
+    },
+    {
+     "name": "Danny Green",
+     "position": "G-F"
+    },
+    {
+     "name": "Kawhi Leonard",
+     "position": "F"
+    },
+    {
+     "name": "Pascal Siakam",
+     "position": "F-C"
+    },
+    {
+     "name": "Marc Gasol",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2018,
+   "team": "Golden State Warriors",
+   "starters": [
+    {
+     "name": "Stephen Curry",
+     "position": "G"
+    },
+    {
+     "name": "Klay Thompson",
+     "position": "G-F"
+    },
+    {
+     "name": "Kevin Durant",
+     "position": "F-G"
+    },
+    {
+     "name": "Draymond Green",
+     "position": "F"
+    },
+    {
+     "name": "Kevon Looney",
+     "position": "F-C"
+    }
+   ]
+  },
+  {
+   "year": 2017,
+   "team": "Golden State Warriors",
+   "starters": [
+    {
+     "name": "Stephen Curry",
+     "position": "G"
+    },
+    {
+     "name": "Klay Thompson",
+     "position": "G-F"
+    },
+    {
+     "name": "Kevin Durant",
+     "position": "F-G"
+    },
+    {
+     "name": "Draymond Green",
+     "position": "F"
+    },
+    {
+     "name": "Zaza Pachulia",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2016,
+   "team": "Cleveland Cavaliers",
+   "starters": [
+    {
+     "name": "Kyrie Irving",
+     "position": "G"
+    },
+    {
+     "name": "J.R. Smith",
+     "position": "G-F"
+    },
+    {
+     "name": "LeBron James",
+     "position": "F-G"
+    },
+    {
+     "name": "Kevin Love",
+     "position": "F-C"
+    },
+    {
+     "name": "Tristan Thompson",
+     "position": "F-C"
+    }
+   ]
+  },
+  {
+   "year": 2015,
+   "team": "Golden State Warriors",
+   "starters": [
+    {
+     "name": "Stephen Curry",
+     "position": "G"
+    },
+    {
+     "name": "Klay Thompson",
+     "position": "G-F"
+    },
+    {
+     "name": "Draymond Green",
+     "position": "F"
+    },
+    {
+     "name": "Harrison Barnes",
+     "position": "F"
+    },
+    {
+     "name": "Andrew Bogut",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2014,
+   "team": "San Antonio Spurs",
+   "starters": [
+    {
+     "name": "Tony Parker",
+     "position": "G"
+    },
+    {
+     "name": "Danny Green",
+     "position": "G-F"
+    },
+    {
+     "name": "Kawhi Leonard",
+     "position": "F"
+    },
+    {
+     "name": "Tiago Splitter",
+     "position": "F-C"
+    },
+    {
+     "name": "Tim Duncan",
+     "position": "F-C"
+    }
+   ]
+  },
+  {
+   "year": 2013,
+   "team": "Miami Heat",
+   "starters": [
+    {
+     "name": "Dwyane Wade",
+     "position": "G"
+    },
+    {
+     "name": "Mario Chalmers",
+     "position": "G"
+    },
+    {
+     "name": "LeBron James",
+     "position": "F-G"
+    },
+    {
+     "name": "Chris Bosh",
+     "position": "F-C"
+    },
+    {
+     "name": "Udonis Haslem",
+     "position": "F-C"
+    }
+   ]
+  },
+  {
+   "year": 2012,
+   "team": "Miami Heat",
+   "starters": [
+    {
+     "name": "Dwyane Wade",
+     "position": "G"
+    },
+    {
+     "name": "Mario Chalmers",
+     "position": "G"
+    },
+    {
+     "name": "LeBron James",
+     "position": "F-G"
+    },
+    {
+     "name": "Shane Battier",
+     "position": "F"
+    },
+    {
+     "name": "Udonis Haslem",
+     "position": "F-C"
+    }
+   ]
+  },
+  {
+   "year": 2011,
+   "team": "Dallas Mavericks",
+   "starters": [
+    {
+     "name": "DeShawn Stevenson",
+     "position": "G"
+    },
+    {
+     "name": "Jason Kidd",
+     "position": "G"
+    },
+    {
+     "name": "Shawn Marion",
+     "position": "F"
+    },
+    {
+     "name": "Dirk Nowitzki",
+     "position": "F-C"
+    },
+    {
+     "name": "Tyson Chandler",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2010,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Derek Fisher",
+     "position": "G"
+    },
+    {
+     "name": "Kobe Bryant",
+     "position": "G-F"
+    },
+    {
+     "name": "Ron Artest",
+     "position": "F"
+    },
+    {
+     "name": "Pau Gasol",
+     "position": "C-F"
+    },
+    {
+     "name": "Andrew Bynum",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2009,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Derek Fisher",
+     "position": "G"
+    },
+    {
+     "name": "Kobe Bryant",
+     "position": "G-F"
+    },
+    {
+     "name": "Trevor Ariza",
+     "position": "F"
+    },
+    {
+     "name": "Pau Gasol",
+     "position": "C-F"
+    },
+    {
+     "name": "Andrew Bynum",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2008,
+   "team": "Boston Celtics",
+   "starters": [
+    {
+     "name": "Rajon Rondo",
+     "position": "G"
+    },
+    {
+     "name": "Ray Allen",
+     "position": "G"
+    },
+    {
+     "name": "Paul Pierce",
+     "position": "F-G"
+    },
+    {
+     "name": "Kevin Garnett",
+     "position": "F-C"
+    },
+    {
+     "name": "Kendrick Perkins",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2007,
+   "team": "San Antonio Spurs",
+   "starters": [
+    {
+     "name": "Tony Parker",
+     "position": "G"
+    },
+    {
+     "name": "Michael Finley",
+     "position": "G-F"
+    },
+    {
+     "name": "Bruce Bowen",
+     "position": "F"
+    },
+    {
+     "name": "Tim Duncan",
+     "position": "F-C"
+    },
+    {
+     "name": "Fabricio Oberto",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 2006,
+   "team": "Miami Heat",
+   "starters": [
+    {
+     "name": "Dwyane Wade",
+     "position": "G"
+    },
+    {
+     "name": "Jason Williams",
+     "position": "G"
+    },
+    {
+     "name": "Antoine Walker",
+     "position": "F"
+    },
+    {
+     "name": "Udonis Haslem",
+     "position": "F-C"
+    },
+    {
+     "name": "Shaquille O'Neal",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2005,
+   "team": "San Antonio Spurs",
+   "starters": [
+    {
+     "name": "Manu Ginóbili",
+     "position": "G"
+    },
+    {
+     "name": "Tony Parker",
+     "position": "G"
+    },
+    {
+     "name": "Bruce Bowen",
+     "position": "F"
+    },
+    {
+     "name": "Tim Duncan",
+     "position": "F-C"
+    },
+    {
+     "name": "Nazr Mohammed",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2004,
+   "team": "Detroit Pistons",
+   "starters": [
+    {
+     "name": "Chauncey Billups",
+     "position": "G"
+    },
+    {
+     "name": "Richard Hamilton",
+     "position": "G-F"
+    },
+    {
+     "name": "Tayshaun Prince",
+     "position": "F"
+    },
+    {
+     "name": "Ben Wallace",
+     "position": "F-C"
+    },
+    {
+     "name": "Rasheed Wallace",
+     "position": "F-C"
+    }
+   ]
+  },
+  {
+   "year": 2003,
+   "team": "San Antonio Spurs",
+   "starters": [
+    {
+     "name": "Tony Parker",
+     "position": "G"
+    },
+    {
+     "name": "Stephen Jackson",
+     "position": "F-G"
+    },
+    {
+     "name": "Bruce Bowen",
+     "position": "F"
+    },
+    {
+     "name": "Tim Duncan",
+     "position": "F-C"
+    },
+    {
+     "name": "David Robinson",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2002,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Derek Fisher",
+     "position": "G"
+    },
+    {
+     "name": "Kobe Bryant",
+     "position": "G-F"
+    },
+    {
+     "name": "Rick Fox",
+     "position": "F-G"
+    },
+    {
+     "name": "Robert Horry",
+     "position": "F"
+    },
+    {
+     "name": "Shaquille O'Neal",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2001,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Derek Fisher",
+     "position": "G"
+    },
+    {
+     "name": "Kobe Bryant",
+     "position": "G-F"
+    },
+    {
+     "name": "Rick Fox",
+     "position": "F-G"
+    },
+    {
+     "name": "Horace Grant",
+     "position": "F-C"
+    },
+    {
+     "name": "Shaquille O'Neal",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 2000,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Kobe Bryant",
+     "position": "G-F"
+    },
+    {
+     "name": "Ron Harper",
+     "position": "G-F"
+    },
+    {
+     "name": "Glen Rice",
+     "position": "F"
+    },
+    {
+     "name": "A.C. Green",
+     "position": "F-C"
+    },
+    {
+     "name": "Shaquille O'Neal",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1999,
+   "team": "San Antonio Spurs",
+   "starters": [
+    {
+     "name": "Avery Johnson",
+     "position": "G"
+    },
+    {
+     "name": "Mario Elie",
+     "position": "G-F"
+    },
+    {
+     "name": "Sean Elliott",
+     "position": "F"
+    },
+    {
+     "name": "Tim Duncan",
+     "position": "F-C"
+    },
+    {
+     "name": "David Robinson",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1998,
+   "team": "Chicago Bulls",
+   "starters": [
+    {
+     "name": "Michael Jordan",
+     "position": "G-F"
+    },
+    {
+     "name": "Ron Harper",
+     "position": "G-F"
+    },
+    {
+     "name": "Scottie Pippen",
+     "position": "F-G"
+    },
+    {
+     "name": "Toni Kukoč",
+     "position": "F"
+    },
+    {
+     "name": "Luc Longley",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1997,
+   "team": "Chicago Bulls",
+   "starters": [
+    {
+     "name": "Michael Jordan",
+     "position": "G-F"
+    },
+    {
+     "name": "Ron Harper",
+     "position": "G-F"
+    },
+    {
+     "name": "Scottie Pippen",
+     "position": "F-G"
+    },
+    {
+     "name": "Dennis Rodman",
+     "position": "F"
+    },
+    {
+     "name": "Luc Longley",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1996,
+   "team": "Chicago Bulls",
+   "starters": [
+    {
+     "name": "Michael Jordan",
+     "position": "G-F"
+    },
+    {
+     "name": "Ron Harper",
+     "position": "G-F"
+    },
+    {
+     "name": "Scottie Pippen",
+     "position": "F-G"
+    },
+    {
+     "name": "Dennis Rodman",
+     "position": "F"
+    },
+    {
+     "name": "Luc Longley",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1995,
+   "team": "Houston Rockets",
+   "starters": [
+    {
+     "name": "Clyde Drexler",
+     "position": "G"
+    },
+    {
+     "name": "Kenny Smith",
+     "position": "G"
+    },
+    {
+     "name": "Mario Elie",
+     "position": "G-F"
+    },
+    {
+     "name": "Robert Horry",
+     "position": "F"
+    },
+    {
+     "name": "Hakeem Olajuwon",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1994,
+   "team": "Houston Rockets",
+   "starters": [
+    {
+     "name": "Kenny Smith",
+     "position": "G"
+    },
+    {
+     "name": "Vernon Maxwell",
+     "position": "G"
+    },
+    {
+     "name": "Robert Horry",
+     "position": "F"
+    },
+    {
+     "name": "Otis Thorpe",
+     "position": "F-C"
+    },
+    {
+     "name": "Hakeem Olajuwon",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1993,
+   "team": "Chicago Bulls",
+   "starters": [
+    {
+     "name": "B.J. Armstrong",
+     "position": "G"
+    },
+    {
+     "name": "Michael Jordan",
+     "position": "G-F"
+    },
+    {
+     "name": "Scottie Pippen",
+     "position": "F-G"
+    },
+    {
+     "name": "Horace Grant",
+     "position": "F-C"
+    },
+    {
+     "name": "Bill Cartwright",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1992,
+   "team": "Chicago Bulls",
+   "starters": [
+    {
+     "name": "John Paxson",
+     "position": "G"
+    },
+    {
+     "name": "Michael Jordan",
+     "position": "G-F"
+    },
+    {
+     "name": "Scottie Pippen",
+     "position": "F-G"
+    },
+    {
+     "name": "Horace Grant",
+     "position": "F-C"
+    },
+    {
+     "name": "Bill Cartwright",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1991,
+   "team": "Chicago Bulls",
+   "starters": [
+    {
+     "name": "John Paxson",
+     "position": "G"
+    },
+    {
+     "name": "Michael Jordan",
+     "position": "G-F"
+    },
+    {
+     "name": "Scottie Pippen",
+     "position": "F-G"
+    },
+    {
+     "name": "Horace Grant",
+     "position": "F-C"
+    },
+    {
+     "name": "Bill Cartwright",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1990,
+   "team": "Detroit Pistons",
+   "starters": [
+    {
+     "name": "Isiah Thomas",
+     "position": "G"
+    },
+    {
+     "name": "Joe Dumars",
+     "position": "G"
+    },
+    {
+     "name": "Dennis Rodman",
+     "position": "F"
+    },
+    {
+     "name": "James Edwards",
+     "position": "C-F"
+    },
+    {
+     "name": "Bill Laimbeer",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1989,
+   "team": "Detroit Pistons",
+   "starters": [
+    {
+     "name": "Isiah Thomas",
+     "position": "G"
+    },
+    {
+     "name": "Joe Dumars",
+     "position": "G"
+    },
+    {
+     "name": "Mark Aguirre",
+     "position": "F-G"
+    },
+    {
+     "name": "Rick Mahorn",
+     "position": "C-F"
+    },
+    {
+     "name": "Bill Laimbeer",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1988,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Byron Scott",
+     "position": "G"
+    },
+    {
+     "name": "Magic Johnson",
+     "position": "G-F"
+    },
+    {
+     "name": "James Worthy",
+     "position": "F"
+    },
+    {
+     "name": "A.C. Green",
+     "position": "F-C"
+    },
+    {
+     "name": "Kareem Abdul-Jabbar",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1987,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Byron Scott",
+     "position": "G"
+    },
+    {
+     "name": "Magic Johnson",
+     "position": "G-F"
+    },
+    {
+     "name": "James Worthy",
+     "position": "F"
+    },
+    {
+     "name": "A.C. Green",
+     "position": "F-C"
+    },
+    {
+     "name": "Kareem Abdul-Jabbar",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1986,
+   "team": "Boston Celtics",
+   "starters": [
+    {
+     "name": "Danny Ainge",
+     "position": "G"
+    },
+    {
+     "name": "Dennis Johnson",
+     "position": "G"
+    },
+    {
+     "name": "Larry Bird",
+     "position": "F"
+    },
+    {
+     "name": "Kevin McHale",
+     "position": "F-C"
+    },
+    {
+     "name": "Robert Parish",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1985,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Byron Scott",
+     "position": "G"
+    },
+    {
+     "name": "Magic Johnson",
+     "position": "G-F"
+    },
+    {
+     "name": "James Worthy",
+     "position": "F"
+    },
+    {
+     "name": "Kurt Rambis",
+     "position": "F"
+    },
+    {
+     "name": "Kareem Abdul-Jabbar",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1984,
+   "team": "Boston Celtics",
+   "starters": [
+    {
+     "name": "Dennis Johnson",
+     "position": "G"
+    },
+    {
+     "name": "Gerald Henderson",
+     "position": "G"
+    },
+    {
+     "name": "Cedric Maxwell",
+     "position": "F"
+    },
+    {
+     "name": "Larry Bird",
+     "position": "F"
+    },
+    {
+     "name": "Robert Parish",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1983,
+   "team": "Philadelphia 76ers",
+   "starters": [
+    {
+     "name": "Andrew Toney",
+     "position": "G"
+    },
+    {
+     "name": "Maurice Cheeks",
+     "position": "G"
+    },
+    {
+     "name": "Julius Erving",
+     "position": "F-G"
+    },
+    {
+     "name": "Marc Iavaroni",
+     "position": "F"
+    },
+    {
+     "name": "Moses Malone",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 1982,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Norm Nixon",
+     "position": "G"
+    },
+    {
+     "name": "Magic Johnson",
+     "position": "G-F"
+    },
+    {
+     "name": "Jamaal Wilkes",
+     "position": "F-G"
+    },
+    {
+     "name": "Kurt Rambis",
+     "position": "F"
+    },
+    {
+     "name": "Kareem Abdul-Jabbar",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1981,
+   "team": "Boston Celtics",
+   "starters": [
+    {
+     "name": "Nate Archibald",
+     "position": "G"
+    },
+    {
+     "name": "Chris Ford",
+     "position": "G-F"
+    },
+    {
+     "name": "Cedric Maxwell",
+     "position": "F"
+    },
+    {
+     "name": "Larry Bird",
+     "position": "F"
+    },
+    {
+     "name": "Robert Parish",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1980,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Norm Nixon",
+     "position": "G"
+    },
+    {
+     "name": "Magic Johnson",
+     "position": "G-F"
+    },
+    {
+     "name": "Jamaal Wilkes",
+     "position": "F-G"
+    },
+    {
+     "name": "Jim Chones",
+     "position": "C-F"
+    },
+    {
+     "name": "Kareem Abdul-Jabbar",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1979,
+   "team": "Seattle SuperSonics",
+   "starters": [
+    {
+     "name": "Dennis Johnson",
+     "position": "G"
+    },
+    {
+     "name": "Gus Williams",
+     "position": "G"
+    },
+    {
+     "name": "John Johnson",
+     "position": "F"
+    },
+    {
+     "name": "Lonnie Shelton",
+     "position": "F-C"
+    },
+    {
+     "name": "Jack Sikma",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 1978,
+   "team": "Washington Bullets",
+   "starters": [
+    {
+     "name": "Tom Henderson",
+     "position": "G"
+    },
+    {
+     "name": "Kevin Grevey",
+     "position": "G-F"
+    },
+    {
+     "name": "Bob Dandridge",
+     "position": "F-G"
+    },
+    {
+     "name": "Elvin Hayes",
+     "position": "F-C"
+    },
+    {
+     "name": "Wes Unseld",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 1977,
+   "team": "Portland Trail Blazers",
+   "starters": [
+    {
+     "name": "Johnny Davis",
+     "position": "G"
+    },
+    {
+     "name": "Lionel Hollins",
+     "position": "G"
+    },
+    {
+     "name": "Bob Gross",
+     "position": "F-G"
+    },
+    {
+     "name": "Maurice Lucas",
+     "position": "F-C"
+    },
+    {
+     "name": "Bill Walton",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 1976,
+   "team": "Boston Celtics",
+   "starters": [
+    {
+     "name": "Jo Jo White",
+     "position": "G"
+    },
+    {
+     "name": "Charlie Scott",
+     "position": "G-F"
+    },
+    {
+     "name": "Don Nelson",
+     "position": "F"
+    },
+    {
+     "name": "Paul Silas",
+     "position": "F-C"
+    },
+    {
+     "name": "Dave Cowens",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 1975,
+   "team": "Golden State Warriors",
+   "starters": [
+    {
+     "name": "Butch Beard",
+     "position": "G"
+    },
+    {
+     "name": "Charles Johnson",
+     "position": "G"
+    },
+    {
+     "name": "Jamaal Wilkes",
+     "position": "F-G"
+    },
+    {
+     "name": "Rick Barry",
+     "position": "F"
+    },
+    {
+     "name": "Clifford Ray",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1974,
+   "team": "Boston Celtics",
+   "starters": [
+    {
+     "name": "Don Chaney",
+     "position": "G"
+    },
+    {
+     "name": "Jo Jo White",
+     "position": "G"
+    },
+    {
+     "name": "John Havlicek",
+     "position": "F-G"
+    },
+    {
+     "name": "Don Nelson",
+     "position": "F"
+    },
+    {
+     "name": "Dave Cowens",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 1973,
+   "team": "New York Knicks",
+   "starters": [
+    {
+     "name": "Earl Monroe",
+     "position": "G"
+    },
+    {
+     "name": "Walt Frazier",
+     "position": "G"
+    },
+    {
+     "name": "Bill Bradley",
+     "position": "F-G"
+    },
+    {
+     "name": "Dave DeBusschere",
+     "position": "F-G"
+    },
+    {
+     "name": "Willis Reed",
+     "position": "C-F"
+    }
+   ]
+  },
+  {
+   "year": 1972,
+   "team": "Los Angeles Lakers",
+   "starters": [
+    {
+     "name": "Gail Goodrich",
+     "position": "G"
+    },
+    {
+     "name": "Jerry West",
+     "position": "G"
+    },
+    {
+     "name": "Happy Hairston",
+     "position": "F"
+    },
+    {
+     "name": "Jim McMillian",
+     "position": "F"
+    },
+    {
+     "name": "Wilt Chamberlain",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1971,
+   "team": "Milwaukee Bucks",
+   "starters": [
+    {
+     "name": "Jon McGlocklin",
+     "position": "G-F"
+    },
+    {
+     "name": "Oscar Robertson",
+     "position": "G-F"
+    },
+    {
+     "name": "Bob Dandridge",
+     "position": "F-G"
+    },
+    {
+     "name": "Greg Smith",
+     "position": "F"
+    },
+    {
+     "name": "Lew Alcindor",
+     "position": "C"
+    }
+   ]
+  },
+  {
+   "year": 1970,
+   "team": "New York Knicks",
+   "starters": [
+    {
+     "name": "Walt Frazier",
+     "position": "G"
+    },
+    {
+     "name": "Dick Barnett",
+     "position": "G-F"
+    },
+    {
+     "name": "Bill Bradley",
+     "position": "F-G"
+    },
+    {
+     "name": "Dave DeBusschere",
+     "position": "F-G"
+    },
+    {
+     "name": "Willis Reed",
+     "position": "C-F"
+    }
+   ]
+  }
+ ]
+}

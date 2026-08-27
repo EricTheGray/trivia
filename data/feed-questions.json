@@ -1,6 +1,6 @@
 {
- "version": "2026-08-20",
- "source": "basketball_trivia_database (1).xlsx",
+ "version": "2026-08-26",
+ "source": "basketball_trivia_database (11).xlsx",
  "questions": [
   {
    "id": "1",
@@ -4832,7 +4832,7 @@
   },
   {
    "id": "590",
-   "q": "Which arena is known as \"The Madhouse on Madison\"?",
+   "q": "Which arena replaced Chicago Stadium as the Bulls' home in 1994?",
    "a": "United Center",
    "d": 1,
    "category": "Arenas",

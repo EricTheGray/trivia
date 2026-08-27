@@ -82,3 +82,23 @@ export function requireString(value: unknown, source: string, field: string): st
   }
   return value;
 }
+
+/**
+ * Validates a dataset that is just a list of names under `field` — the player
+ * roster and the team list both have this shape.
+ */
+export function parseNameList(value: unknown, source: string, field: string) {
+  const payload = requireObject(value, source);
+  const raw = payload[field];
+  if (!Array.isArray(raw)) {
+    throw new Error(`${source}: missing a "${field}" array`);
+  }
+  const names = raw.filter((name): name is string => typeof name === "string" && name.length > 0);
+  if (!names.length) throw new Error(`${source}: ${field} list is empty`);
+
+  return {
+    version: typeof payload.version === "string" ? payload.version : "unknown",
+    source: typeof payload.source === "string" ? payload.source : source,
+    names,
+  };
+}
