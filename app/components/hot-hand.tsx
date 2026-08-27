@@ -3,6 +3,7 @@
 import { useCallback, useState } from "react";
 import type { GameMode } from "@/lib/game-modes";
 import type { Question } from "@/lib/questions";
+import { GuessPlayerRound } from "./guess-player";
 import { TimedList } from "./timed-list";
 import { TriviaFeed } from "./trivia-feed";
 import { useSettings } from "./use-settings";
@@ -67,13 +68,13 @@ export function HotHand({
           <div className={styles.header}>
             <div className={styles.headerRow}>
               <span className={styles.kicker}>HOT HAND</span>
-              <span className={styles.kickerMuted}>SIX MODES</span>
+              <span className={styles.kickerMuted}>{countLabel(modes.length)} MODES</span>
             </div>
             <div className={styles.titleBlock}>
               <h1 className={styles.title}>Game modes</h1>
               <p className={styles.intro}>
-                Fifteen years each, three minutes on the clock. The feed keeps running when you come
-                back to it.
+                Every season on record, five minutes on the clock — or six guesses at the player of
+                the day. The feed keeps running when you come back to it.
               </p>
             </div>
           </div>
@@ -103,13 +104,22 @@ export function HotHand({
           switching modes starts fresh rather than inheriting the last round. */}
       {mode && (
         <div className={`${styles.screen} ${tab === "modes" ? "" : styles.hidden}`}>
-          <TimedList
-            key={mode.key}
-            mode={mode}
-            active={tab === "modes"}
-            onBack={() => setMode(null)}
-            onSheetChange={setSheetOpen}
-          />
+          {mode.kind === "guess" ? (
+            <GuessPlayerRound
+              key={mode.key}
+              mode={mode}
+              active={tab === "modes"}
+              onBack={() => setMode(null)}
+            />
+          ) : (
+            <TimedList
+              key={mode.key}
+              mode={mode}
+              active={tab === "modes"}
+              onBack={() => setMode(null)}
+              onSheetChange={setSheetOpen}
+            />
+          )}
         </div>
       )}
 
@@ -216,6 +226,12 @@ export function HotHand({
       </nav>
     </div>
   );
+}
+
+const COUNT_WORDS = ["ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"];
+
+function countLabel(count: number) {
+  return COUNT_WORDS[count] ?? String(count);
 }
 
 function TabButton({

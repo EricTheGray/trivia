@@ -13,6 +13,28 @@
   --hh-bottom-inset: calc(96px + env(safe-area-inset-bottom));
 
   --hh-screen-pad: 26px;
+
+  /* The design is a phone layout. On a wide screen the content settles into a
+     column of this width rather than stretching, and `--hh-gutter` is the
+     distance from the viewport edge to that column — so chrome pinned to the
+     screen edges still lines up with the text. */
+  --hh-page-max: 1100px;
+  --hh-gutter: var(--hh-screen-pad);
+}
+
+/* Tablets and landscape phones: more air, but still the phone composition. */
+@media (min-width: 600px) {
+  :root {
+    --hh-screen-pad: 40px;
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --hh-screen-pad: 56px;
+    --hh-bottom-inset: 132px;
+    --hh-gutter: max(var(--hh-screen-pad), calc(50% - var(--hh-page-max) / 2));
+  }
 }
 
 @theme inline {

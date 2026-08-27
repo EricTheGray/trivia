@@ -1,10 +1,22 @@
 /**
  * Name matching for typed answers: the autocomplete list, and grading whatever
- * ends up in the field.
+ * ends up in the field. Used for both pools a round can draw on — the player
+ * roster and the team list.
  *
  * Names are stored the way they are spelled — Nikola Jokić, Luka Dončić — and
  * normalised only for comparison, so someone typing "jokic" still matches.
  */
+
+/** Nickname to canonical name, e.g. `sga` or `dubs`. Keys are normalised. */
+export type Aliases = Record<string, string>;
+
+/**
+ * A pool member. Terms are extra things to match on that are not in the name
+ * itself — a team's city when the franchise is not named for it ("San
+ * Francisco" for the Warriors), or its tri-code. They are searchable and can
+ * settle a match, but never displayed.
+ */
+export type PoolEntry = string | { name: string; terms?: string[] };
 
 /** Suggestions appear once the query is this long. */
 export const MIN_QUERY_LENGTH = 3;
@@ -29,57 +41,26 @@ export function normalizeName(value: string): string {
     .trim();
 }
 
-/** Last name, ignoring generational suffixes. */
-export function surnameOf(value: string): string {
+/**
+ * The word people are most likely to type on its own: a player's surname, a
+ * team's nickname. Generational suffixes are ignored.
+ */
+export function lastWordOf(value: string): string {
   const parts = normalizeName(value)
     .split(" ")
     .filter((part) => !SUFFIXES.has(part));
   return parts[parts.length - 1] ?? "";
 }
 
-/** What people actually type. Values are matched against the pool's spelling. */
-export const ALIASES: Record<string, string> = {
-  giannis: "Giannis Antetokounmpo",
-  "greek freak": "Giannis Antetokounmpo",
-  steph: "Stephen Curry",
-  "steph curry": "Stephen Curry",
-  "chef curry": "Stephen Curry",
-  bron: "LeBron James",
-  lebron: "LeBron James",
-  "king james": "LeBron James",
-  kd: "Kevin Durant",
-  durantula: "Kevin Durant",
-  sga: "Shai Gilgeous-Alexander",
-  shai: "Shai Gilgeous-Alexander",
-  joker: "Nikola Jokic",
-  jokic: "Nikola Jokic",
-  "nikola jokic": "Nikola Jokic",
-  "the process": "Joel Embiid",
-  jojo: "Joel Embiid",
-  russ: "Russell Westbrook",
-  westbrick: "Russell Westbrook",
-  wemby: "Victor Wembanyama",
-  luka: "Luka Doncic",
-  "luka doncic": "Luka Doncic",
-  dame: "Damian Lillard",
-  kawhi: "Kawhi Leonard",
-  "the beard": "James Harden",
-  zion: "Zion Williamson",
-  melo: "LaMelo Ball",
-  kat: "Karl-Anthony Towns",
-  jjj: "Jaren Jackson Jr.",
-  gobert: "Rudy Gobert",
-  dray: "Draymond Green",
-  "sweet lou": "Lou Williams",
-  mcw: "Michael Carter-Williams",
-  "d rose": "Derrick Rose",
-};
 
 type Entry = {
   name: string;
   normalized: string;
+  /** Every word of the name and of its terms, for prefix matching. */
   words: string[];
-  surname: string;
+  /** Whole normalised terms, for multi-word queries like "salt lake city". */
+  terms: string[];
+  lastWord: string;
 };
 
 export type NameIndex = {
@@ -97,18 +78,26 @@ export type NameIndex = {
  * suggestions never narrow down to the answer key. Roster order carries the
  * ranking (most recently active first) and is preserved.
  */
-export function createNameIndex(roster: string[], answers: string[] = []): NameIndex {
+export function createNameIndex(
+  roster: PoolEntry[],
+  { answers = [], aliases = {} }: { answers?: string[]; aliases?: Aliases } = {},
+): NameIndex {
   const entries: Entry[] = [];
   const byNormalized = new Map<string, Entry>();
 
-  for (const name of [...roster, ...answers]) {
+  for (const item of [...roster, ...answers]) {
+    const name = typeof item === "string" ? item : item.name;
     const normalized = normalizeName(name);
     if (!normalized || byNormalized.has(normalized)) continue;
+    const terms = (typeof item === "string" ? [] : (item.terms ?? []))
+      .map(normalizeName)
+      .filter(Boolean);
     const entry: Entry = {
       name,
       normalized,
-      words: normalized.split(" "),
-      surname: surnameOf(name),
+      words: [...normalized.split(" "), ...terms.flatMap((term) => term.split(" "))],
+      terms,
+      lastWord: lastWordOf(name),
     };
     entries.push(entry);
     byNormalized.set(normalized, entry);
@@ -125,8 +114,8 @@ export function createNameIndex(roster: string[], answers: string[] = []): NameI
     ).values(),
   ];
 
-  const uniqueBySurname = (pool: Entry[], surname: string) => {
-    const hits = pool.filter((entry) => entry.surname === surname);
+  const uniqueByLastWord = (pool: Entry[], word: string) => {
+    const hits = pool.filter((entry) => entry.lastWord === word);
     return hits.length === 1 ? hits[0].name : null;
   };
 
@@ -137,25 +126,29 @@ export function createNameIndex(roster: string[], answers: string[] = []): NameI
 
       // Nicknames first: typing "sga" should show Shai, not an empty list.
       const viaAlias: string[] = [];
-      for (const [nickname, player] of Object.entries(ALIASES)) {
+      for (const [nickname, full] of Object.entries(aliases)) {
         if (!nickname.startsWith(q)) continue;
-        const name = byNormalized.get(normalizeName(player))?.name;
+        const name = byNormalized.get(normalizeName(full))?.name;
         if (name && !viaAlias.includes(name)) viaAlias.push(name);
       }
 
-      // Then surnames, since that is what people type, then any other word that
-      // starts with the query, then the query appearing mid-name. Within each
-      // tier the roster's own order (most recently active first) survives.
-      const bySurname: string[] = [];
+      // Then surnames and nicknames, since that is what people type, then any
+      // other word starting with the query, then the query appearing mid-name.
+      // Within each tier the roster's own order survives.
+      const byLastWord: string[] = [];
       const byWord: string[] = [];
       const contains: string[] = [];
       for (const entry of entries) {
-        if (entry.surname.startsWith(q)) bySurname.push(entry.name);
-        else if (entry.words.some((word) => word.startsWith(q))) byWord.push(entry.name);
-        else if (entry.normalized.includes(q)) contains.push(entry.name);
-        if (bySurname.length >= limit) break;
+        if (entry.lastWord.startsWith(q)) byLastWord.push(entry.name);
+        else if (
+          entry.words.some((word) => word.startsWith(q)) ||
+          entry.terms.some((term) => term.startsWith(q))
+        ) {
+          byWord.push(entry.name);
+        } else if (entry.normalized.includes(q)) contains.push(entry.name);
+        if (byLastWord.length >= limit) break;
       }
-      const ranked = [...viaAlias, ...bySurname, ...byWord, ...contains];
+      const ranked = [...viaAlias, ...byLastWord, ...byWord, ...contains];
       return [...new Set(ranked)].slice(0, limit);
     },
 
@@ -163,7 +156,7 @@ export function createNameIndex(roster: string[], answers: string[] = []): NameI
       const q = normalizeName(raw);
       if (!q) return null;
 
-      const alias = ALIASES[q];
+      const alias = aliases[q];
       if (alias) {
         // Prefer the pool's spelling of the name the alias points at.
         return byNormalized.get(normalizeName(alias))?.name ?? alias;
@@ -172,12 +165,20 @@ export function createNameIndex(roster: string[], answers: string[] = []): NameI
       const exact = byNormalized.get(q);
       if (exact) return exact.name;
 
-      // A surname on its own is enough when only one player answers to it…
-      const bySurname = uniqueBySurname(entries, q);
-      if (bySurname) return bySurname;
+      // A surname or nickname on its own is enough when only one entry has it…
+      const unique = uniqueByLastWord(entries, q);
+      if (unique) return unique;
 
-      // …and when several do, this round's own answers break the tie.
-      return uniqueBySurname(answerEntries, q);
+      // …as is a term like "salt lake city", but only when nothing else in the
+      // pool answers to it. "los angeles" names one team and is a term of
+      // another, so it stays ambiguous and both stay in the suggestions.
+      const named = entries.filter((entry) => entry.normalized.includes(q));
+      const termed = entries.filter((entry) => entry.terms.includes(q));
+      const candidates = [...new Set([...named, ...termed])];
+      if (candidates.length === 1) return candidates[0].name;
+
+      // …and when several share it, this round's own answers break the tie.
+      return uniqueByLastWord(answerEntries, q);
     },
   };
 }

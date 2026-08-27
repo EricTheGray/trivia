@@ -32,6 +32,12 @@ const TRIM_COUNT = 4;
 
 const TOAST_MS = 1500;
 
+/** Accumulated wheel distance that counts as one swipe, and the pause after. */
+const WHEEL_THRESHOLD = 80;
+const WHEEL_COOLDOWN_MS = 620;
+/** A gap this long starts a fresh wheel gesture. */
+const WHEEL_GAP_MS = 200;
+
 const SHARE_PHRASES = [
   "Pass it along",
   "Ask a friend",
@@ -95,6 +101,7 @@ export function TriviaFeed({
   /** Mirrors `dragging`: a pointerdown and pointerup in the same tick would
       otherwise both read the pre-update state and drop the gesture. */
   const draggingRef = useRef(false);
+  const wheelRef = useRef({ delta: 0, at: 0, until: 0 });
   const trimTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
@@ -249,6 +256,28 @@ export function TriviaFeed({
     }
   };
 
+  // A trackpad or mouse wheel is how a desktop reader expects to move a feed.
+  const onWheel = useCallback(
+    (event: React.WheelEvent<HTMLDivElement>) => {
+      if (sheetOpen) return;
+      const now = Date.now();
+      const wheel = wheelRef.current;
+      if (now < wheel.until) return; // still coasting from the last advance
+      if (now - wheel.at > WHEEL_GAP_MS) wheel.delta = 0;
+      wheel.at = now;
+      // Firefox reports lines, and some setups report pages.
+      const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? window.innerHeight : 1;
+      wheel.delta += event.deltaY * scale;
+
+      if (Math.abs(wheel.delta) < WHEEL_THRESHOLD) return;
+      if (wheel.delta > 0) advance();
+      else rewind();
+      wheel.delta = 0;
+      wheel.until = now + WHEEL_COOLDOWN_MS;
+    },
+    [advance, rewind, sheetOpen],
+  );
+
   // Keyboard equivalents of the swipe, for anyone playing on a desktop browser.
   useEffect(() => {
     if (!active || sheetOpen) return;
@@ -326,6 +355,7 @@ export function TriviaFeed({
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
       onPointerCancel={onPointerUp}
+      onWheel={onWheel}
     >
       <div
         className={`${styles.track} ${dragging || snapping ? "" : styles.advancing}`}
@@ -377,6 +407,7 @@ export function TriviaFeed({
 
       <div
         className={styles.sheetLayer}
+        data-open={sheetOpen}
         style={{ pointerEvents: sheetOpen ? "auto" : "none" }}
         {...shieldPointer}
       >
@@ -385,13 +416,9 @@ export function TriviaFeed({
           aria-label="Dismiss"
           tabIndex={sheetOpen ? 0 : -1}
           className={styles.backdrop}
-          style={{ opacity: sheetOpen ? 1 : 0 }}
           onClick={() => setSheetOpen(false)}
         />
-        <div
-          className={styles.sheet}
-          style={{ transform: sheetOpen ? "translateY(0)" : "translateY(112%)" }}
-        >
+        <div className={styles.sheet}>
           <span className={`${styles.kicker} ${styles.sheetKicker}`}>SHARE THIS QUESTION</span>
           <span className={styles.sheetPrompt}>
             {current.kind === "a" ? (current.question.p ?? current.question.q) : ""}
@@ -457,7 +484,7 @@ function FeedCard({
             onClick={() => onPlay(card.mode.key)}
             {...shieldPointer}
           >
-            Play three minutes
+            {promoAction(card.mode)}
           </button>
         </div>
         <Hint label="SWIPE TO SKIP" color="rgba(244,241,234,.38)" opacity={0.8} />
@@ -483,6 +510,13 @@ function FeedCard({
       />
     </section>
   );
+}
+
+/** The promo button says what the mode actually asks of you. */
+function promoAction(mode: GameMode) {
+  if (mode.kind === "guess") return "Take six guesses";
+  const minutes = Math.round(mode.seconds / 60);
+  return `Play ${minutes === 1 ? "a minute" : `${minutes} minutes`}`;
 }
 
 function Hint({ label, color, opacity }: { label: string; color: string; opacity: number }) {

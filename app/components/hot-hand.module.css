@@ -280,3 +280,87 @@
   font-weight: 700;
   letter-spacing: 0.1em;
 }
+
+/* The tab bar stops stretching well before the full desktop layout kicks in. */
+@media (min-width: 600px) {
+  .tabBar {
+    left: 50%;
+    right: auto;
+    width: 440px;
+    margin-left: -220px;
+    bottom: calc(26px + env(safe-area-inset-bottom));
+  }
+}
+
+/* ---------- Desktop ----------
+   Screens keep their single-column reading order but stop stretching: content
+   settles into a centred column, the modes list pairs up, and the tab bar
+   becomes a floating pill rather than a full-width strip. */
+
+@media (min-width: 900px) {
+  .scrollScreen {
+    padding-top: 96px;
+  }
+
+  .header,
+  .list,
+  .settings {
+    width: 100%;
+    max-width: calc(var(--hh-page-max) + 2 * var(--hh-screen-pad));
+    margin: 0 auto;
+  }
+
+  .settings {
+    position: relative;
+    inset: auto;
+    height: 100%;
+    padding-top: 96px;
+  }
+
+  /* Settings rows are a form, not a page: a full-width row would strand its
+     control a thousand pixels from its label. */
+  .settings > * {
+    max-width: 720px;
+  }
+
+  .headerRow {
+    padding-bottom: 28px;
+  }
+
+  .title {
+    font-size: clamp(44px, 4vw, 60px);
+  }
+
+  .intro {
+    font-size: 18px;
+    max-width: 46ch;
+  }
+
+  /* Six modes read as a set at this width, not as a scrolling list. */
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 48px;
+    align-content: start;
+  }
+
+  .listEnd {
+    grid-column: 1 / -1;
+  }
+
+  .modeRow {
+    padding: 22px 2px;
+  }
+
+  .modeName {
+    font-size: 22px;
+  }
+
+  .settingRow {
+    padding: 20px 2px;
+  }
+
+  .tabBar {
+    bottom: 32px;
+  }
+}
