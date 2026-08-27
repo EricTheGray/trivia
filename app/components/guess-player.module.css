@@ -69,127 +69,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-.pips {
-  display: flex;
-  gap: 6px;
-  padding: 14px 0 16px;
-}
-
-.pip {
-  flex: 1;
-  height: 3px;
-  background: rgba(22, 19, 14, 0.1);
-  transition: background 0.25s ease;
-}
-
-.pipUsed {
-  background: var(--hh-accent);
-}
-
-.typeBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-
-.field {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 54px;
-  padding: 0 7px 0 16px;
-  border: 2px solid var(--hh-ink);
-  border-radius: 999px;
-  background: var(--hh-cream);
-}
-
-.input {
-  flex: 1;
-  min-width: 0;
-  border: none;
-  outline: none;
-  background: transparent;
-  font: inherit;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: var(--hh-ink);
-}
-
-.submit {
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(22, 19, 14, 0.1);
-  color: rgba(22, 19, 14, 0.35);
-  cursor: pointer;
-  transition:
-    background 0.18s ease,
-    color 0.18s ease;
-}
-
-.submitReady {
-  background: var(--hh-accent);
-  color: var(--hh-cream);
-}
-
-.help {
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.35;
-  color: rgba(22, 19, 14, 0.45);
-}
-
-.dropdown {
-  position: absolute;
-  left: var(--hh-screen-pad);
-  right: var(--hh-screen-pad);
-  top: 100%;
-  margin-top: -8px;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background: var(--hh-paper);
-  border: 1px solid rgba(22, 19, 14, 0.1);
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(10, 8, 5, 0.16);
-}
-
-.option {
-  padding: 13px 18px;
-  border: 0;
-  border-bottom: 1px solid rgba(22, 19, 14, 0.07);
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.012em;
-  text-align: left;
-  cursor: pointer;
-}
-
-.option:last-child {
-  border-bottom: 0;
-}
-
-.option:hover {
-  background: rgba(217, 72, 15, 0.06);
-}
-
-.noMatch {
-  padding: 13px 18px;
-  font-size: 15px;
-  font-weight: 500;
-  color: rgba(22, 19, 14, 0.45);
-}
+/* Not an input: the keys below write here, so no system keyboard ever opens. */
 
 /* Board — six guesses have to fit without scrolling, so a guess is one line of
    values under its name, and the columns are named once at the top. */
@@ -197,42 +77,19 @@
 .board {
   /* Draft, height, pos, college, team, jersey — the full width for six, so
      nothing has to be abbreviated down to initials. */
-  --hh-clue-columns: 1fr 1fr 0.66fr 1.38fr 1.1fr 0.92fr;
+  --hh-clue-columns: 0.98fr 0.98fr 0.6fr 1.34fr 1.22fr 0.88fr;
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  padding: 12px var(--hh-screen-pad) calc(16px + var(--hh-bottom-inset));
+  padding: 12px var(--hh-screen-pad) 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/*
- * The clearance below is for the floating tab bar. Drop it when something else
- * already occupies that space — the keyboard, or the reveal bar — otherwise the
- * board scrolls for padding nobody can see.
- */
-.boardTight {
-  padding-bottom: 16px;
-}
-
-/*
- * With a keyboard up there is barely half a screen left. The status-bar gap and
- * the pips are the first things to go: the counter in the corner and the grid
- * itself already say how many guesses are left.
- */
-.headerWithKeyboard {
-  padding-top: 14px;
-}
-
-.headerWithKeyboard .pips {
-  display: none;
-}
-
-/* Reading the key is not what anyone is doing mid-word. Doubled up so it wins
-   over .legend regardless of which rule the bundler emits first. */
-.legend.legendHidden {
-  display: none;
+/* Trimmed: the keys take the bottom of the screen, so the header gives ground. */
+.header {
+  padding-bottom: 12px;
 }
 
 /* Sticky, so the columns stay named even when the board does scroll. */
@@ -407,7 +264,7 @@
 }
 
 .clueValue {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.14;
   letter-spacing: -0.01em;
@@ -416,13 +273,17 @@
   text-overflow: ellipsis;
 }
 
-/* Two lines of room, so a college or a team rarely needs an ellipsis. */
+/*
+ * Two lines when there is room for two. Breaks at spaces only — a cell too
+ * short for "Nuggets" should clip it, not split it into "Nugget / s".
+ */
 .wraps {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .arrow {
@@ -651,13 +512,7 @@
 
   .headerTop,
   .pips,
-  .typeBlock {
-    width: 100%;
-    max-width: var(--hh-page-max);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+  
   .board {
     padding: 20px var(--hh-gutter) calc(40px + var(--hh-bottom-inset));
   }

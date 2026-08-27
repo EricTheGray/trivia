@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { GuessMode } from "@/lib/game-modes";
 import {
   compareGuess,
@@ -12,9 +12,9 @@ import {
   type GuessPlayer as Player,
   type GuessPool,
 } from "@/lib/guess-players";
-import { createNameIndex, normalizeName } from "@/lib/matching";
+import { createNameIndex } from "@/lib/matching";
 import { PLAYER_ALIASES } from "@/lib/players";
-import { useKeyboardOpen } from "./use-keyboard-open";
+import { GuessPad } from "./guess-pad";
 import styles from "./guess-player.module.css";
 
 /**
@@ -37,9 +37,6 @@ const UNDRAFTED = "Undrafted";
 
 /** How long the winning row is left to light up before the reveal takes over. */
 const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
-
-/** Two is enough here: the pool is 251 names, not five thousand. */
-const GUESS_MIN_QUERY = 2;
 
 /**
  * College names arrive with a lot of furniture — "University of Central
@@ -115,9 +112,6 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
   const [names, setNames] = useState<string[]>(() => (daily ? readStored(today) : []));
   /** Unlimited mode only; the daily target comes from the date. */
   const [dealt, setDealt] = useState<string | null>(null);
-  const [query, setQuery] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
-  const keyboardOpen = useKeyboardOpen();
   /** The full-screen reveal, held back a beat so a winning row can light up. */
   const [revealed, setRevealed] = useState(false);
   const [dismissed, setDismissed] = useState(false);
@@ -140,9 +134,6 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
     };
   }, [daily]);
 
-  useEffect(() => {
-    if (active) inputRef.current?.focus();
-  }, [active]);
 
   useEffect(() => onSheetChange?.(active && revealed), [active, revealed, onSheetChange]);
   useEffect(() => () => onSheetChange?.(false), [onSheetChange]);
@@ -164,15 +155,10 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
     [pool],
   );
   const alreadyGuessed = useMemo(() => new Set(names), [names]);
-  const suggestions = useMemo(
-    () => index.search(query, 6, GUESS_MIN_QUERY).filter((name) => !alreadyGuessed.has(name)),
-    [index, query, alreadyGuessed],
-  );
-  const searching = normalizeName(query).length >= GUESS_MIN_QUERY;
 
   const solved = Boolean(target && guesses.some((guess) => isCorrect(guess, target)));
   const over = solved || guesses.length >= MAX_GUESSES;
-  const left = MAX_GUESSES - guesses.length;
+
 
   useEffect(() => {
     if (!over) return;
@@ -186,32 +172,19 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
     const next = [...names, name];
     setNames(next);
     if (daily) writeStored(today, next);
-    setQuery("");
-    inputRef.current?.focus();
   };
 
   const dealAgain = () => {
     setNames([]);
-    setQuery("");
     setRevealed(false);
     setDismissed(false);
     setDealt(pickRandomPlayer(pool, target?.name).name);
-    inputRef.current?.focus();
   };
 
-  const submitTyped = () => {
-    const raw = query.trim();
-    if (!raw) return;
-    // Return takes the name at the top of the list, as it does in a timed
-    // round. Anything that matches nobody is not a guess at all — a guess has
-    // to be a player in the pool for the clues to mean anything.
-    const resolved = index.resolve(raw) ?? suggestions[0] ?? null;
-    if (resolved) submit(resolved);
-  };
 
   return (
     <div className={styles.screen}>
-      <div className={`${styles.header} ${keyboardOpen ? styles.headerWithKeyboard : ""}`}>
+      <div className={styles.header}>
         <div className={styles.headerTop}>
           <div className={styles.titleGroup}>
             {onBack && (
@@ -234,81 +207,10 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
           </span>
         </div>
 
-        <div className={styles.pips} aria-label={`${left} guesses left`}>
-          {Array.from({ length: MAX_GUESSES }, (_, i) => (
-            <span
-              key={i}
-              className={`${styles.pip} ${i < guesses.length ? styles.pipUsed : ""}`}
-              aria-hidden
-            />
-          ))}
-        </div>
-
-        {!over && (
-          <div className={styles.typeBlock}>
-            <div className={styles.field}>
-              <input
-                ref={inputRef}
-                className={styles.input}
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                onKeyDown={(event) => {
-                  if (event.key !== "Enter") return;
-                  event.preventDefault();
-                  submitTyped();
-                }}
-                placeholder="Guess a player"
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="words"
-                spellCheck={false}
-                aria-label="Guess a player"
-              />
-              <button
-                type="button"
-                className={`${styles.submit} ${query.trim() ? styles.submitReady : ""}`}
-                onClick={submitTyped}
-                aria-label="Submit this guess"
-              >
-                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden>
-                  <path
-                    d="M2 8h11M9 3l5 5-5 5"
-                    stroke="currentColor"
-                    strokeWidth="2.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            {/* Floats over the board rather than pushing it: the grid must not
-                move while someone is typing. */}
-            {searching && (
-              <div className={styles.dropdown} role="listbox">
-                {suggestions.length ? (
-                  suggestions.map((name) => (
-                    <button
-                      key={name}
-                      type="button"
-                      role="option"
-                      aria-selected={false}
-                      className={styles.option}
-                      onClick={() => submit(name)}
-                    >
-                      {name}
-                    </button>
-                  ))
-                ) : (
-                  <span className={styles.noMatch}>No one by that name in the pool</span>
-                )}
-              </div>
-            )}
-          </div>
-        )}
       </div>
 
-      <div className={`${styles.board} ${over || keyboardOpen ? styles.boardTight : ""}`}>
-        <div className={`${styles.legend} ${keyboardOpen ? styles.legendHidden : ""}`}>
+      <div className={styles.board}>
+        <div className={styles.legend}>
           <div className={styles.columns} aria-hidden>
             {COLUMNS.map((column) => (
               <span key={column}>{column}</span>
@@ -357,6 +259,15 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
             </article>
           ))}
       </div>
+
+      {!over && (
+        <GuessPad
+          index={index}
+          exclude={alreadyGuessed}
+          onGuess={submit}
+          active={active}
+        />
+      )}
 
       {over && target && dismissed && (
         <div className={styles.summary}>
