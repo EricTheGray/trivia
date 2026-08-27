@@ -1666,10 +1666,22 @@
   {
    "key": "guess",
    "kind": "guess",
+   "daily": true,
    "name": "Guess the Player",
    "blurb": "Six guesses, one player a day",
    "chip": "#16130E",
    "title": "GUESS THE PLAYER",
+   "prompt": "Guess the player",
+   "pool": "players"
+  },
+  {
+   "key": "guessendless",
+   "kind": "guess",
+   "daily": false,
+   "name": "Guess the Player, Unlimited",
+   "blurb": "A new player every round, as many rounds as you like",
+   "chip": "#D9480F",
+   "title": "UNLIMITED",
    "prompt": "Guess the player",
    "pool": "players"
   }

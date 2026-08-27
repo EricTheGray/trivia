@@ -7,6 +7,7 @@ import {
   isCorrect,
   localIsoDate,
   pickDailyPlayer,
+  pickRandomPlayer,
   type Clue,
   type GuessPlayer as Player,
   type GuessPool,
@@ -16,8 +17,12 @@ import { PLAYER_ALIASES } from "@/lib/players";
 import styles from "./guess-player.module.css";
 
 /**
- * Six guesses at one player a day. Every guess comes back scored on the six
- * traits the workbook carries, and the whole board stays on screen.
+ * Six guesses at a player. Every guess comes back scored on the six traits the
+ * workbook carries, and the whole board stays on screen.
+ *
+ * Two modes share this screen. The daily one gives everyone the same player and
+ * keeps the board until tomorrow; the unlimited one deals a fresh player as
+ * often as you want and keeps nothing.
  */
 
 const MAX_GUESSES = 6;
@@ -72,9 +77,12 @@ type GuessPlayerProps = {
 };
 
 export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
+  const daily = mode.daily;
   const [today] = useState(() => localIsoDate(new Date()));
   const [pool, setPool] = useState<Player[]>([]);
-  const [names, setNames] = useState<string[]>(() => readStored(today));
+  const [names, setNames] = useState<string[]>(() => (daily ? readStored(today) : []));
+  /** Unlimited mode only; the daily target comes from the date. */
+  const [dealt, setDealt] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -82,7 +90,11 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
     let live = true;
     loadGuessPoolOnce()
       .then((players) => {
-        if (live) setPool(players);
+        if (!live) return;
+        setPool(players);
+        // Dealing here rather than in render keeps the pick out of the render
+        // path, where a random draw has no business being.
+        if (!daily) setDealt(pickRandomPlayer(players).name);
       })
       .catch((error) => {
         console.error("[guess-players] pool unavailable:", error);
@@ -90,13 +102,17 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
     return () => {
       live = false;
     };
-  }, []);
+  }, [daily]);
 
   useEffect(() => {
     if (active) inputRef.current?.focus();
   }, [active]);
 
-  const target = useMemo(() => (pool.length ? pickDailyPlayer(pool, today) : null), [pool, today]);
+  const target = useMemo(() => {
+    if (!pool.length) return null;
+    if (daily) return pickDailyPlayer(pool, today);
+    return pool.find((player) => player.name === dealt) ?? null;
+  }, [pool, daily, today, dealt]);
   const byName = useMemo(() => new Map(pool.map((player) => [player.name, player])), [pool]);
 
   const guesses = useMemo(
@@ -122,8 +138,15 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
     if (over || !byName.has(name) || alreadyGuessed.has(name)) return;
     const next = [...names, name];
     setNames(next);
-    writeStored(today, next);
+    if (daily) writeStored(today, next);
     setQuery("");
+    inputRef.current?.focus();
+  };
+
+  const dealAgain = () => {
+    setNames([]);
+    setQuery("");
+    setDealt(pickRandomPlayer(pool, target?.name).name);
     inputRef.current?.focus();
   };
 
@@ -137,10 +160,11 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
     if (resolved) submit(resolved);
   };
 
+  const nextUp = daily ? "A new player tomorrow." : "Deal another whenever you like.";
   const help = over
     ? solved
-      ? `Got it in ${guesses.length}. A new player tomorrow.`
-      : `Out of guesses. A new player tomorrow.`
+      ? `Got it in ${guesses.length}. ${nextUp}`
+      : `Out of guesses. ${nextUp}`
     : normalizeName(query).length < MIN_QUERY_LENGTH
       ? `Anyone from the pool — ${MIN_QUERY_LENGTH} letters brings up names.`
       : suggestions.length
@@ -241,8 +265,9 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
       <div className={styles.board}>
         {guesses.length === 0 && !over && (
           <p className={styles.empty}>
-            Every guess comes back scored: taller or shorter, drafted earlier or later, and whether
-            the position, college and draft team match.
+            {daily ? "Everyone gets the same player today. " : ""}Every guess comes back scored:
+            taller or shorter, drafted earlier or later, and whether the position, college and draft
+            team match.
           </p>
         )}
 
@@ -269,13 +294,20 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
       {over && target && (
         <div className={styles.summary}>
           <span className={styles.summaryText}>
-            <span className={styles.kicker}>{solved ? "SOLVED" : "TODAY’S PLAYER"}</span>
+            <span className={styles.kicker}>
+              {solved ? "SOLVED" : daily ? "TODAY’S PLAYER" : "THE ANSWER"}
+            </span>
             <span className={styles.summaryName}>{target.name}</span>
             <span className={styles.summaryLine}>
               {target.height} · {target.position} · drafted {target.drafted} by {target.team}
               {target.college ? ` · ${target.college}` : " · no college"}
             </span>
           </span>
+          {!daily && (
+            <button type="button" className={styles.again} onClick={dealAgain}>
+              Next player
+            </button>
+          )}
         </div>
       )}
     </div>
