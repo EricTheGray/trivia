@@ -15,6 +15,8 @@ export type GuessPlayer = {
   /** null for the prep-to-pro and international players. */
   college: string | null;
   team: string;
+  /** Three or four letters, for the board's table. */
+  teamCode: string;
   /** null for the undrafted and the one ABA team in the pool. */
   conference: Conference | null;
   jersey: number;
@@ -50,6 +52,7 @@ export function parseGuessPool(value: unknown, source: string): GuessPool {
       position: requireString(raw.position, source, `${name} position`),
       college: typeof raw.college === "string" && raw.college ? raw.college : null,
       team: requireString(raw.team, source, `${name} team`),
+      teamCode: requireString(raw.teamCode, source, `${name} teamCode`),
       conference,
     };
   });

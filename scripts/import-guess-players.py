@@ -26,6 +26,64 @@ SHEET = "Guess the Player"
 
 NO_COLLEGE_PREFIX = "None"
 
+# The board is a table, and a table column has no room for "Seattle
+# Supersonics". Codes are the familiar ones; defunct franchises keep the code
+# they played under rather than their successor's.
+TEAM_CODES = {
+    "Atlanta Hawks": "ATL",
+    "Baltimore Bullets": "BAL",
+    "Boston Celtics": "BOS",
+    "Buffalo Braves": "BUF",
+    "Charlotte Bobcats": "CHA",
+    "Charlotte Hornets": "CHH",
+    "Chicago Bulls": "CHI",
+    "Chicago Zephyrs": "CHZ",
+    "Cincinnati Kings": "CIN",
+    "Cleveland Cavaliers": "CLE",
+    "Dallas Mavericks": "DAL",
+    "Denver Nuggets": "DEN",
+    "Detroit Pistons": "DET",
+    "Golden State Warriors": "GSW",
+    "Houston Rockets": "HOU",
+    "Indiana Pacers": "IND",
+    "Kansas City-Omaha Kings": "KCO",
+    "Los Angeles Clippers": "LAC",
+    "Los Angeles Lakers": "LAL",
+    "Memphis Grizzlies": "MEM",
+    "Miami Heat": "MIA",
+    "Milwaukee Bucks": "MIL",
+    "Milwaukee Hawks": "MLH",
+    "Minneapolis Lakers": "MNL",
+    "Minnesota Timberwolves": "MIN",
+    "New Jersey Nets": "NJN",
+    "New Orleans Hornets": "NOH",
+    "New Orleans Pelicans": "NOP",
+    "New York Knicks": "NYK",
+    "New York Nets": "NYN",
+    "OKC Thunder": "OKC",
+    "Orlando Magic": "ORL",
+    "Philadelphia 76ers": "PHI",
+    "Philadelphia Warriors": "PHW",
+    "Phoenix Suns": "PHX",
+    "Portland Trail Blazers": "POR",
+    "Sacramento Kings": "SAC",
+    "San Antonio Spurs": "SAS",
+    "San Diego Clippers": "SDC",
+    "San Diego Rockets": "SDR",
+    "San Francisco Warriors": "SFW",
+    "Seattle Supersonics": "SEA",
+    "St. Louis Hawks": "STL",
+    "Syracuse Nationals": "SYR",
+    "Toronto Raptors": "TOR",
+    "Tri-City Blackhawks": "TRI",
+    "Undrafted": "UDFA",
+    "Utah Jazz": "UTA",
+    "Utah Stars": "UTS",
+    "Vancouver Grizzlies": "VAN",
+    "Washington Bullets": "WSB",
+    "Washington Wizards": "WAS",
+}
+
 CONFERENCES = {
     "Atlanta Hawks": "East",
     "Baltimore Bullets": "East",
@@ -93,9 +151,13 @@ def main(path):
     if not included:
         raise SystemExit("no Include=YES rows on the Guess the Player sheet")
 
-    unknown_teams = sorted({row["Team Drafted By"] for row in included} - set(CONFERENCES))
-    if unknown_teams:
-        raise SystemExit("no conference for: " + ", ".join(unknown_teams))
+    drafted_by = {row["Team Drafted By"] for row in included}
+    missing_conference = sorted(drafted_by - set(CONFERENCES))
+    if missing_conference:
+        raise SystemExit("no conference for: " + ", ".join(missing_conference))
+    missing_code = sorted(drafted_by - set(TEAM_CODES))
+    if missing_code:
+        raise SystemExit("no team code for: " + ", ".join(missing_code))
 
     def score(row):
         try:
@@ -129,6 +191,7 @@ def main(path):
                 "position": row["Position"],
                 "college": None if college.startswith(NO_COLLEGE_PREFIX) else college,
                 "team": row["Team Drafted By"],
+                "teamCode": TEAM_CODES[row["Team Drafted By"]],
                 "conference": CONFERENCES[row["Team Drafted By"]],
                 "jersey": jersey,
             }

@@ -5,10 +5,16 @@ import type { GameMode } from "@/lib/game-modes";
 import { MAX_DIFFICULTY, type Question } from "@/lib/questions";
 import styles from "./trivia-feed.module.css";
 
-type Card =
-  | { kind: "q"; n: number; question: Question }
-  | { kind: "a"; n: number; question: Question }
-  | { kind: "promo"; n: number; mode: GameMode };
+/**
+ * `id` is stable for the life of a card. Keying on the array index instead
+ * re-keys every card the moment the trim drops the oldest four, which makes
+ * React tear down and rebuild the whole list — the flicker that caused.
+ */
+type Card = { id: string; n: number } & (
+  | { kind: "q"; question: Question }
+  | { kind: "a"; question: Question }
+  | { kind: "promo"; mode: GameMode }
+);
 
 /** The cards built so far, and which one is on screen. */
 type Deck = { cards: Card[]; page: number };
@@ -77,7 +83,7 @@ export function TriviaFeed({
 }: TriviaFeedProps) {
   const initialDeck = useMemo<Deck>(() => {
     const start = questions.find((q) => q.id === startQuestionId) ?? questions[0];
-    return { cards: [{ kind: "q", n: 1, question: start }], page: 0 };
+    return { cards: [{ id: "card-0", kind: "q", n: 1, question: start }], page: 0 };
   }, [questions, startQuestionId]);
 
   const [deck, setDeck] = useState(initialDeck);
@@ -102,6 +108,8 @@ export function TriviaFeed({
       otherwise both read the pre-update state and drop the gesture. */
   const draggingRef = useRef(false);
   const wheelRef = useRef({ delta: 0, at: 0, until: 0 });
+  /** Only ever counts up, so a card's key survives a trim. */
+  const nextCardIdRef = useRef(1);
   const trimTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
@@ -174,7 +182,10 @@ export function TriviaFeed({
       if (cards.length <= TRIM_ABOVE || page < TRIM_COUNT) return;
       setSnapping(true);
       commit({ cards: cards.slice(TRIM_COUNT), page: page - TRIM_COUNT });
-      requestAnimationFrame(() => setSnapping(false));
+      // Two frames: the first paints the re-anchored track with the transition
+      // still off, the second restores it. One frame can land before that paint
+      // and animate the jump instead of hiding it.
+      requestAnimationFrame(() => requestAnimationFrame(() => setSnapping(false)));
     }, TRIM_DELAY_MS);
   }, [commit]);
 
@@ -194,15 +205,16 @@ export function TriviaFeed({
       return;
     }
 
+    const id = `card-${nextCardIdRef.current++}`;
     let built: Card;
     if (card.kind === "q") {
       revealMsRef.current = Date.now() - shownAtRef.current;
-      built = { kind: "a", n: card.n, question: card.question };
+      built = { id, kind: "a", n: card.n, question: card.question };
       if (haptics) navigator.vibrate?.(8);
     } else if (card.kind === "a" && modes.length && card.n % promoEvery === 0) {
-      built = { kind: "promo", n: card.n, mode: drawMode() };
+      built = { id, kind: "promo", n: card.n, mode: drawMode() };
     } else {
-      built = { kind: "q", n: card.n + 1, question: drawQuestion(revealMsRef.current) };
+      built = { id, kind: "q", n: card.n + 1, question: drawQuestion(revealMsRef.current) };
       shownAtRef.current = Date.now() + ADVANCE_MS;
     }
 
@@ -361,9 +373,9 @@ export function TriviaFeed({
         className={`${styles.track} ${dragging || snapping ? "" : styles.advancing}`}
         style={{ transform: `translateY(calc(${-deck.page} * var(--hh-card-h) - ${drag}px))` }}
       >
-        {deck.cards.map((card, index) => (
+        {deck.cards.map((card) => (
           <FeedCard
-            key={`${card.kind}-${card.n}-${index}`}
+            key={card.id}
             card={card}
             onPlay={playMode}
             shieldPointer={shieldPointer}

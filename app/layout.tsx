@@ -18,6 +18,12 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: "#f4f1ea",
+  /**
+   * Shrink the layout viewport when the software keyboard opens. Without this
+   * the browser leaves the layout alone and scrolls the page to reveal the
+   * focused field, which drags the fixed shell around behind the keyboard.
+   */
+  interactiveWidget: "resizes-content",
 };
 
 export default function RootLayout({
