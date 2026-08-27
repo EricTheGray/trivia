@@ -12,7 +12,7 @@ import {
   type GuessPlayer as Player,
   type GuessPool,
 } from "@/lib/guess-players";
-import { createNameIndex, MIN_QUERY_LENGTH, normalizeName } from "@/lib/matching";
+import { createNameIndex, normalizeName } from "@/lib/matching";
 import { PLAYER_ALIASES } from "@/lib/players";
 import { useKeyboardOpen } from "./use-keyboard-open";
 import styles from "./guess-player.module.css";
@@ -37,6 +37,9 @@ const UNDRAFTED = "Undrafted";
 
 /** How long the winning row is left to light up before the reveal takes over. */
 const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
+
+/** Two is enough here: the pool is 251 names, not five thousand. */
+const GUESS_MIN_QUERY = 2;
 
 /**
  * College names arrive with a lot of furniture — "University of Central
@@ -162,9 +165,10 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
   );
   const alreadyGuessed = useMemo(() => new Set(names), [names]);
   const suggestions = useMemo(
-    () => index.search(query, 6).filter((name) => !alreadyGuessed.has(name)),
+    () => index.search(query, 6, GUESS_MIN_QUERY).filter((name) => !alreadyGuessed.has(name)),
     [index, query, alreadyGuessed],
   );
+  const searching = normalizeName(query).length >= GUESS_MIN_QUERY;
 
   const solved = Boolean(target && guesses.some((guess) => isCorrect(guess, target)));
   const over = solved || guesses.length >= MAX_GUESSES;
@@ -204,17 +208,6 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
     const resolved = index.resolve(raw) ?? suggestions[0] ?? null;
     if (resolved) submit(resolved);
   };
-
-  const nextUp = daily ? "A new player tomorrow." : "Deal another whenever you like.";
-  const help = over
-    ? solved
-      ? `Got it in ${guesses.length}. ${nextUp}`
-      : `Out of guesses. ${nextUp}`
-    : normalizeName(query).length < MIN_QUERY_LENGTH
-      ? `Anyone from the pool — ${MIN_QUERY_LENGTH} letters brings up names.`
-      : suggestions.length
-        ? "Tap a name, or hit return for the top match."
-        : "No one by that name in the pool.";
 
   return (
     <div className={styles.screen}>
@@ -288,19 +281,26 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                 </svg>
               </button>
             </div>
-            <span className={styles.help}>{help}</span>
-            {suggestions.length > 0 && (
-              <div className={styles.options}>
-                {suggestions.map((name) => (
-                  <button
-                    key={name}
-                    type="button"
-                    className={styles.option}
-                    onClick={() => submit(name)}
-                  >
-                    {name}
-                  </button>
-                ))}
+            {/* Floats over the board rather than pushing it: the grid must not
+                move while someone is typing. */}
+            {searching && (
+              <div className={styles.dropdown} role="listbox">
+                {suggestions.length ? (
+                  suggestions.map((name) => (
+                    <button
+                      key={name}
+                      type="button"
+                      role="option"
+                      aria-selected={false}
+                      className={styles.option}
+                      onClick={() => submit(name)}
+                    >
+                      {name}
+                    </button>
+                  ))
+                ) : (
+                  <span className={styles.noMatch}>No one by that name in the pool</span>
+                )}
               </div>
             )}
           </div>
@@ -308,7 +308,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
       </div>
 
       <div className={`${styles.board} ${over || keyboardOpen ? styles.boardTight : ""}`}>
-        <div className={styles.legend}>
+        <div className={`${styles.legend} ${keyboardOpen ? styles.legendHidden : ""}`}>
           <div className={styles.columns} aria-hidden>
             {COLUMNS.map((column) => (
               <span key={column}>{column}</span>

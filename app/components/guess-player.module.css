@@ -9,6 +9,8 @@
 }
 
 .header {
+  position: relative;
+  z-index: 2;
   flex: none;
   padding: calc(62px + env(safe-area-inset-top)) var(--hh-screen-pad) 16px;
   transition: padding-top 0.2s ease;
@@ -144,29 +146,49 @@
   color: rgba(22, 19, 14, 0.45);
 }
 
-.options {
+.dropdown {
+  position: absolute;
+  left: var(--hh-screen-pad);
+  right: var(--hh-screen-pad);
+  top: 100%;
+  margin-top: -8px;
+  z-index: 3;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: 2px;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--hh-paper);
+  border: 1px solid rgba(22, 19, 14, 0.1);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(10, 8, 5, 0.16);
 }
 
 .option {
-  padding: 9px 14px;
-  border: 1px solid rgba(22, 19, 14, 0.12);
-  border-radius: 999px;
+  padding: 13px 18px;
+  border: 0;
+  border-bottom: 1px solid rgba(22, 19, 14, 0.07);
   background: transparent;
   color: inherit;
   font: inherit;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.012em;
+  text-align: left;
   cursor: pointer;
-  transition: background 0.18s ease;
+}
+
+.option:last-child {
+  border-bottom: 0;
 }
 
 .option:hover {
   background: rgba(217, 72, 15, 0.06);
+}
+
+.noMatch {
+  padding: 13px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(22, 19, 14, 0.45);
 }
 
 /* Board — six guesses have to fit without scrolling, so a guess is one line of
@@ -178,12 +200,11 @@
   --hh-clue-columns: 1fr 1fr 0.66fr 1.38fr 1.1fr 0.92fr;
   flex: 1;
   min-height: 0;
-  overflow-y: auto;
-  padding: 14px var(--hh-screen-pad) calc(20px + var(--hh-bottom-inset));
+  overflow: hidden;
+  padding: 12px var(--hh-screen-pad) calc(16px + var(--hh-bottom-inset));
   display: flex;
   flex-direction: column;
   gap: 8px;
-  -webkit-overflow-scrolling: touch;
 }
 
 /*
@@ -208,11 +229,15 @@
   display: none;
 }
 
+/* Reading the key is not what anyone is doing mid-word. Doubled up so it wins
+   over .legend regardless of which rule the bundler emits first. */
+.legend.legendHidden {
+  display: none;
+}
+
 /* Sticky, so the columns stay named even when the board does scroll. */
 .legend {
-  position: sticky;
-  top: -14px;
-  z-index: 1;
+  flex: none;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -267,11 +292,19 @@
   color: rgba(22, 19, 14, 0.55);
 }
 
+/*
+ * Six rows divide the space that is left, however much that is. Wordle can size
+ * its grid exactly because it never opens a software keyboard — it has its own.
+ * A text field has to live with one, so the rows give ground instead.
+ */
 .row {
+  /* Natural height when there is room; gives ground when a keyboard takes it. */
+  flex: 0 1 auto;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding-top: 8px;
+  padding-top: 6px;
   border-top: 1px solid rgba(22, 19, 14, 0.11);
 }
 
@@ -316,6 +349,9 @@
 }
 
 .clues {
+  flex: 0 1 auto;
+  height: 36px;
+  min-height: 24px;
   display: grid;
   grid-template-columns: var(--hh-clue-columns);
   gap: 4px;
@@ -363,7 +399,9 @@
   justify-content: center;
   gap: 3px;
   min-width: 0;
-  height: 36px;
+  height: 100%;
+  max-height: 40px;
+  min-height: 0;
   padding: 0 5px;
   text-align: center;
 }
