@@ -121,6 +121,16 @@ export function pickDailyPlayer(players: GuessPlayer[], isoDate: string): GuessP
   return players[hash % players.length];
 }
 
+/**
+ * A player at random, for the unlimited mode. Never deals the same player
+ * twice in a row.
+ */
+export function pickRandomPlayer(players: GuessPlayer[], exclude?: string): GuessPlayer {
+  const choices = players.filter((player) => player.name !== exclude);
+  const pool = choices.length ? choices : players;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
 /** Today where the reader is, as YYYY-MM-DD. */
 export function localIsoDate(now: Date): string {
   const year = now.getFullYear();

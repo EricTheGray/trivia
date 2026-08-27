@@ -2,9 +2,9 @@
 
 Basketball trivia, two ways to play. The **feed** is an endless vertical swipe of
 one question per screen — swipe up to reveal the answer, swipe up again for the
-next. The **game modes** are eight rounds: six five-minute lists covering every
-season on record, the champions' starting fives, and six guesses at the player of
-the day. No score, no streak, no fail state in the feed; no penalty for a wrong
+next. The **game modes** are nine rounds: six five-minute lists covering every
+season on record, the champions' starting fives, and six guesses at a player —
+daily or unlimited. No score, no streak, no fail state in the feed; no penalty for a wrong
 answer in a round. Built from the design handoff in `design_handoff_hot_hand/`.
 
 ```bash
@@ -48,13 +48,16 @@ momentum does not skip three at once. Arrow keys and clicking work everywhere.
 |---|---|
 | Championships, MVPs, DPOY, Rookies, Six Men, First Picks | Every season the workbook has for that award — 80 champions, 71 MVPs — under a five-minute clock. |
 | Starting Fives | All 57 champions since 1970, listed by position. Pick how many starters go missing from each lineup, 1 to 5; the sheet names the ones still standing. |
-| Guess the Player | Six guesses at one player a day, from a 251-strong pool. |
+| Guess the Player | Six guesses at one player a day, from a 251-strong pool. Everyone gets the same player; the board keeps until tomorrow. |
+| Guess the Player, Unlimited | The same game with a fresh player dealt every round, as often as you like. Nothing is kept. |
 
 ### Guess the Player
 
-The day's player comes from hashing the local date, so everyone playing on the
+Both modes share one screen, and a mode's `daily` flag decides which it plays.
+The daily player comes from hashing the local date, so everyone playing on the
 same day gets the same one, and the board is kept in `localStorage` until
-tomorrow. Each guess is scored on the six traits the workbook carries
+tomorrow; the unlimited mode draws at random, never twice in a row, and keeps
+nothing. Each guess is scored on the six traits the workbook carries
 (`lib/guess-players/compare.ts`):
 
 - **Drafted, height, jersey** — hit, or an arrow towards the answer.

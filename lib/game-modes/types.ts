@@ -42,9 +42,15 @@ export type LineupsMode = ModeBase & {
   seconds: number;
 };
 
-/** Six guesses at one player a day. No clock. */
+/** Six guesses at a player. No clock. */
 export type GuessMode = ModeBase & {
   kind: "guess";
+  /**
+   * True for the daily puzzle: one player a day, the same for everyone, kept
+   * until tomorrow. False for the unlimited mode, which deals a fresh player
+   * every round.
+   */
+  daily: boolean;
 };
 
 export type GameMode = YearsMode | LineupsMode | GuessMode;
@@ -81,7 +87,7 @@ export function parseModeCatalog(value: unknown, source: string): ModeCatalog {
       pool,
     };
 
-    if (kind === "guess") return { ...base, kind };
+    if (kind === "guess") return { ...base, kind, daily: raw.daily !== false };
 
     const seconds = Number(raw.seconds);
     const clock = Number.isFinite(seconds) && seconds > 0 ? seconds : 300;
