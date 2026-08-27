@@ -30,7 +30,10 @@ const MAX_GUESSES = 6;
 const STORAGE_KEY = "hot-hand.guess";
 
 /** Named once above the board rather than on every cell of every guess. */
-const COLUMNS = ["Player", "Draft", "Height", "Pos", "College", "Team", "No."];
+const COLUMNS = ["Draft", "Height", "Pos", "College", "Team", "No."];
+
+/** How the workbook files players who never heard their name called. */
+const UNDRAFTED = "Undrafted";
 
 /** How long the winning row is left to light up before the reveal takes over. */
 const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
@@ -215,7 +218,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
 
   return (
     <div className={styles.screen}>
-      <div className={styles.header}>
+      <div className={`${styles.header} ${keyboardOpen ? styles.headerWithKeyboard : ""}`}>
         <div className={styles.headerTop}>
           <div className={styles.titleGroup}>
             {onBack && (
@@ -305,44 +308,54 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
       </div>
 
       <div className={`${styles.board} ${over || keyboardOpen ? styles.boardTight : ""}`}>
-        {guesses.length === 0 && !over ? (
-          <p className={styles.empty}>
-            {daily ? "Everyone gets the same player today. " : ""}Every guess comes back scored.
-            Filled means exact; tinted means close — the right conference, or a position they also
-            play. Arrows point towards the answer.
-          </p>
-        ) : (
-          <div className={styles.legend}>
-            <div className={styles.columns} aria-hidden>
-              {COLUMNS.map((column) => (
-                <span key={column}>{column}</span>
-              ))}
-            </div>
-            <p className={styles.key}>
-              <span className={`${styles.swatch} ${styles.hit}`} aria-hidden />
-              exact
-              <span className={`${styles.swatch} ${styles.close}`} aria-hidden />
-              close
-              <span className={styles.arrowKey} aria-hidden>
-                ↑
-              </span>
-              answer is higher
-            </p>
+        <div className={styles.legend}>
+          <div className={styles.columns} aria-hidden>
+            {COLUMNS.map((column) => (
+              <span key={column}>{column}</span>
+            ))}
           </div>
-        )}
+          <p className={styles.key}>
+            <span className={`${styles.swatch} ${styles.hit}`} aria-hidden />
+            exact
+            <span className={`${styles.swatch} ${styles.close}`} aria-hidden />
+            close
+            <span className={styles.arrowKey} aria-hidden>
+              ↑
+            </span>
+            answer is higher
+          </p>
+        </div>
 
         {guesses.map((guess) => {
           const right = target ? isCorrect(guess, target) : false;
           return (
-            <div key={guess.name} className={`${styles.row} ${right ? styles.rowRight : ""}`}>
-              <span className={styles.rowName} title={guess.name}>
-                {guess.name}
-              </span>
-              {target &&
-                compareGuess(guess, target).map((clue) => <ClueCell key={clue.key} clue={clue} />)}
-            </div>
+            <article key={guess.name} className={`${styles.row} ${right ? styles.rowRight : ""}`}>
+              <h3 className={styles.rowName}>{guess.name}</h3>
+              {target && (
+                <div className={styles.clues}>
+                  {compareGuess(guess, target).map((clue) => (
+                    <ClueCell key={clue.key} clue={clue} />
+                  ))}
+                </div>
+              )}
+            </article>
           );
         })}
+
+        {/* The rest of the grid is drawn from the start, so the shape of the
+            game is visible before a single guess and nothing shifts as they
+            land. Once the round is over the unused rows have nothing to say. */}
+        {!over &&
+          Array.from({ length: MAX_GUESSES - guesses.length }, (_, i) => (
+            <article key={`empty-${i}`} className={`${styles.row} ${styles.rowEmpty}`} aria-hidden>
+              <h3 className={styles.rowName}>Guess {guesses.length + i + 1}</h3>
+              <div className={styles.clues}>
+                {COLUMNS.map((column) => (
+                  <div key={column} className={styles.clue} />
+                ))}
+              </div>
+            </article>
+          ))}
       </div>
 
       {over && target && dismissed && (
@@ -401,10 +414,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
               </span>
             )}
             <h2 className={styles.revealName}>{target.name}</h2>
-            <span className={styles.revealTraits}>
-              {target.height} · {target.position} · drafted {target.drafted} by {target.team}
-              {target.college ? ` · ${target.college}` : " · no college"}
-            </span>
+            <span className={styles.revealTraits}>{traitLine(target)}</span>
           </div>
 
           <div className={styles.revealActions}>
@@ -433,12 +443,28 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
 }
 
 /** Cell-sized wording. The tooltip still carries the full value. */
+const SHORT_TEAM: Record<string, string> = {
+  Timberwolves: "Wolves",
+  Supersonics: "Sonics",
+};
+
 function short(clue: Clue) {
-  if (clue.short) return clue.short;
+  if (clue.key === "team") {
+    const nickname = clue.value.split(" ").pop() ?? clue.value;
+    return SHORT_TEAM[nickname] ?? nickname;
+  }
   if (clue.key === "college") {
     return clue.value === "No college" ? "None" : shortCollege(clue.value);
   }
   return clue.value;
+}
+
+/** The one-line description under the answer. */
+function traitLine(player: Player) {
+  const draft =
+    player.team === UNDRAFTED ? "undrafted" : `drafted ${player.drafted} by ${player.team}`;
+  const college = player.college ?? "no college";
+  return `${player.height} · ${player.position} · ${draft} · ${college}`;
 }
 
 function ClueCell({ clue }: { clue: Clue }) {
@@ -447,9 +473,12 @@ function ClueCell({ clue }: { clue: Clue }) {
   // The full value and the reason a cell is only "close" live in the tooltip,
   // so the cell itself can stay one line tall.
   const title = [clue.label, clue.value, clue.note].filter(Boolean).join(" — ");
+  // Only the name-bearing columns may wrap; "#21" breaking into "#2 / 1" is
+  // worse than no wrapping at all.
+  const wraps = clue.key === "college" || clue.key === "team";
   return (
     <div className={`${styles.clue} ${styles[clue.verdict]}`} title={title}>
-      <span className={styles.clueValue}>{value}</span>
+      <span className={`${styles.clueValue} ${wraps ? styles.wraps : ""}`}>{value}</span>
       {arrow && <span className={styles.arrow}>{arrow}</span>}
     </div>
   );

@@ -11,6 +11,7 @@
 .header {
   flex: none;
   padding: calc(62px + env(safe-area-inset-top)) var(--hh-screen-pad) 16px;
+  transition: padding-top 0.2s ease;
   background: rgba(244, 241, 234, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -172,35 +173,39 @@
    values under its name, and the columns are named once at the top. */
 
 .board {
-  /* Player, draft, height, pos, college, team, jersey. The name is a column of
-     the same table, not a heading above it. */
-  --hh-clue-columns: minmax(0, 1.85fr) 0.95fr 0.95fr 0.6fr 1.5fr 0.75fr 0.8fr;
+  /* Draft, height, pos, college, team, jersey — the full width for six, so
+     nothing has to be abbreviated down to initials. */
+  --hh-clue-columns: 1fr 1fr 0.66fr 1.38fr 1.1fr 0.92fr;
   flex: 1;
   min-height: 0;
   overflow-y: auto;
   padding: 14px var(--hh-screen-pad) calc(20px + var(--hh-bottom-inset));
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   -webkit-overflow-scrolling: touch;
 }
 
 /*
  * The clearance below is for the floating tab bar. Drop it when something else
  * already occupies that space — the keyboard, or the reveal bar — otherwise the
- * board scrolls for a hundred pixels of padding nobody can see.
+ * board scrolls for padding nobody can see.
  */
 .boardTight {
   padding-bottom: 16px;
 }
 
-.empty {
-  margin: 6px 0 0;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.45;
-  color: rgba(22, 19, 14, 0.45);
-  max-width: 46ch;
+/*
+ * With a keyboard up there is barely half a screen left. The status-bar gap and
+ * the pips are the first things to go: the counter in the corner and the grid
+ * itself already say how many guesses are left.
+ */
+.headerWithKeyboard {
+  padding-top: 14px;
+}
+
+.headerWithKeyboard .pips {
+  display: none;
 }
 
 /* Sticky, so the columns stay named even when the board does scroll. */
@@ -220,9 +225,9 @@
   grid-template-columns: var(--hh-clue-columns);
   gap: 3px;
   padding-left: 2px;
-  font-size: 8.5px;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(22, 19, 14, 0.45);
 }
@@ -263,31 +268,39 @@
 }
 
 .row {
-  display: grid;
-  grid-template-columns: var(--hh-clue-columns);
+  display: flex;
+  flex-direction: column;
   gap: 3px;
-  align-items: stretch;
+  padding-top: 8px;
+  border-top: 1px solid rgba(22, 19, 14, 0.11);
 }
 
+/* Tight to the cells it belongs to: the name is the row's heading, not a
+   separate line of text floating above it. */
 .rowName {
-  display: flex;
-  align-items: center;
-  padding-right: 4px;
-  font-size: 12px;
+  margin: 0;
+  padding-left: 2px;
+  font-size: 16px;
   font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.14;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  letter-spacing: -0.018em;
+  line-height: 1.15;
 }
 
 .rowRight .rowName {
   color: var(--hh-accent);
 }
 
-/* The winning row lights up before the answer takes the screen. */
+/* A row waiting to be played. */
+.rowEmpty .rowName {
+  color: rgba(22, 19, 14, 0.26);
+  font-weight: 500;
+}
+
+.rowEmpty .clue {
+  background: rgba(22, 19, 14, 0.028);
+  box-shadow: inset 0 0 0 1px rgba(22, 19, 14, 0.05);
+}
+
 .rowRight {
   animation: hh-row-hit 0.9s ease;
 }
@@ -298,11 +311,35 @@
     transform: none;
   }
   22% {
-    transform: scale(1.015);
+    transform: scale(1.012);
   }
 }
 
+.clues {
+  display: grid;
+  grid-template-columns: var(--hh-clue-columns);
+  gap: 4px;
+}
+
 .rowRight .clue {
+  animation: hh-cell-hit 0.5s ease backwards;
+}
+
+.rowRight .clue:nth-child(1) { animation-delay: 0.02s; }
+.rowRight .clue:nth-child(2) { animation-delay: 0.08s; }
+.rowRight .clue:nth-child(3) { animation-delay: 0.14s; }
+.rowRight .clue:nth-child(4) { animation-delay: 0.2s; }
+.rowRight .clue:nth-child(5) { animation-delay: 0.26s; }
+.rowRight .clue:nth-child(6) { animation-delay: 0.32s; }
+
+@keyframes hh-cell-hit {
+  from {
+    background: rgba(217, 72, 15, 0.18);
+    transform: scale(0.94);
+  }
+}
+
+.clue {
   animation: hh-cell-hit 0.5s ease backwards;
 }
 
@@ -326,21 +363,27 @@
   justify-content: center;
   gap: 3px;
   min-width: 0;
-  height: 38px;
-  padding: 0 3px;
+  height: 36px;
+  padding: 0 5px;
   text-align: center;
 }
 
-/* Two lines of room, so a college or a team rarely needs an ellipsis. */
 .clueValue {
-  font-size: 11.5px;
+  font-size: 12.5px;
   font-weight: 600;
-  line-height: 1.12;
+  line-height: 1.14;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Two lines of room, so a college or a team rarely needs an ellipsis. */
+.wraps {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  white-space: normal;
   overflow-wrap: break-word;
 }
 
@@ -502,7 +545,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  padding: 22px var(--hh-screen-pad) calc(22px + var(--hh-bottom-inset));
+  padding: 18px var(--hh-screen-pad) calc(8px + var(--hh-bottom-inset));
   background: var(--hh-ink);
   animation: hh-reveal-in 0.42s cubic-bezier(0.2, 0.9, 0.2, 1);
 }
@@ -606,7 +649,7 @@
   }
 
   .rowName {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .revealName {

@@ -46,7 +46,12 @@ export function HotHand({
 
   const onFeed = tab === "feed";
   const dark = onFeed && onDarkCard;
-  const barHidden = sheetOpen || keyboardOpen;
+  /**
+   * A round takes the whole screen: its own back button leads out, so the bar
+   * would only be floating over the game and eating the room a keyboard wants.
+   */
+  const inRound = tab === "modes" && mode !== null;
+  const barHidden = sheetOpen || keyboardOpen || inRound;
 
   return (
     <div className={styles.shell}>
@@ -106,7 +111,11 @@ export function HotHand({
           wall time, so it is still ticking when you come back. Keyed so
           switching modes starts fresh rather than inheriting the last round. */}
       {mode && (
-        <div className={`${styles.screen} ${tab === "modes" ? "" : styles.hidden}`}>
+        <div
+          className={`${styles.screen} ${styles.roundScreen} ${
+            tab === "modes" ? "" : styles.hidden
+          }`}
+        >
           {mode.kind === "guess" ? (
             <GuessPlayerRound
               key={mode.key}

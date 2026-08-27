@@ -20,6 +20,28 @@ OUT = os.path.join(os.path.dirname(__file__), "..", "data", "feed-questions.json
 SHEET = "Feed"
 
 
+def link_pairs(questions):
+    """Mark the second half of each two-part question.
+
+    A pair's follow-up leans on its setup — "That same 2026 Finals MVP won a
+    national championship where?" — so it only makes sense directly after it.
+    The workbook's own id order is the intended order: in every pair that says
+    so out loud, the lower id is the setup.
+    """
+    groups = {}
+    for question in questions:
+        if question.get("pairId"):
+            groups.setdefault(question["pairId"], []).append(question)
+
+    for pair_id, members in groups.items():
+        if len(members) != 2:
+            raise SystemExit(f"pair {pair_id} has {len(members)} questions, expected 2")
+        setup, follow_up = sorted(members, key=lambda q: int(q["id"]))
+        follow_up["follows"] = setup["id"]
+
+    return groups
+
+
 def main(path):
     rows = read_rows(path, SHEET)
     require_columns(
@@ -60,6 +82,8 @@ def main(path):
             raise SystemExit(f'duplicate question id {question["id"]}')
         seen.add(question["id"])
 
+    link_pairs(questions)
+
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(
             {
@@ -76,7 +100,9 @@ def main(path):
     by_level = {level: 0 for level in sorted(DIFFICULTY.values())}
     for question in questions:
         by_level[question["d"]] += 1
+    followups = sum(1 for question in questions if question.get("follows"))
     print(f"wrote {len(questions)} questions to {os.path.relpath(OUT)}")
+    print(f"  {followups} follow-ups, each pinned behind its setup")
     print("  by difficulty: " + ", ".join(f"{k}:{v}" for k, v in by_level.items()))
     if skipped:
         print(f"  skipped {len(skipped)}: " + ", ".join(f"{i} ({why})" for i, why in skipped[:10]))
