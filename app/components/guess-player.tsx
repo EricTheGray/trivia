@@ -30,7 +30,10 @@ const MAX_GUESSES = 6;
 const STORAGE_KEY = "hot-hand.guess";
 
 /** Named once above the board rather than on every cell of every guess. */
-const COLUMNS = ["Player", "Draft", "Height", "Pos", "College", "Team", "No."];
+const COLUMNS = ["Draft", "Height", "Pos", "College", "Team", "No."];
+
+/** How the workbook files players who never heard their name called. */
+const UNDRAFTED = "Undrafted";
 
 /** How long the winning row is left to light up before the reveal takes over. */
 const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
@@ -334,13 +337,16 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
         {guesses.map((guess) => {
           const right = target ? isCorrect(guess, target) : false;
           return (
-            <div key={guess.name} className={`${styles.row} ${right ? styles.rowRight : ""}`}>
-              <span className={styles.rowName} title={guess.name}>
-                {guess.name}
-              </span>
-              {target &&
-                compareGuess(guess, target).map((clue) => <ClueCell key={clue.key} clue={clue} />)}
-            </div>
+            <article key={guess.name} className={`${styles.row} ${right ? styles.rowRight : ""}`}>
+              <h3 className={styles.rowName}>{guess.name}</h3>
+              {target && (
+                <div className={styles.clues}>
+                  {compareGuess(guess, target).map((clue) => (
+                    <ClueCell key={clue.key} clue={clue} />
+                  ))}
+                </div>
+              )}
+            </article>
           );
         })}
       </div>
@@ -401,10 +407,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
               </span>
             )}
             <h2 className={styles.revealName}>{target.name}</h2>
-            <span className={styles.revealTraits}>
-              {target.height} · {target.position} · drafted {target.drafted} by {target.team}
-              {target.college ? ` · ${target.college}` : " · no college"}
-            </span>
+            <span className={styles.revealTraits}>{traitLine(target)}</span>
           </div>
 
           <div className={styles.revealActions}>
@@ -433,12 +436,28 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
 }
 
 /** Cell-sized wording. The tooltip still carries the full value. */
+const SHORT_TEAM: Record<string, string> = {
+  Timberwolves: "Wolves",
+  Supersonics: "Sonics",
+};
+
 function short(clue: Clue) {
-  if (clue.short) return clue.short;
+  if (clue.key === "team") {
+    const nickname = clue.value.split(" ").pop() ?? clue.value;
+    return SHORT_TEAM[nickname] ?? nickname;
+  }
   if (clue.key === "college") {
     return clue.value === "No college" ? "None" : shortCollege(clue.value);
   }
   return clue.value;
+}
+
+/** The one-line description under the answer. */
+function traitLine(player: Player) {
+  const draft =
+    player.team === UNDRAFTED ? "undrafted" : `drafted ${player.drafted} by ${player.team}`;
+  const college = player.college ?? "no college";
+  return `${player.height} · ${player.position} · ${draft} · ${college}`;
 }
 
 function ClueCell({ clue }: { clue: Clue }) {
@@ -447,9 +466,12 @@ function ClueCell({ clue }: { clue: Clue }) {
   // The full value and the reason a cell is only "close" live in the tooltip,
   // so the cell itself can stay one line tall.
   const title = [clue.label, clue.value, clue.note].filter(Boolean).join(" — ");
+  // Only the name-bearing columns may wrap; "#21" breaking into "#2 / 1" is
+  // worse than no wrapping at all.
+  const wraps = clue.key === "college" || clue.key === "team";
   return (
     <div className={`${styles.clue} ${styles[clue.verdict]}`} title={title}>
-      <span className={styles.clueValue}>{value}</span>
+      <span className={`${styles.clueValue} ${wraps ? styles.wraps : ""}`}>{value}</span>
       {arrow && <span className={styles.arrow}>{arrow}</span>}
     </div>
   );

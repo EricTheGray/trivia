@@ -118,6 +118,21 @@ export function TriviaFeed({
     [questions],
   );
 
+  /**
+   * Two-part questions: the follow-up is keyed by the question it must come
+   * after, and is kept out of the random pool so it can never turn up first and
+   * give its setup away.
+   */
+  const followUps = useMemo(() => {
+    const byPredecessor = new Map<string, Question>();
+    for (const question of questions) {
+      if (question.follows) byPredecessor.set(question.follows, question);
+    }
+    return byPredecessor;
+  }, [questions]);
+
+  const soloQuestions = useMemo(() => questions.filter((q) => !q.follows), [questions]);
+
   const current = deck.cards[deck.page] ?? deck.cards[0];
   const onDarkCard = current.kind !== "q";
 
@@ -149,15 +164,16 @@ export function TriviaFeed({
       }
 
       const used = usedRef.current;
-      if (used.size >= questions.length - 1) used.clear();
+      if (used.size >= soloQuestions.length - 1) used.clear();
 
-      const atLevel = questions.filter((q) => !used.has(q.id) && q.d === levelRef.current);
-      const pool = difficultyRamp && atLevel.length ? atLevel : questions.filter((q) => !used.has(q.id));
-      const picked = pool[Math.floor(Math.random() * pool.length)] ?? questions[0];
+      const unused = soloQuestions.filter((q) => !used.has(q.id));
+      const atLevel = unused.filter((q) => q.d === levelRef.current);
+      const pool = difficultyRamp && atLevel.length ? atLevel : unused;
+      const picked = pool[Math.floor(Math.random() * pool.length)] ?? soloQuestions[0];
       used.add(picked.id);
       return picked;
     },
-    [difficultyRamp, maxLevel, questions],
+    [difficultyRamp, maxLevel, soloQuestions],
   );
 
   /** Next mode in rotation, skipping any already played this session. */
@@ -206,11 +222,19 @@ export function TriviaFeed({
     }
 
     const id = `card-${nextCardIdRef.current++}`;
+    // A follow-up is owed as soon as its setup has been answered, and nothing —
+    // not even a promo — comes between the two.
+    const owed = card.kind === "a" ? followUps.get(card.question.id) : undefined;
+
     let built: Card;
     if (card.kind === "q") {
       revealMsRef.current = Date.now() - shownAtRef.current;
       built = { id, kind: "a", n: card.n, question: card.question };
       if (haptics) navigator.vibrate?.(8);
+    } else if (owed) {
+      usedRef.current.add(owed.id);
+      built = { id, kind: "q", n: card.n + 1, question: owed };
+      shownAtRef.current = Date.now() + ADVANCE_MS;
     } else if (card.kind === "a" && modes.length && card.n % promoEvery === 0) {
       built = { id, kind: "promo", n: card.n, mode: drawMode() };
     } else {
@@ -220,7 +244,7 @@ export function TriviaFeed({
 
     commit({ cards: [...cards, built], page: page + 1 });
     scheduleTrim();
-  }, [commit, drawMode, drawQuestion, haptics, modes.length, promoEvery, scheduleTrim]);
+  }, [commit, drawMode, drawQuestion, followUps, haptics, modes.length, promoEvery, scheduleTrim]);
 
   const rewind = useCallback(() => {
     draggingRef.current = false;

@@ -20,6 +20,12 @@ export type Question = {
   /** Set on questions that come as a related pair in the workbook. */
   pairId?: string;
   /**
+   * Id of the question this one must follow immediately. A pair's second half
+   * leans on the first — "That same 2026 Finals MVP…" — so it is never drawn
+   * on its own.
+   */
+  follows?: string;
+  /**
    * Optional alternate phrasing, used as the share title when the question does
    * not stand alone out of context. Not yet supplied by the workbook.
    */
@@ -56,6 +62,7 @@ export function parseBank(value: unknown, source: string): QuestionBank {
       topic: typeof raw.topic === "string" ? raw.topic : "",
     };
     if (typeof raw.pairId === "string") question.pairId = raw.pairId;
+    if (typeof raw.follows === "string") question.follows = raw.follows;
     if (typeof raw.p === "string") question.p = raw.p;
     return question;
   });
