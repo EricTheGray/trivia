@@ -194,15 +194,6 @@
   padding-bottom: 16px;
 }
 
-.empty {
-  margin: 6px 0 0;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.45;
-  color: rgba(22, 19, 14, 0.45);
-  max-width: 46ch;
-}
-
 /* Sticky, so the columns stay named even when the board does scroll. */
 .legend {
   position: sticky;
@@ -283,6 +274,17 @@
 
 .rowRight .rowName {
   color: var(--hh-accent);
+}
+
+/* A row waiting to be played. */
+.rowEmpty .rowName {
+  color: rgba(22, 19, 14, 0.26);
+  font-weight: 500;
+}
+
+.rowEmpty .clue {
+  background: rgba(22, 19, 14, 0.028);
+  box-shadow: inset 0 0 0 1px rgba(22, 19, 14, 0.05);
 }
 
 .rowRight {

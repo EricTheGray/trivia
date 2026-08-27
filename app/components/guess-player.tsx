@@ -308,31 +308,23 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
       </div>
 
       <div className={`${styles.board} ${over || keyboardOpen ? styles.boardTight : ""}`}>
-        {guesses.length === 0 && !over ? (
-          <p className={styles.empty}>
-            {daily ? "Everyone gets the same player today. " : ""}Every guess comes back scored.
-            Filled means exact; tinted means close — the right conference, or a position they also
-            play. Arrows point towards the answer.
-          </p>
-        ) : (
-          <div className={styles.legend}>
-            <div className={styles.columns} aria-hidden>
-              {COLUMNS.map((column) => (
-                <span key={column}>{column}</span>
-              ))}
-            </div>
-            <p className={styles.key}>
-              <span className={`${styles.swatch} ${styles.hit}`} aria-hidden />
-              exact
-              <span className={`${styles.swatch} ${styles.close}`} aria-hidden />
-              close
-              <span className={styles.arrowKey} aria-hidden>
-                ↑
-              </span>
-              answer is higher
-            </p>
+        <div className={styles.legend}>
+          <div className={styles.columns} aria-hidden>
+            {COLUMNS.map((column) => (
+              <span key={column}>{column}</span>
+            ))}
           </div>
-        )}
+          <p className={styles.key}>
+            <span className={`${styles.swatch} ${styles.hit}`} aria-hidden />
+            exact
+            <span className={`${styles.swatch} ${styles.close}`} aria-hidden />
+            close
+            <span className={styles.arrowKey} aria-hidden>
+              ↑
+            </span>
+            answer is higher
+          </p>
+        </div>
 
         {guesses.map((guess) => {
           const right = target ? isCorrect(guess, target) : false;
@@ -349,6 +341,21 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
             </article>
           );
         })}
+
+        {/* The rest of the grid is drawn from the start, so the shape of the
+            game is visible before a single guess and nothing shifts as they
+            land. Once the round is over the unused rows have nothing to say. */}
+        {!over &&
+          Array.from({ length: MAX_GUESSES - guesses.length }, (_, i) => (
+            <article key={`empty-${i}`} className={`${styles.row} ${styles.rowEmpty}`} aria-hidden>
+              <h3 className={styles.rowName}>Guess {guesses.length + i + 1}</h3>
+              <div className={styles.clues}>
+                {COLUMNS.map((column) => (
+                  <div key={column} className={styles.clue} />
+                ))}
+              </div>
+            </article>
+          ))}
       </div>
 
       {over && target && dismissed && (
