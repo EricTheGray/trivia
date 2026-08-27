@@ -15,6 +15,15 @@
   display: none;
 }
 
+/*
+ * No tab bar floats over a round, so nothing inside one needs to leave room for
+ * it. Every round screen sizes its bottom spacing from this, so overriding it
+ * here hands ~80px back to the game — and to the keyboard.
+ */
+.roundScreen {
+  --hh-bottom-inset: calc(18px + env(safe-area-inset-bottom));
+}
+
 .scrollScreen {
   display: flex;
   flex-direction: column;

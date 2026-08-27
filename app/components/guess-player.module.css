@@ -11,6 +11,7 @@
 .header {
   flex: none;
   padding: calc(62px + env(safe-area-inset-top)) var(--hh-screen-pad) 16px;
+  transition: padding-top 0.2s ease;
   background: rgba(244, 241, 234, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -188,10 +189,23 @@
 /*
  * The clearance below is for the floating tab bar. Drop it when something else
  * already occupies that space — the keyboard, or the reveal bar — otherwise the
- * board scrolls for a hundred pixels of padding nobody can see.
+ * board scrolls for padding nobody can see.
  */
 .boardTight {
   padding-bottom: 16px;
+}
+
+/*
+ * With a keyboard up there is barely half a screen left. The status-bar gap and
+ * the pips are the first things to go: the counter in the corner and the grid
+ * itself already say how many guesses are left.
+ */
+.headerWithKeyboard {
+  padding-top: 14px;
+}
+
+.headerWithKeyboard .pips {
+  display: none;
 }
 
 /* Sticky, so the columns stay named even when the board does scroll. */

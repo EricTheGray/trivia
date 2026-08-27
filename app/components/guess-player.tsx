@@ -218,7 +218,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
 
   return (
     <div className={styles.screen}>
-      <div className={styles.header}>
+      <div className={`${styles.header} ${keyboardOpen ? styles.headerWithKeyboard : ""}`}>
         <div className={styles.headerTop}>
           <div className={styles.titleGroup}>
             {onBack && (

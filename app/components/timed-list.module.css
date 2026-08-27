@@ -182,7 +182,7 @@
   left: 0;
   right: 0;
   overflow-y: auto;
-  padding: 8px var(--hh-screen-pad) calc(130px + var(--hh-bottom-inset));
+  padding: 8px var(--hh-screen-pad) calc(24px + var(--hh-bottom-inset));
   -webkit-overflow-scrolling: touch;
 }
 
@@ -594,9 +594,8 @@
 
   .rows {
     top: 216px;
-    /* Stop above the tab bar rather than padding past it, so a round that fits
-       the window does not show a scrollbar. */
-    bottom: 104px;
+    /* No tab bar floats over a round, so the list runs almost to the bottom. */
+    bottom: 24px;
     display: flex;
     gap: 56px;
     padding: 12px var(--hh-gutter) 16px;
