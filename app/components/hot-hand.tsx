@@ -5,6 +5,7 @@ import type { GameMode } from "@/lib/game-modes";
 import type { Question } from "@/lib/questions";
 import { GuessPlayerRound } from "./guess-player";
 import { TimedList } from "./timed-list";
+import { useKeyboardOpen } from "./use-keyboard-open";
 import { TriviaFeed } from "./trivia-feed";
 import { useSettings } from "./use-settings";
 import styles from "./hot-hand.module.css";
@@ -25,6 +26,7 @@ export function HotHand({
   const [onDarkCard, setOnDarkCard] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [settings, update] = useSettings();
+  const keyboardOpen = useKeyboardOpen();
 
   const openMode = useCallback(
     (key: string) => {
@@ -44,6 +46,7 @@ export function HotHand({
 
   const onFeed = tab === "feed";
   const dark = onFeed && onDarkCard;
+  const barHidden = sheetOpen || keyboardOpen;
 
   return (
     <div className={styles.shell}>
@@ -197,12 +200,14 @@ export function HotHand({
         </div>
       )}
 
+      {/* The bar steps aside for a sheet and for the keyboard alike: floating
+          over either one leaves it stranded on top of the content. */}
       <nav
         className={styles.tabBar}
         style={{
-          opacity: sheetOpen ? 0 : 1,
-          pointerEvents: sheetOpen ? "none" : "auto",
-          transform: sheetOpen ? "translateY(20px)" : "translateY(0)",
+          opacity: barHidden ? 0 : 1,
+          pointerEvents: barHidden ? "none" : "auto",
+          transform: barHidden ? "translateY(20px)" : "translateY(0)",
           background: dark ? "rgba(255,246,238,.2)" : "rgba(255,246,238,.72)",
           borderColor: dark ? "rgba(255,246,238,.34)" : "rgba(22,19,14,.08)",
           color: dark ? "#FFF6EE" : "#16130E",

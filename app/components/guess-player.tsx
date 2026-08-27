@@ -14,6 +14,7 @@ import {
 } from "@/lib/guess-players";
 import { createNameIndex, MIN_QUERY_LENGTH, normalizeName } from "@/lib/matching";
 import { PLAYER_ALIASES } from "@/lib/players";
+import { useKeyboardOpen } from "./use-keyboard-open";
 import styles from "./guess-player.module.css";
 
 /**
@@ -27,6 +28,9 @@ import styles from "./guess-player.module.css";
 
 const MAX_GUESSES = 6;
 const STORAGE_KEY = "hot-hand.guess";
+
+/** Named once above the board rather than on every cell of every guess. */
+const COLUMNS = ["Year", "Ht", "Pos", "College", "Team", "#"];
 
 let poolRequest: Promise<Player[]> | null = null;
 
@@ -85,6 +89,7 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
   const [dealt, setDealt] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const keyboardOpen = useKeyboardOpen();
 
   useEffect(() => {
     let live = true;
@@ -262,23 +267,29 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
         )}
       </div>
 
-      <div className={styles.board}>
-        {guesses.length === 0 && !over && (
+      <div className={`${styles.board} ${over || keyboardOpen ? styles.boardTight : ""}`}>
+        {guesses.length === 0 && !over ? (
           <p className={styles.empty}>
-            {daily ? "Everyone gets the same player today. " : ""}Every guess comes back scored:
-            taller or shorter, drafted earlier or later, and whether the position, college and draft
-            team match.
+            {daily ? "Everyone gets the same player today. " : ""}Every guess comes back scored.
+            Filled means exact; tinted means close — the right conference, or a position they also
+            play. Arrows point towards the answer.
           </p>
+        ) : (
+          <div className={styles.legend} aria-hidden>
+            {COLUMNS.map((column) => (
+              <span key={column}>{column}</span>
+            ))}
+          </div>
         )}
 
         {guesses.map((guess) => {
           const right = target ? isCorrect(guess, target) : false;
           return (
             <article key={guess.name} className={`${styles.guess} ${right ? styles.guessRight : ""}`}>
-              <header className={styles.guessHead}>
-                <span className={styles.guessName}>{guess.name}</span>
+              <h3 className={styles.guessName}>
+                {guess.name}
                 {right && <span className={styles.guessFlag}>THAT&rsquo;S THE ONE</span>}
-              </header>
+              </h3>
               {target && (
                 <div className={styles.clues}>
                   {compareGuess(guess, target).map((clue) => (
@@ -314,16 +325,24 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
   );
 }
 
+/** Cell-sized wording. The tooltip still carries the full value. */
+function short(clue: Clue) {
+  // "Seattle Supersonics" reads fine as "Supersonics" in a cell this size.
+  if (clue.key === "team") return clue.value.split(" ").pop() ?? clue.value;
+  if (clue.key === "college" && clue.value === "No college") return "None";
+  return clue.value;
+}
+
 function ClueCell({ clue }: { clue: Clue }) {
   const arrow = clue.direction === "higher" ? "↑" : clue.direction === "lower" ? "↓" : "";
+  const value = short(clue);
+  // The full value and the reason a cell is only "close" live in the tooltip,
+  // so the cell itself can stay one line tall.
+  const title = [clue.label, clue.value, clue.note].filter(Boolean).join(" — ");
   return (
-    <div className={`${styles.clue} ${styles[clue.verdict]}`} title={clue.note}>
-      <span className={styles.clueLabel}>{clue.label}</span>
-      <span className={styles.clueValue}>
-        {clue.value}
-        {arrow && <span className={styles.arrow}>{arrow}</span>}
-      </span>
-      {clue.note && <span className={styles.clueNote}>{clue.note}</span>}
+    <div className={`${styles.clue} ${styles[clue.verdict]}`} title={title}>
+      <span className={styles.clueValue}>{value}</span>
+      {arrow && <span className={styles.arrow}>{arrow}</span>}
     </div>
   );
 }
