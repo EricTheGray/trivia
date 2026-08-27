@@ -9,9 +9,12 @@
 }
 
 .header {
+  position: relative;
+  z-index: 2;
   flex: none;
-  padding: calc(62px + env(safe-area-inset-top)) var(--hh-screen-pad) 16px;
-  transition: padding-top 0.2s ease;
+  /* The design's status-bar gap, minus the part a browser already provides.
+     env() still clears a notch where there is one. */
+  padding: calc(16px + env(safe-area-inset-top)) var(--hh-screen-pad) 10px;
   background: rgba(244, 241, 234, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -67,107 +70,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-.pips {
-  display: flex;
-  gap: 6px;
-  padding: 14px 0 16px;
-}
-
-.pip {
-  flex: 1;
-  height: 3px;
-  background: rgba(22, 19, 14, 0.1);
-  transition: background 0.25s ease;
-}
-
-.pipUsed {
-  background: var(--hh-accent);
-}
-
-.typeBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-
-.field {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 54px;
-  padding: 0 7px 0 16px;
-  border: 2px solid var(--hh-ink);
-  border-radius: 999px;
-  background: var(--hh-cream);
-}
-
-.input {
-  flex: 1;
-  min-width: 0;
-  border: none;
-  outline: none;
-  background: transparent;
-  font: inherit;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: var(--hh-ink);
-}
-
-.submit {
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(22, 19, 14, 0.1);
-  color: rgba(22, 19, 14, 0.35);
-  cursor: pointer;
-  transition:
-    background 0.18s ease,
-    color 0.18s ease;
-}
-
-.submitReady {
-  background: var(--hh-accent);
-  color: var(--hh-cream);
-}
-
-.help {
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.35;
-  color: rgba(22, 19, 14, 0.45);
-}
-
-.options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: 2px;
-}
-
-.option {
-  padding: 9px 14px;
-  border: 1px solid rgba(22, 19, 14, 0.12);
-  border-radius: 999px;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: -0.012em;
-  cursor: pointer;
-  transition: background 0.18s ease;
-}
-
-.option:hover {
-  background: rgba(217, 72, 15, 0.06);
-}
+/* Not an input: the keys below write here, so no system keyboard ever opens. */
 
 /* Board — six guesses have to fit without scrolling, so a guess is one line of
    values under its name, and the columns are named once at the top. */
@@ -175,48 +78,25 @@
 .board {
   /* Draft, height, pos, college, team, jersey — the full width for six, so
      nothing has to be abbreviated down to initials. */
-  --hh-clue-columns: 1fr 1fr 0.66fr 1.38fr 1.1fr 0.92fr;
+  --hh-clue-columns: 0.98fr 0.98fr 0.6fr 1.34fr 1.22fr 0.88fr;
   flex: 1;
   min-height: 0;
-  overflow-y: auto;
-  padding: 14px var(--hh-screen-pad) calc(20px + var(--hh-bottom-inset));
+  overflow: hidden;
+  padding: 8px var(--hh-screen-pad) 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  -webkit-overflow-scrolling: touch;
 }
 
-/*
- * The clearance below is for the floating tab bar. Drop it when something else
- * already occupies that space — the keyboard, or the reveal bar — otherwise the
- * board scrolls for padding nobody can see.
- */
-.boardTight {
-  padding-bottom: 16px;
-}
 
-/*
- * With a keyboard up there is barely half a screen left. The status-bar gap and
- * the pips are the first things to go: the counter in the corner and the grid
- * itself already say how many guesses are left.
- */
-.headerWithKeyboard {
-  padding-top: 14px;
-}
-
-.headerWithKeyboard .pips {
-  display: none;
-}
 
 /* Sticky, so the columns stay named even when the board does scroll. */
 .legend {
-  position: sticky;
-  top: -14px;
-  z-index: 1;
+  flex: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 2px 0 6px;
+  gap: 3px;
+  padding: 0 0 4px;
   background: var(--hh-paper);
 }
 
@@ -245,7 +125,7 @@
   gap: 5px;
   margin: 0;
   padding-left: 2px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   color: rgba(22, 19, 14, 0.42);
 }
@@ -267,11 +147,20 @@
   color: rgba(22, 19, 14, 0.55);
 }
 
+/*
+ * Six rows divide the space that is left, however much that is. Wordle can size
+ * its grid exactly because it never opens a software keyboard — it has its own.
+ * A text field has to live with one, so the rows give ground instead.
+ */
 .row {
+  /* The six rows share whatever is between the legend and the pad — filling it
+     when there is room, giving ground when there is not. */
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding-top: 8px;
+  padding-top: 6px;
   border-top: 1px solid rgba(22, 19, 14, 0.11);
 }
 
@@ -316,8 +205,13 @@
 }
 
 .clues {
+  flex: 1;
+  min-height: 24px;
   display: grid;
   grid-template-columns: var(--hh-clue-columns);
+  /* items, not content: align-content sizes the track to what is in it, and an
+     unplayed row has nothing in it — the empty cells collapsed to zero. */
+  align-items: center;
   gap: 4px;
 }
 
@@ -363,13 +257,15 @@
   justify-content: center;
   gap: 3px;
   min-width: 0;
-  height: 36px;
+  height: 100%;
+  max-height: 44px;
+  min-height: 0;
   padding: 0 5px;
   text-align: center;
 }
 
 .clueValue {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.14;
   letter-spacing: -0.01em;
@@ -378,13 +274,17 @@
   text-overflow: ellipsis;
 }
 
-/* Two lines of room, so a college or a team rarely needs an ellipsis. */
+/*
+ * Two lines when there is room for two. Breaks at spaces only — a cell too
+ * short for "Nuggets" should clip it, not split it into "Nugget / s".
+ */
 .wraps {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .arrow {
@@ -613,13 +513,7 @@
 
   .headerTop,
   .pips,
-  .typeBlock {
-    width: 100%;
-    max-width: var(--hh-page-max);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+  
   .board {
     padding: 20px var(--hh-gutter) calc(40px + var(--hh-bottom-inset));
   }

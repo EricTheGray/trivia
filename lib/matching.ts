@@ -64,8 +64,11 @@ type Entry = {
 };
 
 export type NameIndex = {
-  /** Ranked suggestions for a partial query. Empty below MIN_QUERY_LENGTH. */
-  search(query: string, limit?: number): string[];
+  /**
+   * Ranked suggestions for a partial query. Empty until the query reaches
+   * `minLength`, which defaults to MIN_QUERY_LENGTH.
+   */
+  search(query: string, limit?: number, minLength?: number): string[];
   /**
    * The player a typed string means, or null. Callers commit the raw text when
    * this returns null — a wrong guess should be a wrong guess, not a dead end.
@@ -120,9 +123,9 @@ export function createNameIndex(
   };
 
   return {
-    search(query, limit = MAX_SUGGESTIONS) {
+    search(query, limit = MAX_SUGGESTIONS, minLength = MIN_QUERY_LENGTH) {
       const q = normalizeName(query);
-      if (q.length < MIN_QUERY_LENGTH) return [];
+      if (q.length < minLength) return [];
 
       // Nicknames first: typing "sga" should show Shai, not an empty list.
       const viaAlias: string[] = [];
