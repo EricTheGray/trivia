@@ -16,7 +16,7 @@
   left: 0;
   right: 0;
   z-index: 5;
-  padding: calc(62px + env(safe-area-inset-top)) var(--hh-screen-pad) 16px;
+  padding: calc(18px + env(safe-area-inset-top)) var(--hh-screen-pad) 14px;
   background: rgba(244, 241, 234, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -176,7 +176,7 @@
 
 .rows {
   position: absolute;
-  top: calc(210px + env(safe-area-inset-top));
+  top: calc(164px + env(safe-area-inset-top));
   transition: top 0.2s ease;
   bottom: 0;
   left: 0;
@@ -189,7 +189,7 @@
 /* Layout-transparent on a phone: the two halves read as one list. */
 /* The difficulty picker makes the header taller. */
 .rowsWithPicker {
-  top: calc(262px + env(safe-area-inset-top));
+  top: calc(216px + env(safe-area-inset-top));
 }
 
 .rowGroup {
@@ -562,7 +562,7 @@
 
 @media (min-width: 900px) {
   .header {
-    padding: 56px var(--hh-gutter) 20px;
+    padding: 26px var(--hh-gutter) 18px;
   }
 
   .headerTop,
@@ -589,11 +589,11 @@
   }
 
   .rowsWithPicker {
-    top: 268px;
+    top: 238px;
   }
 
   .rows {
-    top: 216px;
+    top: 186px;
     /* No tab bar floats over a round, so the list runs almost to the bottom. */
     bottom: 24px;
     display: flex;

@@ -12,8 +12,9 @@
   position: relative;
   z-index: 2;
   flex: none;
-  padding: calc(62px + env(safe-area-inset-top)) var(--hh-screen-pad) 16px;
-  transition: padding-top 0.2s ease;
+  /* The design's status-bar gap, minus the part a browser already provides.
+     env() still clears a notch where there is one. */
+  padding: calc(16px + env(safe-area-inset-top)) var(--hh-screen-pad) 10px;
   background: rgba(244, 241, 234, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -81,24 +82,21 @@
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  padding: 12px var(--hh-screen-pad) 8px;
+  padding: 8px var(--hh-screen-pad) 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* Trimmed: the keys take the bottom of the screen, so the header gives ground. */
-.header {
-  padding-bottom: 12px;
-}
+
 
 /* Sticky, so the columns stay named even when the board does scroll. */
 .legend {
   flex: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 2px 0 6px;
+  gap: 3px;
+  padding: 0 0 4px;
   background: var(--hh-paper);
 }
 
@@ -127,7 +125,7 @@
   gap: 5px;
   margin: 0;
   padding-left: 2px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   color: rgba(22, 19, 14, 0.42);
 }
@@ -155,8 +153,9 @@
  * A text field has to live with one, so the rows give ground instead.
  */
 .row {
-  /* Natural height when there is room; gives ground when a keyboard takes it. */
-  flex: 0 1 auto;
+  /* The six rows share whatever is between the legend and the pad — filling it
+     when there is room, giving ground when there is not. */
+  flex: 1 1 auto;
   min-height: 0;
   display: flex;
   flex-direction: column;
@@ -206,11 +205,13 @@
 }
 
 .clues {
-  flex: 0 1 auto;
-  height: 36px;
+  flex: 1;
   min-height: 24px;
   display: grid;
   grid-template-columns: var(--hh-clue-columns);
+  /* items, not content: align-content sizes the track to what is in it, and an
+     unplayed row has nothing in it — the empty cells collapsed to zero. */
+  align-items: center;
   gap: 4px;
 }
 
@@ -257,7 +258,7 @@
   gap: 3px;
   min-width: 0;
   height: 100%;
-  max-height: 40px;
+  max-height: 44px;
   min-height: 0;
   padding: 0 5px;
   text-align: center;
