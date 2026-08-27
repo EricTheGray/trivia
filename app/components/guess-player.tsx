@@ -30,7 +30,27 @@ const MAX_GUESSES = 6;
 const STORAGE_KEY = "hot-hand.guess";
 
 /** Named once above the board rather than on every cell of every guess. */
-const COLUMNS = ["Year", "Ht", "Pos", "College", "Team", "#"];
+const COLUMNS = ["Player", "Draft", "Height", "Pos", "College", "Team", "No."];
+
+/** How long the winning row is left to light up before the reveal takes over. */
+const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
+
+/**
+ * College names arrive with a lot of furniture — "University of Central
+ * Arkansas" — and a few players have two schools run together. Strip the
+ * furniture; the tooltip keeps whatever is left over.
+ */
+function shortCollege(value: string) {
+  return (
+    value
+      .replace(/\bUniversity of\b/gi, "")
+      .replace(/\bUniversity\b/gi, "")
+      .replace(/\bCommunity College\b/gi, "CC")
+      .replace(/\bCollege\b/gi, "")
+      .replace(/\s+/g, " ")
+      .trim() || value
+  );
+}
 
 let poolRequest: Promise<Player[]> | null = null;
 
@@ -78,9 +98,11 @@ type GuessPlayerProps = {
   mode: GuessMode;
   active: boolean;
   onBack?: () => void;
+  /** The reveal covers the screen, so it reports itself like a sheet. */
+  onSheetChange?: (open: boolean) => void;
 };
 
-export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
+export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessPlayerProps) {
   const daily = mode.daily;
   const [today] = useState(() => localIsoDate(new Date()));
   const [pool, setPool] = useState<Player[]>([]);
@@ -90,6 +112,9 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const keyboardOpen = useKeyboardOpen();
+  /** The full-screen reveal, held back a beat so a winning row can light up. */
+  const [revealed, setRevealed] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
     let live = true;
@@ -112,6 +137,9 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
   useEffect(() => {
     if (active) inputRef.current?.focus();
   }, [active]);
+
+  useEffect(() => onSheetChange?.(active && revealed), [active, revealed, onSheetChange]);
+  useEffect(() => () => onSheetChange?.(false), [onSheetChange]);
 
   const target = useMemo(() => {
     if (!pool.length) return null;
@@ -139,6 +167,13 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
   const over = solved || guesses.length >= MAX_GUESSES;
   const left = MAX_GUESSES - guesses.length;
 
+  useEffect(() => {
+    if (!over) return;
+    const wait = solved ? REVEAL_DELAY_MS.solved : REVEAL_DELAY_MS.lost;
+    const timer = setTimeout(() => setRevealed(true), wait);
+    return () => clearTimeout(timer);
+  }, [over, solved]);
+
   const submit = (name: string) => {
     if (over || !byName.has(name) || alreadyGuessed.has(name)) return;
     const next = [...names, name];
@@ -151,6 +186,8 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
   const dealAgain = () => {
     setNames([]);
     setQuery("");
+    setRevealed(false);
+    setDismissed(false);
     setDealt(pickRandomPlayer(pool, target?.name).name);
     inputRef.current?.focus();
   };
@@ -275,44 +312,46 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
             play. Arrows point towards the answer.
           </p>
         ) : (
-          <div className={styles.legend} aria-hidden>
-            {COLUMNS.map((column) => (
-              <span key={column}>{column}</span>
-            ))}
+          <div className={styles.legend}>
+            <div className={styles.columns} aria-hidden>
+              {COLUMNS.map((column) => (
+                <span key={column}>{column}</span>
+              ))}
+            </div>
+            <p className={styles.key}>
+              <span className={`${styles.swatch} ${styles.hit}`} aria-hidden />
+              exact
+              <span className={`${styles.swatch} ${styles.close}`} aria-hidden />
+              close
+              <span className={styles.arrowKey} aria-hidden>
+                ↑
+              </span>
+              answer is higher
+            </p>
           </div>
         )}
 
         {guesses.map((guess) => {
           const right = target ? isCorrect(guess, target) : false;
           return (
-            <article key={guess.name} className={`${styles.guess} ${right ? styles.guessRight : ""}`}>
-              <h3 className={styles.guessName}>
+            <div key={guess.name} className={`${styles.row} ${right ? styles.rowRight : ""}`}>
+              <span className={styles.rowName} title={guess.name}>
                 {guess.name}
-                {right && <span className={styles.guessFlag}>THAT&rsquo;S THE ONE</span>}
-              </h3>
-              {target && (
-                <div className={styles.clues}>
-                  {compareGuess(guess, target).map((clue) => (
-                    <ClueCell key={clue.key} clue={clue} />
-                  ))}
-                </div>
-              )}
-            </article>
+              </span>
+              {target &&
+                compareGuess(guess, target).map((clue) => <ClueCell key={clue.key} clue={clue} />)}
+            </div>
           );
         })}
       </div>
 
-      {over && target && (
+      {over && target && dismissed && (
         <div className={styles.summary}>
           <span className={styles.summaryText}>
             <span className={styles.kicker}>
               {solved ? "SOLVED" : daily ? "TODAY’S PLAYER" : "THE ANSWER"}
             </span>
             <span className={styles.summaryName}>{target.name}</span>
-            <span className={styles.summaryLine}>
-              {target.height} · {target.position} · drafted {target.drafted} by {target.team}
-              {target.college ? ` · ${target.college}` : " · no college"}
-            </span>
           </span>
           {!daily && (
             <button type="button" className={styles.again} onClick={dealAgain}>
@@ -321,15 +360,84 @@ export function GuessPlayerRound({ mode, active, onBack }: GuessPlayerProps) {
           )}
         </div>
       )}
+
+      {/* The answer earns the whole screen: the name is the point of the game. */}
+      {revealed && target && (
+        <div className={styles.reveal} role="dialog" aria-modal="true" aria-label="The answer">
+          <button
+            type="button"
+            className={styles.revealClose}
+            onClick={() => {
+              setRevealed(false);
+              setDismissed(true);
+            }}
+            aria-label="Back to the board"
+          >
+            <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden>
+              <path
+                d="M1 1l10 10M11 1L1 11"
+                stroke="rgba(244,241,234,.6)"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+
+          <div className={styles.revealBody}>
+            <span className={styles.revealKicker}>
+              {solved
+                ? `SOLVED IN ${guesses.length}`
+                : daily
+                  ? "TODAY’S PLAYER"
+                  : "THE ANSWER"}
+            </span>
+            {solved && (
+              <span className={styles.revealCongrats}>
+                {guesses.length === 1
+                  ? "First guess. Extraordinary."
+                  : guesses.length <= 3
+                    ? "Nicely done."
+                    : "Got there in the end."}
+              </span>
+            )}
+            <h2 className={styles.revealName}>{target.name}</h2>
+            <span className={styles.revealTraits}>
+              {target.height} · {target.position} · drafted {target.drafted} by {target.team}
+              {target.college ? ` · ${target.college}` : " · no college"}
+            </span>
+          </div>
+
+          <div className={styles.revealActions}>
+            {daily ? (
+              <span className={styles.revealNote}>A new player tomorrow.</span>
+            ) : (
+              <button type="button" className={styles.revealPlay} onClick={dealAgain}>
+                Next player
+              </button>
+            )}
+            <button
+              type="button"
+              className={styles.revealLink}
+              onClick={() => {
+                setRevealed(false);
+                setDismissed(true);
+              }}
+            >
+              See the board
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 /** Cell-sized wording. The tooltip still carries the full value. */
 function short(clue: Clue) {
-  // "Seattle Supersonics" reads fine as "Supersonics" in a cell this size.
-  if (clue.key === "team") return clue.value.split(" ").pop() ?? clue.value;
-  if (clue.key === "college" && clue.value === "No college") return "None";
+  if (clue.short) return clue.short;
+  if (clue.key === "college") {
+    return clue.value === "No college" ? "None" : shortCollege(clue.value);
+  }
   return clue.value;
 }
 

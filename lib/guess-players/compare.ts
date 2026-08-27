@@ -12,8 +12,10 @@ export type ClueKey = "drafted" | "height" | "position" | "college" | "team" | "
 export type Clue = {
   key: ClueKey;
   label: string;
-  /** The guessed player's value, shown on the board. */
+  /** The guessed player's value, in full. */
   value: string;
+  /** A table-sized form of it, when the full value will not fit a column. */
+  short?: string;
   verdict: Verdict;
   /** Which way the target lies, on a miss. */
   direction?: "higher" | "lower";
@@ -73,19 +75,21 @@ function collegeClue(guess: GuessPlayer, target: GuessPlayer): Clue {
 /** The drafting team, with right-conference-wrong-team in between. */
 function teamClue(guess: GuessPlayer, target: GuessPlayer): Clue {
   const value = guess.team;
+  const short = guess.teamCode;
   if (guess.team === target.team) {
-    return { key: "team", label: "Drafted by", value, verdict: "hit" };
+    return { key: "team", label: "Drafted by", value, short, verdict: "hit" };
   }
   if (guess.conference && guess.conference === target.conference) {
     return {
       key: "team",
       label: "Drafted by",
       value,
+      short,
       verdict: "close",
       note: `${guess.conference} — same conference`,
     };
   }
-  return { key: "team", label: "Drafted by", value, verdict: "miss" };
+  return { key: "team", label: "Drafted by", value, short, verdict: "miss" };
 }
 
 export function compareGuess(guess: GuessPlayer, target: GuessPlayer): Clue[] {

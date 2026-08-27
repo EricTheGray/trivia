@@ -10,6 +10,7 @@
    "position": "F",
    "college": "Arizona",
    "team": "Orlando Magic",
+   "teamCode": "ORL",
    "conference": "East",
    "jersey": 0
   },
@@ -21,6 +22,7 @@
    "position": "C-F",
    "college": "Florida",
    "team": "Atlanta Hawks",
+   "teamCode": "ATL",
    "conference": "East",
    "jersey": 15
   },
@@ -32,6 +34,7 @@
    "position": "F",
    "college": "South Carolina",
    "team": "Milwaukee Bucks",
+   "teamCode": "MIL",
    "conference": "East",
    "jersey": 2
   },
@@ -43,6 +46,7 @@
    "position": "G",
    "college": "Georgetown",
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 3
   },
@@ -54,6 +58,7 @@
    "position": "C-F",
    "college": "Georgetown",
    "team": "Charlotte Hornets",
+   "teamCode": "CHH",
    "conference": "East",
    "jersey": 33
   },
@@ -65,6 +70,7 @@
    "position": "F-C",
    "college": null,
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 1
   },
@@ -76,6 +82,7 @@
    "position": "C",
    "college": "UConn",
    "team": "Detroit Pistons",
+   "teamCode": "DET",
    "conference": "East",
    "jersey": 0
   },
@@ -87,6 +94,7 @@
    "position": "F-G",
    "college": "Arizona",
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 9
   },
@@ -98,6 +106,7 @@
    "position": "F",
    "college": null,
    "team": "Utah Jazz",
+   "teamCode": "UTA",
    "conference": "West",
    "jersey": 47
   },
@@ -109,6 +118,7 @@
    "position": "C",
    "college": "Utah",
    "team": "Milwaukee Bucks",
+   "teamCode": "MIL",
    "conference": "East",
    "jersey": 6
   },
@@ -120,6 +130,7 @@
    "position": "C",
    "college": null,
    "team": "Los Angeles Lakers",
+   "teamCode": "LAL",
    "conference": "West",
    "jersey": 17
   },
@@ -131,6 +142,7 @@
    "position": "F-G",
    "college": "Kansas",
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 22
   },
@@ -142,6 +154,7 @@
    "position": "F",
    "college": "UNC",
    "team": "Toronto Raptors",
+   "teamCode": "TOR",
    "conference": "East",
    "jersey": 4
   },
@@ -153,6 +166,7 @@
    "position": "F-C",
    "college": "Kentucky",
    "team": "New Orleans Hornets",
+   "teamCode": "NOH",
    "conference": "West",
    "jersey": 3
   },
@@ -164,6 +178,7 @@
    "position": "G-F",
    "college": "Georgia",
    "team": "Minnesota Timberwolves",
+   "teamCode": "MIN",
    "conference": "West",
    "jersey": 1
   },
@@ -175,6 +190,7 @@
    "position": "F",
    "college": "Kentucky",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 8
   },
@@ -186,6 +202,7 @@
    "position": "G",
    "college": "Cameron University Southern University and A&M College",
    "team": "Undrafted",
+   "teamCode": "UDFA",
    "conference": null,
    "jersey": 6
   },
@@ -197,6 +214,7 @@
    "position": "G",
    "college": "Iowa",
    "team": "Chicago Bulls",
+   "teamCode": "CHI",
    "conference": "East",
    "jersey": 10
   },
@@ -208,6 +226,7 @@
    "position": "C-F",
    "college": "Kentucky",
    "team": "Miami Heat",
+   "teamCode": "MIA",
    "conference": "East",
    "jersey": 13
   },
@@ -219,6 +238,7 @@
    "position": "G",
    "college": "UCLA",
    "team": "Charlotte Hornets",
+   "teamCode": "CHH",
    "conference": "East",
    "jersey": 1
   },
@@ -230,6 +250,7 @@
    "position": "F-C",
    "college": "Cuyahoga Community College Virginia Union University",
    "team": "Undrafted",
+   "teamCode": "UDFA",
    "conference": null,
    "jersey": 3
   },
@@ -241,6 +262,7 @@
    "position": "F",
    "college": "Tennessee",
    "team": "New York Nets",
+   "teamCode": "NYN",
    "conference": "East",
    "jersey": 30
   },
@@ -252,6 +274,7 @@
    "position": "C",
    "college": "San Francisco",
    "team": "New York Knicks",
+   "teamCode": "NYK",
    "conference": "East",
    "jersey": 25
   },
@@ -263,6 +286,7 @@
    "position": "C",
    "college": "Notre Dame",
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 40
   },
@@ -274,6 +298,7 @@
    "position": "C",
    "college": "San Francisco",
    "team": "St. Louis Hawks",
+   "teamCode": "STL",
    "conference": "East",
    "jersey": 6
   },
@@ -285,6 +310,7 @@
    "position": "C-F",
    "college": "UCLA",
    "team": "Portland Trail Blazers",
+   "teamCode": "POR",
    "conference": "West",
    "jersey": 32
   },
@@ -296,6 +322,7 @@
    "position": "G",
    "college": "Holy Cross",
    "team": "Tri-City Blackhawks",
+   "teamCode": "TRI",
    "conference": "East",
    "jersey": 14
   },
@@ -307,6 +334,7 @@
    "position": "G-F",
    "college": null,
    "team": "Undrafted",
+   "teamCode": "UDFA",
    "conference": null,
    "jersey": 3
   },
@@ -318,6 +346,7 @@
    "position": "C-F",
    "college": "Vincennes University UNC",
    "team": "Buffalo Braves",
+   "teamCode": "BUF",
    "conference": "West",
    "jersey": 11
   },
@@ -329,6 +358,7 @@
    "position": "F-C",
    "college": "LSU",
    "team": "Milwaukee Hawks",
+   "teamCode": "MLH",
    "conference": "East",
    "jersey": 9
   },
@@ -340,6 +370,7 @@
    "position": "F",
    "college": "UNC",
    "team": "Houston Rockets",
+   "teamCode": "HOU",
    "conference": "West",
    "jersey": 11
   },
@@ -351,6 +382,7 @@
    "position": "F-C",
    "college": null,
    "team": "Atlanta Hawks",
+   "teamCode": "ATL",
    "conference": "East",
    "jersey": 33
   },
@@ -362,6 +394,7 @@
    "position": "G",
    "college": "Florida",
    "team": "Washington Wizards",
+   "teamCode": "WAS",
    "conference": "East",
    "jersey": 3
   },
@@ -373,6 +406,7 @@
    "position": "F",
    "college": "Duke",
    "team": "Los Angeles Lakers",
+   "teamCode": "LAL",
    "conference": "West",
    "jersey": 14
   },
@@ -384,6 +418,7 @@
    "position": "F",
    "college": "USC",
    "team": "New Jersey Nets",
+   "teamCode": "NJN",
    "conference": "East",
    "jersey": 44
   },
@@ -395,6 +430,7 @@
    "position": "C",
    "college": "Stanford",
    "team": "New Jersey Nets",
+   "teamCode": "NJN",
    "conference": "East",
    "jersey": 11
   },
@@ -406,6 +442,7 @@
    "position": "F",
    "college": "Cal State Fullerton",
    "team": "Undrafted",
+   "teamCode": "UDFA",
    "conference": null,
    "jersey": 12
   },
@@ -417,6 +454,7 @@
    "position": "G-F",
    "college": "Oklahoma",
    "team": "New Orleans Pelicans",
+   "teamCode": "NOP",
    "conference": "West",
    "jersey": 24
   },
@@ -428,6 +466,7 @@
    "position": "G",
    "college": "Arizona State",
    "team": "San Diego Clippers",
+   "teamCode": "SDC",
    "conference": "West",
    "jersey": 4
   },
@@ -439,6 +478,7 @@
    "position": "G",
    "college": "Lehigh",
    "team": "Portland Trail Blazers",
+   "teamCode": "POR",
    "conference": "West",
    "jersey": 3
   },
@@ -450,6 +490,7 @@
    "position": "F-C",
    "college": "Duke",
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 5
   },
@@ -461,6 +502,7 @@
    "position": "F",
    "college": "Syracuse",
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 7
   },
@@ -472,6 +514,7 @@
    "position": "F",
    "college": "UConn",
    "team": "Miami Heat",
+   "teamCode": "MIA",
    "conference": "East",
    "jersey": 3
   },
@@ -483,6 +526,7 @@
    "position": "F",
    "college": "Auburn",
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 34
   },
@@ -494,6 +538,7 @@
    "position": "F-C",
    "college": "Virginia Union University",
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 34
   },
@@ -505,6 +550,7 @@
    "position": "G",
    "college": "Colorado",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 1
   },
@@ -516,6 +562,7 @@
    "position": "F-C",
    "college": "Gonzaga",
    "team": "OKC Thunder",
+   "teamCode": "OKC",
    "conference": "West",
    "jersey": 7
   },
@@ -527,6 +574,7 @@
    "position": "C-F",
    "college": "Blinn College",
    "team": "Undrafted",
+   "teamCode": "UDFA",
    "conference": null,
    "jersey": 11
   },
@@ -538,6 +586,7 @@
    "position": "F-C",
    "college": "Georgia Tech",
    "team": "Toronto Raptors",
+   "teamCode": "TOR",
    "conference": "East",
    "jersey": 4
   },
@@ -549,6 +598,7 @@
    "position": "F-G",
    "college": "St. John's",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 17
   },
@@ -560,6 +610,7 @@
    "position": "G",
    "college": "Wake Forest",
    "team": "New Orleans Hornets",
+   "teamCode": "NOH",
    "conference": "West",
    "jersey": 3
   },
@@ -571,6 +622,7 @@
    "position": "F-C",
    "college": "Michigan",
    "team": "Orlando Magic",
+   "teamCode": "ORL",
    "conference": "East",
    "jersey": 4
   },
@@ -582,6 +634,7 @@
    "position": "F-C",
    "college": "Duke",
    "team": "Minnesota Timberwolves",
+   "teamCode": "MIN",
    "conference": "West",
    "jersey": 32
   },
@@ -593,6 +646,7 @@
    "position": "G",
    "college": "Houston",
    "team": "Portland Trail Blazers",
+   "teamCode": "POR",
    "conference": "West",
    "jersey": 22
   },
@@ -604,6 +658,7 @@
    "position": "G",
    "college": "Weber State",
    "team": "Portland Trail Blazers",
+   "teamCode": "POR",
    "conference": "West",
    "jersey": 0
   },
@@ -615,6 +670,7 @@
    "position": "G-F",
    "college": "Central Michigan University",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 9
   },
@@ -626,6 +682,7 @@
    "position": "G",
    "college": "BYU",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 44
   },
@@ -637,6 +694,7 @@
    "position": "G-F",
    "college": "UNC",
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 14
   },
@@ -648,6 +706,7 @@
    "position": "C",
    "college": null,
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 53
   },
@@ -659,6 +718,7 @@
    "position": "C-F",
    "college": "Florida State",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 18
   },
@@ -670,6 +730,7 @@
    "position": "C",
    "college": "United States Naval Academy",
    "team": "San Antonio Spurs",
+   "teamCode": "SAS",
    "conference": "West",
    "jersey": 50
   },
@@ -681,6 +742,7 @@
    "position": "G-F",
    "college": "NC State",
    "team": "Atlanta Hawks",
+   "teamCode": "ATL",
    "conference": "East",
    "jersey": 33
   },
@@ -692,6 +754,7 @@
    "position": "G",
    "college": "Kentucky",
    "team": "Sacramento Kings",
+   "teamCode": "SAC",
    "conference": "West",
    "jersey": 5
   },
@@ -703,6 +766,7 @@
    "position": "C-F",
    "college": "Kentucky",
    "team": "Sacramento Kings",
+   "teamCode": "SAC",
    "conference": "West",
    "jersey": 15
   },
@@ -714,6 +778,7 @@
    "position": "C",
    "college": "Arizona",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 22
   },
@@ -725,6 +790,7 @@
    "position": "G",
    "college": "Harbor College Pepperdine",
    "team": "Seattle Supersonics",
+   "teamCode": "SEA",
    "conference": "West",
    "jersey": 3
   },
@@ -736,6 +802,7 @@
    "position": "F",
    "college": "North Central Texas College Southeastern Oklahoma State University",
    "team": "Detroit Pistons",
+   "teamCode": "DET",
    "conference": "East",
    "jersey": 10
   },
@@ -747,6 +814,7 @@
    "position": "G",
    "college": "Little Rock",
    "team": "Los Angeles Lakers",
+   "teamCode": "LAL",
    "conference": "West",
    "jersey": 2
   },
@@ -758,6 +826,7 @@
    "position": "G",
    "college": "Illinois",
    "team": "Utah Jazz",
+   "teamCode": "UTA",
    "conference": "West",
    "jersey": 8
   },
@@ -769,6 +838,7 @@
    "position": "G",
    "college": "Memphis",
    "team": "Chicago Bulls",
+   "teamCode": "CHI",
    "conference": "East",
    "jersey": 1
   },
@@ -780,6 +850,7 @@
    "position": "G",
    "college": "Colorado-Colorado Springs Colorado",
    "team": "San Antonio Spurs",
+   "teamCode": "SAS",
    "conference": "West",
    "jersey": 4
   },
@@ -791,6 +862,7 @@
    "position": "G",
    "college": "Kentucky",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 1
   },
@@ -802,6 +874,7 @@
    "position": "C",
    "college": "Georgetown",
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 55
   },
@@ -813,6 +886,7 @@
    "position": "F-C",
    "college": null,
    "team": "Milwaukee Bucks",
+   "teamCode": "MIL",
    "conference": "East",
    "jersey": 41
   },
@@ -824,6 +898,7 @@
    "position": "G",
    "college": "Marquette",
    "team": "Atlanta Hawks",
+   "teamCode": "ATL",
    "conference": "East",
    "jersey": 25
   },
@@ -835,6 +910,7 @@
    "position": "F-G",
    "college": "Georgia",
    "team": "Utah Jazz",
+   "teamCode": "UTA",
    "conference": "West",
    "jersey": 21
   },
@@ -846,6 +922,7 @@
    "position": "F",
    "college": "Iowa",
    "team": "Chicago Zephyrs",
+   "teamCode": "CHZ",
    "conference": "East",
    "jersey": 19
   },
@@ -857,6 +934,7 @@
    "position": "G",
    "college": "Louisville",
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 45
   },
@@ -868,6 +946,7 @@
    "position": "G",
    "college": "Villanova",
    "team": "Milwaukee Bucks",
+   "teamCode": "MIL",
    "conference": "East",
    "jersey": 0
   },
@@ -879,6 +958,7 @@
    "position": "F",
    "college": "Michigan State",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 23
   },
@@ -890,6 +970,7 @@
    "position": "C",
    "college": null,
    "team": "Orlando Magic",
+   "teamCode": "ORL",
    "conference": "East",
    "jersey": 12
   },
@@ -901,6 +982,7 @@
    "position": "G",
    "college": "Marquette",
    "team": "Miami Heat",
+   "teamCode": "MIA",
    "conference": "East",
    "jersey": 3
   },
@@ -912,6 +994,7 @@
    "position": "F",
    "college": "College of Idaho Seattle University",
    "team": "Minneapolis Lakers",
+   "teamCode": "MNL",
    "conference": "West",
    "jersey": 22
   },
@@ -923,6 +1006,7 @@
    "position": "F-C",
    "college": "Duke",
    "team": "Chicago Bulls",
+   "teamCode": "CHI",
    "conference": "East",
    "jersey": 42
   },
@@ -934,6 +1018,7 @@
    "position": "F-C",
    "college": "Houston",
    "team": "San Diego Rockets",
+   "teamCode": "SDR",
    "conference": "West",
    "jersey": 11
   },
@@ -945,6 +1030,7 @@
    "position": "G",
    "college": "Wichita State",
    "team": "Undrafted",
+   "teamCode": "UDFA",
    "conference": null,
    "jersey": 23
   },
@@ -956,6 +1042,7 @@
    "position": "G",
    "college": "Oregon State",
    "team": "Seattle Supersonics",
+   "teamCode": "SEA",
    "conference": "West",
    "jersey": 20
   },
@@ -967,6 +1054,7 @@
    "position": "G-F",
    "college": "Eastern Michigan",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 44
   },
@@ -978,6 +1066,7 @@
    "position": "G",
    "college": "UNC",
    "team": "New York Knicks",
+   "teamCode": "NYK",
    "conference": "East",
    "jersey": 22
   },
@@ -989,6 +1078,7 @@
    "position": "C",
    "college": "DePaul",
    "team": "Undrafted",
+   "teamCode": "UDFA",
    "conference": null,
    "jersey": 99
   },
@@ -1000,6 +1090,7 @@
    "position": "G",
    "college": "VCU",
    "team": "Charlotte Bobcats",
+   "teamCode": "CHA",
    "conference": "East",
    "jersey": 12
   },
@@ -1011,6 +1102,7 @@
    "position": "F-G",
    "college": null,
    "team": "Milwaukee Bucks",
+   "teamCode": "MIL",
    "conference": "East",
    "jersey": 34
   },
@@ -1022,6 +1114,7 @@
    "position": "G",
    "college": "Arizona",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 0
   },
@@ -1033,6 +1126,7 @@
    "position": "F-C",
    "college": "LSU",
    "team": "Seattle Supersonics",
+   "teamCode": "SEA",
    "conference": "West",
    "jersey": 11
   },
@@ -1044,6 +1138,7 @@
    "position": "F-G",
    "college": "Duke",
    "team": "Detroit Pistons",
+   "teamCode": "DET",
    "conference": "East",
    "jersey": 33
   },
@@ -1055,6 +1150,7 @@
    "position": "C",
    "college": "Ohio State",
    "team": "Portland Trail Blazers",
+   "teamCode": "POR",
    "conference": "West",
    "jersey": 52
   },
@@ -1066,6 +1162,7 @@
    "position": "C",
    "college": "Houston",
    "team": "Houston Rockets",
+   "teamCode": "HOU",
    "conference": "West",
    "jersey": 34
   },
@@ -1077,6 +1174,7 @@
    "position": "G-F",
    "college": "Marshall",
    "team": "Syracuse Nationals",
+   "teamCode": "SYR",
    "conference": "East",
    "jersey": 15
   },
@@ -1088,6 +1186,7 @@
    "position": "F",
    "college": "UNC",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 40
   },
@@ -1099,6 +1198,7 @@
    "position": "C",
    "college": "Marshall",
    "team": "Sacramento Kings",
+   "teamCode": "SAC",
    "conference": "West",
    "jersey": 21
   },
@@ -1110,6 +1210,7 @@
    "position": "F-C",
    "college": "Clemson",
    "team": "Chicago Bulls",
+   "teamCode": "CHI",
    "conference": "East",
    "jersey": 54
   },
@@ -1121,6 +1222,7 @@
    "position": "G",
    "college": "Indiana",
    "team": "Detroit Pistons",
+   "teamCode": "DET",
    "conference": "East",
    "jersey": 11
   },
@@ -1132,6 +1234,7 @@
    "position": "G-F",
    "college": "North Carolina A&T",
    "team": "New Orleans Hornets",
+   "teamCode": "NOH",
    "conference": "West",
    "jersey": 5
   },
@@ -1143,6 +1246,7 @@
    "position": "C",
    "college": "Nevada",
    "team": "Washington Wizards",
+   "teamCode": "WAS",
    "conference": "East",
    "jersey": 34
   },
@@ -1154,6 +1258,7 @@
    "position": "G",
    "college": "Villanova",
    "team": "Dallas Mavericks",
+   "teamCode": "DAL",
    "conference": "West",
    "jersey": 11
   },
@@ -1165,6 +1270,7 @@
    "position": "G",
    "college": "Gonzaga",
    "team": "Orlando Magic",
+   "teamCode": "ORL",
    "conference": "East",
    "jersey": 4
   },
@@ -1176,6 +1282,7 @@
    "position": "G",
    "college": "Santa Clara",
    "team": "OKC Thunder",
+   "teamCode": "OKC",
    "conference": "West",
    "jersey": 8
   },
@@ -1187,6 +1294,7 @@
    "position": "F-G",
    "college": "UCLA",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 52
   },
@@ -1198,6 +1306,7 @@
    "position": "G",
    "college": "Kentucky",
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 27
   },
@@ -1209,6 +1318,7 @@
    "position": "G",
    "college": "Arizona State",
    "team": "OKC Thunder",
+   "teamCode": "OKC",
    "conference": "West",
    "jersey": 13
   },
@@ -1220,6 +1330,7 @@
    "position": "F",
    "college": "UNC",
    "team": "Los Angeles Lakers",
+   "teamCode": "LAL",
    "conference": "West",
    "jersey": 42
   },
@@ -1231,6 +1342,7 @@
    "position": "F",
    "college": "Michigan State",
    "team": "Memphis Grizzlies",
+   "teamCode": "MEM",
    "conference": "West",
    "jersey": 13
   },
@@ -1242,6 +1354,7 @@
    "position": "G",
    "college": "California",
    "team": "Dallas Mavericks",
+   "teamCode": "DAL",
    "conference": "West",
    "jersey": 5
   },
@@ -1253,6 +1366,7 @@
    "position": "G",
    "college": "Marshall Florida",
    "team": "Sacramento Kings",
+   "teamCode": "SAC",
    "conference": "West",
    "jersey": 55
   },
@@ -1264,6 +1378,7 @@
    "position": "F-G",
    "college": "California",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 7
   },
@@ -1275,6 +1390,7 @@
    "position": "F",
    "college": "Duke",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 0
   },
@@ -1286,6 +1402,7 @@
    "position": "G-F",
    "college": "UNC",
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 42
   },
@@ -1297,6 +1414,7 @@
    "position": "G",
    "college": "West Virginia",
    "team": "Minneapolis Lakers",
+   "teamCode": "MNL",
    "conference": "West",
    "jersey": 44
   },
@@ -1308,6 +1426,7 @@
    "position": "G",
    "college": "Kansas",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 10
   },
@@ -1319,6 +1438,7 @@
    "position": "F-C",
    "college": "La Salle",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 23
   },
@@ -1330,6 +1450,7 @@
    "position": "G",
    "college": "McNeese State University",
    "team": "Detroit Pistons",
+   "teamCode": "DET",
    "conference": "East",
    "jersey": 4
   },
@@ -1341,6 +1462,7 @@
    "position": "C",
    "college": "Kansas",
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 21
   },
@@ -1352,6 +1474,7 @@
    "position": "F-G",
    "college": "Ohio State",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 17
   },
@@ -1363,6 +1486,7 @@
    "position": "G",
    "college": "Notre Dame",
    "team": "San Antonio Spurs",
+   "teamCode": "SAS",
    "conference": "West",
    "jersey": 5
   },
@@ -1374,6 +1498,7 @@
    "position": "G",
    "college": "Gonzaga",
    "team": "Utah Jazz",
+   "teamCode": "UTA",
    "conference": "West",
    "jersey": 12
   },
@@ -1385,6 +1510,7 @@
    "position": "G",
    "college": "Kentucky",
    "team": "Washington Wizards",
+   "teamCode": "WAS",
    "conference": "East",
    "jersey": 2
   },
@@ -1396,6 +1522,7 @@
    "position": "F-G",
    "college": "Villanova",
    "team": "Utah Jazz",
+   "teamCode": "UTA",
    "conference": "West",
    "jersey": 3
   },
@@ -1407,6 +1534,7 @@
    "position": "G",
    "college": "UCLA",
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 11
   },
@@ -1418,6 +1546,7 @@
    "position": "F-G",
    "college": "UMass",
    "team": "Milwaukee Bucks",
+   "teamCode": "MIL",
    "conference": "East",
    "jersey": 6
   },
@@ -1429,6 +1558,7 @@
    "position": "F-C",
    "college": "Kentucky",
    "team": "Los Angeles Lakers",
+   "teamCode": "LAL",
    "conference": "West",
    "jersey": 30
   },
@@ -1440,6 +1570,7 @@
    "position": "C",
    "college": null,
    "team": "Chicago Bulls",
+   "teamCode": "CHI",
    "conference": "East",
    "jersey": 23
   },
@@ -1451,6 +1582,7 @@
    "position": "G",
    "college": "San Francisco",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 25
   },
@@ -1462,6 +1594,7 @@
    "position": "C",
    "college": "UCLA",
    "team": "Milwaukee Bucks",
+   "teamCode": "MIL",
    "conference": "East",
    "jersey": 33
   },
@@ -1473,6 +1606,7 @@
    "position": "F",
    "college": "Louisiana Tech",
    "team": "Utah Jazz",
+   "teamCode": "UTA",
    "conference": "West",
    "jersey": 32
   },
@@ -1484,6 +1618,7 @@
    "position": "C-F",
    "college": "Kentucky",
    "team": "Minnesota Timberwolves",
+   "teamCode": "MIN",
    "conference": "West",
    "jersey": 32
   },
@@ -1495,6 +1630,7 @@
    "position": "F",
    "college": "San Diego State",
    "team": "Indiana Pacers",
+   "teamCode": "IND",
    "conference": "East",
    "jersey": 2
   },
@@ -1506,6 +1642,7 @@
    "position": "G",
    "college": "UConn",
    "team": "Charlotte Bobcats",
+   "teamCode": "CHA",
    "conference": "East",
    "jersey": 15
   },
@@ -1517,6 +1654,7 @@
    "position": "C",
    "college": null,
    "team": "Memphis Grizzlies",
+   "teamCode": "MEM",
    "conference": "West",
    "jersey": 43
   },
@@ -1528,6 +1666,7 @@
    "position": "F-C",
    "college": "Morehead State University",
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 35
   },
@@ -1539,6 +1678,7 @@
    "position": "G",
    "college": "UNC",
    "team": "Sacramento Kings",
+   "teamCode": "SAC",
    "conference": "West",
    "jersey": 30
   },
@@ -1550,6 +1690,7 @@
    "position": "G",
    "college": "Georgia",
    "team": "Detroit Pistons",
+   "teamCode": "DET",
    "conference": "East",
    "jersey": 5
   },
@@ -1561,6 +1702,7 @@
    "position": "F-G",
    "college": "Texas",
    "team": "Seattle Supersonics",
+   "teamCode": "SEA",
    "conference": "West",
    "jersey": 35
   },
@@ -1572,6 +1714,7 @@
    "position": "F-C",
    "college": null,
    "team": "Minnesota Timberwolves",
+   "teamCode": "MIN",
    "conference": "West",
    "jersey": 21
   },
@@ -1583,6 +1726,7 @@
    "position": "G",
    "college": "California",
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 7
   },
@@ -1594,6 +1738,7 @@
    "position": "F-C",
    "college": "UCLA",
    "team": "Memphis Grizzlies",
+   "teamCode": "MEM",
    "conference": "West",
    "jersey": 42
   },
@@ -1605,6 +1750,7 @@
    "position": "F-C",
    "college": "Minnesota",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 32
   },
@@ -1616,6 +1762,7 @@
    "position": "F-C",
    "college": "UCLA",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 5
   },
@@ -1627,6 +1774,7 @@
    "position": "F-G",
    "college": "Texas A&M",
    "team": "Detroit Pistons",
+   "teamCode": "DET",
    "conference": "East",
    "jersey": 22
   },
@@ -1638,6 +1786,7 @@
    "position": "G-F",
    "college": "Washington State",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 11
   },
@@ -1649,6 +1798,7 @@
    "position": "G-F",
    "college": null,
    "team": "Charlotte Hornets",
+   "teamCode": "CHH",
    "conference": "East",
    "jersey": 8
   },
@@ -1660,6 +1810,7 @@
    "position": "C-F",
    "college": null,
    "team": "New York Knicks",
+   "teamCode": "NYK",
    "conference": "East",
    "jersey": 6
   },
@@ -1671,6 +1822,7 @@
    "position": "F",
    "college": "Santa Clara",
    "team": "New York Knicks",
+   "teamCode": "NYK",
    "conference": "East",
    "jersey": 31
   },
@@ -1682,6 +1834,7 @@
    "position": "G",
    "college": "Villanova",
    "team": "Memphis Grizzlies",
+   "teamCode": "MEM",
    "conference": "West",
    "jersey": 7
   },
@@ -1693,6 +1846,7 @@
    "position": "G",
    "college": "Duke",
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 11
   },
@@ -1704,6 +1858,7 @@
    "position": "F",
    "college": "Indiana State University",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 33
   },
@@ -1715,6 +1870,7 @@
    "position": "F-C",
    "college": "Clemson",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 22
   },
@@ -1726,6 +1882,7 @@
    "position": "F-C",
    "college": "Arizona",
    "team": "Minnesota Timberwolves",
+   "teamCode": "MIN",
    "conference": "West",
    "jersey": 24
   },
@@ -1737,6 +1894,7 @@
    "position": "F-G",
    "college": null,
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 23
   },
@@ -1748,6 +1906,7 @@
    "position": "G",
    "college": "Providence",
    "team": "St. Louis Hawks",
+   "teamCode": "STL",
    "conference": "East",
    "jersey": 19
   },
@@ -1759,6 +1918,7 @@
    "position": "C",
    "college": "New Mexico",
    "team": "Minnesota Timberwolves",
+   "teamCode": "MIN",
    "conference": "West",
    "jersey": 13
   },
@@ -1770,6 +1930,7 @@
    "position": "G",
    "college": "Arizona State",
    "team": "Undrafted",
+   "teamCode": "UDFA",
    "conference": null,
    "jersey": 5
   },
@@ -1781,6 +1942,7 @@
    "position": "G-F",
    "college": null,
    "team": "Atlanta Hawks",
+   "teamCode": "ATL",
    "conference": "East",
    "jersey": 77
   },
@@ -1792,6 +1954,7 @@
    "position": "F",
    "college": "Duke",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 9
   },
@@ -1803,6 +1966,7 @@
    "position": "G-F",
    "college": "Michigan State",
    "team": "Los Angeles Lakers",
+   "teamCode": "LAL",
    "conference": "West",
    "jersey": 32
   },
@@ -1814,6 +1978,7 @@
    "position": "G",
    "college": "Florida State",
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 5
   },
@@ -1825,6 +1990,7 @@
    "position": "G",
    "college": null,
    "team": "San Antonio Spurs",
+   "teamCode": "SAS",
    "conference": "West",
    "jersey": 20
   },
@@ -1836,6 +2002,7 @@
    "position": "C",
    "college": "University of Bridgeport",
    "team": "Washington Bullets",
+   "teamCode": "WSB",
    "conference": "East",
    "jersey": 10
   },
@@ -1847,6 +2014,7 @@
    "position": "C",
    "college": null,
    "team": "Los Angeles Lakers",
+   "teamCode": "LAL",
    "conference": "West",
    "jersey": 33
   },
@@ -1858,6 +2026,7 @@
    "position": "C-F",
    "college": null,
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 13
   },
@@ -1869,6 +2038,7 @@
    "position": "G",
    "college": "Oklahoma State",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 36
   },
@@ -1880,6 +2050,7 @@
    "position": "G",
    "college": "Kansas",
    "team": "Minnesota Timberwolves",
+   "teamCode": "MIN",
    "conference": "West",
    "jersey": 15
   },
@@ -1891,6 +2062,7 @@
    "position": "F-G",
    "college": "DePaul",
    "team": "Dallas Mavericks",
+   "teamCode": "DAL",
    "conference": "West",
    "jersey": 24
   },
@@ -1902,6 +2074,7 @@
    "position": "G",
    "college": "West Texas A&M University",
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 10
   },
@@ -1913,6 +2086,7 @@
    "position": "F",
    "college": "St. John's",
    "team": "Chicago Bulls",
+   "teamCode": "CHI",
    "conference": "East",
    "jersey": 15
   },
@@ -1924,6 +2098,7 @@
    "position": "G-F",
    "college": "Wisconsin",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 4
   },
@@ -1935,6 +2110,7 @@
    "position": "G-F",
    "college": "UNC",
    "team": "Chicago Bulls",
+   "teamCode": "CHI",
    "conference": "East",
    "jersey": 23
   },
@@ -1946,6 +2122,7 @@
    "position": "F",
    "college": "Missouri",
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 1
   },
@@ -1957,6 +2134,7 @@
    "position": "F-G",
    "college": "Villanova",
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 25
   },
@@ -1968,6 +2146,7 @@
    "position": "G",
    "college": "Marshall",
    "team": "Kansas City-Omaha Kings",
+   "teamCode": "KCO",
    "conference": "West",
    "jersey": 10
   },
@@ -1979,6 +2158,7 @@
    "position": "C-F",
    "college": null,
    "team": "Utah Stars",
+   "teamCode": "UTS",
    "conference": null,
    "jersey": 2
   },
@@ -1990,6 +2170,7 @@
    "position": "C-F",
    "college": "Bowling Green",
    "team": "San Francisco Warriors",
+   "teamCode": "SFW",
    "conference": "West",
    "jersey": 42
   },
@@ -2001,6 +2182,7 @@
    "position": "C",
    "college": "Kentucky",
    "team": "Utah Jazz",
+   "teamCode": "UTA",
    "conference": "West",
    "jersey": 13
   },
@@ -2012,6 +2194,7 @@
    "position": "C-F",
    "college": null,
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 15
   },
@@ -2023,6 +2206,7 @@
    "position": "F",
    "college": "Indiana",
    "team": "Toronto Raptors",
+   "teamCode": "TOR",
    "conference": "East",
    "jersey": 3
   },
@@ -2034,6 +2218,7 @@
    "position": "G-F",
    "college": "Cincinnati",
    "team": "Cincinnati Kings",
+   "teamCode": "CIN",
    "conference": "West",
    "jersey": 14
   },
@@ -2045,6 +2230,7 @@
    "position": "F",
    "college": "Texas",
    "team": "Toronto Raptors",
+   "teamCode": "TOR",
    "conference": "East",
    "jersey": 17
   },
@@ -2056,6 +2242,7 @@
    "position": "F",
    "college": "Duke",
    "team": "Orlando Magic",
+   "teamCode": "ORL",
    "conference": "East",
    "jersey": 5
   },
@@ -2067,6 +2254,7 @@
    "position": "F-C",
    "college": "New Mexico State",
    "team": "Toronto Raptors",
+   "teamCode": "TOR",
    "conference": "East",
    "jersey": 43
   },
@@ -2078,6 +2266,7 @@
    "position": "G-F",
    "college": "Kentucky",
    "team": "San Diego Rockets",
+   "teamCode": "SDR",
    "conference": "West",
    "jersey": 12
   },
@@ -2089,6 +2278,7 @@
    "position": "C-F",
    "college": "Georgetown",
    "team": "New York Knicks",
+   "teamCode": "NYK",
    "conference": "East",
    "jersey": 33
   },
@@ -2100,6 +2290,7 @@
    "position": "C-F",
    "college": null,
    "team": "Atlanta Hawks",
+   "teamCode": "ATL",
    "conference": "East",
    "jersey": 16
   },
@@ -2111,6 +2302,7 @@
    "position": "F-G",
    "college": "Fresno State",
    "team": "Indiana Pacers",
+   "teamCode": "IND",
    "conference": "East",
    "jersey": 13
   },
@@ -2122,6 +2314,7 @@
    "position": "F-G",
    "college": "Kansas",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 34
   },
@@ -2133,6 +2326,7 @@
    "position": "F-C",
    "college": "Creighton",
    "team": "St. Louis Hawks",
+   "teamCode": "STL",
    "conference": "East",
    "jersey": 29
   },
@@ -2144,6 +2338,7 @@
    "position": "G",
    "college": "LSU",
    "team": "Atlanta Hawks",
+   "teamCode": "ATL",
    "conference": "East",
    "jersey": 44
   },
@@ -2155,6 +2350,7 @@
    "position": "F-C",
    "college": "University of North Dakota",
    "team": "New York Knicks",
+   "teamCode": "NYK",
    "conference": "East",
    "jersey": 18
   },
@@ -2166,6 +2362,7 @@
    "position": "G",
    "college": "Kentucky",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 9
   },
@@ -2177,6 +2374,7 @@
    "position": "C-F",
    "college": "Virginia",
    "team": "Houston Rockets",
+   "teamCode": "HOU",
    "conference": "West",
    "jersey": 50
   },
@@ -2188,6 +2386,7 @@
    "position": "F-C",
    "college": "UNC",
    "team": "Washington Bullets",
+   "teamCode": "WSB",
    "conference": "East",
    "jersey": 30
   },
@@ -2199,6 +2398,7 @@
    "position": "G",
    "college": "UConn",
    "team": "Minnesota Timberwolves",
+   "teamCode": "MIN",
    "conference": "West",
    "jersey": 34
   },
@@ -2210,6 +2410,7 @@
    "position": "G-F",
    "college": "UCLA",
    "team": "Indiana Pacers",
+   "teamCode": "IND",
    "conference": "East",
    "jersey": 31
   },
@@ -2221,6 +2422,7 @@
    "position": "G-F",
    "college": "UConn",
    "team": "Washington Wizards",
+   "teamCode": "WAS",
    "conference": "East",
    "jersey": 32
   },
@@ -2232,6 +2434,7 @@
    "position": "F",
    "college": "Miami (FL)",
    "team": "San Francisco Warriors",
+   "teamCode": "SFW",
    "conference": "West",
    "jersey": 24
   },
@@ -2243,6 +2446,7 @@
    "position": "G",
    "college": "University of Maine Virginia",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 34
   },
@@ -2254,6 +2458,7 @@
    "position": "F-G",
    "college": "UNC",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 17
   },
@@ -2265,6 +2470,7 @@
    "position": "F",
    "college": "Alabama",
    "team": "Houston Rockets",
+   "teamCode": "HOU",
    "conference": "West",
    "jersey": 5
   },
@@ -2276,6 +2482,7 @@
    "position": "C",
    "college": "Centenary (LA)",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 0
   },
@@ -2287,6 +2494,7 @@
    "position": "G-F",
    "college": "Miami University",
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 4
   },
@@ -2298,6 +2506,7 @@
    "position": "C",
    "college": "Georgetown",
    "team": "Toronto Raptors",
+   "teamCode": "TOR",
    "conference": "East",
    "jersey": 55
   },
@@ -2309,6 +2518,7 @@
    "position": "C",
    "college": null,
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 27
   },
@@ -2320,6 +2530,7 @@
    "position": "G",
    "college": "UCLA",
    "team": "Seattle Supersonics",
+   "teamCode": "SEA",
    "conference": "West",
    "jersey": 0
   },
@@ -2331,6 +2542,7 @@
    "position": "G-F",
    "college": "NC Central",
    "team": "Boston Celtics",
+   "teamCode": "BOS",
    "conference": "East",
    "jersey": 24
   },
@@ -2342,6 +2554,7 @@
    "position": "F-C",
    "college": "UNC",
    "team": "Dallas Mavericks",
+   "teamCode": "DAL",
    "conference": "West",
    "jersey": 14
   },
@@ -2353,6 +2566,7 @@
    "position": "G",
    "college": "Michigan State",
    "team": "Milwaukee Bucks",
+   "teamCode": "MIL",
    "conference": "East",
    "jersey": 4
   },
@@ -2364,6 +2578,7 @@
    "position": "F-G",
    "college": "University of Central Arkansas",
    "team": "Seattle Supersonics",
+   "teamCode": "SEA",
    "conference": "West",
    "jersey": 33
   },
@@ -2375,6 +2590,7 @@
    "position": "G",
    "college": "Kentucky",
    "team": "Charlotte Hornets",
+   "teamCode": "CHH",
    "conference": "East",
    "jersey": 2
   },
@@ -2386,6 +2602,7 @@
    "position": "F",
    "college": "Duke",
    "team": "Vancouver Grizzlies",
+   "teamCode": "VAN",
    "conference": "West",
    "jersey": 31
   },
@@ -2397,6 +2614,7 @@
    "position": "C",
    "college": "LSU",
    "team": "Orlando Magic",
+   "teamCode": "ORL",
    "conference": "East",
    "jersey": 32
   },
@@ -2408,6 +2626,7 @@
    "position": "F-C",
    "college": "Trinity Valley CC Kentucky",
    "team": "Seattle Supersonics",
+   "teamCode": "SEA",
    "conference": "West",
    "jersey": 40
   },
@@ -2419,6 +2638,7 @@
    "position": "F",
    "college": "Vincennes University UNLV",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 31
   },
@@ -2430,6 +2650,7 @@
    "position": "G",
    "college": "Davidson",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 30
   },
@@ -2441,6 +2662,7 @@
    "position": "F-G",
    "college": "Butler County Community College",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 1
   },
@@ -2452,6 +2674,7 @@
    "position": "G",
    "college": "Arizona",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 25
   },
@@ -2463,6 +2686,7 @@
    "position": "G",
    "college": "Santa Clara",
    "team": "Phoenix Suns",
+   "teamCode": "PHX",
    "conference": "West",
    "jersey": 13
   },
@@ -2474,6 +2698,7 @@
    "position": "F",
    "college": "Kentucky",
    "team": "Detroit Pistons",
+   "teamCode": "DET",
    "conference": "East",
    "jersey": 22
   },
@@ -2485,6 +2710,7 @@
    "position": "F-C",
    "college": "Wake Forest",
    "team": "San Antonio Spurs",
+   "teamCode": "SAS",
    "conference": "West",
    "jersey": 21
   },
@@ -2496,6 +2722,7 @@
    "position": "G",
    "college": "Texas-El Paso",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 10
   },
@@ -2507,6 +2734,7 @@
    "position": "G",
    "college": "Arizona Western College Texas-El Paso",
    "team": "Cincinnati Kings",
+   "teamCode": "CIN",
    "conference": "West",
    "jersey": 7
   },
@@ -2518,6 +2746,7 @@
    "position": "F",
    "college": null,
    "team": "Chicago Bulls",
+   "teamCode": "CHI",
    "conference": "East",
    "jersey": 7
   },
@@ -2529,6 +2758,7 @@
    "position": "G",
    "college": null,
    "team": "San Antonio Spurs",
+   "teamCode": "SAS",
    "conference": "West",
    "jersey": 9
   },
@@ -2540,6 +2770,7 @@
    "position": "G-F",
    "college": null,
    "team": "Toronto Raptors",
+   "teamCode": "TOR",
    "conference": "East",
    "jersey": 1
   },
@@ -2551,6 +2782,7 @@
    "position": "F",
    "college": "UCLA",
    "team": "New York Knicks",
+   "teamCode": "NYK",
    "conference": "East",
    "jersey": 1
   },
@@ -2562,6 +2794,7 @@
    "position": "F-C",
    "college": "Texas",
    "team": "Cleveland Cavaliers",
+   "teamCode": "CLE",
    "conference": "East",
    "jersey": 13
   },
@@ -2573,6 +2806,7 @@
    "position": "G",
    "college": "Kentucky",
    "team": "Miami Heat",
+   "teamCode": "MIA",
    "conference": "East",
    "jersey": 14
   },
@@ -2584,6 +2818,7 @@
    "position": "G",
    "college": "Kentucky",
    "team": "Philadelphia 76ers",
+   "teamCode": "PHI",
    "conference": "East",
    "jersey": 0
   },
@@ -2595,6 +2830,7 @@
    "position": "G",
    "college": "Nebraska",
    "team": "Denver Nuggets",
+   "teamCode": "DEN",
    "conference": "West",
    "jersey": 10
   },
@@ -2606,6 +2842,7 @@
    "position": "C",
    "college": null,
    "team": "Los Angeles Clippers",
+   "teamCode": "LAC",
    "conference": "West",
    "jersey": 6
   },
@@ -2617,6 +2854,7 @@
    "position": "F-C",
    "college": "Florida",
    "team": "Undrafted",
+   "teamCode": "UDFA",
    "conference": null,
    "jersey": 40
   },
@@ -2628,6 +2866,7 @@
    "position": "G",
    "college": "Indiana",
    "team": "Orlando Magic",
+   "teamCode": "ORL",
    "conference": "East",
    "jersey": 4
   },
@@ -2639,6 +2878,7 @@
    "position": "C-F",
    "college": null,
    "team": "San Antonio Spurs",
+   "teamCode": "SAS",
    "conference": "West",
    "jersey": 1
   },
@@ -2650,6 +2890,7 @@
    "position": "G-F",
    "college": "UNC",
    "team": "Golden State Warriors",
+   "teamCode": "GSW",
    "conference": "West",
    "jersey": 15
   },
@@ -2661,6 +2902,7 @@
    "position": "C",
    "college": null,
    "team": "Los Angeles Lakers",
+   "teamCode": "LAL",
    "conference": "West",
    "jersey": 12
   },
@@ -2672,6 +2914,7 @@
    "position": "G",
    "college": "Southern Illinois",
    "team": "New York Knicks",
+   "teamCode": "NYK",
    "conference": "East",
    "jersey": 10
   },
@@ -2683,6 +2926,7 @@
    "position": "C-F",
    "college": "Louisville",
    "team": "Baltimore Bullets",
+   "teamCode": "BAL",
    "conference": "East",
    "jersey": 41
   },
@@ -2694,6 +2938,7 @@
    "position": "C-F",
    "college": "Grambling State University",
    "team": "New York Knicks",
+   "teamCode": "NYK",
    "conference": "East",
    "jersey": 19
   },
@@ -2705,6 +2950,7 @@
    "position": "C",
    "college": "Kansas",
    "team": "Philadelphia Warriors",
+   "teamCode": "PHW",
    "conference": "West",
    "jersey": 13
   },
@@ -2716,6 +2962,7 @@
    "position": "C",
    "college": null,
    "team": "Houston Rockets",
+   "teamCode": "HOU",
    "conference": "West",
    "jersey": 11
   },
@@ -2727,6 +2974,7 @@
    "position": "G-F",
    "college": "UCLA",
    "team": "Minnesota Timberwolves",
+   "teamCode": "MIN",
    "conference": "West",
    "jersey": 8
   },
@@ -2738,6 +2986,7 @@
    "position": "F-C",
    "college": "Michigan State",
    "team": "Portland Trail Blazers",
+   "teamCode": "POR",
    "conference": "West",
    "jersey": 50
   },
@@ -2749,6 +2998,7 @@
    "position": "C",
    "college": null,
    "team": "Orlando Magic",
+   "teamCode": "ORL",
    "conference": "East",
    "jersey": 27
   },
@@ -2760,6 +3010,7 @@
    "position": "F-C",
    "college": "Duke",
    "team": "New Orleans Pelicans",
+   "teamCode": "NOP",
    "conference": "West",
    "jersey": 1
   }

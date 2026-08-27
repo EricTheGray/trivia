@@ -113,6 +113,7 @@ export function HotHand({
               mode={mode}
               active={tab === "modes"}
               onBack={() => setMode(null)}
+              onSheetChange={setSheetOpen}
             />
           ) : (
             <TimedList
