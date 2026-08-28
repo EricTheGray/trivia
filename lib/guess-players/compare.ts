@@ -7,7 +7,14 @@ import type { Conference, GuessPlayer } from "./types";
 
 export type Verdict = "hit" | "close" | "miss";
 
-export type ClueKey = "drafted" | "height" | "position" | "college" | "team" | "jersey";
+export type ClueKey =
+  | "drafted"
+  | "height"
+  | "position"
+  | "firstInitial"
+  | "lastInitial"
+  | "team"
+  | "jersey";
 
 export type Clue = {
   key: ClueKey;
@@ -23,7 +30,19 @@ export type Clue = {
   note?: string;
 };
 
-const NO_COLLEGE = "No college";
+const SUFFIXES = new Set(["jr", "jr.", "sr", "sr.", "ii", "iii", "iv"]);
+
+/**
+ * The initials a name is filed under: first letter of the given name, first
+ * letter of the family name. Generational suffixes are skipped, so Jaren
+ * Jackson Jr. is JJ rather than JJ by luck.
+ */
+export function initialsOf(name: string): { first: string; last: string } {
+  const words = name.split(/\s+/).filter((word) => !SUFFIXES.has(word.toLowerCase()));
+  const first = words[0] ?? name;
+  const last = words[words.length - 1] ?? first;
+  return { first: first[0].toUpperCase(), last: last[0].toUpperCase() };
+}
 
 /**
  * Positions are recorded the way Basketball-Reference writes them, primary
@@ -73,13 +92,18 @@ function positionClue(guess: GuessPlayer, target: GuessPlayer): Clue {
 }
 
 /**
- * College has a third state: 31 of the pool never played college ball, and
- * "no college" is itself a fact two players can share.
+ * An initial, compared through the alphabet. Nothing partial about it: either
+ * the letter matches or the answer's sits earlier or later.
  */
-function collegeClue(guess: GuessPlayer, target: GuessPlayer): Clue {
-  const value = guess.college ?? NO_COLLEGE;
-  const verdict = guess.college === target.college ? "hit" : "miss";
-  return { key: "college", label: "College", value, verdict };
+function initialClue(key: ClueKey, label: string, guessed: string, target: string): Clue {
+  if (guessed === target) return { key, label, value: guessed, verdict: "hit" };
+  return {
+    key,
+    label,
+    value: guessed,
+    verdict: "miss",
+    direction: target > guessed ? "higher" : "lower",
+  };
 }
 
 /** The drafting team, with right-conference-wrong-team in between. */
@@ -103,11 +127,14 @@ function teamClue(guess: GuessPlayer, target: GuessPlayer): Clue {
 }
 
 export function compareGuess(guess: GuessPlayer, target: GuessPlayer): Clue[] {
+  const guessed = initialsOf(guess.name);
+  const answer = initialsOf(target.name);
   return [
     numericClue("drafted", "Drafted", String(guess.drafted), guess.drafted, target.drafted),
     numericClue("height", "Height", guess.height || `${guess.heightIn}in`, guess.heightIn, target.heightIn),
     positionClue(guess, target),
-    collegeClue(guess, target),
+    initialClue("firstInitial", "First initial", guessed.first, answer.first),
+    initialClue("lastInitial", "Surname initial", guessed.last, answer.last),
     teamClue(guess, target),
     numericClue("jersey", "Jersey", `#${guess.jersey}`, guess.jersey, target.jersey),
   ];
@@ -172,8 +199,9 @@ export type Hints = {
    * on G-F rules out both G-F itself and everything without a G or an F in it.
    */
   position?: { candidates: string[]; hit: boolean };
-  /** Present only once known; `null` means the answer went to no college. */
-  college?: { exact: string | null };
+  /** Alphabetical bounds, held as char codes. */
+  firstInitial?: Bound;
+  lastInitial?: Bound;
   team?: { exact?: string; conference?: Conference };
 };
 
@@ -193,12 +221,16 @@ const NUMERIC: Record<string, (player: GuessPlayer) => number> = {
   drafted: (player) => player.drafted,
   height: (player) => player.heightIn,
   jersey: (player) => player.jersey,
+  firstInitial: (player) => initialsOf(player.name).first.charCodeAt(0),
+  lastInitial: (player) => initialsOf(player.name).last.charCodeAt(0),
 };
 
 export function deduceHints(guesses: GuessPlayer[], target: GuessPlayer): Hints {
   const hints: Hints = {};
 
-  const narrow = (key: "drafted" | "height" | "jersey", clue: Clue, value: number) => {
+  type BoundKey = "drafted" | "height" | "jersey" | "firstInitial" | "lastInitial";
+
+  const narrow = (key: BoundKey, clue: Clue, value: number) => {
     const bound: Bound = hints[key] ?? {};
     if (clue.verdict === "hit") bound.exact = value;
     else if (clue.direction === "higher") bound.min = Math.max(bound.min ?? -Infinity, value + 1);
@@ -208,8 +240,8 @@ export function deduceHints(guesses: GuessPlayer[], target: GuessPlayer): Hints 
 
   for (const guess of guesses) {
     for (const clue of compareGuess(guess, target)) {
-      if (clue.key === "drafted" || clue.key === "height" || clue.key === "jersey") {
-        narrow(clue.key, clue, NUMERIC[clue.key](guess));
+      if (clue.key in NUMERIC) {
+        narrow(clue.key as BoundKey, clue, NUMERIC[clue.key](guess));
         continue;
       }
       if (clue.key === "position") {
@@ -222,10 +254,7 @@ export function deduceHints(guesses: GuessPlayer[], target: GuessPlayer): Hints 
         };
         continue;
       }
-      if (clue.key === "college") {
-        if (clue.verdict === "hit") hints.college = { exact: guess.college };
-        continue;
-      }
+
       if (clue.verdict === "hit") hints.team = { exact: guess.team };
       else if (clue.verdict === "close" && !hints.team?.exact && guess.conference) {
         hints.team = { conference: guess.conference };

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { GuessMode } from "@/lib/game-modes";
 import {
+  type ClueKey,
   compareGuess,
   deduceHints,
   formatHeight,
@@ -43,30 +44,13 @@ const COLUMNS = [
   { key: "drafted", label: "Draft" },
   { key: "height", label: "Height" },
   { key: "position", label: "Pos" },
-  { key: "college", label: "College" },
+  { key: "initials", label: "Initials" },
   { key: "team", label: "Team" },
   { key: "jersey", label: "Jersey" },
 ] as const;
 
 /** How long the winning row is left to light up before the reveal takes over. */
 const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
-
-/**
- * College names arrive with a lot of furniture — "University of Central
- * Arkansas" — and a few players have two schools run together. Strip the
- * furniture; the tooltip keeps whatever is left over.
- */
-function shortCollege(value: string) {
-  return (
-    value
-      .replace(/\bUniversity of\b/gi, "")
-      .replace(/\bUniversity\b/gi, "")
-      .replace(/\bCommunity College\b/gi, "CC")
-      .replace(/\bCollege\b/gi, "")
-      .replace(/\s+/g, " ")
-      .trim() || value
-  );
-}
 
 let poolRequest: Promise<Player[]> | null = null;
 
@@ -244,13 +228,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
               className={`${styles.row} ${styles.rowPlayed} ${right ? styles.rowRight : ""}`}
             >
               <h3 className={styles.rowName}>{guess.name}</h3>
-              {target && (
-                <div className={styles.clues}>
-                  {compareGuess(guess, target).map((clue) => (
-                    <ClueCell key={clue.key} clue={clue} />
-                  ))}
-                </div>
-              )}
+              {target && <GuessRow guess={guess} target={target} />}
             </article>
           );
         })}
@@ -274,6 +252,34 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
               )}
               <div className={styles.clues}>
                 {COLUMNS.map((column) => {
+                  if (column.key === "initials") {
+                    // Only the row on deck carries what is known; the rows
+                    // behind it are placeholders and stay plain.
+                    const first = i === 0 ? alphabetRange(hints.firstInitial) : null;
+                    const last = i === 0 ? alphabetRange(hints.lastInitial) : null;
+                    const both =
+                      i === 0 &&
+                      hints.firstInitial?.exact !== undefined &&
+                      hints.lastInitial?.exact !== undefined;
+                    return (
+                      <div
+                        key={column.key}
+                        className={`${styles.clue} ${styles.stacked} ${
+                          both ? styles.hit : first || last ? styles.close : ""
+                        }`}
+                      >
+                        {i === 0 &&
+                          (first || last ? (
+                            <>
+                              <span className={styles.initial}>{first ?? "?"}</span>
+                              <span className={styles.initial}>{last ?? "?"}</span>
+                            </>
+                          ) : (
+                            <span className={styles.columnName}>{column.label}</span>
+                          ))}
+                      </div>
+                    );
+                  }
                   if (column.key === "position") {
                     const position = i === 0 ? hints.position : undefined;
                     // Filled means "you matched this". A position worked out
@@ -417,6 +423,60 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
   );
 }
 
+/** A letter bound, written the way the other ranges are. */
+function alphabetRange(bound?: Bound): string | null {
+  const letter = (code: number) => String.fromCharCode(code);
+  if (!bound) return null;
+  if (bound.exact !== undefined) return letter(bound.exact);
+  const { min, max } = bound;
+  if (min !== undefined && max !== undefined) {
+    return min === max ? letter(min) : `${letter(min)}–${letter(max)}`;
+  }
+  if (min !== undefined) return `${letter(min)}+`;
+  if (max !== undefined) return `≤${letter(max)}`;
+  return null;
+}
+
+/**
+ * A guess scored across the six columns. Initials share one of them, stacked:
+ * a name is two letters and they narrow independently.
+ */
+function GuessRow({ guess, target }: { guess: Player; target: Player }) {
+  const clues = new Map(compareGuess(guess, target).map((clue) => [clue.key, clue]));
+  return (
+    <div className={styles.clues}>
+      {COLUMNS.map((column) => {
+        if (column.key === "initials") {
+          const first = clues.get("firstInitial");
+          const last = clues.get("lastInitial");
+          if (!first || !last) return null;
+          const verdict = first.verdict === "hit" && last.verdict === "hit" ? "hit" : "miss";
+          return (
+            <div
+              key={column.key}
+              className={`${styles.clue} ${styles.stacked} ${styles[verdict]}`}
+              title={`${first.label} ${first.value}, ${last.label} ${last.value}`}
+            >
+              {[first, last].map((clue) => (
+                <span key={clue.key} className={styles.initial}>
+                  {clue.value}
+                  {clue.direction && (
+                    <span className={styles.arrow}>
+                      {clue.direction === "higher" ? "↑" : "↓"}
+                    </span>
+                  )}
+                </span>
+              ))}
+            </div>
+          );
+        }
+        const clue = clues.get(column.key as ClueKey);
+        return clue ? <ClueCell key={column.key} clue={clue} /> : null;
+      })}
+    </div>
+  );
+}
+
 /** Cell-sized wording. The tooltip still carries the full value. */
 const SHORT_TEAM: Record<string, string> = {
   Timberwolves: "Wolves",
@@ -427,9 +487,6 @@ function short(clue: Clue) {
   if (clue.key === "team") {
     const nickname = clue.value.split(" ").pop() ?? clue.value;
     return SHORT_TEAM[nickname] ?? nickname;
-  }
-  if (clue.key === "college") {
-    return clue.value === "No college" ? "None" : shortCollege(clue.value);
   }
   return clue.value;
 }
@@ -490,11 +547,8 @@ function hintFor(
     }
     return narrowed(range(bound, (value) => `#${value}`));
   }
-  if (key === "position") return null; // drawn as a set of letters, not a phrase
-  if (key === "college") {
-    if (!hints.college) return null;
-    return settled(hints.college.exact === null ? "None" : shortCollege(hints.college.exact));
-  }
+  // Position and initials draw their own cells.
+  if (key === "position" || key === "initials") return null;
   if (hints.team?.exact) return settled(hints.team.exact.split(" ").pop() ?? hints.team.exact);
   return hints.team?.conference ? partial(hints.team.conference) : null;
 }
@@ -525,7 +579,7 @@ function ClueCell({ clue }: { clue: Clue }) {
   const title = [clue.label, clue.value, clue.note].filter(Boolean).join(" — ");
   // Only the name-bearing columns may wrap; "#21" breaking into "#2 / 1" is
   // worse than no wrapping at all.
-  const wraps = clue.key === "college" || clue.key === "team";
+  const wraps = clue.key === "team";
   return (
     <div className={`${styles.clue} ${styles[clue.verdict]}`} title={title}>
       <span className={`${styles.clueValue} ${wraps ? styles.wraps : ""}`}>{value}</span>
