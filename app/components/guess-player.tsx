@@ -281,7 +281,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                       <div
                         key={column.key}
                         className={`${styles.clue} ${
-                          settled ? styles.hit : position ? styles.close : ""
+                          settled ? styles.deckKnown : position ? styles.deckPartial : ""
                         }`}
                       >
                         {i === 0 &&
@@ -298,8 +298,13 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                     );
                   }
                   const known = i === 0 ? hintFor(column.key, hints) : null;
-                  // A column that is settled keeps the colour it was settled in.
-                  const state = known?.state ? styles[known.state] : "";
+                  // Ink, not accent: on this row colour reports how much is
+                  // known, and accent already answers "did my guess match".
+                  const state = known?.state
+                    ? known.state === "hit"
+                      ? styles.deckKnown
+                      : styles.deckPartial
+                    : "";
                   return (
                     <div key={column.key} className={`${styles.clue} ${state}`}>
                       {i === 0 && (
