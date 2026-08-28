@@ -37,7 +37,7 @@
 .board {
   /* Draft, height, pos, college, team, jersey — the full width for six, so
      nothing has to be abbreviated down to initials. */
-  --hh-clue-columns: 1.05fr 1.02fr 1fr 0.78fr 1.32fr 0.83fr;
+  --hh-clue-columns: 1.05fr 1.02fr 0.95fr 0.62fr 0.62fr 1.28fr 0.84fr;
   flex: 1;
   min-height: 0;
   overflow: hidden;
@@ -251,26 +251,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-/* Two letters of a name, stacked in one column. */
-.stacked {
-  flex-direction: column;
-  gap: 0;
-  line-height: 1.1;
-}
-
-.initial {
-  display: flex;
-  align-items: center;
-  gap: 1px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-.stacked .arrow {
-  font-size: 10px;
 }
 
 /* The positions still standing. */
