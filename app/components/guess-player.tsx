@@ -277,11 +277,15 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                   if (column.key === "position") {
                     const position = i === 0 ? hints.position : undefined;
                     const settled = position ? settledPosition(position) : null;
+                    // Filled means "you matched this". A position worked out
+                    // from a close and two misses is known, but it was never
+                    // hit, so it stays tinted.
+                    const hitPosition = Boolean(position?.exact);
                     return (
                       <div
                         key={column.key}
                         className={`${styles.clue} ${
-                          settled ? styles.deckKnown : position ? styles.deckPartial : ""
+                          hitPosition ? styles.hit : position ? styles.close : ""
                         }`}
                       >
                         {i === 0 &&
@@ -300,11 +304,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                   const known = i === 0 ? hintFor(column.key, hints) : null;
                   // Ink, not accent: on this row colour reports how much is
                   // known, and accent already answers "did my guess match".
-                  const state = known?.state
-                    ? known.state === "hit"
-                      ? styles.deckKnown
-                      : styles.deckPartial
-                    : "";
+                  const state = known?.state ? styles[known.state] : "";
                   return (
                     <div key={column.key} className={`${styles.clue} ${state}`}>
                       {i === 0 && (

@@ -88,7 +88,7 @@
 }
 
 /* A row waiting its turn — except where the board has settled a column. */
-.rowEmpty .clue:not(.deckKnown):not(.deckPartial) {
+.rowEmpty .clue:not(.hit):not(.close) {
   background: rgba(22, 19, 14, 0.03);
   box-shadow: inset 0 0 0 1px rgba(22, 19, 14, 0.05);
 }
@@ -122,7 +122,7 @@
   white-space: nowrap;
 }
 
-.rowNext .clue:not(.deckKnown):not(.deckPartial) {
+.rowNext .clue:not(.hit):not(.close) {
   background: rgba(22, 19, 14, 0.05);
   color: rgba(22, 19, 14, 0.78);
 }
@@ -251,25 +251,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-/*
- * The what-you-know row speaks in ink, not accent.
- *
- * Accent answers one question — did my guess match — and it answers it on every
- * played row. If this row used the same colours it would look like a verdict on
- * a guess nobody made: the board can deduce a position from a close and two
- * misses without anyone ever having matched it. Ink says "settled" instead, and
- * borrows nothing.
- */
-.deckKnown {
-  background: var(--hh-ink);
-  color: var(--hh-cream);
-}
-
-.deckPartial {
-  background: rgba(22, 19, 14, 0.13);
-  color: var(--hh-ink);
 }
 
 /* The three roles, ruled in, ruled out, or still open. */
