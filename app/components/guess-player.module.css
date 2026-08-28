@@ -253,30 +253,14 @@
   white-space: nowrap;
 }
 
-/* The three roles, ruled in, ruled out, or still open. */
+/* The positions still standing. */
 .positionSet {
-  display: flex;
-  gap: 4px;
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.02em;
-}
-
-.roleIn {
-  color: inherit;
-}
-
-/* Untested: it could still turn out to be this. */
-.roleOpen {
-  opacity: 0.32;
-}
-
-/* Ruled out by a guess that shared nothing. */
-.roleOut {
-  opacity: 0.42;
-  text-decoration: line-through;
-  text-decoration-thickness: 1.5px;
-  text-decoration-color: currentColor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* A longer phrase still has to clear its column. */

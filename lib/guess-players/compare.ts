@@ -167,18 +167,27 @@ export type Hints = {
   height?: Bound;
   jersey?: Bound;
   /**
-   * Position accumulates rather than settles. A close match proves the answer
-   * plays that role; a miss proves it plays none of the guess's roles. Only
-   * when every one of G, F and C is accounted for is the position actually
-   * known.
+   * The positions still standing. Every guess eliminates the ones that would
+   * have scored differently, so this narrows rather than accumulates — a close
+   * on G-F rules out both G-F itself and everything without a G or an F in it.
    */
-  position?: { exact?: string; includes: string[]; excludes: string[] };
+  position?: { candidates: string[]; hit: boolean };
   /** Present only once known; `null` means the answer went to no college. */
   college?: { exact: string | null };
   team?: { exact?: string; conference?: Conference };
 };
 
 export const POSITION_LETTERS = ["G", "F", "C"] as const;
+
+/** Every position the source records. The answer's is one of these seven. */
+export const POSITION_VALUES = ["G", "F", "C", "G-F", "F-G", "F-C", "C-F"] as const;
+
+/** How a candidate position would have scored against a guess. */
+function positionVerdict(guess: string, candidate: string): Verdict {
+  if (guess === candidate) return "hit";
+  const guessed = new Set(guess.split("-"));
+  return candidate.split("-").some((part) => guessed.has(part)) ? "close" : "miss";
+}
 
 const NUMERIC: Record<string, (player: GuessPlayer) => number> = {
   drafted: (player) => player.drafted,
@@ -204,28 +213,12 @@ export function deduceHints(guesses: GuessPlayer[], target: GuessPlayer): Hints 
         continue;
       }
       if (clue.key === "position") {
-        const includes = new Set(hints.position?.includes ?? []);
-        const excludes = new Set(hints.position?.excludes ?? []);
-        const parts = guess.position.split("-");
-
-        if (clue.verdict === "hit") {
-          // An exact match settles every letter: these are in, the rest are out.
-          for (const letter of POSITION_LETTERS) {
-            (parts.includes(letter) ? includes : excludes).add(letter);
-          }
-          hints.position = { exact: guess.position, includes: [...includes], excludes: [...excludes] };
-          continue;
-        }
-        if (clue.verdict === "close") {
-          for (const part of clue.note?.replace("Also plays ", "").split("/") ?? []) includes.add(part);
-        } else {
-          // Nothing shared: the answer plays none of what this guess played.
-          for (const part of parts) excludes.add(part);
-        }
+        const standing = hints.position?.candidates ?? [...POSITION_VALUES];
         hints.position = {
-          exact: hints.position?.exact,
-          includes: [...includes],
-          excludes: [...excludes],
+          candidates: standing.filter(
+            (candidate) => positionVerdict(guess.position, candidate) === clue.verdict,
+          ),
+          hit: hints.position?.hit || clue.verdict === "hit",
         };
         continue;
       }

@@ -279,7 +279,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                     // Filled means "you matched this". A position worked out
                     // from a close and two misses is known, but it was never
                     // hit, so it stays tinted.
-                    const hitPosition = Boolean(position?.exact);
+                    const hitPosition = Boolean(position?.hit);
                     return (
                       <div
                         key={column.key}
@@ -309,7 +309,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                         <span
                           className={
                             known
-                              ? `${styles.known} ${known.text.length > 7 ? styles.knownLong : ""}`
+                              ? `${styles.known} ${known.text.length > 5 ? styles.knownLong : ""}`
                               : styles.columnName
                           }
                         >
@@ -435,27 +435,22 @@ function short(clue: Clue) {
 }
 
 /**
- * Position as an accumulation: the three roles, each shown as ruled in, ruled
- * out, or still open. A close match rules one in; a miss rules the guess's
- * roles out. Nothing is settled until none are still open.
+ * The positions still standing. Nothing is crossed out: a position that a guess
+ * has eliminated simply stops being listed, and what is left is what the answer
+ * could still be. One left is the answer.
  */
 function PositionSet({ known }: { known: NonNullable<Hints["position"]> }) {
-  return (
-    <span className={styles.positionSet}>
-      {POSITION_LETTERS.map((letter) => {
-        const state = known.includes.includes(letter)
-          ? styles.roleIn
-          : known.excludes.includes(letter)
-            ? styles.roleOut
-            : styles.roleOpen;
-        return (
-          <span key={letter} className={state}>
-            {letter}
-          </span>
-        );
-      })}
-    </span>
-  );
+  const { candidates } = known;
+  // Two values fit side by side; beyond that, name the roles still in play
+  // rather than spelling out five hyphenated positions in fifty pixels.
+  const text =
+    candidates.length <= 2
+      ? candidates.join("  ")
+      : POSITION_LETTERS.filter((letter) =>
+          candidates.some((candidate) => candidate.split("-").includes(letter)),
+        ).join("  ");
+
+  return <span className={styles.positionSet}>{text}</span>;
 }
 
 /**
@@ -487,8 +482,13 @@ function hintFor(
     return narrowed(range(hints.height, format));
   }
   if (key === "jersey") {
-    if (hints.jersey?.exact !== undefined) return settled(`#${hints.jersey.exact}`);
-    return narrowed(range(hints.jersey, (value) => `#${value}`));
+    const bound = hints.jersey;
+    if (bound?.exact !== undefined) return settled(`#${bound.exact}`);
+    // One hash, not two: "#24–31", not "#24–#31".
+    if (bound?.min !== undefined && bound.max !== undefined) {
+      return narrowed(`#${bound.min}–${bound.max}`);
+    }
+    return narrowed(range(bound, (value) => `#${value}`));
   }
   if (key === "position") return null; // drawn as a set of letters, not a phrase
   if (key === "college") {
