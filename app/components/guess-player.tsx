@@ -276,7 +276,6 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                 {COLUMNS.map((column) => {
                   if (column.key === "position") {
                     const position = i === 0 ? hints.position : undefined;
-                    const settled = position ? settledPosition(position) : null;
                     // Filled means "you matched this". A position worked out
                     // from a close and two misses is known, but it was never
                     // hit, so it stays tinted.
@@ -289,11 +288,10 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                         }`}
                       >
                         {i === 0 &&
-                          (settled ? (
-                            // Once it is known, say it: the roles ruled out have
-                            // nothing left to tell anyone.
-                            <span className={styles.known}>{settled}</span>
-                          ) : position ? (
+                          (position ? (
+                            // All three roles, always. A bare "G" cannot say
+                            // whether a forward is ruled out or merely untested,
+                            // and that is the whole question a player is asking.
                             <PositionSet known={position} />
                           ) : (
                             <span className={styles.columnName}>{column.label}</span>
@@ -434,19 +432,6 @@ function short(clue: Clue) {
     return clue.value === "No college" ? "None" : shortCollege(clue.value);
   }
   return clue.value;
-}
-
-/**
- * The answer's position, once the board actually knows it — which needs more
- * than every role being accounted for. Ruling in F and C leaves F-C and C-F
- * still on the table, so that is not settled; a single role is.
- */
-function settledPosition(known: NonNullable<Hints["position"]>): string | null {
-  if (known.exact) return known.exact;
-  const resolved = POSITION_LETTERS.every(
-    (letter) => known.includes.includes(letter) || known.excludes.includes(letter),
-  );
-  return resolved && known.includes.length === 1 ? known.includes[0] : null;
 }
 
 /**

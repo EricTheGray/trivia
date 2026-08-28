@@ -266,14 +266,17 @@
   color: inherit;
 }
 
+/* Untested: it could still turn out to be this. */
 .roleOpen {
-  opacity: 0.34;
+  opacity: 0.32;
 }
 
+/* Ruled out by a guess that shared nothing. */
 .roleOut {
-  opacity: 0.32;
+  opacity: 0.42;
   text-decoration: line-through;
   text-decoration-thickness: 1.5px;
+  text-decoration-color: currentColor;
 }
 
 /* A longer phrase still has to clear its column. */
