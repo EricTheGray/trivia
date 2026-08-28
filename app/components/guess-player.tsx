@@ -7,6 +7,7 @@ import {
   deduceHints,
   formatHeight,
   isCorrect,
+  POSITION_LETTERS,
   type Bound,
   type Hints,
   localIsoDate,
@@ -273,6 +274,25 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
               )}
               <div className={styles.clues}>
                 {COLUMNS.map((column) => {
+                  if (column.key === "position") {
+                    const position = i === 0 ? hints.position : undefined;
+                    const covered = position ? positionCovered(position) : false;
+                    return (
+                      <div
+                        key={column.key}
+                        className={`${styles.clue} ${
+                          covered ? styles.hit : position ? styles.close : ""
+                        }`}
+                      >
+                        {i === 0 &&
+                          (position ? (
+                            <PositionSet known={position} />
+                          ) : (
+                            <span className={styles.columnName}>{column.label}</span>
+                          ))}
+                      </div>
+                    );
+                  }
                   const known = i === 0 ? hintFor(column.key, hints) : null;
                   // A column that is settled keeps the colour it was settled in.
                   const state = known?.state ? styles[known.state] : "";
@@ -407,6 +427,37 @@ function short(clue: Clue) {
   return clue.value;
 }
 
+/** Every letter accounted for — in or out — is a position actually known. */
+function positionCovered(known: NonNullable<Hints["position"]>): boolean {
+  return POSITION_LETTERS.every(
+    (letter) => known.includes.includes(letter) || known.excludes.includes(letter),
+  );
+}
+
+/**
+ * Position as an accumulation: the three roles, each shown as ruled in, ruled
+ * out, or still open. A close match rules one in; a miss rules the guess's
+ * roles out. Nothing is settled until none are still open.
+ */
+function PositionSet({ known }: { known: NonNullable<Hints["position"]> }) {
+  return (
+    <span className={styles.positionSet}>
+      {POSITION_LETTERS.map((letter) => {
+        const state = known.includes.includes(letter)
+          ? styles.roleIn
+          : known.excludes.includes(letter)
+            ? styles.roleOut
+            : styles.roleOpen;
+        return (
+          <span key={letter} className={state}>
+            {letter}
+          </span>
+        );
+      })}
+    </span>
+  );
+}
+
 /**
  * What the board has established for one column, in a cell's worth of words:
  * a settled value, or the range the arrows have squeezed it into.
@@ -439,14 +490,7 @@ function hintFor(
     if (hints.jersey?.exact !== undefined) return settled(`#${hints.jersey.exact}`);
     return narrowed(range(hints.jersey, (value) => `#${value}`));
   }
-  if (key === "position") {
-    if (hints.position?.exact) return settled(hints.position.exact);
-    // What a partial match actually established: the answer plays that role,
-    // whatever else it plays. "plays F" says it; "has F" says nothing.
-    return hints.position?.shares?.length
-      ? partial(`plays ${hints.position.shares.join("/")}`)
-      : null;
-  }
+  if (key === "position") return null; // drawn as a set of letters, not a phrase
   if (key === "college") {
     if (!hints.college) return null;
     return settled(hints.college.exact === null ? "None" : shortCollege(hints.college.exact));

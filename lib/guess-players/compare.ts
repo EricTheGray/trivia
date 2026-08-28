@@ -166,11 +166,19 @@ export type Hints = {
   drafted?: Bound;
   height?: Bound;
   jersey?: Bound;
-  position?: { exact?: string; shares?: string[] };
+  /**
+   * Position accumulates rather than settles. A close match proves the answer
+   * plays that role; a miss proves it plays none of the guess's roles. Only
+   * when every one of G, F and C is accounted for is the position actually
+   * known.
+   */
+  position?: { exact?: string; includes: string[]; excludes: string[] };
   /** Present only once known; `null` means the answer went to no college. */
   college?: { exact: string | null };
   team?: { exact?: string; conference?: Conference };
 };
+
+export const POSITION_LETTERS = ["G", "F", "C"] as const;
 
 const NUMERIC: Record<string, (player: GuessPlayer) => number> = {
   drafted: (player) => player.drafted,
@@ -196,12 +204,29 @@ export function deduceHints(guesses: GuessPlayer[], target: GuessPlayer): Hints 
         continue;
       }
       if (clue.key === "position") {
-        if (clue.verdict === "hit") hints.position = { exact: guess.position };
-        else if (clue.verdict === "close" && !hints.position?.exact) {
-          const shares = new Set(hints.position?.shares ?? []);
-          for (const part of clue.note?.replace("Also plays ", "").split("/") ?? []) shares.add(part);
-          hints.position = { shares: [...shares] };
+        const includes = new Set(hints.position?.includes ?? []);
+        const excludes = new Set(hints.position?.excludes ?? []);
+        const parts = guess.position.split("-");
+
+        if (clue.verdict === "hit") {
+          // An exact match settles every letter: these are in, the rest are out.
+          for (const letter of POSITION_LETTERS) {
+            (parts.includes(letter) ? includes : excludes).add(letter);
+          }
+          hints.position = { exact: guess.position, includes: [...includes], excludes: [...excludes] };
+          continue;
         }
+        if (clue.verdict === "close") {
+          for (const part of clue.note?.replace("Also plays ", "").split("/") ?? []) includes.add(part);
+        } else {
+          // Nothing shared: the answer plays none of what this guess played.
+          for (const part of parts) excludes.add(part);
+        }
+        hints.position = {
+          exact: hints.position?.exact,
+          includes: [...includes],
+          excludes: [...excludes],
+        };
         continue;
       }
       if (clue.key === "college") {
