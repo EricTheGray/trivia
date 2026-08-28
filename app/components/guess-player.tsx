@@ -34,8 +34,8 @@ const STORAGE_KEY = "hot-hand.guess";
 /** How the workbook files players who never heard their name called. */
 const UNDRAFTED = "Undrafted";
 
-/** Draft, height, position, college, team, jersey. */
-const CLUE_COUNT = 6;
+/** In the order the clues come back. */
+const COLUMNS = ["Draft", "Height", "Pos", "College", "Team", "No."];
 
 /** How long the winning row is left to light up before the reveal takes over. */
 const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
@@ -186,30 +186,19 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
 
   return (
     <div className={styles.screen}>
-      <div className={styles.header}>
-        <div className={styles.headerTop}>
-          <div className={styles.titleGroup}>
-            {onBack && (
-              <button type="button" className={styles.back} onClick={onBack} aria-label="Back to modes">
-                <svg width="8" height="13" viewBox="0 0 13 22" fill="none" aria-hidden>
-                  <path
-                    d="M11 1L2 11l9 10"
-                    stroke="rgba(22,19,14,.6)"
-                    strokeWidth="2.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            )}
-            <span className={styles.kicker}>{mode.title}</span>
-          </div>
-          <span className={styles.progress}>
-            {guesses.length} / {MAX_GUESSES}
-          </span>
-        </div>
-
-      </div>
+      {onBack && (
+        <button type="button" className={styles.back} onClick={onBack} aria-label="Back to modes">
+          <svg width="8" height="13" viewBox="0 0 13 22" fill="none" aria-hidden>
+            <path
+              d="M11 1L2 11l9 10"
+              stroke="rgba(22,19,14,.6)"
+              strokeWidth="2.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      )}
 
       <div className={styles.board}>
         {guesses.map((guess) => {
@@ -231,13 +220,17 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
         {/* The rest of the grid is drawn from the start, so the shape of the
             game is visible before a single guess and nothing shifts as they
             land. Once the round is over the unused rows have nothing to say. */}
+        {/* The row you are about to fill names its columns, so what each one
+            holds is always on screen without a header strip to say it. */}
         {!over &&
           Array.from({ length: MAX_GUESSES - guesses.length }, (_, i) => (
             <article key={`empty-${i}`} className={`${styles.row} ${styles.rowEmpty}`} aria-hidden>
               <span className={styles.rowName} />
               <div className={styles.clues}>
-                {Array.from({ length: CLUE_COUNT }, (_, cell) => (
-                  <div key={cell} className={styles.clue} />
+                {COLUMNS.map((column) => (
+                  <div key={column} className={styles.clue}>
+                    {i === 0 && <span className={styles.columnName}>{column}</span>}
+                  </div>
                 ))}
               </div>
             </article>

@@ -8,66 +8,25 @@
   color: var(--hh-ink);
 }
 
-.header {
-  position: relative;
-  z-index: 2;
-  flex: none;
-  /* The design's status-bar gap, minus the part a browser already provides.
-     env() still clears a notch where there is one. */
-  padding: calc(16px + env(safe-area-inset-top)) var(--hh-screen-pad) 10px;
-  background: rgba(244, 241, 234, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(22, 19, 14, 0.1);
-}
-
-.headerTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.titleGroup {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  min-width: 0;
-}
-
 .back {
-  flex: none;
+  position: absolute;
+  top: calc(14px + env(safe-area-inset-top));
+  left: 14px;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
-  margin-left: -4px;
+  width: 34px;
+  height: 34px;
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: rgba(22, 19, 14, 0.07);
+  background: rgba(22, 19, 14, 0.06);
   cursor: pointer;
 }
 
 .back:hover {
   background: rgba(22, 19, 14, 0.14);
-}
-
-.kicker {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--hh-accent);
-}
-
-.progress {
-  flex: none;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: rgba(22, 19, 14, 0.35);
-  font-variant-numeric: tabular-nums;
 }
 
 /* Not an input: the keys below write here, so no system keyboard ever opens. */
@@ -82,7 +41,7 @@
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  padding: 8px var(--hh-screen-pad) 8px;
+  padding: calc(56px + env(safe-area-inset-top)) var(--hh-screen-pad) 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -208,6 +167,17 @@
   min-height: 0;
   padding: 0 5px;
   text-align: center;
+}
+
+.columnName {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(22, 19, 14, 0.3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .clueValue {
@@ -453,10 +423,7 @@
 }
 
 @media (min-width: 900px) {
-  .header {
-    padding: 56px var(--hh-gutter) 20px;
-  }
-
+  
   .headerTop,
   .pips,
   
@@ -474,7 +441,18 @@
     height: 44px;
   }
 
-  .clueValue {
+  .columnName {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(22, 19, 14, 0.3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clueValue {
     font-size: 13px;
   }
 
