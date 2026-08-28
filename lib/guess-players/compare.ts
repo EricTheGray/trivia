@@ -1,4 +1,4 @@
-import type { GuessPlayer } from "./types";
+import type { Conference, GuessPlayer } from "./types";
 
 /**
  * Scoring one guess against the day's player. Six traits, each answered as
@@ -163,4 +163,74 @@ export function localIsoDate(now: Date): string {
   const month = String(now.getMonth() + 1).padStart(2, "0");
   const day = String(now.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
+}
+
+/**
+ * What the guesses so far have established, ready to be shown on the row about
+ * to be played.
+ *
+ * Derived from the clues, not from the answer: a bound only exists because an
+ * arrow pointed at it, so this can never say more than the board already has.
+ */
+export type Bound = { exact?: number; min?: number; max?: number };
+
+export type Hints = {
+  drafted?: Bound;
+  height?: Bound;
+  jersey?: Bound;
+  position?: { exact?: string; shares?: string[] };
+  /** Present only once known; `null` means the answer went to no college. */
+  college?: { exact: string | null };
+  team?: { exact?: string; conference?: Conference };
+};
+
+const NUMERIC: Record<string, (player: GuessPlayer) => number> = {
+  drafted: (player) => player.drafted,
+  height: (player) => player.heightIn,
+  jersey: (player) => player.jersey,
+};
+
+export function deduceHints(guesses: GuessPlayer[], target: GuessPlayer): Hints {
+  const hints: Hints = {};
+
+  const narrow = (key: "drafted" | "height" | "jersey", clue: Clue, value: number) => {
+    const bound: Bound = hints[key] ?? {};
+    if (clue.verdict === "hit") bound.exact = value;
+    else if (clue.direction === "higher") bound.min = Math.max(bound.min ?? -Infinity, value + 1);
+    else if (clue.direction === "lower") bound.max = Math.min(bound.max ?? Infinity, value - 1);
+    hints[key] = bound;
+  };
+
+  for (const guess of guesses) {
+    for (const clue of compareGuess(guess, target)) {
+      if (clue.key === "drafted" || clue.key === "height" || clue.key === "jersey") {
+        narrow(clue.key, clue, NUMERIC[clue.key](guess));
+        continue;
+      }
+      if (clue.key === "position") {
+        if (clue.verdict === "hit") hints.position = { exact: guess.position };
+        else if (clue.verdict === "close" && !hints.position?.exact) {
+          const shares = new Set(hints.position?.shares ?? []);
+          for (const part of clue.note?.replace("Also plays ", "").split("/") ?? []) shares.add(part);
+          hints.position = { shares: [...shares] };
+        }
+        continue;
+      }
+      if (clue.key === "college") {
+        if (clue.verdict === "hit") hints.college = { exact: guess.college };
+        continue;
+      }
+      if (clue.verdict === "hit") hints.team = { exact: guess.team };
+      else if (clue.verdict === "close" && !hints.team?.exact && guess.conference) {
+        hints.team = { conference: guess.conference };
+      }
+    }
+  }
+
+  return hints;
+}
+
+/** Inches back to the way a height is spoken. */
+export function formatHeight(inches: number): string {
+  return `${Math.floor(inches / 12)}-${inches % 12}`;
 }

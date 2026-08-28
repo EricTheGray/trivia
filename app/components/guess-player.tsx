@@ -4,8 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import type { GuessMode } from "@/lib/game-modes";
 import {
   compareGuess,
+  deduceHints,
+  formatHeight,
   isCorrect,
   positionLabel,
+  type Bound,
+  type Hints,
   localIsoDate,
   pickDailyPlayer,
   pickRandomPlayer,
@@ -35,7 +39,14 @@ const STORAGE_KEY = "hot-hand.guess";
 const UNDRAFTED = "Undrafted";
 
 /** In the order the clues come back. */
-const COLUMNS = ["Draft", "Height", "Pos", "College", "Team", "No."];
+const COLUMNS = [
+  { key: "drafted", label: "Draft" },
+  { key: "height", label: "Height" },
+  { key: "position", label: "Pos" },
+  { key: "college", label: "College" },
+  { key: "team", label: "Team" },
+  { key: "jersey", label: "No." },
+] as const;
 
 /** How long the winning row is left to light up before the reveal takes over. */
 const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
@@ -157,6 +168,11 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
     [pool],
   );
   const alreadyGuessed = useMemo(() => new Set(names), [names]);
+  /** What the guesses so far have pinned down, shown on the row coming next. */
+  const hints = useMemo(
+    () => (target ? deduceHints(guesses, target) : {}),
+    [guesses, target],
+  );
 
   const solved = Boolean(target && guesses.some((guess) => isCorrect(guess, target)));
   const over = solved || guesses.length >= MAX_GUESSES;
@@ -227,11 +243,18 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
             <article key={`empty-${i}`} className={`${styles.row} ${styles.rowEmpty}`} aria-hidden>
               <span className={styles.rowName} />
               <div className={styles.clues}>
-                {COLUMNS.map((column) => (
-                  <div key={column} className={styles.clue}>
-                    {i === 0 && <span className={styles.columnName}>{column}</span>}
-                  </div>
-                ))}
+                {COLUMNS.map((column) => {
+                  const known = i === 0 ? hintFor(column.key, hints) : null;
+                  return (
+                    <div key={column.key} className={styles.clue}>
+                      {i === 0 && (
+                        <span className={known ? styles.known : styles.columnName}>
+                          {known ?? column.label}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </article>
           ))}
@@ -347,6 +370,47 @@ function short(clue: Clue) {
     return clue.value === "No college" ? "None" : shortCollege(clue.value);
   }
   return clue.value;
+}
+
+/**
+ * What the board has established for one column, in a cell's worth of words:
+ * a settled value, or the range the arrows have squeezed it into.
+ */
+function hintFor(key: (typeof COLUMNS)[number]["key"], hints: Hints): string | null {
+  if (key === "drafted") {
+    const bound = hints.drafted;
+    // "1985–96" rather than "1985–1996": a draft range is read at a glance and
+    // the column is 50px wide.
+    if (bound?.min !== undefined && bound.max !== undefined) {
+      const to = String(bound.max);
+      const short = String(bound.min).slice(0, 2) === to.slice(0, 2) ? to.slice(2) : to;
+      return `${bound.min}–${short}`;
+    }
+    return range(bound, String);
+  }
+  // A prime, not a hyphen: "6-7–6-10" is three dashes fighting each other.
+  if (key === "height") return range(hints.height, (value) => formatHeight(value).replace("-", "′"));
+  if (key === "jersey") return range(hints.jersey, (value) => `#${value}`);
+  if (key === "position") {
+    if (hints.position?.exact) return positionLabel(hints.position.exact);
+    return hints.position?.shares?.length ? `has ${hints.position.shares.join("/")}` : null;
+  }
+  if (key === "college") {
+    if (!hints.college) return null;
+    return hints.college.exact === null ? "None" : shortCollege(hints.college.exact);
+  }
+  if (hints.team?.exact) return hints.team.exact.split(" ").pop() ?? hints.team.exact;
+  return hints.team?.conference ?? null;
+}
+
+function range(bound: Bound | undefined, format: (value: number) => string): string | null {
+  if (!bound) return null;
+  if (bound.exact !== undefined) return format(bound.exact);
+  const { min, max } = bound;
+  if (min !== undefined && max !== undefined) return `${format(min)}–${format(max)}`;
+  if (min !== undefined) return `${format(min)}+`;
+  if (max !== undefined) return `≤${format(max)}`;
+  return null;
 }
 
 /** The one-line description under the answer. */
