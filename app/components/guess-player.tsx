@@ -216,10 +216,31 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
       )}
 
       <div className={styles.board}>
+        {guesses.length === 0 && !over && (
+          <div className={styles.intro}>
+            <p className={styles.introLead}>
+              Six guesses at {daily ? "today’s player" : "a player"}. Every one comes back scored on
+              all six counts.
+            </p>
+            <p className={styles.introKey}>
+              <span className={`${styles.swatch} ${styles.hit}`} aria-hidden />
+              exact
+              <span className={`${styles.swatch} ${styles.close}`} aria-hidden />
+              close
+              <span className={styles.introArrow} aria-hidden>
+                ↑
+              </span>
+              answer is higher
+            </p>
+          </div>
+        )}
         {guesses.map((guess) => {
           const right = target ? isCorrect(guess, target) : false;
           return (
-            <article key={guess.name} className={`${styles.row} ${right ? styles.rowRight : ""}`}>
+            <article
+              key={guess.name}
+              className={`${styles.row} ${styles.rowPlayed} ${right ? styles.rowRight : ""}`}
+            >
               <h3 className={styles.rowName}>{guess.name}</h3>
               {target && (
                 <div className={styles.clues}>
@@ -376,12 +397,10 @@ function short(clue: Clue) {
 function hintFor(key: (typeof COLUMNS)[number]["key"], hints: Hints): string | null {
   if (key === "drafted") {
     const bound = hints.drafted;
-    // "1985–96" rather than "1985–1996": a draft range is read at a glance and
-    // the column is 50px wide.
+    // "1998–09" rather than "1998–2009": a draft range is read at a glance, it
+    // only ever runs forwards, and the column is fifty pixels wide.
     if (bound?.min !== undefined && bound.max !== undefined) {
-      const to = String(bound.max);
-      const short = String(bound.min).slice(0, 2) === to.slice(0, 2) ? to.slice(2) : to;
-      return `${bound.min}–${short}`;
+      return `${bound.min}–${String(bound.max).slice(2)}`;
     }
     return range(bound, String);
   }

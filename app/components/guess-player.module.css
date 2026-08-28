@@ -44,6 +44,9 @@
   padding: calc(56px + env(safe-area-inset-top)) var(--hh-screen-pad) 8px;
   display: flex;
   flex-direction: column;
+  /* Whatever is left over spreads between the rows rather than pooling under
+     the last one. */
+  justify-content: space-between;
   gap: 8px;
 }
 
@@ -57,9 +60,11 @@
  * A text field has to live with one, so the rows give ground instead.
  */
 .row {
-  /* The six rows share whatever is between the legend and the pad — filling it
-     when there is room, giving ground when there is not. */
+  /* The rows share whatever is between the intro and the pad — filling it when
+     there is room, giving ground when there is not. */
   flex: 1 1 auto;
+  /* Room to breathe, but a waiting row has no business being 100px tall. */
+  max-height: 84px;
   min-height: 0;
   display: flex;
   flex-direction: column;
@@ -82,6 +87,35 @@
 
 .rowRight .rowName {
   color: var(--hh-accent);
+}
+
+/*
+ * A guess that has been made steps back: it is reference now, and the row
+ * about to be played — the one carrying what is known — takes the room.
+ */
+.rowPlayed {
+  flex: 0 0 auto;
+}
+
+.rowPlayed .rowName {
+  min-height: 0;
+  font-size: 13.5px;
+}
+
+.rowPlayed .clues {
+  min-height: 0;
+}
+
+.rowPlayed .clue {
+  height: 32px;
+}
+
+.rowPlayed .clueValue {
+  font-size: 11px;
+}
+
+.rowPlayed .arrow {
+  font-size: 11px;
 }
 
 /* A row waiting to be played. */
@@ -173,6 +207,51 @@
   min-height: 0;
   padding: 0 3px;
   text-align: center;
+}
+
+/* Shown once, before the first guess: what the game is and what a colour means. */
+.intro {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 14px;
+}
+
+.introLead {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: rgba(22, 19, 14, 0.5);
+  max-width: 40ch;
+}
+
+.introKey {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(22, 19, 14, 0.42);
+}
+
+.swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.introKey .swatch:not(:first-child) {
+  margin-left: 8px;
+}
+
+.introArrow {
+  margin-left: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(22, 19, 14, 0.55);
 }
 
 /* What the clues have narrowed a column to, on the row about to be played. */
@@ -458,7 +537,52 @@
     height: 44px;
   }
 
-  /* What the clues have narrowed a column to, on the row about to be played. */
+  /* Shown once, before the first guess: what the game is and what a colour means. */
+.intro {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 14px;
+}
+
+.introLead {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: rgba(22, 19, 14, 0.5);
+  max-width: 40ch;
+}
+
+.introKey {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(22, 19, 14, 0.42);
+}
+
+.swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.introKey .swatch:not(:first-child) {
+  margin-left: 8px;
+}
+
+.introArrow {
+  margin-left: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(22, 19, 14, 0.55);
+}
+
+/* What the clues have narrowed a column to, on the row about to be played. */
 .known {
   font-size: 10px;
   font-weight: 600;
