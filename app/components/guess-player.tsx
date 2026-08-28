@@ -44,7 +44,7 @@ const COLUMNS = [
   { key: "position", label: "Pos" },
   { key: "college", label: "College" },
   { key: "team", label: "Team" },
-  { key: "jersey", label: "No." },
+  { key: "jersey", label: "Jersey" },
 ] as const;
 
 /** How long the winning row is left to light up before the reveal takes over. */
@@ -260,7 +260,11 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
             holds is always on screen without a header strip to say it. */}
         {!over &&
           Array.from({ length: MAX_GUESSES - guesses.length }, (_, i) => (
-            <article key={`empty-${i}`} className={`${styles.row} ${styles.rowEmpty}`} aria-hidden>
+            <article
+              key={`empty-${i}`}
+              className={`${styles.row} ${styles.rowEmpty} ${i === 0 ? styles.rowNext : ""}`}
+              aria-hidden
+            >
               <span className={styles.rowName} />
               <div className={styles.clues}>
                 {COLUMNS.map((column) => {
@@ -268,7 +272,13 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                   return (
                     <div key={column.key} className={styles.clue}>
                       {i === 0 && (
-                        <span className={known ? styles.known : styles.columnName}>
+                        <span
+                          className={
+                            known
+                              ? `${styles.known} ${known.length > 7 ? styles.knownLong : ""}`
+                              : styles.columnName
+                          }
+                        >
                           {known ?? column.label}
                         </span>
                       )}
@@ -409,7 +419,9 @@ function hintFor(key: (typeof COLUMNS)[number]["key"], hints: Hints): string | n
   if (key === "jersey") return range(hints.jersey, (value) => `#${value}`);
   if (key === "position") {
     if (hints.position?.exact) return hints.position.exact;
-    return hints.position?.shares?.length ? `has ${hints.position.shares.join("/")}` : null;
+    // What a partial match actually established: the answer plays that role,
+    // whatever else it plays. "plays F" says it; "has F" says nothing.
+    return hints.position?.shares?.length ? `plays ${hints.position.shares.join("/")}` : null;
   }
   if (key === "college") {
     if (!hints.college) return null;

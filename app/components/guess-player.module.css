@@ -69,8 +69,6 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding-top: 6px;
-  border-top: 1px solid rgba(22, 19, 14, 0.11);
 }
 
 /* Tight to the cells it belongs to: the name is the row's heading, not a
@@ -129,10 +127,46 @@
   box-shadow: inset 0 0 0 1px rgba(22, 19, 14, 0.05);
 }
 
-/* The row about to be played carries what is known, so it reads as live. */
-.rowEmpty:first-of-type .clue {
-  background: rgba(217, 72, 15, 0.05);
-  box-shadow: inset 0 0 0 1px rgba(217, 72, 15, 0.12);
+/* The row on deck is the live one: it holds what the guesses have established,
+   so it is the largest thing on the board and the only one in colour. */
+.rowNext {
+  flex: 1 1 auto;
+  max-height: 92px;
+}
+
+.rowNext .clue {
+  max-height: 50px;
+  background: rgba(217, 72, 15, 0.09);
+  box-shadow: inset 0 0 0 1.5px rgba(217, 72, 15, 0.22);
+}
+
+.rowNext .known {
+  font-size: 12px;
+}
+
+.rowNext .knownLong {
+  font-size: 10.5px;
+}
+
+.rowNext /* A longer phrase still has to clear its column. */
+.knownLong {
+  font-size: 10px;
+  letter-spacing: -0.03em;
+}
+
+.columnName {
+  font-size: 9px;
+  color: rgba(217, 72, 15, 0.5);
+}
+
+/* Rows further out are only placeholders. */
+.rowEmpty:not(.rowNext) {
+  flex: 0 0 auto;
+  max-height: 46px;
+}
+
+.rowEmpty:not(.rowNext) .clue {
+  max-height: 30px;
 }
 
 .rowRight {
@@ -263,6 +297,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* A longer phrase still has to clear its column. */
+.knownLong {
+  font-size: 10px;
+  letter-spacing: -0.03em;
 }
 
 .columnName {
@@ -591,6 +631,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* A longer phrase still has to clear its column. */
+.knownLong {
+  font-size: 10px;
+  letter-spacing: -0.03em;
 }
 
 .columnName {
