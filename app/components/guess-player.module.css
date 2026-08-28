@@ -8,66 +8,25 @@
   color: var(--hh-ink);
 }
 
-.header {
-  position: relative;
-  z-index: 2;
-  flex: none;
-  /* The design's status-bar gap, minus the part a browser already provides.
-     env() still clears a notch where there is one. */
-  padding: calc(16px + env(safe-area-inset-top)) var(--hh-screen-pad) 10px;
-  background: rgba(244, 241, 234, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(22, 19, 14, 0.1);
-}
-
-.headerTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.titleGroup {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  min-width: 0;
-}
-
 .back {
-  flex: none;
+  position: absolute;
+  top: calc(14px + env(safe-area-inset-top));
+  left: 14px;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
-  margin-left: -4px;
+  width: 34px;
+  height: 34px;
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: rgba(22, 19, 14, 0.07);
+  background: rgba(22, 19, 14, 0.06);
   cursor: pointer;
 }
 
 .back:hover {
   background: rgba(22, 19, 14, 0.14);
-}
-
-.kicker {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--hh-accent);
-}
-
-.progress {
-  flex: none;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: rgba(22, 19, 14, 0.35);
-  font-variant-numeric: tabular-nums;
 }
 
 /* Not an input: the keys below write here, so no system keyboard ever opens. */
@@ -78,74 +37,22 @@
 .board {
   /* Draft, height, pos, college, team, jersey — the full width for six, so
      nothing has to be abbreviated down to initials. */
-  --hh-clue-columns: 0.98fr 0.98fr 0.6fr 1.34fr 1.22fr 0.88fr;
+  --hh-clue-columns: 1.02fr 1fr 0.98fr 1.24fr 1.08fr 0.82fr;
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  padding: 8px var(--hh-screen-pad) 8px;
+  padding: calc(56px + env(safe-area-inset-top)) var(--hh-screen-pad) 8px;
   display: flex;
   flex-direction: column;
+  /* Whatever is left over spreads between the rows rather than pooling under
+     the last one. */
+  justify-content: space-between;
   gap: 8px;
 }
 
-
-
 /* Sticky, so the columns stay named even when the board does scroll. */
-.legend {
-  flex: none;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 0 0 4px;
-  background: var(--hh-paper);
-}
-
-.columns {
-  display: grid;
-  grid-template-columns: var(--hh-clue-columns);
-  gap: 3px;
-  padding-left: 2px;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(22, 19, 14, 0.45);
-}
-
-.columns span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 
 /* What the colours and arrows mean, said once. */
-.key {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: 0;
-  padding-left: 2px;
-  font-size: 10px;
-  font-weight: 500;
-  color: rgba(22, 19, 14, 0.42);
-}
-
-.swatch {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-}
-
-.key .swatch:not(:first-child) {
-  margin-left: 6px;
-}
-
-.arrowKey {
-  margin-left: 8px;
-  font-size: 12px;
-  font-weight: 800;
-  color: rgba(22, 19, 14, 0.55);
-}
 
 /*
  * Six rows divide the space that is left, however much that is. Wordle can size
@@ -153,15 +60,16 @@
  * A text field has to live with one, so the rows give ground instead.
  */
 .row {
-  /* The six rows share whatever is between the legend and the pad — filling it
-     when there is room, giving ground when there is not. */
+  /* The rows share whatever is between the intro and the pad — filling it when
+     there is room, giving ground when there is not. */
   flex: 1 1 auto;
-  min-height: 0;
+  /* Room to breathe, but a waiting row has no business being 100px tall. */
+  max-height: 84px;
+  /* And a floor, so a short screen scrolls rather than crushing the cells. */
+  min-height: 34px;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding-top: 6px;
-  border-top: 1px solid rgba(22, 19, 14, 0.11);
 }
 
 /* Tight to the cells it belongs to: the name is the row's heading, not a
@@ -179,17 +87,83 @@
   color: var(--hh-accent);
 }
 
-/* A row waiting to be played. */
-.rowEmpty .rowName {
-  color: rgba(22, 19, 14, 0.26);
-  font-weight: 500;
-}
-
-.rowEmpty .clue {
-  background: rgba(22, 19, 14, 0.028);
+/* A row waiting its turn — except where the board has settled a column. */
+.rowEmpty .clue:not(.hit):not(.close) {
+  background: rgba(22, 19, 14, 0.03);
   box-shadow: inset 0 0 0 1px rgba(22, 19, 14, 0.05);
 }
 
+/*
+ * The row on deck is boxed rather than tinted or lifted. A heavy ink rule is
+ * the design's own way of saying "this part matters" — the answer sheet is
+ * built on one — and it costs no colour, since colour already means hit, close
+ * or miss, and no height from any other row.
+ */
+.rowNext {
+  position: relative;
+  margin: 10px -10px 6px;
+  padding: 13px 10px 11px;
+  border: 2px solid var(--hh-ink);
+}
+
+/* Sits on the rule and interrupts it, the way a legend does. */
+.deckLabel {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  transform: translateY(-52%);
+  padding: 0 7px;
+  background: var(--hh-paper);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hh-ink);
+  white-space: nowrap;
+}
+
+.rowNext .clue:not(.hit):not(.close) {
+  background: rgba(22, 19, 14, 0.05);
+  color: rgba(22, 19, 14, 0.78);
+}
+
+.rowNext .known {
+  font-size: 12px;
+}
+
+.rowNext .knownLong {
+  font-size: 10.5px;
+}
+
+.rowNext .columnName {
+  color: rgba(22, 19, 14, 0.34);
+}
+
+.clues {
+  flex: 1;
+  min-height: 24px;
+  display: grid;
+  grid-template-columns: var(--hh-clue-columns);
+  /* items, not content: align-content sizes the track to what is in it, and an
+     unplayed row has nothing in it — the empty cells collapsed to zero. */
+  align-items: center;
+  gap: 4px;
+}
+
+.clue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 0;
+  height: 100%;
+  max-height: 44px;
+  min-height: 0;
+  padding: 0 3px;
+  text-align: center;
+}
+
+/* The winning row lights up cell by cell before the answer takes the screen. */
 .rowRight {
   animation: hh-row-hit 0.9s ease;
 }
@@ -202,17 +176,6 @@
   22% {
     transform: scale(1.012);
   }
-}
-
-.clues {
-  flex: 1;
-  min-height: 24px;
-  display: grid;
-  grid-template-columns: var(--hh-clue-columns);
-  /* items, not content: align-content sizes the track to what is in it, and an
-     unplayed row has nothing in it — the empty cells collapsed to zero. */
-  align-items: center;
-  gap: 4px;
 }
 
 .rowRight .clue {
@@ -233,35 +196,88 @@
   }
 }
 
-.clue {
-  animation: hh-cell-hit 0.5s ease backwards;
+
+/* Shown once, before the first guess: what the game is and what a colour means. */
+.intro {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 14px;
 }
 
-.rowRight .clue:nth-child(2) { animation-delay: 0.02s; }
-.rowRight .clue:nth-child(3) { animation-delay: 0.08s; }
-.rowRight .clue:nth-child(4) { animation-delay: 0.14s; }
-.rowRight .clue:nth-child(5) { animation-delay: 0.2s; }
-.rowRight .clue:nth-child(6) { animation-delay: 0.26s; }
-.rowRight .clue:nth-child(7) { animation-delay: 0.32s; }
-
-@keyframes hh-cell-hit {
-  from {
-    background: rgba(217, 72, 15, 0.18);
-    transform: scale(0.94);
-  }
+.introLead {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: rgba(22, 19, 14, 0.5);
+  max-width: 40ch;
 }
 
-.clue {
+.introKey {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 3px;
-  min-width: 0;
-  height: 100%;
-  max-height: 44px;
-  min-height: 0;
-  padding: 0 5px;
-  text-align: center;
+  gap: 5px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(22, 19, 14, 0.42);
+}
+
+.swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+.introKey .swatch:not(:first-child) {
+  margin-left: 8px;
+}
+
+.introArrow {
+  margin-left: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(22, 19, 14, 0.55);
+}
+
+/* What the clues have narrowed a column to, on the row about to be played. */
+.known {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The positions still standing. */
+.positionSet {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* A longer phrase still has to clear its column. */
+.knownLong {
+  font-size: 10px;
+  letter-spacing: -0.03em;
+}
+
+.columnName {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(22, 19, 14, 0.3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .clueValue {
@@ -507,31 +523,23 @@
 }
 
 @media (min-width: 900px) {
-  .header {
-    padding: 56px var(--hh-gutter) 20px;
-  }
-
-  .headerTop,
-  .pips,
-  
   .board {
-    padding: 20px var(--hh-gutter) calc(40px + var(--hh-bottom-inset));
+    padding: calc(56px + env(safe-area-inset-top)) var(--hh-gutter) 12px;
   }
 
-  .row,
-  .legend {
+  .row {
     width: 100%;
     max-width: var(--hh-page-max);
     margin-left: auto;
     margin-right: auto;
   }
 
-  .reveal {
-    padding: 120px var(--hh-gutter) 80px;
+  .rowNext {
+    max-width: calc(var(--hh-page-max) + 16px);
   }
 
   .clue {
-    height: 44px;
+    max-height: 48px;
   }
 
   .clueValue {
@@ -546,20 +554,20 @@
     font-size: 18px;
   }
 
+  .known {
+    font-size: 12px;
+  }
+
+  .reveal {
+    padding: 120px var(--hh-gutter) 80px;
+  }
+
   .revealName {
     font-size: clamp(60px, 6vw, 92px);
   }
 
   .revealTraits {
     font-size: 17px;
-  }
-
-  .columns {
-    font-size: 10px;
-  }
-
-  .key {
-    font-size: 12px;
   }
 
   .summary {

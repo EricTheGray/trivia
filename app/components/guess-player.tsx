@@ -4,7 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import type { GuessMode } from "@/lib/game-modes";
 import {
   compareGuess,
+  deduceHints,
+  formatHeight,
   isCorrect,
+  POSITION_LETTERS,
+  type Bound,
+  type Hints,
   localIsoDate,
   pickDailyPlayer,
   pickRandomPlayer,
@@ -30,10 +35,18 @@ const MAX_GUESSES = 6;
 const STORAGE_KEY = "hot-hand.guess";
 
 /** Named once above the board rather than on every cell of every guess. */
-const COLUMNS = ["Draft", "Height", "Pos", "College", "Team", "No."];
-
 /** How the workbook files players who never heard their name called. */
 const UNDRAFTED = "Undrafted";
+
+/** In the order the clues come back. */
+const COLUMNS = [
+  { key: "drafted", label: "Draft" },
+  { key: "height", label: "Height" },
+  { key: "position", label: "Pos" },
+  { key: "college", label: "College" },
+  { key: "team", label: "Team" },
+  { key: "jersey", label: "Jersey" },
+] as const;
 
 /** How long the winning row is left to light up before the reveal takes over. */
 const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
@@ -155,6 +168,12 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
     [pool],
   );
   const alreadyGuessed = useMemo(() => new Set(names), [names]);
+  /** What the guesses so far have pinned down, shown on the row coming next. */
+  const hints = useMemo(
+    () => (target ? deduceHints(guesses, target) : {}),
+    [guesses, target],
+  );
+  const knowsAnything = Object.keys(hints).length > 0;
 
   const solved = Boolean(target && guesses.some((guess) => isCorrect(guess, target)));
   const over = solved || guesses.length >= MAX_GUESSES;
@@ -184,54 +203,46 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
 
   return (
     <div className={styles.screen}>
-      <div className={styles.header}>
-        <div className={styles.headerTop}>
-          <div className={styles.titleGroup}>
-            {onBack && (
-              <button type="button" className={styles.back} onClick={onBack} aria-label="Back to modes">
-                <svg width="8" height="13" viewBox="0 0 13 22" fill="none" aria-hidden>
-                  <path
-                    d="M11 1L2 11l9 10"
-                    stroke="rgba(22,19,14,.6)"
-                    strokeWidth="2.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            )}
-            <span className={styles.kicker}>{mode.title}</span>
-          </div>
-          <span className={styles.progress}>
-            {guesses.length} / {MAX_GUESSES}
-          </span>
-        </div>
-
-      </div>
+      {onBack && (
+        <button type="button" className={styles.back} onClick={onBack} aria-label="Back to modes">
+          <svg width="8" height="13" viewBox="0 0 13 22" fill="none" aria-hidden>
+            <path
+              d="M11 1L2 11l9 10"
+              stroke="rgba(22,19,14,.6)"
+              strokeWidth="2.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      )}
 
       <div className={styles.board}>
-        <div className={styles.legend}>
-          <div className={styles.columns} aria-hidden>
-            {COLUMNS.map((column) => (
-              <span key={column}>{column}</span>
-            ))}
+        {guesses.length === 0 && !over && (
+          <div className={styles.intro}>
+            <p className={styles.introLead}>
+              Six guesses at {daily ? "today’s player" : "a player"}. Every one comes back scored on
+              all six counts.
+            </p>
+            <p className={styles.introKey}>
+              <span className={`${styles.swatch} ${styles.hit}`} aria-hidden />
+              exact
+              <span className={`${styles.swatch} ${styles.close}`} aria-hidden />
+              close
+              <span className={styles.introArrow} aria-hidden>
+                ↑
+              </span>
+              answer is higher
+            </p>
           </div>
-          <p className={styles.key}>
-            <span className={`${styles.swatch} ${styles.hit}`} aria-hidden />
-            exact
-            <span className={`${styles.swatch} ${styles.close}`} aria-hidden />
-            close
-            <span className={styles.arrowKey} aria-hidden>
-              ↑
-            </span>
-            answer is higher
-          </p>
-        </div>
-
+        )}
         {guesses.map((guess) => {
           const right = target ? isCorrect(guess, target) : false;
           return (
-            <article key={guess.name} className={`${styles.row} ${right ? styles.rowRight : ""}`}>
+            <article
+              key={guess.name}
+              className={`${styles.row} ${styles.rowPlayed} ${right ? styles.rowRight : ""}`}
+            >
               <h3 className={styles.rowName}>{guess.name}</h3>
               {target && (
                 <div className={styles.clues}>
@@ -247,14 +258,67 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
         {/* The rest of the grid is drawn from the start, so the shape of the
             game is visible before a single guess and nothing shifts as they
             land. Once the round is over the unused rows have nothing to say. */}
+        {/* The row you are about to fill names its columns, so what each one
+            holds is always on screen without a header strip to say it. */}
         {!over &&
           Array.from({ length: MAX_GUESSES - guesses.length }, (_, i) => (
-            <article key={`empty-${i}`} className={`${styles.row} ${styles.rowEmpty}`} aria-hidden>
-              <h3 className={styles.rowName}>Guess {guesses.length + i + 1}</h3>
+            <article
+              key={`empty-${i}`}
+              className={`${styles.row} ${styles.rowEmpty} ${i === 0 ? styles.rowNext : ""}`}
+              aria-hidden
+            >
+              {i === 0 && (
+                <span className={styles.deckLabel}>
+                  {knowsAnything ? "What you know" : "Your next guess"}
+                </span>
+              )}
               <div className={styles.clues}>
-                {COLUMNS.map((column) => (
-                  <div key={column} className={styles.clue} />
-                ))}
+                {COLUMNS.map((column) => {
+                  if (column.key === "position") {
+                    const position = i === 0 ? hints.position : undefined;
+                    // Filled means "you matched this". A position worked out
+                    // from a close and two misses is known, but it was never
+                    // hit, so it stays tinted.
+                    const hitPosition = Boolean(position?.hit);
+                    return (
+                      <div
+                        key={column.key}
+                        className={`${styles.clue} ${
+                          hitPosition ? styles.hit : position ? styles.close : ""
+                        }`}
+                      >
+                        {i === 0 &&
+                          (position ? (
+                            // All three roles, always. A bare "G" cannot say
+                            // whether a forward is ruled out or merely untested,
+                            // and that is the whole question a player is asking.
+                            <PositionSet known={position} />
+                          ) : (
+                            <span className={styles.columnName}>{column.label}</span>
+                          ))}
+                      </div>
+                    );
+                  }
+                  const known = i === 0 ? hintFor(column.key, hints) : null;
+                  // Ink, not accent: on this row colour reports how much is
+                  // known, and accent already answers "did my guess match".
+                  const state = known?.state ? styles[known.state] : "";
+                  return (
+                    <div key={column.key} className={`${styles.clue} ${state}`}>
+                      {i === 0 && (
+                        <span
+                          className={
+                            known
+                              ? `${styles.known} ${known.text.length > 5 ? styles.knownLong : ""}`
+                              : styles.columnName
+                          }
+                        >
+                          {known?.text ?? column.label}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </article>
           ))}
@@ -368,6 +432,81 @@ function short(clue: Clue) {
     return clue.value === "No college" ? "None" : shortCollege(clue.value);
   }
   return clue.value;
+}
+
+/**
+ * The positions still standing. Nothing is crossed out: a position that a guess
+ * has eliminated simply stops being listed, and what is left is what the answer
+ * could still be. One left is the answer.
+ */
+function PositionSet({ known }: { known: NonNullable<Hints["position"]> }) {
+  const { candidates } = known;
+  // Two values fit side by side; beyond that, name the roles still in play
+  // rather than spelling out five hyphenated positions in fifty pixels.
+  const text =
+    candidates.length <= 2
+      ? candidates.join("  ")
+      : POSITION_LETTERS.filter((letter) =>
+          candidates.some((candidate) => candidate.split("-").includes(letter)),
+        ).join("  ");
+
+  return <span className={styles.positionSet}>{text}</span>;
+}
+
+/**
+ * What the board has established for one column, in a cell's worth of words:
+ * a settled value, or the range the arrows have squeezed it into.
+ */
+function hintFor(
+  key: (typeof COLUMNS)[number]["key"],
+  hints: Hints,
+): { text: string; state: "hit" | "close" | null } | null {
+  const settled = (text: string | null) => (text === null ? null : { text, state: "hit" as const });
+  const narrowed = (text: string | null) => (text === null ? null : { text, state: null });
+  const partial = (text: string) => ({ text, state: "close" as const });
+
+  if (key === "drafted") {
+    const bound = hints.drafted;
+    // "1998–09" rather than "1998–2009": a draft range is read at a glance, it
+    // only ever runs forwards, and the column is fifty pixels wide.
+    if (bound?.exact !== undefined) return settled(String(bound.exact));
+    if (bound?.min !== undefined && bound.max !== undefined) {
+      return narrowed(`${bound.min}–${String(bound.max).slice(2)}`);
+    }
+    return narrowed(range(bound, String));
+  }
+  // A prime, not a hyphen: "6-7–6-10" is three dashes fighting each other.
+  if (key === "height") {
+    const format = (value: number) => formatHeight(value).replace("-", "′");
+    if (hints.height?.exact !== undefined) return settled(format(hints.height.exact));
+    return narrowed(range(hints.height, format));
+  }
+  if (key === "jersey") {
+    const bound = hints.jersey;
+    if (bound?.exact !== undefined) return settled(`#${bound.exact}`);
+    // One hash, not two: "#24–31", not "#24–#31".
+    if (bound?.min !== undefined && bound.max !== undefined) {
+      return narrowed(`#${bound.min}–${bound.max}`);
+    }
+    return narrowed(range(bound, (value) => `#${value}`));
+  }
+  if (key === "position") return null; // drawn as a set of letters, not a phrase
+  if (key === "college") {
+    if (!hints.college) return null;
+    return settled(hints.college.exact === null ? "None" : shortCollege(hints.college.exact));
+  }
+  if (hints.team?.exact) return settled(hints.team.exact.split(" ").pop() ?? hints.team.exact);
+  return hints.team?.conference ? partial(hints.team.conference) : null;
+}
+
+function range(bound: Bound | undefined, format: (value: number) => string): string | null {
+  if (!bound) return null;
+  if (bound.exact !== undefined) return format(bound.exact);
+  const { min, max } = bound;
+  if (min !== undefined && max !== undefined) return `${format(min)}–${format(max)}`;
+  if (min !== undefined) return `${format(min)}+`;
+  if (max !== undefined) return `≤${format(max)}`;
+  return null;
 }
 
 /** The one-line description under the answer. */
