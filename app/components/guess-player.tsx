@@ -7,7 +7,6 @@ import {
   deduceHints,
   formatHeight,
   isCorrect,
-  positionLabel,
   type Bound,
   type Hints,
   localIsoDate,
@@ -360,8 +359,6 @@ const SHORT_TEAM: Record<string, string> = {
 };
 
 function short(clue: Clue) {
-  // Position carries its own table form — "PG/SG" for a recorded guard.
-  if (clue.key === "position") return clue.short ?? clue.value;
   if (clue.key === "team") {
     const nickname = clue.value.split(" ").pop() ?? clue.value;
     return SHORT_TEAM[nickname] ?? nickname;
@@ -392,7 +389,7 @@ function hintFor(key: (typeof COLUMNS)[number]["key"], hints: Hints): string | n
   if (key === "height") return range(hints.height, (value) => formatHeight(value).replace("-", "′"));
   if (key === "jersey") return range(hints.jersey, (value) => `#${value}`);
   if (key === "position") {
-    if (hints.position?.exact) return positionLabel(hints.position.exact);
+    if (hints.position?.exact) return hints.position.exact;
     return hints.position?.shares?.length ? `has ${hints.position.shares.join("/")}` : null;
   }
   if (key === "college") {
@@ -418,7 +415,7 @@ function traitLine(player: Player) {
   const draft =
     player.team === UNDRAFTED ? "undrafted" : `drafted ${player.drafted} by ${player.team}`;
   const college = player.college ?? "no college";
-  return `${player.height} · ${positionLabel(player.position)} · ${draft} · ${college}`;
+  return `${player.height} · ${player.position} · ${draft} · ${college}`;
 }
 
 function ClueCell({ clue }: { clue: Clue }) {
