@@ -265,21 +265,22 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
               className={`${styles.row} ${styles.rowEmpty} ${i === 0 ? styles.rowNext : ""}`}
               aria-hidden
             >
-              <span className={styles.rowName} />
               <div className={styles.clues}>
                 {COLUMNS.map((column) => {
                   const known = i === 0 ? hintFor(column.key, hints) : null;
+                  // A column that is settled keeps the colour it was settled in.
+                  const state = known?.state ? styles[known.state] : "";
                   return (
-                    <div key={column.key} className={styles.clue}>
+                    <div key={column.key} className={`${styles.clue} ${state}`}>
                       {i === 0 && (
                         <span
                           className={
                             known
-                              ? `${styles.known} ${known.length > 7 ? styles.knownLong : ""}`
+                              ? `${styles.known} ${known.text.length > 7 ? styles.knownLong : ""}`
                               : styles.columnName
                           }
                         >
-                          {known ?? column.label}
+                          {known?.text ?? column.label}
                         </span>
                       )}
                     </div>
@@ -404,31 +405,48 @@ function short(clue: Clue) {
  * What the board has established for one column, in a cell's worth of words:
  * a settled value, or the range the arrows have squeezed it into.
  */
-function hintFor(key: (typeof COLUMNS)[number]["key"], hints: Hints): string | null {
+function hintFor(
+  key: (typeof COLUMNS)[number]["key"],
+  hints: Hints,
+): { text: string; state: "hit" | "close" | null } | null {
+  const settled = (text: string | null) => (text === null ? null : { text, state: "hit" as const });
+  const narrowed = (text: string | null) => (text === null ? null : { text, state: null });
+  const partial = (text: string) => ({ text, state: "close" as const });
+
   if (key === "drafted") {
     const bound = hints.drafted;
     // "1998–09" rather than "1998–2009": a draft range is read at a glance, it
     // only ever runs forwards, and the column is fifty pixels wide.
+    if (bound?.exact !== undefined) return settled(String(bound.exact));
     if (bound?.min !== undefined && bound.max !== undefined) {
-      return `${bound.min}–${String(bound.max).slice(2)}`;
+      return narrowed(`${bound.min}–${String(bound.max).slice(2)}`);
     }
-    return range(bound, String);
+    return narrowed(range(bound, String));
   }
   // A prime, not a hyphen: "6-7–6-10" is three dashes fighting each other.
-  if (key === "height") return range(hints.height, (value) => formatHeight(value).replace("-", "′"));
-  if (key === "jersey") return range(hints.jersey, (value) => `#${value}`);
+  if (key === "height") {
+    const format = (value: number) => formatHeight(value).replace("-", "′");
+    if (hints.height?.exact !== undefined) return settled(format(hints.height.exact));
+    return narrowed(range(hints.height, format));
+  }
+  if (key === "jersey") {
+    if (hints.jersey?.exact !== undefined) return settled(`#${hints.jersey.exact}`);
+    return narrowed(range(hints.jersey, (value) => `#${value}`));
+  }
   if (key === "position") {
-    if (hints.position?.exact) return hints.position.exact;
+    if (hints.position?.exact) return settled(hints.position.exact);
     // What a partial match actually established: the answer plays that role,
     // whatever else it plays. "plays F" says it; "has F" says nothing.
-    return hints.position?.shares?.length ? `plays ${hints.position.shares.join("/")}` : null;
+    return hints.position?.shares?.length
+      ? partial(`plays ${hints.position.shares.join("/")}`)
+      : null;
   }
   if (key === "college") {
     if (!hints.college) return null;
-    return hints.college.exact === null ? "None" : shortCollege(hints.college.exact);
+    return settled(hints.college.exact === null ? "None" : shortCollege(hints.college.exact));
   }
-  if (hints.team?.exact) return hints.team.exact.split(" ").pop() ?? hints.team.exact;
-  return hints.team?.conference ?? null;
+  if (hints.team?.exact) return settled(hints.team.exact.split(" ").pop() ?? hints.team.exact);
+  return hints.team?.conference ? partial(hints.team.conference) : null;
 }
 
 function range(bound: Bound | undefined, format: (value: number) => string): string | null {
