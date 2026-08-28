@@ -65,7 +65,8 @@
   flex: 1 1 auto;
   /* Room to breathe, but a waiting row has no business being 100px tall. */
   max-height: 84px;
-  min-height: 0;
+  /* And a floor, so a short screen scrolls rather than crushing the cells. */
+  min-height: 34px;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -93,27 +94,34 @@
 }
 
 /*
- * The row on deck is lifted off the board rather than tinted. Tinting it would
- * borrow the colour that already means "close", and stepping every other row
- * down in height made the board look starved. Depth says "this one" without
- * spending a colour or a pixel of anyone else's height.
+ * The row on deck is boxed rather than tinted or lifted. A heavy ink rule is
+ * the design's own way of saying "this part matters" — the answer sheet is
+ * built on one — and it costs no colour, since colour already means hit, close
+ * or miss, and no height from any other row.
  */
 .rowNext {
   position: relative;
-  z-index: 1;
-  margin: 2px -10px;
-  padding: 9px 10px;
-  border-radius: 14px;
-  background: var(--hh-cream);
-  box-shadow:
-    0 0 0 1px rgba(22, 19, 14, 0.04),
-    0 1px 2px rgba(10, 8, 5, 0.05),
-    0 6px 14px rgba(10, 8, 5, 0.07),
-    0 18px 36px rgba(10, 8, 5, 0.08);
+  margin: 10px -10px 6px;
+  padding: 13px 10px 11px;
+  border: 2px solid var(--hh-ink);
 }
 
-/* The card's own neutral, but only where nothing has been settled: a column
-   that is known keeps the colour it was known in. */
+/* Sits on the rule and interrupts it, the way a legend does. */
+.deckLabel {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  transform: translateY(-52%);
+  padding: 0 7px;
+  background: var(--hh-paper);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hh-ink);
+  white-space: nowrap;
+}
+
 .rowNext .clue:not(.hit):not(.close) {
   background: rgba(22, 19, 14, 0.05);
   color: rgba(22, 19, 14, 0.78);

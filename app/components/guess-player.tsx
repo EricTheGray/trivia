@@ -172,6 +172,7 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
     () => (target ? deduceHints(guesses, target) : {}),
     [guesses, target],
   );
+  const knowsAnything = Object.keys(hints).length > 0;
 
   const solved = Boolean(target && guesses.some((guess) => isCorrect(guess, target)));
   const over = solved || guesses.length >= MAX_GUESSES;
@@ -265,6 +266,11 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
               className={`${styles.row} ${styles.rowEmpty} ${i === 0 ? styles.rowNext : ""}`}
               aria-hidden
             >
+              {i === 0 && (
+                <span className={styles.deckLabel}>
+                  {knowsAnything ? "What you know" : "Your next guess"}
+                </span>
+              )}
               <div className={styles.clues}>
                 {COLUMNS.map((column) => {
                   const known = i === 0 ? hintFor(column.key, hints) : null;
