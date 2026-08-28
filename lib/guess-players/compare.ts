@@ -25,6 +25,26 @@ export type Clue = {
 
 const NO_COLLEGE = "No college";
 
+/**
+ * The source records positions as guard, forward and centre, with hybrids —
+ * there is no point-guard/shooting-guard split anywhere in it. These are the
+ * modern positions each recorded value covers, so a guard reads "PG/SG": a
+ * statement about the position on file, not a claim about the player.
+ */
+const POSITION_LABELS: Record<string, string> = {
+  G: "PG/SG",
+  F: "SF/PF",
+  C: "C",
+  "G-F": "SG/SF",
+  "F-G": "SF/SG",
+  "F-C": "PF/C",
+  "C-F": "C/PF",
+};
+
+export function positionLabel(position: string): string {
+  return POSITION_LABELS[position] ?? position;
+}
+
 function numericClue(
   key: ClueKey,
   label: string,
@@ -45,8 +65,9 @@ function numericClue(
 /** Positions share a letter when one plays some of the other's role. */
 function positionClue(guess: GuessPlayer, target: GuessPlayer): Clue {
   const value = guess.position;
+  const short = positionLabel(guess.position);
   if (guess.position === target.position) {
-    return { key: "position", label: "Position", value, verdict: "hit" };
+    return { key: "position", label: "Position", value, short, verdict: "hit" };
   }
   const guessed = new Set(guess.position.split("-"));
   const shared = target.position.split("-").filter((part) => guessed.has(part));
@@ -55,11 +76,12 @@ function positionClue(guess: GuessPlayer, target: GuessPlayer): Clue {
       key: "position",
       label: "Position",
       value,
+      short,
       verdict: "close",
       note: `Also plays ${shared.join("/")}`,
     };
   }
-  return { key: "position", label: "Position", value, verdict: "miss" };
+  return { key: "position", label: "Position", value, short, verdict: "miss" };
 }
 
 /**

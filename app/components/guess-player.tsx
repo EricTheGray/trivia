@@ -5,6 +5,7 @@ import type { GuessMode } from "@/lib/game-modes";
 import {
   compareGuess,
   isCorrect,
+  positionLabel,
   localIsoDate,
   pickDailyPlayer,
   pickRandomPlayer,
@@ -30,10 +31,11 @@ const MAX_GUESSES = 6;
 const STORAGE_KEY = "hot-hand.guess";
 
 /** Named once above the board rather than on every cell of every guess. */
-const COLUMNS = ["Draft", "Height", "Pos", "College", "Team", "No."];
-
 /** How the workbook files players who never heard their name called. */
 const UNDRAFTED = "Undrafted";
+
+/** Draft, height, position, college, team, jersey. */
+const CLUE_COUNT = 6;
 
 /** How long the winning row is left to light up before the reveal takes over. */
 const REVEAL_DELAY_MS = { solved: 900, lost: 420 };
@@ -210,24 +212,6 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
       </div>
 
       <div className={styles.board}>
-        <div className={styles.legend}>
-          <div className={styles.columns} aria-hidden>
-            {COLUMNS.map((column) => (
-              <span key={column}>{column}</span>
-            ))}
-          </div>
-          <p className={styles.key}>
-            <span className={`${styles.swatch} ${styles.hit}`} aria-hidden />
-            exact
-            <span className={`${styles.swatch} ${styles.close}`} aria-hidden />
-            close
-            <span className={styles.arrowKey} aria-hidden>
-              ↑
-            </span>
-            answer is higher
-          </p>
-        </div>
-
         {guesses.map((guess) => {
           const right = target ? isCorrect(guess, target) : false;
           return (
@@ -250,10 +234,10 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
         {!over &&
           Array.from({ length: MAX_GUESSES - guesses.length }, (_, i) => (
             <article key={`empty-${i}`} className={`${styles.row} ${styles.rowEmpty}`} aria-hidden>
-              <h3 className={styles.rowName}>Guess {guesses.length + i + 1}</h3>
+              <span className={styles.rowName} />
               <div className={styles.clues}>
-                {COLUMNS.map((column) => (
-                  <div key={column} className={styles.clue} />
+                {Array.from({ length: CLUE_COUNT }, (_, cell) => (
+                  <div key={cell} className={styles.clue} />
                 ))}
               </div>
             </article>
@@ -360,6 +344,8 @@ const SHORT_TEAM: Record<string, string> = {
 };
 
 function short(clue: Clue) {
+  // Position carries its own table form — "PG/SG" for a recorded guard.
+  if (clue.key === "position") return clue.short ?? clue.value;
   if (clue.key === "team") {
     const nickname = clue.value.split(" ").pop() ?? clue.value;
     return SHORT_TEAM[nickname] ?? nickname;
@@ -375,7 +361,7 @@ function traitLine(player: Player) {
   const draft =
     player.team === UNDRAFTED ? "undrafted" : `drafted ${player.drafted} by ${player.team}`;
   const college = player.college ?? "no college";
-  return `${player.height} · ${player.position} · ${draft} · ${college}`;
+  return `${player.height} · ${positionLabel(player.position)} · ${draft} · ${college}`;
 }
 
 function ClueCell({ clue }: { clue: Clue }) {

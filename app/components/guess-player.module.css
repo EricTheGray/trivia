@@ -78,7 +78,7 @@
 .board {
   /* Draft, height, pos, college, team, jersey — the full width for six, so
      nothing has to be abbreviated down to initials. */
-  --hh-clue-columns: 0.98fr 0.98fr 0.6fr 1.34fr 1.22fr 0.88fr;
+  --hh-clue-columns: 0.95fr 0.95fr 0.95fr 1.3fr 1.15fr 0.85fr;
   flex: 1;
   min-height: 0;
   overflow: hidden;
@@ -88,64 +88,9 @@
   gap: 8px;
 }
 
-
-
 /* Sticky, so the columns stay named even when the board does scroll. */
-.legend {
-  flex: none;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 0 0 4px;
-  background: var(--hh-paper);
-}
-
-.columns {
-  display: grid;
-  grid-template-columns: var(--hh-clue-columns);
-  gap: 3px;
-  padding-left: 2px;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(22, 19, 14, 0.45);
-}
-
-.columns span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 
 /* What the colours and arrows mean, said once. */
-.key {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: 0;
-  padding-left: 2px;
-  font-size: 10px;
-  font-weight: 500;
-  color: rgba(22, 19, 14, 0.42);
-}
-
-.swatch {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-}
-
-.key .swatch:not(:first-child) {
-  margin-left: 6px;
-}
-
-.arrowKey {
-  margin-left: 8px;
-  font-size: 12px;
-  font-weight: 800;
-  color: rgba(22, 19, 14, 0.55);
-}
 
 /*
  * Six rows divide the space that is left, however much that is. Wordle can size
@@ -168,6 +113,7 @@
    separate line of text floating above it. */
 .rowName {
   margin: 0;
+  min-height: 19px;
   padding-left: 2px;
   font-size: 16px;
   font-weight: 600;
@@ -519,13 +465,7 @@
   }
 
   .row,
-  .legend {
-    width: 100%;
-    max-width: var(--hh-page-max);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+  
   .reveal {
     padding: 120px var(--hh-gutter) 80px;
   }
@@ -554,14 +494,8 @@
     font-size: 17px;
   }
 
-  .columns {
-    font-size: 10px;
-  }
-
-  .key {
-    font-size: 12px;
-  }
-
+  
+  
   .summary {
     padding: 24px var(--hh-gutter) calc(24px + var(--hh-bottom-inset));
   }
