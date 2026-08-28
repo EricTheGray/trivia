@@ -44,7 +44,8 @@ const COLUMNS = [
   { key: "drafted", label: "Draft" },
   { key: "height", label: "Height" },
   { key: "position", label: "Pos" },
-  { key: "initials", label: "Initials" },
+  { key: "firstInitial", label: "First" },
+  { key: "lastInitial", label: "Last" },
   { key: "team", label: "Team" },
   { key: "jersey", label: "Jersey" },
 ] as const;
@@ -252,34 +253,6 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
               )}
               <div className={styles.clues}>
                 {COLUMNS.map((column) => {
-                  if (column.key === "initials") {
-                    // Only the row on deck carries what is known; the rows
-                    // behind it are placeholders and stay plain.
-                    const first = i === 0 ? alphabetRange(hints.firstInitial) : null;
-                    const last = i === 0 ? alphabetRange(hints.lastInitial) : null;
-                    const both =
-                      i === 0 &&
-                      hints.firstInitial?.exact !== undefined &&
-                      hints.lastInitial?.exact !== undefined;
-                    return (
-                      <div
-                        key={column.key}
-                        className={`${styles.clue} ${styles.stacked} ${
-                          both ? styles.hit : first || last ? styles.close : ""
-                        }`}
-                      >
-                        {i === 0 &&
-                          (first || last ? (
-                            <>
-                              <span className={styles.initial}>{first ?? "?"}</span>
-                              <span className={styles.initial}>{last ?? "?"}</span>
-                            </>
-                          ) : (
-                            <span className={styles.columnName}>{column.label}</span>
-                          ))}
-                      </div>
-                    );
-                  }
                   if (column.key === "position") {
                     const position = i === 0 ? hints.position : undefined;
                     // Filled means "you matched this". A position worked out
@@ -423,20 +396,6 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
   );
 }
 
-/** A letter bound, written the way the other ranges are. */
-function alphabetRange(bound?: Bound): string | null {
-  const letter = (code: number) => String.fromCharCode(code);
-  if (!bound) return null;
-  if (bound.exact !== undefined) return letter(bound.exact);
-  const { min, max } = bound;
-  if (min !== undefined && max !== undefined) {
-    return min === max ? letter(min) : `${letter(min)}–${letter(max)}`;
-  }
-  if (min !== undefined) return `${letter(min)}+`;
-  if (max !== undefined) return `≤${letter(max)}`;
-  return null;
-}
-
 /**
  * A guess scored across the six columns. Initials share one of them, stacked:
  * a name is two letters and they narrow independently.
@@ -446,30 +405,6 @@ function GuessRow({ guess, target }: { guess: Player; target: Player }) {
   return (
     <div className={styles.clues}>
       {COLUMNS.map((column) => {
-        if (column.key === "initials") {
-          const first = clues.get("firstInitial");
-          const last = clues.get("lastInitial");
-          if (!first || !last) return null;
-          const verdict = first.verdict === "hit" && last.verdict === "hit" ? "hit" : "miss";
-          return (
-            <div
-              key={column.key}
-              className={`${styles.clue} ${styles.stacked} ${styles[verdict]}`}
-              title={`${first.label} ${first.value}, ${last.label} ${last.value}`}
-            >
-              {[first, last].map((clue) => (
-                <span key={clue.key} className={styles.initial}>
-                  {clue.value}
-                  {clue.direction && (
-                    <span className={styles.arrow}>
-                      {clue.direction === "higher" ? "↑" : "↓"}
-                    </span>
-                  )}
-                </span>
-              ))}
-            </div>
-          );
-        }
         const clue = clues.get(column.key as ClueKey);
         return clue ? <ClueCell key={column.key} clue={clue} /> : null;
       })}
@@ -524,9 +459,10 @@ function hintFor(
 
   if (key === "drafted") {
     const bound = hints.drafted;
+    const only = pinned(bound);
+    if (only !== null) return settled(String(only));
     // "1998–09" rather than "1998–2009": a draft range is read at a glance, it
     // only ever runs forwards, and the column is fifty pixels wide.
-    if (bound?.exact !== undefined) return settled(String(bound.exact));
     if (bound?.min !== undefined && bound.max !== undefined) {
       return narrowed(`${bound.min}–${String(bound.max).slice(2)}`);
     }
@@ -535,31 +471,52 @@ function hintFor(
   // A prime, not a hyphen: "6-7–6-10" is three dashes fighting each other.
   if (key === "height") {
     const format = (value: number) => formatHeight(value).replace("-", "′");
-    if (hints.height?.exact !== undefined) return settled(format(hints.height.exact));
+    const only = pinned(hints.height);
+    if (only !== null) return settled(format(only));
     return narrowed(range(hints.height, format));
   }
   if (key === "jersey") {
     const bound = hints.jersey;
-    if (bound?.exact !== undefined) return settled(`#${bound.exact}`);
+    const only = pinned(bound);
+    if (only !== null) return settled(`#${only}`);
     // One hash, not two: "#24–31", not "#24–#31".
     if (bound?.min !== undefined && bound.max !== undefined) {
       return narrowed(`#${bound.min}–${bound.max}`);
     }
     return narrowed(range(bound, (value) => `#${value}`));
   }
-  // Position and initials draw their own cells.
-  if (key === "position" || key === "initials") return null;
+  if (key === "position") return null; // drawn as the values still standing
+
+  if (key === "firstInitial" || key === "lastInitial") {
+    const bound = key === "firstInitial" ? hints.firstInitial : hints.lastInitial;
+    const letter = (code: number) => String.fromCharCode(code);
+    const only = pinned(bound);
+    if (only !== null) return settled(letter(only));
+    return narrowed(range(bound, letter));
+  }
   if (hints.team?.exact) return settled(hints.team.exact.split(" ").pop() ?? hints.team.exact);
   return hints.team?.conference ? partial(hints.team.conference) : null;
 }
 
+/** The single value a bound has been squeezed to, if it has been. */
+function pinned(bound?: Bound): number | null {
+  if (!bound) return null;
+  if (bound.exact !== undefined) return bound.exact;
+  if (bound.min !== undefined && bound.min === bound.max) return bound.min;
+  return null;
+}
+
+/**
+ * A bound in words. One-sided bounds name the guess that set them and point —
+ * "1984 ↓" rather than "≤1983" — since the guess is what the reader saw, and an
+ * arrow says less-than without a symbol to decode.
+ */
 function range(bound: Bound | undefined, format: (value: number) => string): string | null {
   if (!bound) return null;
-  if (bound.exact !== undefined) return format(bound.exact);
   const { min, max } = bound;
   if (min !== undefined && max !== undefined) return `${format(min)}–${format(max)}`;
-  if (min !== undefined) return `${format(min)}+`;
-  if (max !== undefined) return `≤${format(max)}`;
+  if (min !== undefined) return `${format(min - 1)} ↑`;
+  if (max !== undefined) return `${format(max + 1)} ↓`;
   return null;
 }
 

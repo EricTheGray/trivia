@@ -87,8 +87,19 @@ export function GuessPad({ index, exclude, onGuess, active }: GuessPadProps) {
   return (
     <div className={styles.pad}>
       <div className={styles.line} aria-live="polite">
-        <span className={query ? styles.typed : styles.placeholder}>{query || "Type a name"}</span>
-        <span className={styles.caret} aria-hidden />
+        {/* The caret sits where the next letter lands: after what is typed, or
+            at the head of the line when the placeholder is showing. */}
+        {query ? (
+          <>
+            <span className={styles.typed}>{query}</span>
+            <span className={styles.caret} aria-hidden />
+          </>
+        ) : (
+          <>
+            <span className={styles.caret} aria-hidden />
+            <span className={styles.placeholder}>Type a name</span>
+          </>
+        )}
       </div>
 
       <div className={styles.names}>
