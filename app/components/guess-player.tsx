@@ -276,16 +276,20 @@ export function GuessPlayerRound({ mode, active, onBack, onSheetChange }: GuessP
                 {COLUMNS.map((column) => {
                   if (column.key === "position") {
                     const position = i === 0 ? hints.position : undefined;
-                    const covered = position ? positionCovered(position) : false;
+                    const settled = position ? settledPosition(position) : null;
                     return (
                       <div
                         key={column.key}
                         className={`${styles.clue} ${
-                          covered ? styles.hit : position ? styles.close : ""
+                          settled ? styles.hit : position ? styles.close : ""
                         }`}
                       >
                         {i === 0 &&
-                          (position ? (
+                          (settled ? (
+                            // Once it is known, say it: the roles ruled out have
+                            // nothing left to tell anyone.
+                            <span className={styles.known}>{settled}</span>
+                          ) : position ? (
                             <PositionSet known={position} />
                           ) : (
                             <span className={styles.columnName}>{column.label}</span>
@@ -427,11 +431,17 @@ function short(clue: Clue) {
   return clue.value;
 }
 
-/** Every letter accounted for — in or out — is a position actually known. */
-function positionCovered(known: NonNullable<Hints["position"]>): boolean {
-  return POSITION_LETTERS.every(
+/**
+ * The answer's position, once the board actually knows it — which needs more
+ * than every role being accounted for. Ruling in F and C leaves F-C and C-F
+ * still on the table, so that is not settled; a single role is.
+ */
+function settledPosition(known: NonNullable<Hints["position"]>): string | null {
+  if (known.exact) return known.exact;
+  const resolved = POSITION_LETTERS.every(
     (letter) => known.includes.includes(letter) || known.excludes.includes(letter),
   );
+  return resolved && known.includes.length === 1 ? known.includes[0] : null;
 }
 
 /**
