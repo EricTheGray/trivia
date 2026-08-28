@@ -87,88 +87,73 @@
   color: var(--hh-accent);
 }
 
-/*
- * A guess that has been made steps back: it is reference now, and the row
- * about to be played — the one carrying what is known — takes the room.
- */
-.rowPlayed {
-  flex: 0 0 auto;
-}
-
-.rowPlayed .rowName {
-  min-height: 0;
-  font-size: 13.5px;
-}
-
-.rowPlayed .clues {
-  min-height: 0;
-}
-
-.rowPlayed .clue {
-  height: 32px;
-}
-
-.rowPlayed .clueValue {
-  font-size: 11px;
-}
-
-.rowPlayed .arrow {
-  font-size: 11px;
-}
-
-/* A row waiting to be played. */
-.rowEmpty .rowName {
-  color: rgba(22, 19, 14, 0.26);
-  font-weight: 500;
-}
-
+/* A row waiting its turn. */
 .rowEmpty .clue {
-  background: rgba(22, 19, 14, 0.028);
+  background: rgba(22, 19, 14, 0.03);
   box-shadow: inset 0 0 0 1px rgba(22, 19, 14, 0.05);
 }
 
-/* The row on deck is the live one: it holds what the guesses have established,
-   so it is the largest thing on the board and the only one in colour. */
+/*
+ * The row on deck is lifted off the board rather than tinted. Tinting it would
+ * borrow the colour that already means "close", and stepping every other row
+ * down in height made the board look starved. Depth says "this one" without
+ * spending a colour or a pixel of anyone else's height.
+ */
 .rowNext {
-  flex: 1 1 auto;
-  max-height: 92px;
+  position: relative;
+  z-index: 1;
+  margin: 0 -8px;
+  padding: 6px 8px 9px;
+  border-radius: 12px;
+  background: var(--hh-paper);
+  box-shadow:
+    0 10px 26px rgba(10, 8, 5, 0.13),
+    0 2px 6px rgba(10, 8, 5, 0.06);
 }
 
 .rowNext .clue {
-  max-height: 50px;
-  background: rgba(217, 72, 15, 0.09);
-  box-shadow: inset 0 0 0 1.5px rgba(217, 72, 15, 0.22);
+  background: rgba(22, 19, 14, 0.055);
+  box-shadow: inset 0 0 0 1px rgba(22, 19, 14, 0.07);
 }
 
 .rowNext .known {
   font-size: 12px;
+  color: var(--hh-ink);
 }
 
 .rowNext .knownLong {
   font-size: 10.5px;
 }
 
-.rowNext /* A longer phrase still has to clear its column. */
-.knownLong {
-  font-size: 10px;
-  letter-spacing: -0.03em;
+.rowNext .columnName {
+  color: rgba(22, 19, 14, 0.34);
 }
 
-.columnName {
-  font-size: 9px;
-  color: rgba(217, 72, 15, 0.5);
+.clues {
+  flex: 1;
+  min-height: 24px;
+  display: grid;
+  grid-template-columns: var(--hh-clue-columns);
+  /* items, not content: align-content sizes the track to what is in it, and an
+     unplayed row has nothing in it — the empty cells collapsed to zero. */
+  align-items: center;
+  gap: 4px;
 }
 
-/* Rows further out are only placeholders. */
-.rowEmpty:not(.rowNext) {
-  flex: 0 0 auto;
-  max-height: 46px;
+.clue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 0;
+  height: 100%;
+  max-height: 44px;
+  min-height: 0;
+  padding: 0 3px;
+  text-align: center;
 }
 
-.rowEmpty:not(.rowNext) .clue {
-  max-height: 30px;
-}
-
+/* The winning row lights up cell by cell before the answer takes the screen. */
 .rowRight {
   animation: hh-row-hit 0.9s ease;
 }
@@ -181,17 +166,6 @@
   22% {
     transform: scale(1.012);
   }
-}
-
-.clues {
-  flex: 1;
-  min-height: 24px;
-  display: grid;
-  grid-template-columns: var(--hh-clue-columns);
-  /* items, not content: align-content sizes the track to what is in it, and an
-     unplayed row has nothing in it — the empty cells collapsed to zero. */
-  align-items: center;
-  gap: 4px;
 }
 
 .rowRight .clue {
@@ -212,36 +186,6 @@
   }
 }
 
-.clue {
-  animation: hh-cell-hit 0.5s ease backwards;
-}
-
-.rowRight .clue:nth-child(2) { animation-delay: 0.02s; }
-.rowRight .clue:nth-child(3) { animation-delay: 0.08s; }
-.rowRight .clue:nth-child(4) { animation-delay: 0.14s; }
-.rowRight .clue:nth-child(5) { animation-delay: 0.2s; }
-.rowRight .clue:nth-child(6) { animation-delay: 0.26s; }
-.rowRight .clue:nth-child(7) { animation-delay: 0.32s; }
-
-@keyframes hh-cell-hit {
-  from {
-    background: rgba(217, 72, 15, 0.18);
-    transform: scale(0.94);
-  }
-}
-
-.clue {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  min-width: 0;
-  height: 100%;
-  max-height: 44px;
-  min-height: 0;
-  padding: 0 3px;
-  text-align: center;
-}
 
 /* Shown once, before the first guess: what the game is and what a colour means. */
 .intro {
@@ -293,7 +237,7 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--hh-accent);
+  color: rgba(22, 19, 14, 0.75);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -559,98 +503,26 @@
 }
 
 @media (min-width: 900px) {
-  
-  .headerTop,
-  .pips,
-  
   .board {
-    padding: 20px var(--hh-gutter) calc(40px + var(--hh-bottom-inset));
+    padding: calc(56px + env(safe-area-inset-top)) var(--hh-gutter) 12px;
   }
 
-  .row,
-  
-  .reveal {
-    padding: 120px var(--hh-gutter) 80px;
+  .row {
+    width: 100%;
+    max-width: var(--hh-page-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rowNext {
+    max-width: calc(var(--hh-page-max) + 16px);
   }
 
   .clue {
-    height: 44px;
+    max-height: 48px;
   }
 
-  /* Shown once, before the first guess: what the game is and what a colour means. */
-.intro {
-  flex: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-bottom: 14px;
-}
-
-.introLead {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.45;
-  color: rgba(22, 19, 14, 0.5);
-  max-width: 40ch;
-}
-
-.introKey {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: 0;
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(22, 19, 14, 0.42);
-}
-
-.swatch {
-  width: 11px;
-  height: 11px;
-  border-radius: 2px;
-}
-
-.introKey .swatch:not(:first-child) {
-  margin-left: 8px;
-}
-
-.introArrow {
-  margin-left: 10px;
-  font-size: 13px;
-  font-weight: 800;
-  color: rgba(22, 19, 14, 0.55);
-}
-
-/* What the clues have narrowed a column to, on the row about to be played. */
-.known {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--hh-accent);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* A longer phrase still has to clear its column. */
-.knownLong {
-  font-size: 10px;
-  letter-spacing: -0.03em;
-}
-
-.columnName {
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(22, 19, 14, 0.3);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.clueValue {
+  .clueValue {
     font-size: 13px;
   }
 
@@ -662,6 +534,14 @@
     font-size: 18px;
   }
 
+  .known {
+    font-size: 12px;
+  }
+
+  .reveal {
+    padding: 120px var(--hh-gutter) 80px;
+  }
+
   .revealName {
     font-size: clamp(60px, 6vw, 92px);
   }
@@ -670,8 +550,6 @@
     font-size: 17px;
   }
 
-  
-  
   .summary {
     padding: 24px var(--hh-gutter) calc(24px + var(--hh-bottom-inset));
   }
