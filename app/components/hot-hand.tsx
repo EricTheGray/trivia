@@ -16,13 +16,20 @@ export function HotHand({
   questions,
   startQuestionId,
   modes,
+  initialTab = "feed",
+  initialModeKey,
 }: {
   questions: Question[];
   startQuestionId: string;
   modes: GameMode[];
+  /** Lets a link — the design canvas, a bug report — open on a given screen. */
+  initialTab?: Tab;
+  initialModeKey?: string;
 }) {
-  const [tab, setTab] = useState<Tab>("feed");
-  const [mode, setMode] = useState<GameMode | null>(null);
+  const [tab, setTab] = useState<Tab>(initialTab);
+  const [mode, setMode] = useState<GameMode | null>(
+    () => modes.find((m) => m.key === initialModeKey) ?? null,
+  );
   const [onDarkCard, setOnDarkCard] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [settings, update] = useSettings();

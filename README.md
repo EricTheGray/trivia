@@ -99,6 +99,24 @@ current franchises: every one of their nicknames is unique, so `lakers` resolves
 on its own — which stops being true the moment the historical teams in the
 workbook are added alongside them.
 
+## Design canvas
+
+```bash
+npm run dev
+```
+
+Then open [/design](http://localhost:3000/design). Every screen sits on one page
+at a size you choose — phone, small phone, tablet, desktop — with the pieces
+they are built from underneath: the palette, the type scale, and every state a
+clue cell can be in.
+
+The frames are the running app in iframes, not mock-ups, so what is on the
+canvas is what ships and each one is playable in place. They deep-link through
+`?screen=` — `?screen=modes`, or `?screen=mode:guess` to open a round — which
+also works on its own for sharing a screen or reproducing a bug. The reference
+boards import the app's own stylesheets, so a cell that changes changes here
+too rather than drifting into a redrawn swatch.
+
 ## Data
 
 Three datasets, all generated from source files and committed under `data/`:
